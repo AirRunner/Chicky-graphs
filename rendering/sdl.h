@@ -3,5 +3,8 @@
 
 #include <sdl.c>
 
+void handleEvents();
+void update();
+void render();
 
 #endif
