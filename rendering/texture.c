@@ -94,7 +94,6 @@ void initTex(Game* game, Node* textures)
     addChild(textures, "Edge", NULL);
     addChild(textures, "Node", NULL);
     addChild(textures, "UI", NULL);
-    addChild(textures, "Text", NULL);
 
     Elt* children = textures->children;
     Node* tmp = children->child;
@@ -126,16 +125,6 @@ void initTex(Game* game, Node* textures)
     tmp = children->child;
 
     //addChild(tmp, "Menu", createTex(game, "../data/UI/....png"));
-
-    children = children->next;
-    tmp = children->child;
-
-    addChild(tmp, "Uppercase", NULL);
-    addChild(tmp, "Lowercase", NULL);
-    addChild(tmp, "Symboles", NULL);
-
-    children = children->child->children;
-    tmp = children->child;
 }
 
 SDL_Texture* createTex(Game* game, char* image)
