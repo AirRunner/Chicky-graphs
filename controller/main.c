@@ -3,7 +3,7 @@
 
 #include "../rendering/sdl.h"
 
-int main()
+int main(int argc, char *argv[])
 {
     Game* game = malloc(sizeof(Game));
     const int FPS = 60;
