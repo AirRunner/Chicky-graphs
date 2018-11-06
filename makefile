@@ -7,4 +7,4 @@ CFLAGS= $(shell sdl2-config --cflags)
 LDFLAGS= $(shell sdl2-config --libs)
 
 all:
-	gcc -g $(SOURCE) -o $(OUTPUT) $(CFLAGS) $(LDFLAGS) $(LIB) $(OPT)
+	gcc -g $(SOURCE) -o $(OUTPUT) $(CFLAGS) $(LDFLAGS) $(LIB) $(OPT) && cd build && ./Chicky && cd ..
