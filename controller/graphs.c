@@ -1,21 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-typedef struct edge {
-    int dest;
-    int weight;
-    struct edge* next;
-} Edge;
-
-typedef struct node {
-    int infected;
-    struct edge* list;
-} Node;
-
-typedef struct graph { 
-    int size;
-    Node* array;
-} Graph;
+#include "graphs.h"
 
 Edge* createEdge(int dest, int weight) {
     Edge* newEdge = malloc(sizeof(Edge));
@@ -29,71 +14,76 @@ Graph* createGraph(int size) {
     Graph* graph = malloc(sizeof(Graph)); 
     graph->size = size; 
 
-    graph->array = malloc(size * sizeof(Node)); 
+    graph->array = malloc(size * sizeof(Node*)); 
     for(int i = 0; i < size; i++) {
-        graph->array[i].infected = -1;
-        graph->array[i].list = NULL;
+        graph->array[i] = NULL;
     }
     return graph;
 } 
 
 // Adds an edge to an undirected graph 
 void addEdge(Graph* graph, int src, int dest, int weight) { 
-    // Add an edge from src to dest. A new node is 
-    // added to the adjacency list of src. The node 
-    // is added at the begining 
+    /* Add an edge from src to dest. A new node is 
+    added to the adjacency list of src. The node 
+    is added at the begining */
     Edge* newEdge = createEdge(dest, weight);
-    newEdge->next = graph->array[src].list;
-    graph->array[src].list = newEdge;
+    newEdge->next = graph->array[src]->list;
+    graph->array[src]->list = newEdge;
 
     // Since graph is undirected, add an edge from
     // dest to src also
     newEdge = createEdge(src, weight); 
-    newEdge->next = graph->array[dest].list; 
-    graph->array[dest].list = newEdge;
+    newEdge->next = graph->array[dest]->list; 
+    graph->array[dest]->list = newEdge;
 }
 
 void deleteEdge(Graph* graph, int src, int dest) {
-    Edge* edge = graph->array[src].list;
-    Edge* prev = NULL;
-    if(edge != NULL){
-        if(edge->dest == dest){
-            graph->array[src].list = graph->array[src].list->next;
-            free(edge);
-        }
-        else{
-            while(edge->dest != dest && edge->next != NULL){
-                prev = edge;
-                edge = edge->next;
-            }
+    if(graph->array[src] != NULL){
+        Edge* edge = graph->array[src]->list;
+        Edge* prev = NULL;
+        if(edge != NULL){
             if(edge->dest == dest){
-                prev->next = edge->next;
+                graph->array[src]->list = graph->array[src]->list->next;
                 free(edge);
+            }
+            else{
+                while(edge->dest != dest && edge->next != NULL){
+                    prev = edge;
+                    edge = edge->next;
+                }
+                if(edge->dest == dest){
+                    prev->next = edge->next;
+                    free(edge);
+                }
             }
         }
     }
 }
 
-int createNode(Graph* graph, int infected) {
+void createNode(Graph* graph, int data) {
     int i = 0;
-    while(graph->array[i].infected != -1 && i < graph->size)
+    while(graph->array[i] != NULL && i < graph->size)
         i++;
     if(i == graph->size)
         printf("Maximum number of nodes reached");
-    else
-        graph->array[i].infected = infected;
-    return i;
+    else{
+        graph->array[i] = malloc(sizeof(Node*));
+        graph->array[i]->data = data;
+        graph->array[i]->list = NULL;
+    }
 }
 
 void deleteNode(Graph* graph, int id) {
-    graph->array[id].infected = -1;
     Edge* tmp;
-    while(graph->array[id].list != NULL) {
-       tmp = graph->array[id].list;
-       graph->array[id].list = graph->array[id].list->next;
+    while(graph->array[id]->list != NULL) {
+       tmp = graph->array[id]->list;
+       graph->array[id]->list = graph->array[id]->list->next;
        tmp->next = NULL;
        free(tmp);
     }
+
+    free(graph->array[id]);
+    graph->array[id] = NULL;
 
     for(int i = 0; i < graph->size; i++){
         deleteEdge(graph, i, id);
@@ -103,8 +93,8 @@ void deleteNode(Graph* graph, int id) {
 // Print the adjacency list, representation of graph
 void printGraph(Graph* graph) {
     for(int i = 0; i < graph->size; i++) {
-        if(graph->array[i].infected != -1){
-            Edge* pCrawl = graph->array[i].list;
+        if(graph->array[i] != NULL){
+            Edge* pCrawl = graph->array[i]->list;
             printf("\n Adjacency list of vertex %d\n ", i);
             while(pCrawl) {
                 printf("-> %d", pCrawl->dest);
@@ -117,9 +107,9 @@ void printGraph(Graph* graph) {
 
 void printNodes(Graph* graph) {
     for(int i = 0; i < graph->size; i++) {
-        if(graph->array[i].infected != -1){
+        if(graph->array[i] != NULL){
             printf("\nNode %d: ", i);
-            if(graph->array[i].infected)
+            if(graph->array[i]->data)
                 printf("infected");
             else
                 printf("not infected");
@@ -131,28 +121,30 @@ void printNodes(Graph* graph) {
 void contamination(Graph* graph) {
     int i = 0;
     for(i = 0; i < graph->size; i++){
-        if(graph->array[i].infected == 1){
-            Edge* edge = graph->array[i].list;
+        if(graph->array[i] != NULL && graph->array[i]->data == 1){
+            Edge* edge = graph->array[i]->list;
             while(edge){
-                if(graph->array[edge->dest].infected != 1)
-                    graph->array[edge->dest].infected = 2;
+                if(graph->array[edge->dest]->data != 1)
+                    graph->array[edge->dest]->data = 2;
                 edge = edge->next;
             }
         }
     }
 
     for(i = 0; i < graph->size; i++){
-        if(graph->array[i].infected == 1)
-            deleteNode(graph, i);
-        else if(graph->array[i].infected == 2)
-            graph->array[i].infected = 1;
+        if(graph->array[i] != NULL){
+            if(graph->array[i]->data == 1)
+                deleteNode(graph, i);
+            else if(graph->array[i]->data == 2)
+                graph->array[i]->data = 1;
+        }
     }
 }
 
 int isEmpty(Graph* graph) {
     int empty = 1;
     for(int i = 0; i < graph->size; i++){
-        if(graph->array[i].infected != -1)
+        if(graph->array[i] != NULL)
             empty = 0;
     }
     return empty;
