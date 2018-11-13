@@ -14,10 +14,11 @@ typedef struct node {
 
 typedef struct graph { 
     int size;
+    char directed; // 0 for undirected and 1 for directed
     Node** array;
 } Graph;
 
-Graph* createGraph(int size);
+Graph* createGraph(int size, char directed);
 void createNode(Graph* graph, int data);
 Edge* createEdge(int dest, int weight);
 

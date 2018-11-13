@@ -10,18 +10,18 @@ Edge* createEdge(int dest, int weight) {
     return newEdge;
 }
 
-Graph* createGraph(int size) { 
+Graph* createGraph(int size, char directed) { 
     Graph* graph = malloc(sizeof(Graph)); 
-    graph->size = size; 
+    graph->size = size;
+    graph->directed = directed;
 
     graph->array = malloc(size * sizeof(Node*)); 
     for(int i = 0; i < size; i++) {
         graph->array[i] = NULL;
     }
     return graph;
-} 
+}
 
-// Adds an edge to an undirected graph 
 void addEdge(Graph* graph, int src, int dest, int weight) { 
     /* Add an edge from src to dest. A new node is 
     added to the adjacency list of src. The node 
@@ -30,11 +30,12 @@ void addEdge(Graph* graph, int src, int dest, int weight) {
     newEdge->next = graph->array[src]->list;
     graph->array[src]->list = newEdge;
 
-    // Since graph is undirected, add an edge from
-    // dest to src also
-    newEdge = createEdge(src, weight); 
-    newEdge->next = graph->array[dest]->list; 
-    graph->array[dest]->list = newEdge;
+    if(!graph->directed){
+        // If graph is undirected, add an edge from dest to src also
+        newEdge = createEdge(src, weight); 
+        newEdge->next = graph->array[dest]->list; 
+        graph->array[dest]->list = newEdge;
+    }
 }
 
 void deleteEdge(Graph* graph, int src, int dest) {
@@ -151,7 +152,7 @@ int isEmpty(Graph* graph) {
 }
 
 int main() {
-    Graph* graph = createGraph(5);
+    Graph* graph = createGraph(5, 0);
 
     createNode(graph, 1);
     createNode(graph, 0);
