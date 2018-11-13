@@ -1,14 +1,14 @@
 #include "texture.h"
 
-Elt* createElt(Node* child)
+EltTree* createEltTree(NodeTree* child)
 {
-    Elt* newElt = (Elt*) malloc(sizeof(Elt));
-    newElt->child = child;
-    newElt->next = NULL;
-    return newElt;
+    EltTree* newEltTree = (EltTree*) malloc(sizeof(EltTree));
+    newEltTree->child = child;
+    newEltTree->next = NULL;
+    return newEltTree;
 }
 
-Elt* freeSLL(Elt* children)
+EltTree* freeSLL(EltTree* children)
 {
     if(children == NULL)
     {
@@ -23,19 +23,19 @@ Elt* freeSLL(Elt* children)
 }
 
 
-Node* createNode(char* name, SDL_Texture* texture)
+NodeTree* createNodeTree(char* name, SDL_Texture* texture)
 {
-    Node* newNode = (Node*) malloc(sizeof(Node));
-    newNode->texture = texture;
-    newNode->name = name;
-    newNode->children = NULL;
-    return newNode;
+    NodeTree* newNodeTree = (NodeTree*) malloc(sizeof(NodeTree));
+    newNodeTree->texture = texture;
+    newNodeTree->name = name;
+    newNodeTree->children = NULL;
+    return newNodeTree;
 }
 
-void addChild(Node* parent, char* name, SDL_Texture* texture)
+void addChild(NodeTree* parent, char* name, SDL_Texture* texture)
 {
-    Node* newNode = createNode(name, texture);
-    Elt* newChild = createElt(newNode);
+    NodeTree* newNodeTree = createNodeTree(name, texture);
+    EltTree* newChild = createEltTree(newNodeTree);
 
     if(parent->children == NULL)
     {
@@ -43,7 +43,7 @@ void addChild(Node* parent, char* name, SDL_Texture* texture)
     }
     else
     {
-        Elt* tmp = parent->children;
+        EltTree* tmp = parent->children;
         while(tmp->next != NULL)
         {
             tmp = tmp->next;
@@ -52,7 +52,7 @@ void addChild(Node* parent, char* name, SDL_Texture* texture)
     }
 }
 
-Node* freeTree(Node* node)
+NodeTree* freeTree(NodeTree* node)
 {
     if(node->children == NULL)
     {
@@ -61,7 +61,7 @@ Node* freeTree(Node* node)
     }
     else
     {
-        Elt* tmp = node->children;
+        EltTree* tmp = node->children;
         while(tmp != NULL)
         {
             freeTree(tmp->child);
@@ -74,12 +74,12 @@ Node* freeTree(Node* node)
 }
 
 
-void printTreePrefixe(Node* root)
+void printTreePrefixe(NodeTree* root)
 {
     if(root != NULL)
     {
         printf("%s\n", root->name);
-        Elt* tmp = root->children;
+        EltTree* tmp = root->children;
         while(tmp != NULL)
         {
             printTreePrefixe(tmp->child);
@@ -88,15 +88,15 @@ void printTreePrefixe(Node* root)
     }
 }
 
-void initTex(Game* game, Node* textures)
+void initTex(Game* game, NodeTree* textures)
 {
-    textures = createNode("Textures", NULL);
+    textures = createNodeTree("Textures", NULL);
     addChild(textures, "Edge", NULL);
     addChild(textures, "Node", NULL);
     addChild(textures, "UI", NULL);
 
-    Elt* children = textures->children;
-    Node* tmp = children->child;
+    EltTree* children = textures->children;
+    NodeTree* tmp = children->child;
 
     addChild(tmp, "Line", createTex(game, ""));
     addChild(tmp, "Arrow", createTex(game, ""));

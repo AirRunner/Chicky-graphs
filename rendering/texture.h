@@ -7,30 +7,30 @@
 #include "sdl.h"
 
 
-typedef struct elt
+typedef struct eltTree
 {
-    struct node* child;
-    struct elt* next;
-}Elt;
+    struct nodeTree* child;
+    struct eltTree* next;
+}EltTree;
 
-typedef struct node
+typedef struct nodeTree
 {
     char* name;
     SDL_Texture* texture;
-    struct elt* children;
-}Node;
+    struct eltTree* children;
+}NodeTree;
 
-Elt* createElt(Node* child);
-Elt* freeSLL(Elt* children);
+EltTree* createEltTree(NodeTree* child);
+EltTree* freeSLL(EltTree* children);
 
-Node* createNode(char* name, SDL_Texture* texture);
-void addChild(Node* parent, char* name, SDL_Texture* texture);
-Node* freeTree(Node* node);
+NodeTree* createNodeTree(char* name, SDL_Texture* texture);
+void addChild(NodeTree* parent, char* name, SDL_Texture* texture);
+NodeTree* freeTree(NodeTree* node);
 
-void printTreePrefixe(Node* root);
+void printTreePrefixe(NodeTree* root);
 
 
-void initTex(Game* game, Node* textures);
+void initTex(Game* game, NodeTree* textures);
 SDL_Texture* createTex(Game* game, char* image);
 
 #endif
