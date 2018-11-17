@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <windows.h>
-#include <time.h>
 
 #include "../rendering/sdl.h"
 #include "graphs.h"

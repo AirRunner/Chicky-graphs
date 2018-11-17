@@ -1,9 +1,6 @@
 // Example program:
 // Using SDL2 to create an application window
 
-#include <stdio.h>
-#include <stdlib.h>
-
 #include "sdl.h"
 
 void initSDL(Game* game, const char* title, int xpos, int ypos, int width, int height, int fullscreen)

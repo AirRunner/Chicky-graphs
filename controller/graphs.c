@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "graphs.h"
 
 // Create a graph with a given destination and weight

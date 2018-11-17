@@ -1,11 +1,7 @@
 #ifndef TEXTURE_H
 #define TEXTURE_H
 
-#include <stdio.h>
-#include <stdlib.h>
-
 #include "sdl.h"
-
 
 typedef struct eltTree
 {

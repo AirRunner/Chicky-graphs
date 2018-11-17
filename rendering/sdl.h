@@ -1,6 +1,8 @@
 #ifndef SDL_H
 #define SDL_H
 
+#include <stdio.h>
+#include <stdlib.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_timer.h>

@@ -15,8 +15,8 @@ typedef struct node {
 } Node;
 
 typedef struct graphElt {
-    Node* node;
-    NodeSDL* nodeSDL;
+    Node* node; // Node for the controller
+    NodeSDL* nodeSDL; // Node for the rendering
 } GraphElt;
 
 typedef struct graph { 
