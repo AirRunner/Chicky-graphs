@@ -13,9 +13,9 @@ typedef struct renderingSLL
 
 typedef struct edgeSDL
 {
-    int type;
-    struct nodeSDL* srcNode;
-    struct nodeSDL* destNode;
+    int directed;
+    SDL_Rect* srcRect;
+    SDL_Rect* destRect;
     SDL_Texture* texArrow;
     struct edgeSDL* next;
 }EdgeSDL;
@@ -37,9 +37,9 @@ typedef struct ui
 RenderingSLL* createRenderingSLL();
 void initRenderingSLL();
 
-EdgeSDL* createEdgeSDL(int type, NodeSDL* srcNode, NodeSDL* destNode, SDL_Texture* texArrow);
-void addEdgeSDL(int type, EdgeSDL** edges, NodeSDL* srcNode, NodeSDL* destNode, SDL_Texture* texArrow);
-void removeEdgeSDL(EdgeSDL** edges, NodeSDL* srcNode, NodeSDL* destNode);
+EdgeSDL* createEdgeSDL(int directed, SDL_Rect* srcRect, SDL_Rect* destRect, SDL_Texture* texArrow);
+void addEdgeSDL(int directed, EdgeSDL** edges, SDL_Rect* srcRect, SDL_Rect* destRect, SDL_Texture* texArrow);
+void removeEdgeSDL(EdgeSDL** edges, SDL_Rect* srcRect, SDL_Rect* destRect);
 
 NodeSDL* createNodeSDL(SDL_Rect* destRect, SDL_Texture* tex);
 void addNodeSDL(NodeSDL** nodes, SDL_Rect* destRect, SDL_Texture* tex);

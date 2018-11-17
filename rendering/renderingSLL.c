@@ -16,25 +16,55 @@ void initRenderingSLL()
 }
 
 
-EdgeSDL* createEdgeSDL(int type, NodeSDL* srcNode, NodeSDL* destNode, SDL_Texture* texArrow)
+EdgeSDL* createEdgeSDL(int directed, SDL_Rect* srcRect, SDL_Rect* destRect, SDL_Texture* texArrow)
 {
     EdgeSDL* newEdgeSDL = malloc(sizeof(EdgeSDL));
-    newEdgeSDL->type = type;
-    newEdgeSDL->srcNode = srcNode;
-    newEdgeSDL->srcNode = srcNode;
+    newEdgeSDL->directed = directed;
+    newEdgeSDL->srcRect = srcRect;
+    newEdgeSDL->destRect = destRect;
     newEdgeSDL->texArrow = NULL;
     newEdgeSDL->next = NULL;
     return newEdgeSDL;
 }
 
-void addEdgeSDL(int type, EdgeSDL** edges, NodeSDL* srcNode, NodeSDL* destNode, SDL_Texture* texArrow)
+void addEdgeSDL(int directed, EdgeSDL** edges, SDL_Rect* srcRect, SDL_Rect* destRect, SDL_Texture* texArrow)
 {
-
+    EdgeSDL* newEdgeSDL = createEdgeSDL(directed, srcRect, destRect, texArrow);
+    if(!*edges)
+        *edges = newEdgeSDL;
+    else
+    {
+        EdgeSDL* tmp = *edges;
+        while(tmp->next)
+            tmp = tmp->next;
+        tmp->next = newEdgeSDL;
+    }
 }
 
-void removeEdgeSDL(EdgeSDL** edges, NodeSDL* srcNode, NodeSDL* destNode)
+void removeEdgeSDL(EdgeSDL** edges, SDL_Rect* srcRect, SDL_Rect* destRect)
 {
-
+    if(*edges)
+    {
+        EdgeSDL* tmp = *edges;
+        if((*edges)->srcRect == srcRect && (*edges)->destRect == destRect)
+        {
+            *edges = (*edges)->next;
+            free(tmp);
+        }
+        else
+        {
+            while(tmp->next != NULL && (tmp->next->srcRect != srcRect || tmp->next->destRect != destRect))
+            {
+                tmp = tmp->next;
+            }
+            if(tmp->next)
+            {
+                EdgeSDL* freetmp = tmp->next;
+                tmp->next = tmp->next->next;
+                free(freetmp);
+            }
+        }
+    }
 }
 
 
@@ -49,12 +79,42 @@ NodeSDL* createNodeSDL(SDL_Rect* destRect, SDL_Texture* tex)
 
 void addNodeSDL(NodeSDL** nodes, SDL_Rect* destRect, SDL_Texture* tex)
 {
-
+    NodeSDL* newNodeSDL = createNodeSDL(destRect, tex);
+    if(!*nodes)
+        *nodes = newNodeSDL;
+    else
+    {
+        NodeSDL* tmp = *nodes;
+        while(tmp->next)
+            tmp = tmp->next;
+        tmp->next = newNodeSDL;
+    }
 }
 
 void removeNodeSDL(NodeSDL** nodes, SDL_Rect* destRect)
 {
-
+    if(*nodes)
+    {
+        NodeSDL* tmp = *nodes;
+        if((*nodes)->destRect == destRect)
+        {
+            *nodes = (*nodes)->next;
+            free(tmp);
+        }
+        else
+        {
+            while(tmp->next != NULL && tmp->next->destRect != destRect)
+            {
+                tmp = tmp->next;
+            }
+            if(tmp->next)
+            {
+                NodeSDL* freetmp = tmp->next;
+                tmp->next = tmp->next->next;
+                free(freetmp);
+            }
+        }
+    }
 }
 
 
@@ -69,11 +129,41 @@ UI* createUI(SDL_Rect* destRect, SDL_Texture* tex)
 
 void addUI(UI** nodes, SDL_Rect* destRect, SDL_Texture* tex)
 {
-
+    UI* newUI = createUI(destRect, tex);
+    if(!*nodes)
+        *nodes = newUI;
+    else
+    {
+        UI* tmp = *nodes;
+        while(tmp->next)
+            tmp = tmp->next;
+        tmp->next = newUI;
+    }
 }
 
 void removeUI(UI** nodes, SDL_Rect* destRect)
 {
-
+    if(*nodes)
+    {
+        UI* tmp = *nodes;
+        if((*nodes)->destRect == destRect)
+        {
+            *nodes = (*nodes)->next;
+            free(tmp);
+        }
+        else
+        {
+            while(tmp->next != NULL && tmp->next->destRect != destRect)
+            {
+                tmp = tmp->next;
+            }
+            if(tmp->next)
+            {
+                UI* freetmp = tmp->next;
+                tmp->next = tmp->next->next;
+                free(freetmp);
+            }
+        }
+    }
 }
 
