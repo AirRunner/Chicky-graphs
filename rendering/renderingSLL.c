@@ -77,7 +77,7 @@ NodeSDL* createNodeSDL(SDL_Rect* destRect, SDL_Texture* tex)
     return newNodeSDL;
 }
 
-void addNodeSDL(NodeSDL** nodes, SDL_Rect* destRect, SDL_Texture* tex)
+NodeSDL* addNodeSDL(NodeSDL** nodes, SDL_Rect* destRect, SDL_Texture* tex)
 {
     NodeSDL* newNodeSDL = createNodeSDL(destRect, tex);
     if(!*nodes)
@@ -89,6 +89,7 @@ void addNodeSDL(NodeSDL** nodes, SDL_Rect* destRect, SDL_Texture* tex)
             tmp = tmp->next;
         tmp->next = newNodeSDL;
     }
+    return newNodeSDL;
 }
 
 void removeNodeSDL(NodeSDL** nodes, SDL_Rect* destRect)

@@ -42,7 +42,7 @@ void addEdgeSDL(int directed, EdgeSDL** edges, SDL_Rect* srcRect, SDL_Rect* dest
 void removeEdgeSDL(EdgeSDL** edges, SDL_Rect* srcRect, SDL_Rect* destRect);
 
 NodeSDL* createNodeSDL(SDL_Rect* destRect, SDL_Texture* tex);
-void addNodeSDL(NodeSDL** nodes, SDL_Rect* destRect, SDL_Texture* tex);
+NodeSDL* addNodeSDL(NodeSDL** nodes, SDL_Rect* destRect, SDL_Texture* tex);
 void removeNodeSDL(NodeSDL** nodes, SDL_Rect* destRect);
 
 UI* createUI(SDL_Rect* destRect, SDL_Texture* tex);

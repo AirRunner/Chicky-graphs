@@ -68,7 +68,7 @@ void deleteEdge(Graph* graph, int src, int dest, EdgeSDL** edges) {
     }
 }
 
-void createNode(Graph* graph, int data, NodeSDL** nodes, SDL_Texture* tex) {
+void createNode(Graph* graph, int data, NodeSDL** nodes, SDL_Rect* destRect, SDL_Texture* tex) {
     int i = 0;
     // Search an empty place in the graph's array
     while(graph->array[i] != NULL && i < graph->size)
@@ -82,7 +82,7 @@ void createNode(Graph* graph, int data, NodeSDL** nodes, SDL_Texture* tex) {
         graph->array[i]->node->data = data;
         graph->array[i]->node->list = NULL;
 
-        addNodeSDL(nodes, graph->array[i]->nodeSDL->destRect, tex);
+        graph->array[i]->nodeSDL = addNodeSDL(nodes, destRect, tex);
     }
 }
 

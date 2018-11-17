@@ -4,16 +4,16 @@
 #include "../rendering/sdl.h"
 #include "graphs.h"
 
-void test(RenderingSLL* renderingSLL, SDL_Texture* tex)
+void test(RenderingSLL* renderingSLL, SDL_Rect* destRect, SDL_Texture* tex)
 {
     Graph* graph = createGraph(5, 0);
 
-    createNode(graph, 1, &renderingSLL->nodes, tex);
-    createNode(graph, 0, &renderingSLL->nodes, tex);
-    createNode(graph, 0, &renderingSLL->nodes, tex);
-    createNode(graph, 0, &renderingSLL->nodes, tex);
-    createNode(graph, 0, &renderingSLL->nodes, tex);
-    createNode(graph, 0, &renderingSLL->nodes, tex);
+    createNode(graph, 1, &renderingSLL->nodes, destRect, tex);
+    createNode(graph, 0, &renderingSLL->nodes, destRect, tex);
+    createNode(graph, 0, &renderingSLL->nodes, destRect, tex);
+    createNode(graph, 0, &renderingSLL->nodes, destRect, tex);
+    createNode(graph, 0, &renderingSLL->nodes, destRect, tex);
+    createNode(graph, 0, &renderingSLL->nodes, destRect, tex);
 
     addEdge(graph, 0, 1, 1, &renderingSLL->edges, tex);
     addEdge(graph, 0, 4, 1, &renderingSLL->edges, tex);
@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 
     RenderingSLL* renderingSLL = createRenderingSLL();
 
-    test(renderingSLL, NULL);
+    test(renderingSLL, NULL, NULL);
 
     Game* game = malloc(sizeof(Game));
     const int FPS = 60;

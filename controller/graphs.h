@@ -26,7 +26,7 @@ typedef struct graph {
 } Graph;
 
 Graph* createGraph(int size, int directed);
-void createNode(Graph* graph, int data, NodeSDL** nodes, SDL_Texture* tex);
+void createNode(Graph* graph, int data, NodeSDL** nodes, SDL_Rect* destRect, SDL_Texture* tex);
 Edge* createEdge(int dest, int weight);
 
 void addEdge(Graph* graph, int src, int dest, int weight, EdgeSDL** edges, SDL_Texture* texArrow);
