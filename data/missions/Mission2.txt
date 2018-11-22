@@ -1,0 +1,73 @@
+Mission : FALSE
+
+Graph
+Directed : FALSE
+
+-------Nodes-----
+
+N1
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+d = 1
+
+N2 
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+d = 2
+
+-------Edges------
+if
+Mission : TRUE
+N1 - N2
+end if 
+
+---------UI--------
+
+Teach
+texture : Teacher_chick_2
+x = 
+y = 
+w = 
+h = 
+text = "Look Poussin, just found a friend, give him a way to communicate with him !To succeed you have to connect those two chicks by clicking on the edge."
+
+if
+Mission : TRUE
+text = "Congratulations! You just created a simple graph with 2 nodes (the poussins or vertices) linked by 1 edge ( the pair of those two poussins). Now the other chick knows Poussin’s name. And they can speak to each other."
+end if
+
+Validation_button
+texture : Validation_yellow
+texture : Validation_green
+x = 
+y = 
+w = 
+h = 
+
+
+if 
+Mission : TRUE 
+Poussin_Bubble_1
+texture : Poussin_Bubble
+x = 
+y = 
+w = 
+h = 
+text_1 = "Poussin"
+
+Poussin_Bubble_2
+texture : Poussin_Bubble
+x = 
+y = 
+w = 
+h = 
+text_2 = "Hi Poussin"
+end if

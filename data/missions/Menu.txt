@@ -1,0 +1,144 @@
+Graph 
+Directed : FALSE
+
+-------Menu-----
+Logo 
+texture : logo
+x =
+y =
+w = 
+h = 
+
+Menu_Adventure
+texture : Adventure_Bubble 
+x =
+y =
+w = 
+h = 
+
+Menu_Resume
+texture : Resume_Bubble
+x =
+y =
+w = 
+h = 
+
+Menu_Sandbox
+texture : Sandbox_Bubble
+x =
+y =
+w = 
+h = 
+
+-------Nodes-----
+
+N1
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+d = 1
+
+N2
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+d = 2
+ 
+N3
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+d = 3
+
+N4
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+d = 4
+
+N5
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+d = 5
+
+N6
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+d = 6
+
+N7
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+d = 7
+
+N8
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+d = 8
+
+N9
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+d = 9
+
+N10
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+d = 10
+
+-------Edges------
+N1 - N3
+N1 - N2
+N2 - N4
+N3 - N5
+N6 - N7
+N6 - N8
+N8 - N9
+N8 - N10
+N9 - N10
+
+---------UI--------
+
+Menu_Adventure : Button
+
+Menu_Resume : Button
+
+Menu_Sandbox : Button 
+
+

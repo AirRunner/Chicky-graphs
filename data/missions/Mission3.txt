@@ -1,0 +1,81 @@
+Mission : FALSE
+
+Graph 
+directed = FALSE
+
+-------Nodes-----
+N1
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+D = 1
+
+N2
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+D = 2
+
+N3 
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+D = 3
+
+N4
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+D = 4
+
+N5
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+D = 5
+
+-------Edges------
+if
+Mission : TRUE
+Data : Save 
+end if 
+
+---------UI--------
+Teach
+texture : Teacher_chick_2
+x = 
+y = 
+w = 
+h = 
+text_1 = "Now, you can create our own graph of chicks. You just have to connect chickies to each other. Click on the validation point to end."
+if 
+Mission : TRUE
+text_2 = " There are two kind of graphs, undirected graph and directed graph.
+Here you just created a undirected graph which can be traversed in multiple ways as the edges do not have  direction. "
+text_3 = "n fact chick X can say something to chick Y and the other way around.
+This graph is the simplest one. For two nodes (vertices ) there is only one directed edge x ⇒ y "
+end if 
+
+
+Validation_button
+texture : Validation_yellow
+texture : Validation_green
+x = 
+y = 
+w = 
+h = 

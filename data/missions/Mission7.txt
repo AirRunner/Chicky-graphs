@@ -1,0 +1,92 @@
+Mission : FALSE
+
+Graph 
+directed = TRUE
+
+MATRICE_Data
+texture : Matrice
+x =
+y =
+w = 
+h = 
+
+-------Nodes-----
+
+N1
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+d = 1
+
+N2
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+d = 2
+ 
+N3
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+d = 3
+
+N4
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+d = 4
+
+N5
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+d = 5
+
+
+-------Edges------
+if 
+Mission : TRUE
+// Edges correspond to the matrice 
+end if 
+
+
+---------UI--------
+
+Teach
+texture : Teacher_chick_2
+x = 
+y = 
+w = 
+h = 
+text = "Try to implement it using an Adjacency Matrix.
+	We use the same idea as before : But this time, you will have to think about the way of the arrow. In that way, connect poussins to each other using it."
+if
+Mission : TRUE
+text = "So here using a boolean matrix to express the graph: an adjacency matrix, you have create a graph."
+end if 
+
+Validation_button
+texture : Validation_yellow
+texture : Validation_green
+x = 
+y = 
+w = 
+h = 
+
+
+

@@ -1,0 +1,83 @@
+Mission : FALSE
+
+Graph 
+directed = TRUE
+
+-------Nodes-----
+
+N1
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+d = 1
+
+N2
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+d = 2
+ 
+N3
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+d = 3
+
+N4
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+d = 4
+
+N5
+texture : Basic_chick_1
+texture : Basic_chick_2
+x =
+y =
+w = 
+h = 
+d = 5
+
+-------Edges------
+Mission : TRUE
+// Edges correspond to the matrice 
+
+
+
+---------UI--------
+Teach
+texture : Teacher_chick_2
+x = 
+y = 
+w = 
+h = 
+text = "We’ve talked about undirected graphs before but there exists another kind of graphs : the directed graphs which can only be traversed in a one way.
+Let’s try ! "
+if
+Mission : TRUE
+text = "In fact chick X can say something to chick Y but it will not work the other way around.
+In directed graphs connections are not symmetric and are called directed edges. "
+end if 
+
+Validation_button
+texture : Validation_yellow
+texture : Validation_green
+x = 
+y = 
+w = 
+h = 
+
+
+
