@@ -4,9 +4,17 @@
 #include "../rendering/sdl.h"
 #include "graphs.h"
 
-void test(RenderingSLL* renderingSLL, SDL_Rect* destRect, SDL_Texture* tex)
+void test(RenderingSLL* renderingSLL, NodeTree* texTree)
 {
     Graph* graph = createGraph(5, 0);
+
+    SDL_Texture* tex = texTree->children->next->child->children->child->texture;
+
+    SDL_Rect* destRect = malloc(sizeof(SDL_Rect));
+    destRect->x = 0;
+    destRect->y = 0;
+    destRect->h = 330;
+    destRect->w = 330;
 
     createNode(graph, 1, &renderingSLL->nodes, destRect, tex);
     createNode(graph, 0, &renderingSLL->nodes, destRect, tex);
@@ -54,8 +62,10 @@ int main(int argc, char *argv[])
     );
 
     game->renderingSLL = createRenderingSLL();
+    game->texTree = NULL;
+    initTex(game, &game->texTree);
 
-    test(game->renderingSLL, NULL, NULL);
+    test(game->renderingSLL, game->texTree);
 
     while(game->isrunning)
     {

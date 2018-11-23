@@ -127,7 +127,11 @@ void removeNodeSDL(NodeSDL** nodes, SDL_Rect* destRect)
 
 void renderNodes(NodeSDL* nodes, Game* game)
 {
-
+    while(nodes)
+    {
+        SDL_RenderCopy(game->renderer, nodes->tex, NULL, nodes->destRect);
+        nodes = nodes->next;
+    }
 }
 
 

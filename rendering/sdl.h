@@ -9,12 +9,14 @@
 #include <SDL2/SDL_image.h>
 
 struct renderingSLL;
+struct nodeTree;
 
 typedef struct game
 {
     SDL_Window *window;
     SDL_Renderer *renderer;
     struct renderingSLL *renderingSLL;
+    struct nodeTree *texTree;
     int isrunning;
 }Game;
 

@@ -88,38 +88,42 @@ void printTreePrefixe(NodeTree* root)
     }
 }
 
-void initTex(Game* game, NodeTree* textures)
+void initTex(Game* game, NodeTree** textures)
 {
-    textures = createNodeTree("Textures", NULL);
-    addChild(textures, "Edge", NULL);
-    addChild(textures, "Node", NULL);
-    addChild(textures, "UI", NULL);
+    *textures = createNodeTree("Textures", NULL);
+    addChild(*textures, "Edge", NULL);
+    addChild(*textures, "Node", NULL);
+    addChild(*textures, "UI", NULL);
 
-    EltTree* children = textures->children;
+    EltTree* children = (*textures)->children;
     NodeTree* tmp = children->child;
 
-    addChild(tmp, "Line", createTex(game, ""));
-    addChild(tmp, "Arrow", createTex(game, ""));
+    //addChild(tmp, "Line", createTex(game, ""));
+    //addChild(tmp, "Arrow", createTex(game, ""));
 
     children = children->next;
     tmp = children->child;
 
-    addChild(tmp, "Chick 1", createTex(game, "../data/Chicks/Chick 1.png"));
-    addChild(tmp, "Chick 2", createTex(game, "../data/Chicks/Chick 2.png"));
-    addChild(tmp, "Chick 3", createTex(game, "../data/Chicks/Chick 3.png"));
-    addChild(tmp, "Chick 4", createTex(game, "../data/Chicks/Chick 4.png"));
-    addChild(tmp, "Chick 5", createTex(game, "../data/Chicks/Chick 5.png"));
-    addChild(tmp, "Chick 6", createTex(game, "../data/Chicks/Chick 6.png"));
-    addChild(tmp, "Chick 7", createTex(game, "../data/Chicks/Chick 7.png"));
-    addChild(tmp, "Chick 8", createTex(game, "../data/Chicks/Chick 8.png"));
-    addChild(tmp, "Chick 9", createTex(game, "../data/Chicks/Chick 9.png"));
-    addChild(tmp, "Chick 10", createTex(game, "../data/Chicks/Chick 10.png"));
-    addChild(tmp, "Chick 11", createTex(game, "../data/Chicks/Chick 11.png"));
-    addChild(tmp, "Chick 12", createTex(game, "../data/Chicks/Chick 12.png"));
-    addChild(tmp, "Chick 13", createTex(game, "../data/Chicks/Chick 13.png"));
-    addChild(tmp, "Chick 14", createTex(game, "../data/Chicks/Chick 14.png"));
-    addChild(tmp, "Chick 15", createTex(game, "../data/Chicks/Chick 15.png"));
-    addChild(tmp, "Chick 16", createTex(game, "../data/Chicks/Chick 16.png"));
+    addChild(tmp, "Bad answer chick", createTex(game, "../data/Assets/Chicks/Bad answer chick.png"));
+    addChild(tmp, "Basic chick 1", createTex(game, "../data/Assets/Chicks/Basic chick 1.png"));
+    addChild(tmp, "Basic chick 2", createTex(game, "../data/Assets/Chicks/Basic chick 2.png"));
+    addChild(tmp, "Blink chick", createTex(game, "../data/Assets/Chicks/Blink chick.png"));
+    addChild(tmp, "Boss chick", createTex(game, "../data/Assets/Chicks/Boss chick.png"));
+    addChild(tmp, "Connected chick", createTex(game, "../data/Assets/Chicks/Connected chick.png"));
+    addChild(tmp, "Dead chick", createTex(game, "../data/Assets/Chicks/Dead chick.png"));
+    addChild(tmp, "Doubtful chick 1", createTex(game, "../data/Assets/Chicks/Doubtful chick 1.png"));
+    addChild(tmp, "Doubtful chick 2", createTex(game, "../data/Assets/Chicks/Doubtful chick 2.png"));
+    addChild(tmp, "Embarrassed chick", createTex(game, "../data/Assets/Chicks/Embarrassed chick.png"));
+    addChild(tmp, "Happy chick", createTex(game, "../data/Assets/Chicks/Happy chick.png"));
+    addChild(tmp, "Infected chick", createTex(game, "../data/Assets/Chicks/Infected chick 2.png"));
+    addChild(tmp, "Infected chick", createTex(game, "../data/Assets/Chicks/Infected chick.png"));
+    addChild(tmp, "Mocking chick", createTex(game, "../data/Assets/Chicks/Mocking chick.png"));
+    addChild(tmp, "Success chick 1", createTex(game, "../data/Assets/Chicks/Success chick 1.png"));
+    addChild(tmp, "Success chick 2", createTex(game, "../data/Assets/Chicks/Success chick 2.png"));
+    addChild(tmp, "Surprised chick", createTex(game, "../data/Assets/Chicks/Surprised chick.png"));
+    addChild(tmp, "Teacher chick 1", createTex(game, "../data/Assets/Chicks/Teacher chick 1.png"));
+    addChild(tmp, "Teacher chick 2", createTex(game, "../data/Assets/Chicks/Teacher chick 2.png"));
+    addChild(tmp, "Worried chick", createTex(game, "../data/Assets/Chicks/Worried chick.png"));
 
     children = children->next;
     tmp = children->child;
