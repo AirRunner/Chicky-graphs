@@ -1,93 +1,63 @@
-Mission : FALSE
-
 Graph 
 directed = FALSE
 
-MATRICE_Data
-texture : Matrice
-x =
-y =
-w = 
-h = 
-
 -------Nodes-----
+texture : Basic_chick_1
 
 N1
-texture : Basic_chick_1
-texture : Basic_chick_2
-x =
-y =
-w = 
-h = 
+(x,y)
+(w,h) 
 d = 1
 
 N2
-texture : Basic_chick_1
-texture : Basic_chick_2
-x =
-y =
-w = 
-h = 
+(x,y)
+(w,h)
 d = 2
  
 N3
-texture : Basic_chick_1
-texture : Basic_chick_2
-x =
-y =
-w = 
-h = 
+(x,y)
+(w,h) 
 d = 3
 
 N4
-texture : Basic_chick_1
-texture : Basic_chick_2
-x =
-y =
-w = 
-h = 
+(x,y)
+(w,h)
 d = 4
 
 N5
-texture : Basic_chick_1
-texture : Basic_chick_2
-x =
-y =
-w = 
-h = 
+(x,y)
+(w,h)
 d = 5
 
--------Edges------
-if
-Mission : TRUE
-// Edges correspond to the matrice 
-end if 
+-------Edges------ 
 
 
 ---------UI--------
 
+MATRICE_Data
+texture : Matrice
+(x,y)
+(w,h)
+
 Teach
 texture : Teacher_chick_2
-x = 
-y = 
-w = 
-h = 
-text = "Try to implement it using an Adjacency Matrix.
+(x,y)
+(w,h)
+
+text1 = "Try to implement it using an Adjacency Matrix.
 The idea is using the matrice which which is a 2D array corresponding to number poussin^2.
 If there is an edge between two poussins, there is a T for true inside the matrice at the corresponding place. In that way, connect poussins to each other using it."
-if
-Mission : TRUE
-text = "So here using a boolean matrix to express the graph: an adjacency matrix, you have create a graph.
+
+text2 = "So here using a boolean matrix to express the graph: an adjacency matrix, you have create a graph.
 The problem is that it uses many space and you will have some difficulties to delete a node ( chick) if you want to delete it from the matrix."
-end if
+
+
 
 Validation_button
 texture : Validation_yellow
 texture : Validation_green
-x = 
-y = 
-w = 
-h = 
+(x,y)
+(w,h)
 
 
 

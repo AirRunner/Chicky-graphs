@@ -1,49 +1,21 @@
-Mission : FALSE
-
 ---------UI--------
 
 Teach
 texture : Teacher_chick_2
-x = 
-y = 
-w = 
-h = 
-text = "Let’s recap everything we’ve learned so far: 
-A graph (G) is composed of nodes(or vertices, here S) and edges (A). It is conventionnaly defined as G=< S,A >.
-It can be directed or undirected"
+(x,y)
+(w,h)
+text1 = Image_Text1
 
+text2 = Image_Text2
 
-text = "There are many other vocabulary definitions we can learn in order to play with graphs."
-
-text = "For directed graphs : 
-The outdegree of a node x is the number of directed edges going out of x and is noted :
-" 
-directed_edge_1
-"The indegree of a node x is the number of directed edges coming into x and is noted:"
-directed_edge_2
-"We call degree of a vertex x the number of arcs connected to it. We note it:"
-directed_edge_3
-
-text = "For undirected graphs :
-We say a graph is a complete graph if every node x and y (in the set S) is connected by an edge x-y.
-The degree of a node x is the number of edges connected to it. It’s noted "
-undirected_edge
-
+text3 = Image_Text3
 
 Validation_button
 texture : Validation_yellow
 texture : Validation_green
-x = 
-y = 
-w = 
-h = 
+(x,y)
+(w,h) 
 
-Skip_button
-texture : continue_green
-x = 
-y = 
-w = 
-h =
 
 
 

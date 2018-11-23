@@ -1,86 +1,60 @@
-Mission : FALSE
-
 Graph 
 directed = FALSE
 
-LIST_Data
-texture : List
-x =
-y =
-w = 
-h = 
-
 -------Nodes-----
+texture : Basic_chick_1
+
+Nodes = 5
 
 N1
-texture : Basic_chick_1
-texture : Basic_chick_2
-x =
-y =
-w = 
-h = 
+(x,y)
+(w,h)
 d = 1
 
 N2
-texture : Basic_chick_1
-texture : Basic_chick_2
-x =
-y =
-w = 
-h = 
+(x,y)
+(w,h)
 d = 2
  
 N3
-texture : Basic_chick_1
-texture : Basic_chick_2
-x =
-y =
-w = 
-h = 
+(x,y)
+(w,h) 
 d = 3
 
 N4
-texture : Basic_chick_1
-texture : Basic_chick_2
-x =
-y =
-w = 
-h = 
+(x,y)
+(w,h)
 d = 4
 
 N5
-texture : Basic_chick_1
-texture : Basic_chick_2
-x =
-y =
-w = 
-h = 
+(x,y)
+(w,h)
 d = 5
 
 -------Edges------
-Mission : TRUE
-// Edges correspond to the list 
 
 ---------UI--------
+
+LIST_Data
+texture : List
+(x,y)
+(w,h)
+
+
 Teach
 texture : Teacher_chick_2
-x = 
-y = 
-w = 
-h = 
-text = "Now, try to implement it using Adjacency lists, which is an array of lists. The size of the array corresponds to the number of chicks (nodes /vertices). The node in the array will be linked to all nodes in the list."
-if 
-Mission : TRUE
-text = "So here using lists to express the graph: an adjacency lists, you have create a graph. This method will be more usefull than the precedent."
-end if 
+(x,y)
+(w,h)
+text1 = "Now, try to implement it using Adjacency lists, which is an array of lists. The size of the array corresponds to the number of chicks (nodes /vertices). The node in the array will be linked to all nodes in the list."
+
+text2 = "So here using lists to express the graph: an adjacency lists, you have create a graph. This method will be more usefull than the precedent."
+
 
 Validation_button
 texture : Validation_yellow
 texture : Validation_green
-x = 
-y = 
-w = 
-h = 
+(x,y)
+(w,h)
 
 
 
