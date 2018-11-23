@@ -10,9 +10,11 @@ RenderingSLL* createRenderingSLL()
     return newRenderingSLL;
 }
 
-void initRenderingSLL()
+void renderRenderingSLL(RenderingSLL* renderingSLL, Game* game)
 {
-
+    renderEdges(renderingSLL->edges, game);
+    renderNodes(renderingSLL->nodes, game);
+    renderUI(renderingSLL->ui, game);
 }
 
 
@@ -67,6 +69,11 @@ void removeEdgeSDL(EdgeSDL** edges, SDL_Rect* srcRect, SDL_Rect* destRect)
     }
 }
 
+void renderEdges(EdgeSDL* edges, Game* game)
+{
+
+}
+
 
 NodeSDL* createNodeSDL(SDL_Rect* destRect, SDL_Texture* tex)
 {
@@ -116,6 +123,11 @@ void removeNodeSDL(NodeSDL** nodes, SDL_Rect* destRect)
             }
         }
     }
+}
+
+void renderNodes(NodeSDL* nodes, Game* game)
+{
+
 }
 
 
@@ -168,3 +180,7 @@ void removeUI(UI** nodes, SDL_Rect* destRect)
     }
 }
 
+void renderUI(UI* ui, Game* game)
+{
+
+}

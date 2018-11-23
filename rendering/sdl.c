@@ -3,6 +3,8 @@
 
 #include "sdl.h"
 
+#include "renderingSLL.h"
+
 void initSDL(Game* game, const char* title, int xpos, int ypos, int width, int height, int fullscreen)
 {
     game->isrunning = 1;
@@ -93,6 +95,7 @@ void render(Game* game)
 {
     SDL_RenderClear(game->renderer);
     //rendering stuff
+    renderRenderingSLL(game->renderingSLL, game);
     SDL_RenderPresent(game->renderer);
 }
 

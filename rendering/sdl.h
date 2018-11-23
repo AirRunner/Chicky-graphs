@@ -8,10 +8,13 @@
 #include <SDL2/SDL_timer.h>
 #include <SDL2/SDL_image.h>
 
+struct renderingSLL;
+
 typedef struct game
 {
     SDL_Window *window;
     SDL_Renderer *renderer;
+    struct renderingSLL *renderingSLL;
     int isrunning;
 }Game;
 
