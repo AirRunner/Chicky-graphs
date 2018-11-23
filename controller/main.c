@@ -29,17 +29,13 @@ void test(RenderingSLL* renderingSLL, SDL_Rect* destRect, SDL_Texture* tex)
         printNodes(graph);
 
         contamination(graph, &renderingSLL->nodes, &renderingSLL->edges);
-        
+
         printNodes(graph);
     }
 }
 
 int main(int argc, char *argv[])
 {
-
-    RenderingSLL* renderingSLL = createRenderingSLL();
-
-    test(renderingSLL, NULL, NULL);
 
     Game* game = malloc(sizeof(Game));
     const int FPS = 60;
@@ -56,7 +52,11 @@ int main(int argc, char *argv[])
         height, //height of the window
         0 //fullscreen boolean
     );
-    
+
+    game->renderingSLL = createRenderingSLL();
+
+    test(game->renderingSLL, NULL, NULL);
+
     while(game->isrunning)
     {
         Uint32 frameStart = SDL_GetTicks();
@@ -73,5 +73,7 @@ int main(int argc, char *argv[])
             SDL_Delay(frameDelay - frameTime);
         }
     }
+
+    cleanSDL(game);
     return 0;
 }
