@@ -1,72 +1,101 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+//#include "../controller/graphs.h"
 
-
-typedef struct Mission{
-	//array of nodes fonction victor ?
-	// array of edges fonction victor ?
-	//FileNode;  mettre une array de list ( chaque array correspond a un Node + chaque liste correspond à ses coordonnées
-}M_ission;
-
-
-typedef struct Node{
+typedef struct Node_mission{
 	char texture;
 	int x;
 	int y;
 	int w;
 	int h;
-	int data;
+	//struct Node* node;
 }N_ode;
 
-typedef struct Edge{
-	int Directed; // (-1): no graph (0): undirected (1): directed  
-	int N1_data;	//chemin de N1_data à N2_data 
-	int N2_data;
-	
-}
+
+typedef struct Edge_mission{
+	int src;	//chemin de N1_data à N2_data 
+	//struct Edge* edge;
+}E_dges;
+
+
+typedef struct Graph_mission{
+	int directed;
+	int size;
+}Graph_mis;
+//se focaliser que sur Nodes et Edges pour l'instant
 
 void readFile(const char* mission){
 	FILE * fichier = NULL;
-	long nb;
-	char target[40];
-	int size = 40;
-	int len;
-	//char compare[40] =	"Graph\n";
+	char *lign = (char*)malloc(sizeof(char));
+	char *test = (char*)malloc(sizeof(char));
+	long size; 
+	int node, directed;
+	int j = 0; 
 	fichier = fopen(mission, "r");
 	if (fichier != NULL){
-		fgets(target, size, fichier);
-		printf("%d",strcmp("Graph",target));
-	}
-}
-
-
-
-void functiontest(const char *name){
-	FILE *fichier = NULL;
-	fichier = fopen(name, "r");
-	int size = 1000;
-	char *sentence = (char*)malloc(sizeof(char));
-	int ret;
-	//char text[1000] = "Graph";
-	if (fichier != NULL){
-		fgets(sentence, size, fichier);
-		//sentence[strlen(sentence)-1] = '\0';
-		printf("%s", sentence);
-		ret = strcmp(sentence, "Graph");
-		if (ret == 0){
-			printf("TEST");
+		// pointer points to the end to get the size 
+		fseek(fichier, 0L, SEEK_END);
+		size = ftell(fichier);
+		// pointer points to the beginning of the file
+		fseek(fichier, 0L, SEEK_SET);
+		while (fgets(lign,size,fichier) != NULL){
+				//reads formatted input from a string
+				sscanf(lign, "%s", test);
+				//Je vais essayer de l'optimiser mais pour l'instant fonctionnne pour les NODES 
+				if (strcmp(test, "-------Nodes------") == 0){
+					int x,y,w,h,d;
+					printf("\n%s\n", test);	
+					fgets(lign, size, fichier);
+					sscanf(lign, "%s", test);
+					node = atoi(test);
+					fgets(lign, size, fichier);
+					sscanf(lign, "%s", test);
+					directed = atoi(test);
+					if (directed == 0 || directed == 1){
+						printf("FONCTIONS VICTOR");
+						Graph_mis * graph = (Graph_mis*)malloc(sizeof(Graph_mis));
+						graph->directed = directed;
+						graph->size = node;
+						//put fonction de Victor ::: Graph* graph = createGraph(node, directed);
+					}
+					while (j != node){
+						j++;
+						fgets(lign, size, fichier);
+						fgets(lign,size,fichier);
+						sscanf(lign,"%s", test);
+						x = atoi(test);
+						fgets(lign,size,fichier);
+						sscanf(lign,"%s", test);
+						y = atoi(test);
+						fgets(lign,size,fichier);
+						sscanf(lign,"%s", test);
+						w = atoi(test);
+						fgets(lign,size,fichier);
+						sscanf(lign,"%s", test);
+						h = atoi(test);
+						printf("\nNode :%d \nx-->%d\ny-->%d\nw-->%d\nh-->%d\n", j,x,y,w,h);		
+						printf("Fonction de Victor/ Vincent ICI");
+						//fonction de Victor récupérer les infos sur chaque node
+						// j : numéro du node = data 
+						// x / y / w / h pour Vincent 				
+					}
+				}
+				if (strcmp(test, "-------Edges-------") == 0){
+					printf("\n%s\n", test);
+					//function Edges
+				}
+				if (strcmp(test, "---------UI---------") == 0){
+					printf("\n%s\n", test);
+					//function UI
+				}
 		}
-		//if (strcmp(sentence,text) == 0){
-		//	printf("TEST");
-		//	if (strcmp(fgets(sentence, size, fichier),"FALSE" ) == 0 ){
-		//		printf("TEST");
-		//	}
-		
-
 	}
-	
+	fclose(fichier);
 }
+
+
+	
 
 int main() {
 	
@@ -77,50 +106,20 @@ int main() {
 }
 
 
-
-
 /*
-do{
-		fgets(sentence, size , fichier);
-		printf("%s", sentence);
-	}while (fgets(sentence, size, fichier) != NULL);
+SEEK_CUR
 	
 	
-char* Mission_3 =ReadOnFileMission("../data/missions/Mission3.txt");
-printf("The file  contains this text\n\n%s", Mission_3);
-
-char* Mission_1 =ReadOnFileMission("Mission1.txt");
-printf("\n\n\n\nThe file  contains this text\n\n%s", Mission_1);
+if (strcmp(test, "-------Nodes------") == 0){
+	printf("%s", test);
+	SEEK_CUR : on balaye le fichier une première fois
+	fgets(lign,size,fichier);
+convert string into integer
+	nodes = atoi(lign);
+	for ( i = 0; i<nodes ; i++){
+	fgets(lign,size,fichier);
+	}
 	
-char* Mission_2 =ReadOnFileMission("Mission2.txt");
-printf("\n\n\n\nThe file  contains this text\n\n%s", Mission_2);
-	
-char* Mission_3 =ReadOnFileMission("Mission3.txt");
-printf("\n\n\n\nThe file  contains this text\n\n%s", Mission_3);
-	
-char* Mission_4 =ReadOnFileMission("Mission4.txt");
-printf("\n\n\n\nThe file  contains this text\n\n%s", Mission_4);
-	
-char* Mission_5 =ReadOnFileMission("Mission5.txt");
-printf("\n\n\n\nThe file  contains this text\n\n%s", Mission_5);
-					
-char* Mission_6 =ReadOnFileMission("Mission6.txt");
-printf("\n\n\n\nThe file  contains this text\n\n%s", Mission_6);
-	
-char* Mission_7 =ReadOnFileMission("Mission7.txt");
-printf("\n\n\n\nThe file  contains this text\n\n%s", Mission_7);
-		
-char* Mission_8 =ReadOnFileMission("Mission8.txt");
-printf("\n\n\n\nThe file  contains this text\n\n%s", Mission_8);
-		
-char* Mission_9 =ReadOnFileMission("Mission9.txt");
-printf("\n\n\n\nThe file  contains this text\n\n%s", Mission_9);
-*/
-
-
-
-/*
-
 void Missions(){
 		
 	char* Mission_10 =ReadOnFileMission("IDEE.txt");
@@ -128,34 +127,9 @@ void Missions(){
 }
 
 
- 
-idée de séparation 
-==> strcpy 
-
-==> strtok : https://www.geeksforgeeks.org/strtok-strtok_r-functions-c-examples/
-
-ex 
-split=strtok(buffer,"");
-
-while(split != NULL)
-{
-	word=split;
-	split=strtok(NULL,"-------Nodes-----");
-}
-
-
-idée mettre entre chaque point important --------------- pour faire la distinction
-
-
-https://www.codingame.com/playgrounds/14213/how-to-play-with-strings-in-c/string-split
-
-
 size =  printf("%lu", sizeof(buffer)); 
 
-*/
-
-
-/*char *ReadOnFileMission(const char *name){
+char *ReadOnFileMission(const char *name){
 	char* buffer;
 	FILE *fichier = NULL;
 	long    number;
@@ -171,4 +145,51 @@ size =  printf("%lu", sizeof(buffer));
 	fclose(fichier);
 	//printf("The file  contains this text\n\n%s", buffer);
 	return(buffer);	
-}*/
+}
+	while (node){
+			do {
+				fgets(lign,size,fichier);
+				sscanf(lign,"%s", test);
+			}while (test == NULL);
+			printf("TEST");
+			
+		}
+		
+		do{
+			fgets(lign,size,fichier);
+			sscanf(lign,"%s", test);
+			x = atoi(test);
+			fgets(lign,size,fichier);
+			sscanf(lign,"%s", test);
+			y = atoi(test);
+			fgets(lign,size,fichier);
+			sscanf(lign,"%s", test);
+			w = atoi(test);
+			fgets(lign,size,fichier);
+			sscanf(lign,"%s", test);
+			h = atoi(test);
+			printf("%d\n  %d\n  %d\n  %d\n", x,y,w,h);
+			
+		}while (strcmp(test, "-----") != 0);
+
+		
+		
+		fgets(lign,size,fichier);
+		sscanf(lign,"%s", test);
+		
+		if ( strcmp(res,"N") == 0){
+			fgets(lign,size,fichier);
+			sscanf(lign,"%s", test);
+			x = atoi(test);
+			fgets(lign,size,fichier);
+			sscanf(lign,"%s", test);
+			y = atoi(test);
+			fgets(lign,size,fichier);
+			sscanf(lign,"%s", test);
+			w = atoi(test);
+			fgets(lign,size,fichier);
+			sscanf(lign,"%s", test);
+			h = atoi(test);
+				//createNodeSDL
+				//createNode( graph, k, NodeSDL** nodes, SDL_Rect* destRect, SDL_Texture* tex)
+		}*/
