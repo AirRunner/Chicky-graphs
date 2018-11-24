@@ -1,5 +1,4 @@
 ---------UI--------
-
 Teach
 texture : Teacher_chick_2
 (x,y)

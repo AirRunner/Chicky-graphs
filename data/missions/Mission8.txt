@@ -1,36 +1,28 @@
-Graph 
-directed = TRUE
-
 -------Nodes-----
-texture : Basic_chick_1
+Nodes 5
 
 N1 
 (x,y)
 (w,h)
-d = 1
 
 N2
 (x,y)
 (w,h) 
-d = 2
 
 N3
 (x,y)
 (w,h)
-d = 3
 
 N4
 (x,y)
 (w,h)
-d = 4
 
 N5
 (x,y)
 (w,h)
-d = 5
-
 
 -------Edges------
+Graph 1
 
 ---------UI--------
 LIST_Data

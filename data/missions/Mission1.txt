@@ -1,8 +1,4 @@
-
--------Nodes-----
-
 ---------UI--------
-
 Basic_Poussin
 texture : Basic_chick_1
 (x, y)

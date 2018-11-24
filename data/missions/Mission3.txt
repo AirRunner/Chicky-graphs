@@ -1,47 +1,40 @@
-Graph 
-directed = FALSE
-
 -------Nodes-----
-texture : Basic_chick_1
+Nodes 5
 
 N1
 (x,y)
 (w,h)
-D = 1
 
 N2
 (x,y)
 (w,h)
-D = 2
 
 N3 
 (x,y)
 (w,h)
-D = 3
 
 N4
 (x,y)
 (w,h) 
-D = 4
 
 N5
 (x,y)
 (w,h)
-D = 5
 
 -------Edges------
+Graph 0
 
 ---------UI--------
 Teach
 texture : Teacher_chick_2
 (x,y)
 (w,h)
-text_1 = "Now, you can create our own graph of chicks. You just have to connect chickies to each other. Click on the validation point to end."
+text_1 = "Now, you can create our own graph of chicks. You just have to connect poussins to each other. Click on the validation point to end."
 
 text_2 = " There are two kind of graphs, undirected graph and directed graph.
 Here you just created a undirected graph which can be traversed in multiple ways as the edges do not have  direction. "
 
-text_3 = "n fact chick X can say something to chick Y and the other way around.
+text_3 = "In fact chick X can say something to chick Y and the other way around.
 This graph is the simplest one. For two nodes (vertices ) there is only one directed edge x ⇒ y "
 end if 
 
@@ -57,5 +50,3 @@ texture : Validation_yellow
 texture : Validation_green
 (x,y)
 (w,h)
-
-// une array tout texte ==> structure des textes ==> bouton next / bouton 

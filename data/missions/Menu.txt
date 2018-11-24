@@ -1,62 +1,48 @@
-Graph 
-Directed : FALSE
-
 -------Nodes-----
-texture : Basic_chick_1
-
-Nodes = 10
+Nodes 10
 
 N1
 (x, y)
 (w, h)
-d = 1
 
 N2
 (x, y)
 (w, h)
-d = 2
  
 N3
 (x, y)
 (w, h)
-d = 3
 
 N4
 (x, y)
 (w, h) 
-d = 4
 
 N5
 (x, y)
 (w, h) 
-d = 5
 
 N6
 (x, y)
 (w, h)
-d = 6
 
 N7
 (x, y)
 (w, h)
-d = 7
 
 N8
 (x, y)
 (w, h) 
-d = 8
 
 N9
 (x, y)
 (w, h)
-d = 9
 
 N10
 (x, y)
 (w, h) 
-d = 10
 
 -------Edges------
+Graph 0
 N1 - N3
 N1 - N2
 N2 - N4
