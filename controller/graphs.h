@@ -33,6 +33,7 @@ void addEdge(Graph* graph, int src, int dest, int weight, EdgeSDL** edges, SDL_T
 
 void deleteEdge(Graph* graph, int src, int dest, EdgeSDL** edges);
 void deleteNode(Graph* graph, int id, NodeSDL** nodes, EdgeSDL** edges);
+void deleteGraph(Graph** graph, NodeSDL** nodes, EdgeSDL** edges);
 
 void printGraph(Graph* graph);
 void printNodes(Graph* graph);

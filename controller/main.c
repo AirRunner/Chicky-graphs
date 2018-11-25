@@ -40,6 +40,8 @@ void test(RenderingSLL* renderingSLL, NodeTree* texTree)
 
         printNodes(graph);
     }
+
+    deleteGraph(&graph, &renderingSLL->nodes, &renderingSLL->edges);
 }
 
 int main(int argc, char *argv[])

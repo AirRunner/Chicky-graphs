@@ -1,14 +1,5 @@
 #include "graphs.h"
 
-// Create a graph with a given destination and weight
-Edge* createEdge(int dest, int weight) {
-    Edge* newEdge = malloc(sizeof(Edge));
-    newEdge->dest = dest;
-    newEdge->weight = weight;
-    newEdge->next = NULL;
-    return newEdge;
-}
-
 Graph* createGraph(int size, int directed) {
     Graph* graph = malloc(sizeof(Graph));
     graph->size = size;
@@ -19,6 +10,29 @@ Graph* createGraph(int size, int directed) {
         graph->array[i] = NULL;
     }
     return graph;
+}
+
+void deleteGraph(Graph** graph, NodeSDL** nodes, EdgeSDL** edges) {
+    if(*graph != NULL){
+        // Delete all nodes before freeing the graph
+        for(int i = 0; i < (*graph)->size; i++){
+            if((*graph)->array[i] != NULL){
+                deleteNode(*graph, i, nodes, edges);
+            }
+        }
+        free((*graph)->array);
+        free(*graph);
+        *graph = NULL;
+    }
+}
+
+// Create a graph with a given destination and weight
+Edge* createEdge(int dest, int weight) {
+    Edge* newEdge = malloc(sizeof(Edge));
+    newEdge->dest = dest;
+    newEdge->weight = weight;
+    newEdge->next = NULL;
+    return newEdge;
 }
 
 void addEdge(Graph* graph, int src, int dest, int weight, EdgeSDL** edges, SDL_Texture* texArrow) { 
