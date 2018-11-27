@@ -52,4 +52,6 @@ void addUI(UI** nodes, SDL_Rect* destRect, SDL_Texture* tex);
 void removeUI(UI** nodes, SDL_Rect* destRect);
 void renderUI(UI* ui, Game* game);
 
+SDL_Rect* createRect(int x, int y, int w, int h);
+
 #endif

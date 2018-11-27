@@ -93,6 +93,7 @@ void update(Game* game)
 
 void render(Game* game)
 {
+    SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
     SDL_RenderClear(game->renderer);
     //rendering stuff
     renderRenderingSLL(game->renderingSLL, game);

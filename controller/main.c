@@ -4,24 +4,18 @@
 #include "../rendering/sdl.h"
 #include "graphs.h"
 
-void test(RenderingSLL* renderingSLL, NodeTree* texTree)
+void test(Graph* graph, RenderingSLL* renderingSLL, NodeTree* texTree)
 {
-    Graph* graph = createGraph(5, 0);
-
     SDL_Texture* tex = texTree->children->next->child->children->child->texture;
 
-    SDL_Rect* destRect = malloc(sizeof(SDL_Rect));
-    destRect->x = 0;
-    destRect->y = 0;
-    destRect->h = 64;
-    destRect->w = 64;
 
-    createNode(graph, 1, &renderingSLL->nodes, destRect, tex);
-    createNode(graph, 0, &renderingSLL->nodes, destRect, tex);
-    createNode(graph, 0, &renderingSLL->nodes, destRect, tex);
-    createNode(graph, 0, &renderingSLL->nodes, destRect, tex);
-    createNode(graph, 0, &renderingSLL->nodes, destRect, tex);
-    createNode(graph, 0, &renderingSLL->nodes, destRect, tex);
+    createNode(graph, 1, &renderingSLL->nodes, createRect(0, 0, 64, 64), tex);
+    createNode(graph, 0, &renderingSLL->nodes, createRect(64, 0, 64, 64), tex);
+    createNode(graph, 0, &renderingSLL->nodes, createRect(0, 64, 64, 64), tex);
+    createNode(graph, 0, &renderingSLL->nodes, createRect(64, 64, 64, 64), tex);
+    createNode(graph, 0, &renderingSLL->nodes, createRect(240, 0, 64, 64), tex);
+    createNode(graph, 0, &renderingSLL->nodes, createRect(0, 280, 64, 64), tex);
+    createNode(graph, 0, &renderingSLL->nodes, createRect(240, 280, 64, 64), tex);
 
     addEdge(graph, 0, 1, 1, &renderingSLL->edges, tex);
     addEdge(graph, 0, 4, 1, &renderingSLL->edges, tex);
@@ -31,7 +25,7 @@ void test(RenderingSLL* renderingSLL, NodeTree* texTree)
     addEdge(graph, 2, 3, 1, &renderingSLL->edges, tex);
     addEdge(graph, 3, 4, 1, &renderingSLL->edges, tex);
 
-    // Contamination test
+/*    // Contamination test
     while(!isGraphEmpty(graph)){
         printGraph(graph);
         printNodes(graph);
@@ -39,9 +33,7 @@ void test(RenderingSLL* renderingSLL, NodeTree* texTree)
         contamination(graph, &renderingSLL->nodes, &renderingSLL->edges);
 
         printNodes(graph);
-    }
-
-    deleteGraph(&graph, &renderingSLL->nodes, &renderingSLL->edges);
+    }*/
 }
 
 int main(int argc, char *argv[])
@@ -67,7 +59,9 @@ int main(int argc, char *argv[])
     game->texTree = NULL;
     initTex(game, &game->texTree);
 
-    test(game->renderingSLL, game->texTree);
+    Graph* graph = createGraph(10, 0);
+
+    test(graph, game->renderingSLL, game->texTree);
 
     while(game->isrunning)
     {
@@ -85,6 +79,8 @@ int main(int argc, char *argv[])
             SDL_Delay(frameDelay - frameTime);
         }
     }
+
+    deleteGraph(&graph, &game->renderingSLL->nodes, &game->renderingSLL->edges);
 
     cleanSDL(game);
     return 0;

@@ -77,26 +77,29 @@ void deleteEdge(Graph* graph, int src, int dest, EdgeSDL** edges) {
                     free(edge);
                 }
             }
+            removeEdgeSDL(edges, graph->array[src]->nodeSDL->destRect, graph->array[dest]->nodeSDL->destRect);
         }
-        removeEdgeSDL(edges, graph->array[src]->nodeSDL->destRect, graph->array[dest]->nodeSDL->destRect);
     }
 }
 
 void createNode(Graph* graph, int data, NodeSDL** nodes, SDL_Rect* destRect, SDL_Texture* tex) {
-    int i = 0;
-    // Search an empty place in the graph's array
-    while(graph->array[i] != NULL && i < graph->size)
-        i++;
-    if(i == graph->size)
-        printf("Maximum number of nodes reached");
-    else{
-        // Add a node at the first empty place if one is found
-        graph->array[i] = malloc(sizeof(GraphElt*));
-        graph->array[i]->node = malloc(sizeof(Node));
-        graph->array[i]->node->data = data;
-        graph->array[i]->node->list = NULL;
+    if(graph)
+    {
+        int i = 0;
+        // Search an empty place in the graph's array
+        while( i < graph->size && graph->array[i] != NULL)
+            i++;
+        if(i == graph->size)
+            printf("Maximum number of nodes reached\n");
+        else{
+            // Add a node at the first empty place if one is found
+            graph->array[i] = malloc(sizeof(GraphElt));
+            graph->array[i]->node = malloc(sizeof(Node));
+            graph->array[i]->node->data = data;
+            graph->array[i]->node->list = NULL;
 
-        graph->array[i]->nodeSDL = addNodeSDL(nodes, destRect, tex);
+            graph->array[i]->nodeSDL = addNodeSDL(nodes, destRect, tex);
+        }
     }
 }
 

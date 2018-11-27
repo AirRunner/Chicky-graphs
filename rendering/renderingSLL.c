@@ -71,13 +71,23 @@ void removeEdgeSDL(EdgeSDL** edges, SDL_Rect* srcRect, SDL_Rect* destRect)
 
 void renderEdges(EdgeSDL* edges, Game* game)
 {
-
+    while(edges)
+    {
+        int x1, y1, x2, y2;
+        x1 = edges->srcRect->x + edges->srcRect->w/2;
+        y1 = edges->srcRect->y + edges->srcRect->h/2;
+        x2 = edges->destRect->x + edges->destRect->w/2;
+        y2 = edges->destRect->y + edges->destRect->h/2;
+        SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
+        SDL_RenderDrawLine(game->renderer, x1, y1, x2, y2);
+        edges = edges->next;
+    }
 }
 
 
 NodeSDL* createNodeSDL(SDL_Rect* destRect, SDL_Texture* tex)
 {
-    NodeSDL* newNodeSDL = malloc(sizeof(NodeSDL));
+    NodeSDL* newNodeSDL = (NodeSDL*) malloc(sizeof(NodeSDL));
     newNodeSDL->destRect = destRect;
     newNodeSDL->tex = tex;
     newNodeSDL->next = NULL;
@@ -107,6 +117,11 @@ void removeNodeSDL(NodeSDL** nodes, SDL_Rect* destRect)
         if((*nodes)->destRect == destRect)
         {
             *nodes = (*nodes)->next;
+            if(tmp->destRect)
+            {
+                free(tmp->destRect);
+                tmp->destRect = NULL;
+            }
             free(tmp);
         }
         else
@@ -119,6 +134,7 @@ void removeNodeSDL(NodeSDL** nodes, SDL_Rect* destRect)
             {
                 NodeSDL* freetmp = tmp->next;
                 tmp->next = tmp->next->next;
+                free(freetmp->destRect);
                 free(freetmp);
             }
         }
@@ -187,4 +203,15 @@ void removeUI(UI** nodes, SDL_Rect* destRect)
 void renderUI(UI* ui, Game* game)
 {
 
+}
+
+
+SDL_Rect* createRect(int x, int y, int w, int h)
+{
+    SDL_Rect* newRect = malloc(sizeof(SDL_Rect));
+    newRect->x = x;
+    newRect->y = y;
+    newRect->w = w;
+    newRect->h = h;
+    return newRect;
 }
