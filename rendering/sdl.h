@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+
+#define SDL_MAIN_HANDLED
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_timer.h>
