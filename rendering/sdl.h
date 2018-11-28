@@ -23,7 +23,13 @@ typedef struct game
 }Game;
 
 void initSDL(Game* game, const char* title, int xpos, int ypos, int width, int height, int fullscreen);
+
 void handleEvents(Game* game);
+
+void mouseLeftPressed();
+void mouseLeftReleased();
+void mouseLeftMove();
+
 void update(Game* game);
 void render(Game* game);
 void cleanSDL(Game* game);

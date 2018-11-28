@@ -117,11 +117,8 @@ void removeNodeSDL(NodeSDL** nodes, SDL_Rect* destRect)
         if((*nodes)->destRect == destRect)
         {
             *nodes = (*nodes)->next;
-            if(tmp->destRect)
-            {
-                free(tmp->destRect);
-                tmp->destRect = NULL;
-            }
+            free(tmp->destRect);
+            tmp->destRect = NULL;
             free(tmp);
         }
         else

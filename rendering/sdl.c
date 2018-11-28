@@ -77,13 +77,49 @@ void handleEvents(Game* game)
                 switch(event.button.button)
                 {
                     case SDL_BUTTON_LEFT:
-                        printf("Click\n");
+                        mouseLeftPressed();
                         break;
                     default:
                         break;
                 }
+                break;
+            case SDL_MOUSEMOTION:
+                switch(event.motion.state)
+                {
+                    case SDL_BUTTON_LMASK:
+                        mouseLeftMove();
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case SDL_MOUSEBUTTONUP:
+                switch(event.button.button)
+                {
+                    case SDL_BUTTON_LEFT:
+                        mouseLeftReleased();
+                        break;
+                    default:
+                        break;
+                }
+                break;
         }
     }
+}
+
+void mouseLeftPressed()
+{
+    printf("Left Click!\n");
+}
+
+void mouseLeftReleased()
+{
+    printf("Left Released!\n");
+}
+
+void mouseLeftMove()
+{
+    printf("Left Move!\n");
 }
 
 void update(Game* game)
