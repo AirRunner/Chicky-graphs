@@ -8,14 +8,15 @@ void test(Graph* graph, RenderingSLL* renderingSLL, NodeTree* texTree)
 {
     SDL_Texture* tex = texTree->children->next->child->children->child->texture;
 
+    int h, w;
+    h = w = 64;
 
-    createNode(graph, 1, &renderingSLL->nodes, createRect(0, 0, 64, 64), tex);
-    createNode(graph, 0, &renderingSLL->nodes, createRect(64, 0, 64, 64), tex);
-    createNode(graph, 0, &renderingSLL->nodes, createRect(0, 64, 64, 64), tex);
-    createNode(graph, 0, &renderingSLL->nodes, createRect(64, 64, 64, 64), tex);
-    createNode(graph, 0, &renderingSLL->nodes, createRect(240, 0, 64, 64), tex);
-    createNode(graph, 0, &renderingSLL->nodes, createRect(0, 280, 64, 64), tex);
-    createNode(graph, 0, &renderingSLL->nodes, createRect(240, 280, 64, 64), tex);
+    createNode(graph, 1, &renderingSLL->nodes, createRect(0, 0, h, w), tex);
+    createNode(graph, 0, &renderingSLL->nodes, createRect(2*h, 0, h, w), tex);
+    createNode(graph, 0, &renderingSLL->nodes, createRect(4*h, h, h, w), tex);
+    createNode(graph, 0, &renderingSLL->nodes, createRect(2*h, 2*h, h, w), tex);
+    createNode(graph, 0, &renderingSLL->nodes, createRect(0, 2*h, h, w), tex);
+    createNode(graph, 0, &renderingSLL->nodes, createRect(0, 4*h, h, w), tex);
 
     addEdge(graph, 0, 1, 1, &renderingSLL->edges, tex);
     addEdge(graph, 0, 4, 1, &renderingSLL->edges, tex);
@@ -59,7 +60,7 @@ int main(int argc, char *argv[])
     game->texTree = NULL;
     initTex(game, &game->texTree);
 
-    Graph* graph = createGraph(10, 0);
+    Graph* graph = createGraph(5, 0);
 
     test(graph, game->renderingSLL, game->texTree);
 
