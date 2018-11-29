@@ -126,6 +126,18 @@ void deleteNode(Graph* graph, int id, NodeSDL** nodes, EdgeSDL** edges) {
     graph->array[id] = NULL;
 }
 
+// Find the id of a node given its SDL Rect
+int searchNode(Graph* graph, SDL_Rect* Rect){
+    int id = 0;
+    while(id < graph->size && graph->array[id]->nodeSDL->destRect != Rect){
+        id++;
+    }
+    if(id == graph->size){
+        return -1;
+    }
+    return id;
+}
+
 // Print the adjacency list representation of graph
 void printGraph(Graph* graph) {
     for(int i = 0; i < graph->size; i++) {
@@ -174,10 +186,11 @@ void contamination(Graph* graph, NodeSDL** nodes, EdgeSDL** edges, NodeTree* tex
             if(graph->array[i]->node->data == 1)
                 // Delete infected nodes
                 deleteNode(graph, i, nodes, edges);
-            else if(graph->array[i]->node->data == 2)
+            else if(graph->array[i]->node->data == 2){
                 // Infect contaminated nodes
                 graph->array[i]->node->data = 1;
-                //graph->array[i]->nodeSDL->tex = searchTex(texTree, "Node", "Infected chick 2");
+                graph->array[i]->nodeSDL->tex = searchTex(texTree, "Node", "Infected chick 2");
+            }
         }
     }
 }
