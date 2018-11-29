@@ -2,24 +2,24 @@
 Nodes 5
 
 N1
-(x,y)
-(w,h) 
+(400,400)
+(64,64) 
 
 N2
-(x,y)
-(w,h)
+(500,y)
+(64,64)
  
 N3
 (x,y)
-(w,h) 
+(64,64)
 
 N4
 (x,y)
-(w,h)
+(64,64)
 
 N5
 (x,y)
-(w,h)
+(64,64)
 
 -------Edges------
 Graph 0
@@ -33,8 +33,10 @@ texture : Matrice
 
 Teach
 texture : Teacher_chick_2
-(x,y)
-(w,h)
+350
+600
+100
+78
 
 text1 = "Try to implement it using an Adjacency Matrix.
 The idea is using the matrice which which is a 2D array corresponding to number poussin^2.

@@ -3,30 +3,30 @@
 5
 0
 
-1  
-2  
-3  
-4  
+400
+600
+64
+64
 
-1
-2
-3
-4
+500
+200
+64
+64
 
-1
-2
-3
-4
+700
+500
+64
+64
 
-1
-2
-3
-4
+900
+300
+64
+64
 
-1
-2
-3
-4
+1050
+600
+64
+64
 
 -------Edges------
 0
@@ -34,10 +34,10 @@
 ---------UI--------
 Teach
 texture_Teacher_chick_2
-x
-y
-w
-h
+350
+600
+100
+78
 
 text_1 = "Now, you can create our own graph of chicks. You just have to connect poussins to each other. Click on the validation point to end."
 

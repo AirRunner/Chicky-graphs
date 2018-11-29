@@ -1,19 +1,25 @@
 ---------UI--------
 Basic_Poussin
 texture : Basic_chick_1
-(x, y)
-(w, h)
+800
+288
+64
+64
 
 Poussin_Bubble
 texture : Poussin_Bubble
-(x, y)
-(w, h)
+850
+300
+100
+55
 text = "Poussin"
 
 Teach
 texture : Teacher_chick_2
-(x, y)
-(w, h)
+350
+600
+100
+78
 text_1 = "Welcome to Chicky Graphs. Here at Tardigradus Farm, many eggs have just hatched. Mike the farmer needs some help to watch the newborn chicks. Come and discover the farm’s life, and watch the chicks grow together."
 
 text_2 = "Here is Poussin. Poussin has many friends. For now, he has no way of communicating with them. Poussin wants to introduce himself to the others by giving them his name. In a graph representation, Poussin is a node. It contains information, here Poussin’s name."

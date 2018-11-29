@@ -34,8 +34,10 @@ texture : List
 
 Teach
 texture : Teacher_chick_2
-(x,y)
-(w,h)
+350
+600
+100
+78
 text1 = "Now, try to implement it using Adjacency lists, which is an array of lists. The size of the array corresponds to the number of chicks (nodes /vertices). The node in the array will be linked to all nodes in the list."
 
 text2 = "So here using lists to express the graph: an adjacency lists, you have create a graph. This method will be more usefull than the precedent."
