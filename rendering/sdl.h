@@ -13,6 +13,8 @@
 struct renderingSLL;
 struct nodeTree;
 struct nodeSDL;
+struct edgeSDL;
+struct graph;
 
 typedef enum selectedType
 {
@@ -29,6 +31,8 @@ typedef struct game
     SDL_Rect* selectedRect;
     SelectedType selectedType;
     struct nodeTree *texTree;
+    struct graph* graph;
+    SDL_Rect* mouseLine;
     int isrunning;
 }Game;
 
@@ -40,6 +44,7 @@ void mouseLeftPressed(Game* game, SDL_Event* event);
 SDL_Rect* searchNodeUnderMouse(struct nodeSDL* nodes, SDL_Event* event);
 void mouseLeftMove(Game* game, SDL_Event* event);
 void mouseLeftReleased(Game* game, SDL_Event* event);
+void checkEdgeCut(Game* game, SDL_Rect* mouseLine, struct edgeSDL* edges, SDL_Event* event);
 
 void update(Game* game);
 void render(Game* game);

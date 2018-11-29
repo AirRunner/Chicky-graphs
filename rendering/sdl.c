@@ -1,9 +1,7 @@
-// Example program:
-// Using SDL2 to create an application window
-
 #include "sdl.h"
 
 #include "renderingSLL.h"
+#include "../controller/graphs.h"
 
 void initSDL(Game* game, const char* title, int xpos, int ypos, int width, int height, int fullscreen)
 {
@@ -118,6 +116,12 @@ void mouseLeftPressed(Game* game, SDL_Event* event)
         game->selectedType = node;
         printf("x: %d, y: %d\n", game->selectedRect->x, game->selectedRect->y);
     }
+    else
+    {
+        game->mouseLine = malloc(sizeof(SDL_Rect));
+        game->mouseLine->x = game->mouseLine->w = event->motion.x;
+        game->mouseLine->y = game->mouseLine->h = event->motion.y;
+    }
 }
 
 SDL_Rect* searchNodeUnderMouse(struct nodeSDL* nodes, SDL_Event* event)
@@ -151,11 +155,17 @@ SDL_Rect* searchNodeUnderMouse(struct nodeSDL* nodes, SDL_Event* event)
 void mouseLeftMove(Game* game, SDL_Event* event)
 {
     printf("Left Move!\n");
-    if(game->selectedRect)
+    if(game->selectedRect && game->selectedType == node)
     {
         printf("x: %d, y: %d\n", game->selectedRect->x, game->selectedRect->y);
         game->selectedRect->x += event->motion.xrel;
         game->selectedRect->y += event->motion.yrel;
+    }
+    if(game->mouseLine)
+    {
+        printf("x1: %d, y1: %d, x2: %d, y2: %d\n", game->mouseLine->x, game->mouseLine->y, game->mouseLine->w, game->mouseLine->h);
+        game->mouseLine->w += event->motion.xrel;
+        game->mouseLine->h += event->motion.yrel;
     }
 }
 
@@ -167,7 +177,82 @@ void mouseLeftReleased(Game* game, SDL_Event* event)
         printf("x: %d, y: %d\n", game->selectedRect->x, game->selectedRect->y);
     }
     game->selectedRect = NULL;
+    if(game->mouseLine)
+    {
+        checkEdgeCut(game, game->mouseLine, game->renderingSLL->edges, event);
+        free(game->mouseLine);
+        game->mouseLine = NULL;
+    }
 }
+
+void checkEdgeCut(Game* game, SDL_Rect* mouseLine, EdgeSDL* edges, SDL_Event* event)
+{
+    int x1, y1, x2, y2;
+    int a1, b1, a2, b2; //the coefficients for ax+b
+    int xpoint, ypoint; //the point of intersection of the two ligns
+
+    if(mouseLine->w != mouseLine->x)
+    {
+        a1 = (mouseLine->h - mouseLine->y)/(mouseLine->w - mouseLine->x);
+        b1 = a1*mouseLine->x - mouseLine->y;
+    }
+
+    while(edges)
+    {
+        x1 = edges->srcRect->x;
+        y1 = edges->srcRect->y;
+        x2 = edges->destRect->x;
+        y2 = edges->destRect->y;
+
+        if(x1 != x2)
+        {
+            a2 = (y2 - y1)/(x2 - x1); //calculations done on paper
+            b2 = a2*x1 - y1;
+
+            if(a1 != a2 && mouseLine->w != mouseLine->x)
+            {
+                xpoint = (b2 - b1)/(a1 - a2); //calculations also done on paper
+                ypoint = a1*xpoint + b1;
+            }
+            else if(mouseLine->w == mouseLine->x)
+            {
+                xpoint = mouseLine->x;
+                ypoint = a2*xpoint + b2;
+            }
+            else
+            {
+                xpoint = -1;
+                ypoint = -1;
+            }
+        }
+        else
+        {
+            if(mouseLine->w != mouseLine->x)
+            {
+                xpoint = x1;
+                ypoint = a1*xpoint + b1;
+            }
+            else
+            {
+                xpoint = -1;
+                ypoint = -1;
+            }
+        }
+
+        printf("xpoint: %d, ypoint: %d\n", xpoint, ypoint);
+
+        if(xpoint != -1 && ypoint != -1)
+        {
+            if(((xpoint > x1 && xpoint < x2) || (xpoint < x1 && xpoint > x2)) && ((ypoint > y1 && ypoint < y2) || (ypoint < y1 && ypoint > y2)))
+            {
+                deleteEdge(game->graph, searchNode(game->graph, edges->srcRect), searchNode(game->graph, edges->destRect), &game->renderingSLL->edges);
+            }
+        }
+
+        edges = edges->next;
+    }
+}
+
 
 void update(Game* game)
 {
@@ -180,6 +265,10 @@ void render(Game* game)
     SDL_RenderClear(game->renderer);
     //rendering stuff
     renderRenderingSLL(game->renderingSLL, game);
+    if(game->mouseLine)
+    {
+        SDL_RenderDrawLine(game->renderer, game->mouseLine->x, game->mouseLine->y, game->mouseLine->w, game->mouseLine->h);
+    }
     SDL_RenderPresent(game->renderer);
 }
 
