@@ -1,37 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#include "../controller/graphs.h"
-
-typedef struct Node_mission{
-	char texture;
-	int x;
-	int y;
-	int w;
-	int h;
-	//struct Node* node;
-}N_ode;
-
-
-typedef struct Edge_mission{
-	int src;	//chemin de N1_data à N2_data 
-	//struct Edge* edge;
-}E_dges;
-
-
-typedef struct Graph_mission{
-	int directed;
-	int size;
-}Graph_mis;
-//se focaliser que sur Nodes et Edges pour l'instant
 
 void readFile(const char* mission){
 	FILE * fichier = NULL;
 	char *lign = (char*)malloc(sizeof(char));
 	char *test = (char*)malloc(sizeof(char));
-	long size; 
-	int node, directed;
-	int j = 0; 
+	long size;  
 	fichier = fopen(mission, "r");
 	if (fichier != NULL){
 		// pointer points to the end to get the size 
@@ -42,9 +17,11 @@ void readFile(const char* mission){
 		while (fgets(lign,size,fichier) != NULL){
 				//reads formatted input from a string
 				sscanf(lign, "%s", test);
+				printf("%s\n", test);
 				//Je vais essayer de l'optimiser mais pour l'instant fonctionnne pour les NODES 
-				if (strcmp(test, "-------Nodes------") == 0){
-					int x,y,w,h,d;
+				if (strcmp(test, "-------Nodes-----") == 0){
+					int x,y,w,h,d,node,directed,j;
+					j = 0;
 					printf("\n%s\n", test);	
 					fgets(lign, size, fichier);
 					sscanf(lign, "%s", test);
@@ -53,10 +30,7 @@ void readFile(const char* mission){
 					sscanf(lign, "%s", test);
 					directed = atoi(test);
 					if (directed == 0 || directed == 1){
-						printf("FONCTIONS VICTOR");
-						//Graph_mis * graph = (Graph_mis*)malloc(sizeof(Graph_mis));
-						//graph->directed = directed;
-						//graph->size = node;
+						printf("Fonction GRAPH ICI\n");
 						//put fonction de Victor ::: Graph* graph = createGraph(node, directed);
 					}
 					while (j != node){
@@ -74,20 +48,42 @@ void readFile(const char* mission){
 						fgets(lign,size,fichier);
 						sscanf(lign,"%s", test);
 						h = atoi(test);
-						printf("\nNode :%d \nx-->%d\ny-->%d\nw-->%d\nh-->%d\n", j,x,y,w,h);	
+						printf("\nNode :%d \nx-->%d\ny-->%d\nw-->%d\nh-->%d\n\n", j,x,y,w,h);	
 						
 						// function ==> Vincent test	
-						printf("Fonction de Victor/ Vincent ICI");
 						//fonction de Victor récupérer les infos sur chaque node
 						// j : numéro du node = data 
 						// x / y / w / h pour Vincent 				
 					}
 				}
-				if (strcmp(test, "-------Edges-------") == 0){
-					printf("\n%s\n", test);
-					//function Edges
+				if (strcmp(test, "-------Edges------") == 0){
+					char* token;
+					fgets(lign, size, fichier);
+					sscanf(lign,"%s", test);
+					int k,i,m,n;
+					i = atoi(test);
+					k = 0;
+					fgets(lign, size, fichier);
+					if (i != 0){
+						while (k != i){
+							fgets(lign,size,fichier);
+							sscanf(lign,"%s", test);
+							token =   strtok(test, "-");
+							m = atoi(test);
+							printf( "Source: %s\n", token );
+							token = strtok(NULL, "-");
+							n = atoi(test);
+							printf( "Destinataire: %s\n", token );
+							token = strtok(NULL,"-");
+							k++;
+							// Fonction Victor : EDGES
+							// poids = 1 mettre 
+						}
+					}
 				}
+				
 				if (strcmp(test, "---------UI---------") == 0){
+					
 					printf("\n%s\n", test);
 					//function UI
 				}
