@@ -30,8 +30,11 @@
 ---------UI--------
 Teach
 texture_Teacher_chick_2
-(x,y)
-(w,h)
+x
+y
+w
+h
+
 text_1 = "Now, you can create our own graph of chicks. You just have to connect poussins to each other. Click on the validation point to end."
 
 text_2 = " There are two kind of graphs, undirected graph and directed graph.
@@ -44,11 +47,15 @@ end if
 Validation_button
 texture_Validation_yellow
 texture_Validation_green
-(x,y)
-(w,h)
+x
+y
+w
+h
 
 Next_button
 texture_Validation_yellow
 texture_Validation_green
-(x,y)
-(w,h)
+x
+y
+w
+h

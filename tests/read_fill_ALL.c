@@ -54,9 +54,9 @@ void readFile(const char* mission){
 					directed = atoi(test);
 					if (directed == 0 || directed == 1){
 						printf("FONCTIONS VICTOR");
-						Graph_mis * graph = (Graph_mis*)malloc(sizeof(Graph_mis));
-						graph->directed = directed;
-						graph->size = node;
+						//Graph_mis * graph = (Graph_mis*)malloc(sizeof(Graph_mis));
+						//graph->directed = directed;
+						//graph->size = node;
 						//put fonction de Victor ::: Graph* graph = createGraph(node, directed);
 					}
 					while (j != node){
@@ -74,7 +74,9 @@ void readFile(const char* mission){
 						fgets(lign,size,fichier);
 						sscanf(lign,"%s", test);
 						h = atoi(test);
-						printf("\nNode :%d \nx-->%d\ny-->%d\nw-->%d\nh-->%d\n", j,x,y,w,h);		
+						printf("\nNode :%d \nx-->%d\ny-->%d\nw-->%d\nh-->%d\n", j,x,y,w,h);	
+						
+						// function ==> Vincent test	
 						printf("Fonction de Victor/ Vincent ICI");
 						//fonction de Victor récupérer les infos sur chaque node
 						// j : numéro du node = data 
