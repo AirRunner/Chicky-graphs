@@ -23,16 +23,6 @@ void test(Graph* graph, RenderingSLL* renderingSLL, NodeTree* texTree)
     addEdge(graph, 1, 4, 1, &renderingSLL->edges, NULL);
     addEdge(graph, 2, 3, 1, &renderingSLL->edges, NULL);
     addEdge(graph, 3, 4, 1, &renderingSLL->edges, NULL);
-
-    // Contamination test
-    for(int i = 0; i < 0; i++){
-        printGraph(graph);
-        printNodes(graph);
-
-        contamination(graph, &renderingSLL->nodes, &renderingSLL->edges, texTree);
-
-        printNodes(graph);
-    }
 }
 
 int main(int argc, char *argv[])
@@ -57,10 +47,9 @@ int main(int argc, char *argv[])
     game->renderingSLL = createRenderingSLL();
     game->texTree = NULL;
     initTex(game, &game->texTree);
+    game->graph = createGraph(5, 0);
 
-    Graph* graph = createGraph(5, 0);
-
-    test(graph, game->renderingSLL, game->texTree);
+    test(game->graph, game->renderingSLL, game->texTree);
 
     while(game->isrunning)
     {
@@ -79,7 +68,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    deleteGraph(&graph, &game->renderingSLL->nodes, &game->renderingSLL->edges);
+    deleteGraph(&game->graph, &game->renderingSLL->nodes, &game->renderingSLL->edges);
 
     cleanSDL(game);
     return 0;

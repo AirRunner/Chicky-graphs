@@ -102,6 +102,16 @@ void handleEvents(Game* game)
                         break;
                 }
                 break;
+            case SDL_KEYDOWN:
+                switch(event.key.keysym.scancode)
+                {
+                    case SDL_SCANCODE_C:
+                        keyCPressed(game, &event);
+                        break;
+                    default:
+                        break;
+                }
+                break;
         }
     }
 }
@@ -183,6 +193,11 @@ void mouseLeftReleased(Game* game, SDL_Event* event)
         free(game->mouseLine);
         game->mouseLine = NULL;
     }
+}
+
+void keyCPressed(Game* game, SDL_Event* event){
+    printf("C Pressed!\n");
+    contamination(game->graph, &game->renderingSLL->nodes, &game->renderingSLL->edges, game->texTree);
 }
 
 void checkEdgeCut(Game* game, SDL_Rect* mouseLine, EdgeSDL* edges, SDL_Event* event)

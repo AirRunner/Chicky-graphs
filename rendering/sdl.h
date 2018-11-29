@@ -44,6 +44,7 @@ void mouseLeftPressed(Game* game, SDL_Event* event);
 SDL_Rect* searchNodeUnderMouse(struct nodeSDL* nodes, SDL_Event* event);
 void mouseLeftMove(Game* game, SDL_Event* event);
 void mouseLeftReleased(Game* game, SDL_Event* event);
+void keyCPressed(Game* game, SDL_Event* event);
 void checkEdgeCut(Game* game, SDL_Rect* mouseLine, struct edgeSDL* edges, SDL_Event* event);
 
 void update(Game* game);
