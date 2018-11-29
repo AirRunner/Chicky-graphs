@@ -1,5 +1,4 @@
 #include <string.h>
-#include <windows.h>
 #include "texture.h"
 
 EltTree* createEltTree(NodeTree* child)

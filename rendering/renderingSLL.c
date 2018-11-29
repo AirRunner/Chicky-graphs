@@ -199,7 +199,11 @@ void removeUI(UI** nodes, SDL_Rect* destRect)
 
 void renderUI(UI* ui, Game* game)
 {
-
+    while(ui)
+    {
+        SDL_RenderCopy(game->renderer, ui->tex, NULL, ui->destRect);
+        ui = ui->next;
+    }
 }
 
 

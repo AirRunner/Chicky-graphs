@@ -61,6 +61,7 @@ void initSDL(Game* game, const char* title, int xpos, int ypos, int width, int h
             game->isrunning = 0;
         }
     }
+    game->selectedRect = NULL;
 }
 
 void handleEvents(Game* game)
@@ -77,7 +78,7 @@ void handleEvents(Game* game)
                 switch(event.button.button)
                 {
                     case SDL_BUTTON_LEFT:
-                        mouseLeftPressed();
+                        mouseLeftPressed(game, &event);
                         break;
                     default:
                         break;
@@ -87,7 +88,7 @@ void handleEvents(Game* game)
                 switch(event.motion.state)
                 {
                     case SDL_BUTTON_LMASK:
-                        mouseLeftMove();
+                        mouseLeftMove(game, &event);
                         break;
                     default:
                         break;
@@ -97,7 +98,7 @@ void handleEvents(Game* game)
                 switch(event.button.button)
                 {
                     case SDL_BUTTON_LEFT:
-                        mouseLeftReleased();
+                        mouseLeftReleased(game, &event);
                         break;
                     default:
                         break;
@@ -107,19 +108,65 @@ void handleEvents(Game* game)
     }
 }
 
-void mouseLeftPressed()
+void mouseLeftPressed(Game* game, SDL_Event* event)
 {
     printf("Left Click!\n");
+    game->selectedRect = searchNodeUnderMouse(game->renderingSLL->nodes, event);
+    printf("x: %d, y: %d\n", event->motion.x, event->motion.y);
+    if(game->selectedRect)
+    {
+        game->selectedType = node;
+        printf("x: %d, y: %d\n", game->selectedRect->x, game->selectedRect->y);
+    }
 }
 
-void mouseLeftReleased()
+SDL_Rect* searchNodeUnderMouse(struct nodeSDL* nodes, SDL_Event* event)
 {
-    printf("Left Released!\n");
+    int x, y, w, h, xm, ym;
+    if(nodes)
+    {
+        x = nodes->destRect->x;
+        y = nodes->destRect->y;
+        w = nodes->destRect->w;
+        h = nodes->destRect->h;
+
+        xm = event->button.x;
+        ym = event->button.y;
+        while(nodes->next && ((xm < x || xm > x+w) || (ym < y || ym > y+h)))
+        {
+            nodes = nodes->next;
+            x = nodes->destRect->x;
+            y = nodes->destRect->y;
+            w = nodes->destRect->w;
+            h = nodes->destRect->h;
+        }
+        if(nodes && ((xm > x && xm < x+w) && (ym > y && ym < y+h)))
+        {
+            return nodes->destRect;
+        }
+    }
+    return NULL;
 }
 
-void mouseLeftMove()
+void mouseLeftMove(Game* game, SDL_Event* event)
 {
     printf("Left Move!\n");
+    if(game->selectedRect)
+    {
+        printf("x: %d, y: %d\n", game->selectedRect->x, game->selectedRect->y);
+        game->selectedRect->x += event->motion.xrel;
+        game->selectedRect->y += event->motion.yrel;
+    }
+}
+
+void mouseLeftReleased(Game* game, SDL_Event* event)
+{
+    printf("Left Released!\n");
+    if(game->selectedRect)
+    {
+        printf("x: %d, y: %d\n", game->selectedRect->x, game->selectedRect->y);
+    }
+    game->selectedRect = NULL;
 }
 
 void update(Game* game)
