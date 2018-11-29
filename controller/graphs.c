@@ -110,6 +110,7 @@ void deleteNode(Graph* graph, int id, NodeSDL** nodes, EdgeSDL** edges) {
        tmp = graph->array[id]->node->list;
        graph->array[id]->node->list = graph->array[id]->node->list->next;
        tmp->next = NULL;
+       removeEdgeSDL(edges, graph->array[id]->nodeSDL->destRect, graph->array[tmp->dest]->nodeSDL->destRect);
        free(tmp);
     }
     // Delete all edges having id as destination

@@ -26,15 +26,15 @@ void test(Graph* graph, RenderingSLL* renderingSLL, NodeTree* texTree)
     addEdge(graph, 2, 3, 1, &renderingSLL->edges, tex);
     addEdge(graph, 3, 4, 1, &renderingSLL->edges, tex);
 
-/*    // Contamination test
-    while(!isGraphEmpty(graph)){
+    // Contamination test
+    for(int i = 0; i < 1; i++){
         printGraph(graph);
         printNodes(graph);
 
         contamination(graph, &renderingSLL->nodes, &renderingSLL->edges);
 
         printNodes(graph);
-    }*/
+    }
 }
 
 int main(int argc, char *argv[])
