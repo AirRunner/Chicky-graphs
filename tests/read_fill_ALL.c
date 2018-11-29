@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+//textures
+
 void readFile(const char* mission){
 	FILE * fichier = NULL;
 	char *lign = (char*)malloc(sizeof(char));
@@ -17,12 +19,15 @@ void readFile(const char* mission){
 		while (fgets(lign,size,fichier) != NULL){
 				//reads formatted input from a string
 				sscanf(lign, "%s", test);
-				printf("%s\n", test);
 				//Je vais essayer de l'optimiser mais pour l'instant fonctionnne pour les NODES 
 				if (strcmp(test, "-------Nodes-----") == 0){
+					printf("\n%s\n", test);	
 					int x,y,w,h,d,node,directed,j;
 					j = 0;
-					printf("\n%s\n", test);	
+					fgets(lign, size, fichier);
+					sscanf(lign, "%s", test);
+					//Fonction de Victor pour les textures
+					
 					fgets(lign, size, fichier);
 					sscanf(lign, "%s", test);
 					node = atoi(test);
@@ -30,7 +35,7 @@ void readFile(const char* mission){
 					sscanf(lign, "%s", test);
 					directed = atoi(test);
 					if (directed == 0 || directed == 1){
-						printf("Fonction GRAPH ICI\n");
+						printf("Directed/undirected \n");
 						//put fonction de Victor ::: Graph* graph = createGraph(node, directed);
 					}
 					while (j != node){
@@ -51,18 +56,19 @@ void readFile(const char* mission){
 						printf("\nNode :%d \nx-->%d\ny-->%d\nw-->%d\nh-->%d\n\n", j,x,y,w,h);	
 						
 						// function ==> Vincent test	
-						//fonction de Victor récupérer les infos sur chaque node
 						// j : numéro du node = data 
 						// x / y / w / h pour Vincent 				
 					}
 				}
 				if (strcmp(test, "-------Edges------") == 0){
+					printf("\n%s\n", test);	
 					char* token;
 					fgets(lign, size, fichier);
 					sscanf(lign,"%s", test);
 					int k,i,m,n;
 					i = atoi(test);
 					k = 0;
+					printf("Number of edges : %d", i);
 					fgets(lign, size, fichier);
 					if (i != 0){
 						while (k != i){
@@ -82,11 +88,37 @@ void readFile(const char* mission){
 					}
 				}
 				
-				if (strcmp(test, "---------UI---------") == 0){
+				if (strcmp(test, "---------UI--------") == 0){
+					printf("\n%s\n", test);	
+					printf("ICI faire UI");
+					/*
 					
-					printf("\n%s\n", test);
-					//function UI
-				}
+					printf("\n%s\n", test);	
+					fgets(lign,size,fichier);
+					sscanf(lign,"%s", test);
+					printf("Texture : %s \n", test);
+					//function texture TEACH
+					int x,y,w,h,p,o;
+					fgets(lign,size,fichier);
+					sscanf(lign,"%s", test);
+					x = atoi(test);
+					fgets(lign,size,fichier);
+					sscanf(lign,"%s", test);
+					y = atoi(test);
+					fgets(lign,size,fichier);
+					sscanf(lign,"%s", test);
+					w = atoi(test);
+					fgets(lign,size,fichier);
+					sscanf(lign,"%s", test);
+					h = atoi(test);
+					printf("\nNode :%d \nx-->%d\ny-->%d\nw-->%d\nh-->%d\n\n", j,x,y,w,h);	
+					fgets(lign,size,fichier);
+					fgets(lign,size,fichier);
+					sscanf(lign,"%s", test);
+					p = atoi(test);
+					int o = 0;
+					while ()
+					//function UI*/				}
 		}
 	}
 	fclose(fichier);
