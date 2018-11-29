@@ -155,7 +155,7 @@ void printNodes(Graph* graph) {
     printf("\n");
 }
 
-void contamination(Graph* graph, NodeSDL** nodes, EdgeSDL** edges) {
+void contamination(Graph* graph, NodeSDL** nodes, EdgeSDL** edges, NodeTree* texTree) {
     int i = 0;
     for(i = 0; i < graph->size; i++){
         if(graph->array[i] != NULL && graph->array[i]->node->data == 1){
@@ -177,6 +177,7 @@ void contamination(Graph* graph, NodeSDL** nodes, EdgeSDL** edges) {
             else if(graph->array[i]->node->data == 2)
                 // Infect contaminated nodes
                 graph->array[i]->node->data = 1;
+                //graph->array[i]->nodeSDL->tex = searchTex(texTree, "Node", "Infected chick 2");
         }
     }
 }

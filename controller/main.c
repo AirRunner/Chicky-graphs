@@ -6,32 +6,30 @@
 
 void test(Graph* graph, RenderingSLL* renderingSLL, NodeTree* texTree)
 {
-    SDL_Texture* tex = texTree->children->next->child->children->child->texture;
-
     int h, w;
     h = w = 64;
 
-    createNode(graph, 1, &renderingSLL->nodes, createRect(0, 0, h, w), tex);
-    createNode(graph, 0, &renderingSLL->nodes, createRect(2*h, 0, h, w), tex);
-    createNode(graph, 0, &renderingSLL->nodes, createRect(4*h, h, h, w), tex);
-    createNode(graph, 0, &renderingSLL->nodes, createRect(2*h, 2*h, h, w), tex);
-    createNode(graph, 0, &renderingSLL->nodes, createRect(0, 2*h, h, w), tex);
-    createNode(graph, 0, &renderingSLL->nodes, createRect(0, 4*h, h, w), tex);
+    createNode(graph, 1, &renderingSLL->nodes, createRect(0, 0, h, w), searchTex(texTree, "Node", "Infected chick 2"));
+    createNode(graph, 0, &renderingSLL->nodes, createRect(2*h, 0, h, w), searchTex(texTree, "Node", "Basic chick 1"));
+    createNode(graph, 0, &renderingSLL->nodes, createRect(4*h, h, h, w), searchTex(texTree, "Node", "Basic chick 1"));
+    createNode(graph, 0, &renderingSLL->nodes, createRect(2*h, 2*h, h, w), searchTex(texTree, "Node", "Basic chick 1"));
+    createNode(graph, 0, &renderingSLL->nodes, createRect(0, 2*h, h, w), searchTex(texTree, "Node", "Basic chick 1"));
+    createNode(graph, 0, &renderingSLL->nodes, createRect(0, 4*h, h, w), searchTex(texTree, "Node", "Basic chick 1"));
 
-    addEdge(graph, 0, 1, 1, &renderingSLL->edges, tex);
-    addEdge(graph, 0, 4, 1, &renderingSLL->edges, tex);
-    addEdge(graph, 1, 2, 1, &renderingSLL->edges, tex);
-    addEdge(graph, 1, 3, 1, &renderingSLL->edges, tex);
-    addEdge(graph, 1, 4, 1, &renderingSLL->edges, tex);
-    addEdge(graph, 2, 3, 1, &renderingSLL->edges, tex);
-    addEdge(graph, 3, 4, 1, &renderingSLL->edges, tex);
+    addEdge(graph, 0, 1, 1, &renderingSLL->edges, NULL);
+    addEdge(graph, 0, 4, 1, &renderingSLL->edges, NULL);
+    addEdge(graph, 1, 2, 1, &renderingSLL->edges, NULL);
+    addEdge(graph, 1, 3, 1, &renderingSLL->edges, NULL);
+    addEdge(graph, 1, 4, 1, &renderingSLL->edges, NULL);
+    addEdge(graph, 2, 3, 1, &renderingSLL->edges, NULL);
+    addEdge(graph, 3, 4, 1, &renderingSLL->edges, NULL);
 
     // Contamination test
-    for(int i = 0; i < 1; i++){
+    for(int i = 0; i < 0; i++){
         printGraph(graph);
         printNodes(graph);
 
-        contamination(graph, &renderingSLL->nodes, &renderingSLL->edges);
+        contamination(graph, &renderingSLL->nodes, &renderingSLL->edges, texTree);
 
         printNodes(graph);
     }

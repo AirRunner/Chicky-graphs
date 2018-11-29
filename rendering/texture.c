@@ -1,3 +1,5 @@
+#include <string.h>
+#include <windows.h>
 #include "texture.h"
 
 EltTree* createEltTree(NodeTree* child)
@@ -115,8 +117,8 @@ void initTex(Game* game, NodeTree** textures)
     addChild(tmp, "Doubtful chick 2", createTex(game, "../data/Assets/Chicks/Doubtful chick 2.png"));
     addChild(tmp, "Embarrassed chick", createTex(game, "../data/Assets/Chicks/Embarrassed chick.png"));
     addChild(tmp, "Happy chick", createTex(game, "../data/Assets/Chicks/Happy chick.png"));
-    addChild(tmp, "Infected chick", createTex(game, "../data/Assets/Chicks/Infected chick 2.png"));
-    addChild(tmp, "Infected chick", createTex(game, "../data/Assets/Chicks/Infected chick.png"));
+    addChild(tmp, "Infected chick 1", createTex(game, "../data/Assets/Chicks/Infected chick 1.png"));
+    addChild(tmp, "Infected chick 2", createTex(game, "../data/Assets/Chicks/Infected chick 2.png"));
     addChild(tmp, "Mocking chick", createTex(game, "../data/Assets/Chicks/Mocking chick.png"));
     addChild(tmp, "Success chick 1", createTex(game, "../data/Assets/Chicks/Success chick 1.png"));
     addChild(tmp, "Success chick 2", createTex(game, "../data/Assets/Chicks/Success chick 2.png"));
@@ -146,4 +148,26 @@ SDL_Texture* createTex(Game* game, char* image)
         SDL_FreeSurface(tmpS);
         return tmpT;
     }
+}
+
+SDL_Texture* searchTex(NodeTree* textures, char* type, char* name){
+    EltTree* children = textures->children;
+    // Find the good type (edge, node or UI)
+    while(children != NULL && strcmp(children->child->name, type)){
+        children = children->next;
+    }
+    if(children == NULL){
+        printf("Type not found: %s\n", type);
+        return NULL;
+    }
+    children = children->child->children;
+    //Find the good texture
+    while(children != NULL && strcmp(children->child->name, name)){
+        children = children->next;
+    }
+    if(children == NULL){
+        printf("Texture not found: %s\n", name);
+        return NULL;
+    }
+    return children->child->texture;
 }

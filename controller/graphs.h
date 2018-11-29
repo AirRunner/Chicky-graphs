@@ -38,7 +38,7 @@ void deleteGraph(Graph** graph, NodeSDL** nodes, EdgeSDL** edges);
 void printGraph(Graph* graph);
 void printNodes(Graph* graph);
 
-void contamination(Graph* graph, NodeSDL** nodes, EdgeSDL** edges);
+void contamination(Graph* graph, NodeSDL** nodes, EdgeSDL** edges, NodeTree* texTree);
 int isGraphEmpty(Graph* graph);
 
 #endif
