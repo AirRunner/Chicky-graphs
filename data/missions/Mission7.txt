@@ -32,8 +32,10 @@ texture : Matrice
 
 Teach
 texture : Teacher_chick_2
-(x,y)
-(w,h)
+350
+600
+100
+78
 text1 = "Try to implement it using an Adjacency Matrix.
 	We use the same idea as before : But this time, you will have to think about the way of the arrow. In that way, connect poussins to each other using it."
 

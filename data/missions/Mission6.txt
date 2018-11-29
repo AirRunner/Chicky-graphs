@@ -27,8 +27,10 @@ Graph 1
 ---------UI--------
 Teach
 texture : Teacher_chick_2
-(x,y)
-(w,h) 
+350
+600
+100
+78
 text1 = "We’ve talked about undirected graphs before but there exists another kind of graphs : the directed graphs which can only be traversed in a one way.
 Let’s try ! "
 

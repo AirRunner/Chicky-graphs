@@ -1,8 +1,10 @@
 ---------UI--------
 Teach
 texture : Teacher_chick_2
-(x,y)
-(w,h)
+350
+600
+100
+78
 text1 = Image_Text1
 
 text2 = Image_Text2
