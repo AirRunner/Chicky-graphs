@@ -78,6 +78,9 @@ void handleEvents(Game* game)
                     case SDL_BUTTON_LEFT:
                         mouseLeftPressed(game, &event);
                         break;
+                    case SDL_BUTTON_RIGHT:
+                        mouseRightPressed(game, &event);
+                        break;
                     default:
                         break;
                 }
@@ -88,6 +91,9 @@ void handleEvents(Game* game)
                     case SDL_BUTTON_LMASK:
                         mouseLeftMove(game, &event);
                         break;
+                    case SDL_BUTTON_RMASK:
+                        mouseRightMove(game, &event);
+                        break;
                     default:
                         break;
                 }
@@ -97,6 +103,9 @@ void handleEvents(Game* game)
                 {
                     case SDL_BUTTON_LEFT:
                         mouseLeftReleased(game, &event);
+                        break;
+                    case SDL_BUTTON_RIGHT:
+                        mouseRightReleased(game, &event);
                         break;
                     default:
                         break;
@@ -196,6 +205,41 @@ void mouseLeftReleased(Game* game, SDL_Event* event)
     {
         checkEdgeCut(game, game->mouseLine, game->renderingSLL->edges, event);
         free(game->mouseLine);
+        game->mouseLine = NULL;
+    }
+}
+
+void mouseRightPressed(Game* game, SDL_Event* event)
+{
+    printf("Right Click!\n");
+    game->selectedRect = searchNodeUnderMouse(game->renderingSLL->nodes, event);
+    game->mouseLine = malloc(sizeof(SDL_Rect));
+    game->mouseLine->x = game->mouseLine->w = event->motion.x;
+    game->mouseLine->y = game->mouseLine->h = event->motion.y;
+}
+
+void mouseRightMove(Game* game, SDL_Event* event)
+{
+    if(game->mouseLine)
+    {
+        game->mouseLine->w += event->motion.xrel;
+        game->mouseLine->h += event->motion.yrel;
+    }
+}
+
+void mouseRightReleased(Game* game, SDL_Event* event){
+    printf("Right Released!\n");
+    if(game->mouseLine->x == game->mouseLine->w && game->mouseLine->y == game->mouseLine->h){
+        deleteNode(game->graph, searchNode(game->graph, game->selectedRect), &game->renderingSLL->nodes, &game->renderingSLL->edges);
+        free(game->mouseLine);
+        game->mouseLine = NULL;
+    }
+    else if(game->selectedRect){
+        free(game->mouseLine);
+        game->mouseLine = searchNodeUnderMouse(game->renderingSLL->nodes, event);
+        if(game->selectedRect != game->mouseLine){
+            addEdge(game->graph, searchNode(game->graph, game->mouseLine), searchNode(game->graph, game->selectedRect), 1, &game->renderingSLL->edges, NULL);
+        }
         game->mouseLine = NULL;
     }
 }

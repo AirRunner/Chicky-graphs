@@ -40,10 +40,16 @@ void initSDL(Game* game, const char* title, int xpos, int ypos, int width, int h
 
 void handleEvents(Game* game);
 
-void mouseLeftPressed(Game* game, SDL_Event* event);
 SDL_Rect* searchNodeUnderMouse(struct nodeSDL* nodes, SDL_Event* event);
+
+void mouseLeftPressed(Game* game, SDL_Event* event);
 void mouseLeftMove(Game* game, SDL_Event* event);
 void mouseLeftReleased(Game* game, SDL_Event* event);
+
+void mouseRightPressed(Game* game, SDL_Event* event);
+void mouseRightMove(Game* game, SDL_Event* event);
+void mouseRightReleased(Game* game, SDL_Event* event);
+
 void keyCPressed(Game* game, SDL_Event* event);
 void checkEdgeCut(Game* game, SDL_Rect* mouseLine, struct edgeSDL* edges, SDL_Event* event);
 
