@@ -164,16 +164,16 @@ SDL_Rect* searchNodeUnderMouse(struct nodeSDL* nodes, SDL_Event* event)
 
 void mouseLeftMove(Game* game, SDL_Event* event)
 {
-    printf("Left Move!\n");
+    //printf("Left Move!\n");
     if(game->selectedRect && game->selectedType == node)
     {
-        printf("x: %d, y: %d\n", game->selectedRect->x, game->selectedRect->y);
+        //printf("x: %d, y: %d\n", game->selectedRect->x, game->selectedRect->y);
         game->selectedRect->x += event->motion.xrel;
         game->selectedRect->y += event->motion.yrel;
     }
     if(game->mouseLine)
     {
-        printf("x1: %d, y1: %d, x2: %d, y2: %d\n", game->mouseLine->x, game->mouseLine->y, game->mouseLine->w, game->mouseLine->h);
+        //printf("x1: %d, y1: %d, x2: %d, y2: %d\n", game->mouseLine->x, game->mouseLine->y, game->mouseLine->w, game->mouseLine->h);
         game->mouseLine->w += event->motion.xrel;
         game->mouseLine->h += event->motion.yrel;
     }
@@ -185,9 +185,14 @@ void mouseLeftReleased(Game* game, SDL_Event* event)
     if(game->selectedRect)
     {
         printf("x: %d, y: %d\n", game->selectedRect->x, game->selectedRect->y);
+        game->selectedRect = NULL;
     }
-    game->selectedRect = NULL;
-    if(game->mouseLine)
+    else if(game->mouseLine->x == game->mouseLine->w && game->mouseLine->y == game->mouseLine->h){
+        createNode(game->graph, 0, &game->renderingSLL->nodes, createRect(game->mouseLine->x-32, game->mouseLine->y-32, 64, 64), searchTex(game->texTree, "Node", "Basic chick 1"));
+        free(game->mouseLine);
+        game->mouseLine = NULL;
+    }
+    else if(game->mouseLine)
     {
         checkEdgeCut(game, game->mouseLine, game->renderingSLL->edges, event);
         free(game->mouseLine);
@@ -208,7 +213,14 @@ void checkEdgeCut(Game* game, SDL_Rect* mouseLine, EdgeSDL* edges, SDL_Event* ev
 
     if(mouseLine->w != mouseLine->x)
     {
-        a1 = (mouseLine->h - mouseLine->y)/(mouseLine->w - mouseLine->x);
+        if(mouseLine->x > mouseLine->w)
+        {
+            a1 = (mouseLine->h - mouseLine->y)/(mouseLine->w - mouseLine->x);
+        }
+        if(mouseLine->w < mouseLine->x)
+        {
+            a1 = (mouseLine->h - mouseLine->y)/(mouseLine->x - mouseLine->w);
+        }
         b1 = a1*mouseLine->x - mouseLine->y;
     }
 
@@ -221,7 +233,14 @@ void checkEdgeCut(Game* game, SDL_Rect* mouseLine, EdgeSDL* edges, SDL_Event* ev
 
         if(x1 != x2)
         {
-            a2 = (y2 - y1)/(x2 - x1); //calculations done on paper
+            if(x2 > x1)
+            {
+                a2 = (y2 - y1)/(x2 - x1); //calculations done on paper
+            }
+            if(x1 > x2)
+            {
+                a2 = (y2 - y1)/(x1 - x2);
+            }
             b2 = a2*x1 - y1;
 
             if(a1 != a2 && mouseLine->w != mouseLine->x)
