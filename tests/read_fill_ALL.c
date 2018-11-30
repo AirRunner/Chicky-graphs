@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-//textures
-
 void readFile(const char* mission){
 	FILE * fichier = NULL;
 	char *lign = (char*)malloc(sizeof(char));
@@ -39,6 +37,7 @@ void readFile(const char* mission){
 						//put fonction de Victor ::: Graph* graph = createGraph(node, directed);
 					}
 					while (j != node){
+						//changer data mettre à 0
 						j++;
 						fgets(lign, size, fichier);
 						fgets(lign,size,fichier);
@@ -89,36 +88,58 @@ void readFile(const char* mission){
 				}
 				
 				if (strcmp(test, "---------UI--------") == 0){
+					int x,y,w,h,p;
 					printf("\n%s\n", test);	
-					printf("ICI faire UI");
-					/*
+					for (p=0; p <2;p++){
+						fgets(lign,size,fichier);
+						fgets(lign,size,fichier);
+						sscanf(lign,"%s", test);
+						printf("\nTexture : %s\n", test); 
+						// fonction /type
+						fgets(lign,size,fichier);
+						sscanf(lign,"%s", test);
+						x = atoi(test);
+						fgets(lign,size,fichier);
+						sscanf(lign,"%s", test);
+						y = atoi(test);
+						fgets(lign,size,fichier);
+						sscanf(lign,"%s", test);
+						w = atoi(test);
+						fgets(lign,size,fichier);
+						sscanf(lign,"%s", test);
+						h = atoi(test);
+						printf("\ncoordonnées : \nx-->%d\ny-->%d\nw-->%d\nh-->%d\n\n",x,y,w,h);	
+					}
+					fgets(lign,size,fichier);
+					fgets(lign,size,fichier);
+					sscanf(lign,"%s", test);
+					if (strcmp(test, "-Text-") == 0){
+						char *textlire;
+						int i,l;
+						fgets(lign,size,fichier);
+						sscanf(lign,"%s", test);
+						i = atoi(test);
+						for (l=0; l <i;l++){
+							fgets(lign,size,fichier);
+							sscanf(lign,"%s", test);
+							if (strcmp("**", test) == 0){
+								fgets(lign,size,fichier);
+								sscanf(lign,"%s", test);
+								printf("\n%s\n", test);
+								//token = strtok(str, "_");
+								//	while( token != NULL ) {
+								//		printf( " %s\n", token );
+										//token = strtok(NULL, s);
+									//}
+								// strcat(textfile, " ");
+								//strtok();							
+							
+							}
+						} 
+						
+					}
 					
-					printf("\n%s\n", test);	
-					fgets(lign,size,fichier);
-					sscanf(lign,"%s", test);
-					printf("Texture : %s \n", test);
-					//function texture TEACH
-					int x,y,w,h,p,o;
-					fgets(lign,size,fichier);
-					sscanf(lign,"%s", test);
-					x = atoi(test);
-					fgets(lign,size,fichier);
-					sscanf(lign,"%s", test);
-					y = atoi(test);
-					fgets(lign,size,fichier);
-					sscanf(lign,"%s", test);
-					w = atoi(test);
-					fgets(lign,size,fichier);
-					sscanf(lign,"%s", test);
-					h = atoi(test);
-					printf("\nNode :%d \nx-->%d\ny-->%d\nw-->%d\nh-->%d\n\n", j,x,y,w,h);	
-					fgets(lign,size,fichier);
-					fgets(lign,size,fichier);
-					sscanf(lign,"%s", test);
-					p = atoi(test);
-					int o = 0;
-					while ()
-					//function UI*/				}
+			}
 		}
 	}
 	fclose(fichier);
@@ -134,92 +155,3 @@ int main() {
 	
 	return(0);
 }
-
-
-/*
-SEEK_CUR
-	
-	
-if (strcmp(test, "-------Nodes------") == 0){
-	printf("%s", test);
-	SEEK_CUR : on balaye le fichier une première fois
-	fgets(lign,size,fichier);
-convert string into integer
-	nodes = atoi(lign);
-	for ( i = 0; i<nodes ; i++){
-	fgets(lign,size,fichier);
-	}
-	
-void Missions(){
-		
-	char* Mission_10 =ReadOnFileMission("IDEE.txt");
-	printf("\n\n\n\nThe file  contains this text\n\n%s", Mission_10);
-}
-
-
-size =  printf("%lu", sizeof(buffer)); 
-
-char *ReadOnFileMission(const char *name){
-	char* buffer;
-	FILE *fichier = NULL;
-	long    number;
-	fichier = fopen(name,"r");
-
-	if (fichier != NULL){
-		fseek(fichier, 0L, SEEK_END);
-		number = ftell(fichier);
-		fseek(fichier, 0L, SEEK_SET);
-		buffer = (char*)calloc(number, sizeof(char));	
-		fread(buffer, sizeof(char), number, fichier);
-		}
-	fclose(fichier);
-	//printf("The file  contains this text\n\n%s", buffer);
-	return(buffer);	
-}
-	while (node){
-			do {
-				fgets(lign,size,fichier);
-				sscanf(lign,"%s", test);
-			}while (test == NULL);
-			printf("TEST");
-			
-		}
-		
-		do{
-			fgets(lign,size,fichier);
-			sscanf(lign,"%s", test);
-			x = atoi(test);
-			fgets(lign,size,fichier);
-			sscanf(lign,"%s", test);
-			y = atoi(test);
-			fgets(lign,size,fichier);
-			sscanf(lign,"%s", test);
-			w = atoi(test);
-			fgets(lign,size,fichier);
-			sscanf(lign,"%s", test);
-			h = atoi(test);
-			printf("%d\n  %d\n  %d\n  %d\n", x,y,w,h);
-			
-		}while (strcmp(test, "-----") != 0);
-
-		
-		
-		fgets(lign,size,fichier);
-		sscanf(lign,"%s", test);
-		
-		if ( strcmp(res,"N") == 0){
-			fgets(lign,size,fichier);
-			sscanf(lign,"%s", test);
-			x = atoi(test);
-			fgets(lign,size,fichier);
-			sscanf(lign,"%s", test);
-			y = atoi(test);
-			fgets(lign,size,fichier);
-			sscanf(lign,"%s", test);
-			w = atoi(test);
-			fgets(lign,size,fichier);
-			sscanf(lign,"%s", test);
-			h = atoi(test);
-				//createNodeSDL
-				//createNode( graph, k, NodeSDL** nodes, SDL_Rect* destRect, SDL_Texture* tex)
-		}*/
