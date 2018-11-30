@@ -1,35 +1,53 @@
 -------Nodes-----
-Nodes 5
+5
+0
 
 N1
-(400,400)
-(64,64) 
+400
+400
+64
+64 
 
 N2
-(500,y)
-(64,64)
+500
+y
+64
+64
  
 N3
-(x,y)
-(64,64)
+x
+y
+64
+64
 
 N4
-(x,y)
-(64,64)
+x
+y
+64
+64
 
 N5
-(x,y)
-(64,64)
+x
+y
+64
+64
 
--------Edges------
-Graph 0
 
 ---------UI--------
 
+Next_button
+texture : Next_yellow
+x
+y
+w
+h
+
 MATRICE_Data
 texture : Matrice
-(x,y)
-(w,h)
+x
+y
+w
+h
 
 Teach
 texture : Teacher_chick_2
@@ -38,20 +56,13 @@ texture : Teacher_chick_2
 100
 78
 
-text1 = "Try to implement it using an Adjacency Matrix.
-The idea is using the matrice which which is a 2D array corresponding to number poussin^2.
-If there is an edge between two poussins, there is a T for true inside the matrice at the corresponding place. In that way, connect poussins to each other using it."
+-Text-
+2
+***
+Try_to_implement_the_graph_using_an_Adjacency_Matrix._To_do_so,_you_have_to_use_the_matrix_which_is_a_2D_array_corresponding_to_number_of_chicks_poussin_squared._If_there_is_an_edge_between_two_poussins,_there_is_a_T_(True)_inside_the_matrix_at_the_corresponding_place.
+***
+Here,_using_a_boolean_matrix_to_express_the_graph_(an_adjacency_matrix),_you've_just_created_the_corresponding_graph.
 
-text2 = "So here using a boolean matrix to express the graph: an adjacency matrix, you have create a graph.
-The problem is that it uses many space and you will have some difficulties to delete a node ( chick) if you want to delete it from the matrix."
-
-
-
-Validation_button
-texture : Validation_yellow
-texture : Validation_green
-(x,y)
-(w,h)
 
 
 

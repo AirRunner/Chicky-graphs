@@ -34,7 +34,7 @@ void readFile(const char* mission){
 					sscanf(lign, "%s", test);
 					directed = atoi(test);
 					if (directed == 0 || directed == 1){
-						printf("Directed/undirected \n");
+						printf("Directed: %s\n", directed);
 //Graph* graph = createGraph(node, directed);
 					}
 					while (j != node){
@@ -56,7 +56,7 @@ void readFile(const char* mission){
 						fgets(lign,size,fichier);
 						sscanf(lign,"%s", test);
 						d = atoi(test);
-						printf("\nNode :%d \nx-->%d\ny-->%d\nw-->%d\nh-->%d\n\n", d,x,y,w,h);
+						printf("\nNode :\nd-->%d \nx-->%d\ny-->%d\nw-->%d\nh-->%d\n\n", d,x,y,w,h);
 //createNode(Graph* graph, int data, NodeSDL** nodes, SDL_Rect* destRect, SDL_Texture* tex);		
 						// x / y / w / h pour Vincent 	+ 1 data 0 contamined
 					}
@@ -69,7 +69,7 @@ void readFile(const char* mission){
 					int k,i,m,n;
 					i = atoi(test);
 					k = 0;
-					printf("Number of edges : %d", i);
+					printf("Number of edges : %d\n", i);
 					fgets(lign, size, fichier);
 					if (i != 0){
 						while (k != i){
@@ -77,11 +77,10 @@ void readFile(const char* mission){
 							sscanf(lign,"%s", test);
 							token =   strtok(test, "-");
 							m = atoi(test);
-							printf( "Source: %s\n", token );
 							token = strtok(NULL, "-");
-							n = atoi(test);
-							printf( "Destinataire: %s\n", token );
+							n = atoi(token);
 							token = strtok(NULL,"-");
+							printf("Source: %d Destinataire: %d\n", m,n);
 							k++;
 							//addEdge( graph,  m,  n,  1, edges, texArrow)  
 						}
@@ -89,9 +88,12 @@ void readFile(const char* mission){
 				}
 				
 				if (strcmp(test, "---------UI--------") == 0){
-					int x,y,w,h,p;
+					int x,y,w,h,p,q;
 					printf("\n%s\n", test);	
-					for (p=0; p <2;p++){
+					fgets(lign,size,fichier);
+					sscanf(lign,"%s", test);
+					q = atoi(test);
+					for (p=0; p <q;p++){
 						fgets(lign,size,fichier);
 						fgets(lign,size,fichier);
 						sscanf(lign,"%s", test);
@@ -152,8 +154,19 @@ void readFile(const char* mission){
 	
 
 int main() {
-	
+	printf("The menu: \n");
+	readFile("../data/missions/Menu.txt");/*
 	readFile("../data/missions/Mission3.txt");
+	readFile("../data/missions/Mission3.txt");
+	readFile("../data/missions/Mission3.txt");
+	readFile("../data/missions/Mission3.txt");
+	readFile("../data/missions/Mission3.txt");
+	readFile("../data/missions/Mission3.txt");
+	readFile("../data/missions/Mission3.txt");
+	readFile("../data/missions/Mission3.txt");
+	readFile("../data/missions/Mission3.txt");
+	readFile("../data/missions/Mission3.txt");
+	readFile("../data/missions/Mission3.txt");*/
 	
 	
 	return(0);
