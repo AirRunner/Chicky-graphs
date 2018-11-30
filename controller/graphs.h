@@ -10,7 +10,7 @@ typedef struct edge {
 } Edge;
 
 typedef struct node {
-    int data;
+    int data; // 0 for basic and 1 for infected
     struct edge* list;
 } Node;
 

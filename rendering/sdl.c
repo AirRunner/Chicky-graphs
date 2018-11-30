@@ -206,7 +206,10 @@ void mouseLeftReleased(Game* game, SDL_Event* event)
     }
     else if(game->mouseLine->x == game->mouseLine->w && game->mouseLine->y == game->mouseLine->h){
         // Create a node
-        createNode(game->graph, 0, &game->renderingSLL->nodes, createRect(game->mouseLine->x-32, game->mouseLine->y-32, 64, 64), searchTex(game->texTree, "Node", "Basic chick 1"));
+        int h, w;
+        SDL_QueryTexture(searchTex(game->texTree, "Node", "Basic chick"), NULL, NULL, &h, &w);
+        h = w = h/4;
+        createNode(game->graph, 0, &game->renderingSLL->nodes, createRect(game->mouseLine->x-h/2, game->mouseLine->y-h/2, h, w), searchTex(game->texTree, "Node", "Basic chick"));
         free(game->mouseLine);
         game->mouseLine = NULL;
     }
@@ -272,12 +275,12 @@ void keyIPressed(Game* game, SDL_Event* event){
         if(game->graph->array[searchNode(game->graph, game->selectedRect)]->node->data == 0){
             // Infect the node
             game->graph->array[searchNode(game->graph, game->selectedRect)]->node->data = 1;
-            game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL->tex = searchTex(game->texTree, "Node", "Infected chick 2");
+            changeTexture(game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL, game->texTree, "Infected chick background 2");
         }
         else{
             // Disinfect the node
             game->graph->array[searchNode(game->graph, game->selectedRect)]->node->data = 0;
-            game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL->tex = searchTex(game->texTree, "Node", "Basic chick 1");
+            changeTexture(game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL, game->texTree, "Basic chick");
         }
     }
 }
@@ -304,10 +307,10 @@ void checkEdgeCut(Game* game, SDL_Rect* mouseLine, EdgeSDL* edges, SDL_Event* ev
 
     while(edges)
     {
-        x1 = edges->srcRect->x + 32;
-        y1 = edges->srcRect->y + 32;
-        x2 = edges->destRect->x + 32;
-        y2 = edges->destRect->y + 32;
+        x1 = edges->srcRect->x + edges->srcRect->w/2;
+        y1 = edges->srcRect->y + edges->srcRect->h/2;
+        x2 = edges->destRect->x + edges->srcRect->w/2;
+        y2 = edges->destRect->y + edges->srcRect->h/2;
 
         if(x1 != x2)
         {
@@ -379,6 +382,7 @@ void render(Game* game)
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
     SDL_RenderClear(game->renderer);
     //rendering stuff
+    SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
     renderRenderingSLL(game->renderingSLL, game);
     if(game->mouseLine)
     {

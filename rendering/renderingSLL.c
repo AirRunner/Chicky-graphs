@@ -78,7 +78,6 @@ void renderEdges(EdgeSDL* edges, Game* game)
         y1 = edges->srcRect->y + edges->srcRect->h/2;
         x2 = edges->destRect->x + edges->destRect->w/2;
         y2 = edges->destRect->y + edges->destRect->h/2;
-        SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
         SDL_RenderDrawLine(game->renderer, x1, y1, x2, y2);
         edges = edges->next;
     }
@@ -145,6 +144,19 @@ void renderNodes(NodeSDL* nodes, Game* game)
         SDL_RenderCopy(game->renderer, nodes->tex, NULL, nodes->destRect);
         nodes = nodes->next;
     }
+}
+
+void changeTexture(NodeSDL* node, NodeTree* texTree, char* texName){
+    int h, w;
+    SDL_QueryTexture(searchTex(texTree, "Node", texName), NULL, NULL, &h, &w);
+    h /= 4; w /= 4;
+    // Resize the SDL Rect
+    node->destRect->x -= (w-node->destRect->w)/2;
+    node->destRect->y -= (h-node->destRect->h)/2;
+    node->destRect->w = w;
+    node->destRect->h = h;
+    // Change texture
+    node->tex = searchTex(texTree, "Node", texName);
 }
 
 

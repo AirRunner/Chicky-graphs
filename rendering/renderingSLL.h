@@ -47,6 +47,8 @@ NodeSDL* addNodeSDL(NodeSDL** nodes, SDL_Rect* destRect, SDL_Texture* tex);
 void removeNodeSDL(NodeSDL** nodes, SDL_Rect* destRect);
 void renderNodes(NodeSDL* nodes, Game* game);
 
+void changeTexture(NodeSDL* node, NodeTree* texTree, char* texName);
+
 UI* createUI(SDL_Rect* destRect, SDL_Texture* tex);
 void addUI(UI** nodes, SDL_Rect* destRect, SDL_Texture* tex);
 void removeUI(UI** nodes, SDL_Rect* destRect);

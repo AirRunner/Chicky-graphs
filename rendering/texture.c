@@ -106,11 +106,11 @@ void initTex(Game* game, NodeTree** textures)
     tmp = children->child;
 
     addChild(tmp, "Bad answer chick", createTex(game, "../data/Assets/Chicks/Bad answer chick.png"));
-    addChild(tmp, "Basic chick 1", createTex(game, "../data/Assets/Chicks/Basic chick 1.png"));
-    addChild(tmp, "Basic chick 2", createTex(game, "../data/Assets/Chicks/Basic chick 2.png"));
+    addChild(tmp, "Basic chick", createTex(game, "../data/Assets/Chicks/Basic chick.png"));
     addChild(tmp, "Blink chick", createTex(game, "../data/Assets/Chicks/Blink chick.png"));
     addChild(tmp, "Boss chick", createTex(game, "../data/Assets/Chicks/Boss chick.png"));
     addChild(tmp, "Connected chick", createTex(game, "../data/Assets/Chicks/Connected chick.png"));
+    addChild(tmp, "Crazy chick", createTex(game, "../data/Assets/Chicks/Crazy chick.png"));
     addChild(tmp, "Dead chick", createTex(game, "../data/Assets/Chicks/Dead chick.png"));
     addChild(tmp, "Doubtful chick 1", createTex(game, "../data/Assets/Chicks/Doubtful chick 1.png"));
     addChild(tmp, "Doubtful chick 2", createTex(game, "../data/Assets/Chicks/Doubtful chick 2.png"));
@@ -118,7 +118,10 @@ void initTex(Game* game, NodeTree** textures)
     addChild(tmp, "Happy chick", createTex(game, "../data/Assets/Chicks/Happy chick.png"));
     addChild(tmp, "Infected chick 1", createTex(game, "../data/Assets/Chicks/Infected chick 1.png"));
     addChild(tmp, "Infected chick 2", createTex(game, "../data/Assets/Chicks/Infected chick 2.png"));
+    addChild(tmp, "Infected chick background 1", createTex(game, "../data/Assets/Chicks/Infected chick background 1.png"));
+    addChild(tmp, "Infected chick background 2", createTex(game, "../data/Assets/Chicks/Infected chick background 2.png"));
     addChild(tmp, "Mocking chick", createTex(game, "../data/Assets/Chicks/Mocking chick.png"));
+    addChild(tmp, "Reflecting chick", createTex(game, "../data/Assets/Chicks/Reflecting chick.png"));
     addChild(tmp, "Success chick 1", createTex(game, "../data/Assets/Chicks/Success chick 1.png"));
     addChild(tmp, "Success chick 2", createTex(game, "../data/Assets/Chicks/Success chick 2.png"));
     addChild(tmp, "Surprised chick", createTex(game, "../data/Assets/Chicks/Surprised chick.png"));

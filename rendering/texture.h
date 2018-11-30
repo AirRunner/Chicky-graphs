@@ -25,7 +25,6 @@ NodeTree* freeTree(NodeTree* node);
 
 void printTreePrefixe(NodeTree* root);
 
-
 void initTex(Game* game, NodeTree** textures);
 SDL_Texture* createTex(Game* game, char* image);
 SDL_Texture* searchTex(NodeTree* textures, char* type, char* name);
