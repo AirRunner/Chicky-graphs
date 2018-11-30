@@ -1,33 +1,31 @@
+
 -------Nodes-----
-texture_Basic_chick
-texture_Sick_chick
-5
+texture_Basic_chick_texture_Sick_chick
+2
 0
 
-N1
 500
 100
 64
 64
+1
 
-N2 
+1000
+400
+64
+64
+1
+
+---------UI--------
+2
+
+texture_Next_yellow
 1000
 400
 64
 64
 
----------UI--------
-
-Next_button
-texture : Next_yellow
-x
-Y
-W
-H
-
-
-Teach
-texture : Teacher_chick_2
+texture_Teacher_chick_2
 350
 600
 100

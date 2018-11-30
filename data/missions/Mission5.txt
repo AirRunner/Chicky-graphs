@@ -1,56 +1,55 @@
+
 -------Nodes-----
+texture_Basic_chick_1
 5
 0
 
-N1
-x
-y
-w
-h
+1
+2
+3
+4
+0
 
-N2
-x
-y
-w
-h
+1
+2
+3
+4
+0
  
-N3
-x
-y
-w
-h 
+1
+2
+3
+4
+0 
 
-N4
-x
-y
-w
-h
+1
+2
+3
+4
+0
 
-N5
-x
-y
-w
-h
+1
+2
+3
+4
+0
 
 ---------UI--------
-Next_button
-texture : Next_yellow
-x
-y
-w
-h
+3
 
+texture_Next_yellow
+1
+2
+3
+4
 
-LIST_Data
-texture : List
-x
-y
-w
-h
+texture_List
+1
+2
+3
+4
 
-
-Teach
-texture : Teacher_chick_2
+texture_Teacher_chick_2
 350
 600
 100

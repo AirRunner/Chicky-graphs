@@ -1,21 +1,21 @@
+
 ---------UI--------
+2
 
-Next_button
-texture : Next_yellow
-x
-y
-W
-H
+texture_Next_yellow
+1
+2
+3
+4
 
-
-Teach
-texture : Teacher_chick_2
+texture_Teacher_chick_2
 350
 600
 100
 78
 
 -Text-
+6
 ***
 Welcome_to_Chicky_Graphs._Here_at_Tardigradus_Farm,_many_eggs_have_just_hatched._Mike_the_farmer_needs_some_help_to_watch_the_newborn_chicks._Come_and_discover_the_farm’s_life,_and_watch_the_chicks_grow_together.
 ***

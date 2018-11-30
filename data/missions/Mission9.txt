@@ -1,29 +1,34 @@
+
 ---------UI--------
+5
 
-Next_button
-texture : Next_yellow
-x
-y
-w
-h 
+texture_Next_yellow
+1
+2
+3
+4
 
-Teach
-texture : Teacher_chick_2
+texture_Teacher_chick_2
 350
 600
 100
 78
 
--Text-
-text1 = Image_Text1
+Image_Text1
+1
+2
+3
+4
 
-text2 = Image_Text2
+Image_Text2
+1
+2
+34
+4
 
-text3 = Image_Text3
-
-
-
-
-
-
+Image_Text3
+1
+2
+3
+4
 
