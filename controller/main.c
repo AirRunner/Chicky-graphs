@@ -6,6 +6,7 @@
 
 void test(Graph* graph, RenderingSLL* renderingSLL, NodeTree* texTree)
 {
+    // Hello
     int h, w, hi, wi;
     SDL_QueryTexture(searchTex(texTree, "Node", "Basic chick"), NULL, NULL, &h, &w);
     SDL_QueryTexture(searchTex(texTree, "Node", "Infected chick background 2"), NULL, NULL, &hi, &wi);
