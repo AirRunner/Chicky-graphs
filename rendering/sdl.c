@@ -284,41 +284,43 @@ void keyIPressed(Game* game, SDL_Event* event){
 
 void checkEdgeCut(Game* game, SDL_Rect* mouseLine, EdgeSDL* edges, SDL_Event* event)
 {
-    int x1, y1, x2, y2;
-    int a1, b1, a2, b2; //the coefficients for ax+b
-    int xpoint, ypoint; //the point of intersection of the two ligns
+    float x1, y1, x2, y2;
+    float a1, b1, a2, b2; //the coefficients for ax+b
+    float xpoint, ypoint; //the point of intersection of the two ligns
 
     if(mouseLine->w != mouseLine->x)
     {
-        if(mouseLine->x > mouseLine->w)
-        {
-            a1 = (mouseLine->h - mouseLine->y)/(mouseLine->w - mouseLine->x);
-        }
-        if(mouseLine->w < mouseLine->x)
-        {
-            a1 = (mouseLine->h - mouseLine->y)/(mouseLine->x - mouseLine->w);
-        }
-        b1 = a1*mouseLine->x - mouseLine->y;
+        //if(mouseLine->x > mouseLine->w)
+        //{
+        //    a1 = (mouseLine->h - mouseLine->y)/(mouseLine->w - mouseLine->x);
+        //}
+        //if(mouseLine->w < mouseLine->x)
+        //{
+        //    a1 = (mouseLine->h - mouseLine->y)/(mouseLine->x - mouseLine->w);
+        //}
+        a1 = (float)(mouseLine->h - mouseLine->y)/(float)(mouseLine->w - mouseLine->x);
+        b1 = mouseLine->y - a1*(float)mouseLine->x;
     }
 
     while(edges)
     {
-        x1 = edges->srcRect->x;
-        y1 = edges->srcRect->y;
-        x2 = edges->destRect->x;
-        y2 = edges->destRect->y;
+        x1 = edges->srcRect->x + 32;
+        y1 = edges->srcRect->y + 32;
+        x2 = edges->destRect->x + 32;
+        y2 = edges->destRect->y + 32;
 
         if(x1 != x2)
         {
-            if(x2 > x1)
-            {
-                a2 = (y2 - y1)/(x2 - x1); //calculations done on paper
-            }
-            if(x1 > x2)
-            {
-                a2 = (y2 - y1)/(x1 - x2);
-            }
-            b2 = a2*x1 - y1;
+            //if(x2 > x1)
+            //{
+            //    a2 = (y2 - y1)/(x2 - x1); //calculations done on paper
+            //}
+            //if(x1 > x2)
+            //{
+            //    a2 = (y2 - y1)/(x1 - x2);
+            //}
+            a2 = (y2 - y1)/(x2 - x1); //calculations done on paper
+            b2 = y1 - a2*x1;
 
             if(a1 != a2 && mouseLine->w != mouseLine->x)
             {
@@ -350,13 +352,15 @@ void checkEdgeCut(Game* game, SDL_Rect* mouseLine, EdgeSDL* edges, SDL_Event* ev
             }
         }
 
-        printf("xpoint: %d, ypoint: %d\n", xpoint, ypoint);
+        printf("x1: %f, y1: %f, x2: %f, y2: %f\n", x1, y1, x2, y2);
+        printf("xpoint: %f, ypoint: %f\n", xpoint, ypoint);
 
         if(xpoint != -1 && ypoint != -1)
         {
-            if(((xpoint > x1 && xpoint < x2) || (xpoint < x1 && xpoint > x2)) && ((ypoint > y1 && ypoint < y2) || (ypoint < y1 && ypoint > y2)))
+            if(((xpoint >= x1 && xpoint <= x2) || (xpoint <= x1 && xpoint >= x2)) && ((ypoint >= y1 && ypoint <= y2) || (ypoint <= y1 && ypoint >= y2)) && ((xpoint >= mouseLine->x && xpoint <= mouseLine->w) || (xpoint <= mouseLine->x && xpoint >= mouseLine->w)) && ((ypoint >= mouseLine->y && ypoint <= mouseLine->h) || (ypoint <= mouseLine->y && ypoint >= mouseLine->h)))
             {
                 deleteEdge(game->graph, searchNode(game->graph, edges->srcRect), searchNode(game->graph, edges->destRect), &game->renderingSLL->edges);
+                deleteEdge(game->graph, searchNode(game->graph, edges->destRect), searchNode(game->graph, edges->srcRect), &game->renderingSLL->edges);
             }
         }
 
