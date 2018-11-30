@@ -6,7 +6,8 @@ void readFile(const char* mission){
 	FILE * fichier = NULL;
 	char *lign = (char*)malloc(sizeof(char));
 	char *test = (char*)malloc(sizeof(char));
-	long size;  
+	long size; 
+	int x,y,w,h; 
 	fichier = fopen(mission, "r");
 	if (fichier != NULL){
 		// pointer points to the end to get the size 
@@ -17,13 +18,13 @@ void readFile(const char* mission){
 		while (fgets(lign,size,fichier) != NULL){
 				//reads formatted input from a string
 				sscanf(lign, "%s", test);
-				//Je vais essayer de l'optimiser mais pour l'instant fonctionnne pour les NODES 
 				if (strcmp(test, "-------Nodes-----") == 0){
 					printf("\n%s\n", test);	
 					int x,y,w,h,d,node,directed,j;
 					j = 0;
 					fgets(lign, size, fichier);
 					sscanf(lign, "%s", test);
+					printf("Texture : %s\n",test);
 					//Fonction de Victor pour les textures
 					
 					fgets(lign, size, fichier);
@@ -34,7 +35,7 @@ void readFile(const char* mission){
 					directed = atoi(test);
 					if (directed == 0 || directed == 1){
 						printf("Directed/undirected \n");
-						//put fonction de Victor ::: Graph* graph = createGraph(node, directed);
+//Graph* graph = createGraph(node, directed);
 					}
 					while (j != node){
 						//changer data mettre à 0
@@ -52,11 +53,12 @@ void readFile(const char* mission){
 						fgets(lign,size,fichier);
 						sscanf(lign,"%s", test);
 						h = atoi(test);
-						printf("\nNode :%d \nx-->%d\ny-->%d\nw-->%d\nh-->%d\n\n", j,x,y,w,h);	
-						
-						// function ==> Vincent test	
-						// j : numéro du node = data 
-						// x / y / w / h pour Vincent 				
+						fgets(lign,size,fichier);
+						sscanf(lign,"%s", test);
+						d = atoi(test);
+						printf("\nNode :%d \nx-->%d\ny-->%d\nw-->%d\nh-->%d\n\n", d,x,y,w,h);
+//createNode(Graph* graph, int data, NodeSDL** nodes, SDL_Rect* destRect, SDL_Texture* tex);		
+						// x / y / w / h pour Vincent 	+ 1 data 0 contamined
 					}
 				}
 				if (strcmp(test, "-------Edges------") == 0){
@@ -81,8 +83,7 @@ void readFile(const char* mission){
 							printf( "Destinataire: %s\n", token );
 							token = strtok(NULL,"-");
 							k++;
-							// Fonction Victor : EDGES
-							// poids = 1 mettre 
+							//addEdge( graph,  m,  n,  1, edges, texArrow)  
 						}
 					}
 				}
@@ -114,7 +115,8 @@ void readFile(const char* mission){
 					fgets(lign,size,fichier);
 					sscanf(lign,"%s", test);
 					if (strcmp(test, "-Text-") == 0){
-						char *textlire;
+						char *textlire= (char*)malloc(sizeof(char));
+						char *toke;
 						int i,l;
 						fgets(lign,size,fichier);
 						sscanf(lign,"%s", test);
@@ -122,18 +124,19 @@ void readFile(const char* mission){
 						for (l=0; l <i;l++){
 							fgets(lign,size,fichier);
 							sscanf(lign,"%s", test);
-							if (strcmp("**", test) == 0){
+							if (strcmp("***", test) == 0){
 								fgets(lign,size,fichier);
-								sscanf(lign,"%s", test);
-								printf("\n%s\n", test);
-								//token = strtok(str, "_");
-								//	while( token != NULL ) {
-								//		printf( " %s\n", token );
-										//token = strtok(NULL, s);
-									//}
-								// strcat(textfile, " ");
-								//strtok();							
-							
+								sscanf(lign,"%s", test);					
+								toke = strtok(test, "_");
+								strcpy(textlire, "");
+								while( toke != NULL ) {
+									strcat(textlire, toke);
+									toke = strtok(NULL, "_");
+									strcat(textlire," ");
+									}					
+									//ici save le texte
+								printf("\n%s\n", textlire);
+								
 							}
 						} 
 						
