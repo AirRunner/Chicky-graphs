@@ -213,9 +213,11 @@ void mouseRightPressed(Game* game, SDL_Event* event)
 {
     printf("Right Click!\n");
     game->selectedRect = searchNodeUnderMouse(game->renderingSLL->nodes, event);
-    game->mouseLine = malloc(sizeof(SDL_Rect));
-    game->mouseLine->x = game->mouseLine->w = event->motion.x;
-    game->mouseLine->y = game->mouseLine->h = event->motion.y;
+    if(game->selectedRect){
+        game->mouseLine = malloc(sizeof(SDL_Rect));
+        game->mouseLine->x = game->mouseLine->w = event->motion.x;
+        game->mouseLine->y = game->mouseLine->h = event->motion.y;
+    }
 }
 
 void mouseRightMove(Game* game, SDL_Event* event)
@@ -229,18 +231,20 @@ void mouseRightMove(Game* game, SDL_Event* event)
 
 void mouseRightReleased(Game* game, SDL_Event* event){
     printf("Right Released!\n");
-    if(game->mouseLine->x == game->mouseLine->w && game->mouseLine->y == game->mouseLine->h){
-        deleteNode(game->graph, searchNode(game->graph, game->selectedRect), &game->renderingSLL->nodes, &game->renderingSLL->edges);
-        free(game->mouseLine);
-        game->mouseLine = NULL;
-    }
-    else if(game->selectedRect){
-        free(game->mouseLine);
-        game->mouseLine = searchNodeUnderMouse(game->renderingSLL->nodes, event);
-        if(game->selectedRect != game->mouseLine){
-            addEdge(game->graph, searchNode(game->graph, game->mouseLine), searchNode(game->graph, game->selectedRect), 1, &game->renderingSLL->edges, NULL);
+    if(game->mouseLine){
+        if(game->mouseLine->x == game->mouseLine->w && game->mouseLine->y == game->mouseLine->h){
+            deleteNode(game->graph, searchNode(game->graph, game->selectedRect), &game->renderingSLL->nodes, &game->renderingSLL->edges);
+            free(game->mouseLine);
+            game->mouseLine = NULL;
         }
-        game->mouseLine = NULL;
+        else if(game->selectedRect){
+            free(game->mouseLine);
+            game->mouseLine = searchNodeUnderMouse(game->renderingSLL->nodes, event);
+            if(game->mouseLine && game->selectedRect != game->mouseLine){
+                addEdge(game->graph, searchNode(game->graph, game->mouseLine), searchNode(game->graph, game->selectedRect), 1, &game->renderingSLL->edges, NULL);
+            }
+            game->mouseLine = NULL;
+        }
     }
 }
 

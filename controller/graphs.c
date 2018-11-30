@@ -129,7 +129,7 @@ void deleteNode(Graph* graph, int id, NodeSDL** nodes, EdgeSDL** edges) {
 // Find the id of a node given its SDL Rect
 int searchNode(Graph* graph, SDL_Rect* Rect){
     int id = 0;
-    while(id < graph->size && graph->array[id]->nodeSDL->destRect != Rect){
+    while(id < graph->size && (!graph->array[id] || graph->array[id]->nodeSDL->destRect != Rect)){
         id++;
     }
     if(id == graph->size){
