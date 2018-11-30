@@ -1,21 +1,27 @@
 ---------UI--------
+
+Next_button
+texture : Validation_yellow
+x
+y
+w
+h 
+
 Teach
 texture : Teacher_chick_2
 350
 600
 100
 78
+
+-Text-
 text1 = Image_Text1
 
 text2 = Image_Text2
 
 text3 = Image_Text3
 
-Validation_button
-texture : Validation_yellow
-texture : Validation_green
-(x,y)
-(w,h) 
+
 
 
 

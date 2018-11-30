@@ -69,21 +69,30 @@ h
 
 Logo 
 texture : logo
-(x, y)
-(w, h)
+x
+Y
+W
+H
 
 Menu_Adventure
 texture : Adventure_Bubble 
-(x, y)
-(w, h)
+x
+Y
+W
+H
+
 
 Menu_Resume
 texture : Resume_Bubble
-(x, y)
-(w, h)
+x
+Y
+W
+H
 
 Menu_Sandbox
 texture : Sandbox_Bubble
-(x, y)
-(w, h) 
+x
+Y
+W
+H
 

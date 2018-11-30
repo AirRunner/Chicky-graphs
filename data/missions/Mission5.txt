@@ -1,35 +1,52 @@
 -------Nodes-----
-Nodes 5
+5
+0
 
 N1
-(x,y)
-(w,h)
+x
+y
+w
+h
 
 N2
-(x,y)
-(w,h)
+x
+y
+w
+h
  
 N3
-(x,y)
-(w,h) 
+x
+y
+w
+h 
 
 N4
-(x,y)
-(w,h)
+x
+y
+w
+h
 
 N5
-(x,y)
-(w,h)
-
--------Edges------
-Graph 0
+x
+y
+w
+h
 
 ---------UI--------
+Next_button
+texture : Next_yellow
+x
+y
+w
+h
+
 
 LIST_Data
 texture : List
-(x,y)
-(w,h)
+x
+y
+w
+h
 
 
 Teach
@@ -38,16 +55,13 @@ texture : Teacher_chick_2
 600
 100
 78
-text1 = "Now, try to implement it using Adjacency lists, which is an array of lists. The size of the array corresponds to the number of chicks (nodes /vertices). The node in the array will be linked to all nodes in the list."
 
-text2 = "So here using lists to express the graph: an adjacency lists, you have create a graph. This method will be more usefull than the precedent."
-
-
-Validation_button
-texture : Validation_yellow
-texture : Validation_green
-(x,y)
-(w,h)
+-Text-
+2
+***
+Now,_try_to_implement_the_graph_using_its_Adjacency_List._The_node_in_the_array_will_be_linked_to_all_the_nodes_in_the_list.
+***
+Here,_using_lists_to_express_a_graph_(an_adjacency_list),_you_have_created_the_corresponding_graph.
 
 
 

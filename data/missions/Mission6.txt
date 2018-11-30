@@ -1,47 +1,62 @@
 -------Nodes-----
-Nodes 5
+5
+1
 
 N1
-(x,y)
-(w,h)
+x
+y
+w
+h
 
 N2
-(x,y)
-(w,h)
+x
+y
+w
+h
  
 N3
-(x,y)
-(w,h) 
+x
+y
+w
+h 
 
 N4
-(x,y)
-(w,h)
+x
+y
+w
+h
 
 N5
-(x,y)
-(w,h)
+x
+y
+w
+h
 
--------Edges------
-Graph 1
 
 ---------UI--------
+
+Next_button
+texture : Next_yellow
+x
+y
+w
+h
+
 Teach
 texture : Teacher_chick_2
 350
 600
 100
 78
-text1 = "We’ve talked about undirected graphs before but there exists another kind of graphs : the directed graphs which can only be traversed in a one way.
-Let’s try ! "
 
-text2 = "In fact chick X can say something to chick Y but it will not work the other way around.
-In directed graphs connections are not symmetric and are called directed edges. "
+-Text-
+2
+***
+We’ve_talked_about_undirected_graphs_but_there_exists_another_kind_of_graphs:_the_directed_graphs_whose_edges_can_only_be_traversed_one_way.
+Let’s_try!
+***
+Here,_chick_X_can_say_something_to_chick_Y_but_it_will_not_work_the_other_way_around._In directed_graphs_connections_are_not_symmetric_and_are_called_directed_edges.
 
-Validation_button
-texture : Validation_yellow
-texture : Validation_green
-(x,y)
-(w,h)
 
 
 
