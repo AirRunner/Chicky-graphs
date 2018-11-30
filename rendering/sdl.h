@@ -51,6 +51,7 @@ void mouseRightMove(Game* game, SDL_Event* event);
 void mouseRightReleased(Game* game, SDL_Event* event);
 
 void keyCPressed(Game* game, SDL_Event* event);
+void keyIPressed(Game* game, SDL_Event* event);
 void checkEdgeCut(Game* game, SDL_Rect* mouseLine, struct edgeSDL* edges, SDL_Event* event);
 
 void update(Game* game);

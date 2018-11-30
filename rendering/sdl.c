@@ -117,6 +117,9 @@ void handleEvents(Game* game)
                     case SDL_SCANCODE_C:
                         keyCPressed(game, &event);
                         break;
+                    case SDL_SCANCODE_I:
+                        keyIPressed(game, &event);
+                        break;
                     default:
                         break;
                 }
@@ -128,15 +131,18 @@ void handleEvents(Game* game)
 void mouseLeftPressed(Game* game, SDL_Event* event)
 {
     printf("Left Click!\n");
+    // Search a node under the mouse
     game->selectedRect = searchNodeUnderMouse(game->renderingSLL->nodes, event);
     printf("x: %d, y: %d\n", event->motion.x, event->motion.y);
     if(game->selectedRect)
     {
+        // Select the node if there is one
         game->selectedType = node;
         printf("x: %d, y: %d\n", game->selectedRect->x, game->selectedRect->y);
     }
     else
     {
+        // Create a line otherwise
         game->mouseLine = malloc(sizeof(SDL_Rect));
         game->mouseLine->x = game->mouseLine->w = event->motion.x;
         game->mouseLine->y = game->mouseLine->h = event->motion.y;
@@ -153,8 +159,7 @@ SDL_Rect* searchNodeUnderMouse(struct nodeSDL* nodes, SDL_Event* event)
         w = nodes->destRect->w;
         h = nodes->destRect->h;
 
-        xm = event->button.x;
-        ym = event->button.y;
+        SDL_GetMouseState(&xm, &ym);
         while(nodes->next && ((xm < x || xm > x+w) || (ym < y || ym > y+h)))
         {
             nodes = nodes->next;
@@ -177,12 +182,14 @@ void mouseLeftMove(Game* game, SDL_Event* event)
     if(game->selectedRect && game->selectedType == node)
     {
         //printf("x: %d, y: %d\n", game->selectedRect->x, game->selectedRect->y);
+        // Move the node
         game->selectedRect->x += event->motion.xrel;
         game->selectedRect->y += event->motion.yrel;
     }
     if(game->mouseLine)
     {
         //printf("x1: %d, y1: %d, x2: %d, y2: %d\n", game->mouseLine->x, game->mouseLine->y, game->mouseLine->w, game->mouseLine->h);
+        // Move the line
         game->mouseLine->w += event->motion.xrel;
         game->mouseLine->h += event->motion.yrel;
     }
@@ -193,16 +200,19 @@ void mouseLeftReleased(Game* game, SDL_Event* event)
     printf("Left Released!\n");
     if(game->selectedRect)
     {
+        // Release the node
         printf("x: %d, y: %d\n", game->selectedRect->x, game->selectedRect->y);
         game->selectedRect = NULL;
     }
     else if(game->mouseLine->x == game->mouseLine->w && game->mouseLine->y == game->mouseLine->h){
+        // Create a node
         createNode(game->graph, 0, &game->renderingSLL->nodes, createRect(game->mouseLine->x-32, game->mouseLine->y-32, 64, 64), searchTex(game->texTree, "Node", "Basic chick 1"));
         free(game->mouseLine);
         game->mouseLine = NULL;
     }
     else if(game->mouseLine)
     {
+        // Cut an edge
         checkEdgeCut(game, game->mouseLine, game->renderingSLL->edges, event);
         free(game->mouseLine);
         game->mouseLine = NULL;
@@ -233,6 +243,7 @@ void mouseRightReleased(Game* game, SDL_Event* event){
     printf("Right Released!\n");
     if(game->mouseLine){
         if(game->mouseLine->x == game->mouseLine->w && game->mouseLine->y == game->mouseLine->h){
+            // Delete the node
             deleteNode(game->graph, searchNode(game->graph, game->selectedRect), &game->renderingSLL->nodes, &game->renderingSLL->edges);
             free(game->mouseLine);
             game->mouseLine = NULL;
@@ -241,6 +252,7 @@ void mouseRightReleased(Game* game, SDL_Event* event){
             free(game->mouseLine);
             game->mouseLine = searchNodeUnderMouse(game->renderingSLL->nodes, event);
             if(game->mouseLine && game->selectedRect != game->mouseLine){
+                // Add an edge
                 addEdge(game->graph, searchNode(game->graph, game->mouseLine), searchNode(game->graph, game->selectedRect), 1, &game->renderingSLL->edges, NULL);
             }
             game->mouseLine = NULL;
@@ -251,6 +263,23 @@ void mouseRightReleased(Game* game, SDL_Event* event){
 void keyCPressed(Game* game, SDL_Event* event){
     printf("C Pressed!\n");
     contamination(game->graph, &game->renderingSLL->nodes, &game->renderingSLL->edges, game->texTree);
+}
+
+void keyIPressed(Game* game, SDL_Event* event){
+    printf("I Pressed!\n");
+    game->selectedRect = searchNodeUnderMouse(game->renderingSLL->nodes, event);
+    if(game->selectedRect){
+        if(game->graph->array[searchNode(game->graph, game->selectedRect)]->node->data == 0){
+            // Infect the node
+            game->graph->array[searchNode(game->graph, game->selectedRect)]->node->data = 1;
+            game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL->tex = searchTex(game->texTree, "Node", "Infected chick 2");
+        }
+        else{
+            // Disinfect the node
+            game->graph->array[searchNode(game->graph, game->selectedRect)]->node->data = 0;
+            game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL->tex = searchTex(game->texTree, "Node", "Basic chick 1");
+        }
+    }
 }
 
 void checkEdgeCut(Game* game, SDL_Rect* mouseLine, EdgeSDL* edges, SDL_Event* event)
