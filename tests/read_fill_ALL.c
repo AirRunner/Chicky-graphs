@@ -2,13 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-//textures
-
 void readFile(const char* mission){
 	FILE * fichier = NULL;
 	char *lign = (char*)malloc(sizeof(char));
 	char *test = (char*)malloc(sizeof(char));
-	long size;  
+	long size; 
+	int x,y,w,h; 
 	fichier = fopen(mission, "r");
 	if (fichier != NULL){
 		// pointer points to the end to get the size 
@@ -19,13 +18,13 @@ void readFile(const char* mission){
 		while (fgets(lign,size,fichier) != NULL){
 				//reads formatted input from a string
 				sscanf(lign, "%s", test);
-				//Je vais essayer de l'optimiser mais pour l'instant fonctionnne pour les NODES 
 				if (strcmp(test, "-------Nodes-----") == 0){
 					printf("\n%s\n", test);	
 					int x,y,w,h,d,node,directed,j;
 					j = 0;
 					fgets(lign, size, fichier);
 					sscanf(lign, "%s", test);
+					printf("Texture : %s\n",test);
 					//Fonction de Victor pour les textures
 					
 					fgets(lign, size, fichier);
@@ -35,10 +34,11 @@ void readFile(const char* mission){
 					sscanf(lign, "%s", test);
 					directed = atoi(test);
 					if (directed == 0 || directed == 1){
-						printf("Directed/undirected \n");
-						//put fonction de Victor ::: Graph* graph = createGraph(node, directed);
+						printf("Directed: %s\n", directed);
+//Graph* graph = createGraph(node, directed);
 					}
 					while (j != node){
+						//changer data mettre à 0
 						j++;
 						fgets(lign, size, fichier);
 						fgets(lign,size,fichier);
@@ -53,11 +53,12 @@ void readFile(const char* mission){
 						fgets(lign,size,fichier);
 						sscanf(lign,"%s", test);
 						h = atoi(test);
-						printf("\nNode :%d \nx-->%d\ny-->%d\nw-->%d\nh-->%d\n\n", j,x,y,w,h);	
-						
-						// function ==> Vincent test	
-						// j : numéro du node = data 
-						// x / y / w / h pour Vincent 				
+						fgets(lign,size,fichier);
+						sscanf(lign,"%s", test);
+						d = atoi(test);
+						printf("\nNode :\nd-->%d \nx-->%d\ny-->%d\nw-->%d\nh-->%d\n\n", d,x,y,w,h);
+//createNode(Graph* graph, int data, NodeSDL** nodes, SDL_Rect* destRect, SDL_Texture* tex);		
+						// x / y / w / h pour Vincent 	+ 1 data 0 contamined
 					}
 				}
 				if (strcmp(test, "-------Edges------") == 0){
@@ -68,7 +69,7 @@ void readFile(const char* mission){
 					int k,i,m,n;
 					i = atoi(test);
 					k = 0;
-					printf("Number of edges : %d", i);
+					printf("Number of edges : %d\n", i);
 					fgets(lign, size, fichier);
 					if (i != 0){
 						while (k != i){
@@ -76,49 +77,74 @@ void readFile(const char* mission){
 							sscanf(lign,"%s", test);
 							token =   strtok(test, "-");
 							m = atoi(test);
-							printf( "Source: %s\n", token );
 							token = strtok(NULL, "-");
-							n = atoi(test);
-							printf( "Destinataire: %s\n", token );
+							n = atoi(token);
 							token = strtok(NULL,"-");
+							printf("Source: %d Destinataire: %d\n", m,n);
 							k++;
-							// Fonction Victor : EDGES
-							// poids = 1 mettre 
+							//addEdge( graph,  m,  n,  1, edges, texArrow)  
 						}
 					}
 				}
 				
 				if (strcmp(test, "---------UI--------") == 0){
+					int x,y,w,h,p,q;
 					printf("\n%s\n", test);	
-					printf("ICI faire UI");
-					/*
+					fgets(lign,size,fichier);
+					sscanf(lign,"%s", test);
+					q = atoi(test);
+					for (p=0; p <q;p++){
+						fgets(lign,size,fichier);
+						fgets(lign,size,fichier);
+						sscanf(lign,"%s", test);
+						printf("\nTexture : %s\n", test); 
+						// fonction /type
+						fgets(lign,size,fichier);
+						sscanf(lign,"%s", test);
+						x = atoi(test);
+						fgets(lign,size,fichier);
+						sscanf(lign,"%s", test);
+						y = atoi(test);
+						fgets(lign,size,fichier);
+						sscanf(lign,"%s", test);
+						w = atoi(test);
+						fgets(lign,size,fichier);
+						sscanf(lign,"%s", test);
+						h = atoi(test);
+						printf("\ncoordonnées : \nx-->%d\ny-->%d\nw-->%d\nh-->%d\n\n",x,y,w,h);	
+					}
+					fgets(lign,size,fichier);
+					fgets(lign,size,fichier);
+					sscanf(lign,"%s", test);
+					if (strcmp(test, "-Text-") == 0){
+						char *textlire= (char*)malloc(sizeof(char));
+						char *toke;
+						int i,l;
+						fgets(lign,size,fichier);
+						sscanf(lign,"%s", test);
+						i = atoi(test);
+						for (l=0; l <i;l++){
+							fgets(lign,size,fichier);
+							sscanf(lign,"%s", test);
+							if (strcmp("***", test) == 0){
+								fgets(lign,size,fichier);
+								sscanf(lign,"%s", test);					
+								toke = strtok(test, "_");
+								strcpy(textlire, "");
+								while( toke != NULL ) {
+									strcat(textlire, toke);
+									toke = strtok(NULL, "_");
+									strcat(textlire," ");
+									}					
+									//ici save le texte
+								printf("\n%s\n", textlire);
+								
+							}
+						} 
+						
+					}
 					
-					printf("\n%s\n", test);	
-					fgets(lign,size,fichier);
-					sscanf(lign,"%s", test);
-					printf("Texture : %s \n", test);
-					//function texture TEACH
-					int x,y,w,h,p,o;
-					fgets(lign,size,fichier);
-					sscanf(lign,"%s", test);
-					x = atoi(test);
-					fgets(lign,size,fichier);
-					sscanf(lign,"%s", test);
-					y = atoi(test);
-					fgets(lign,size,fichier);
-					sscanf(lign,"%s", test);
-					w = atoi(test);
-					fgets(lign,size,fichier);
-					sscanf(lign,"%s", test);
-					h = atoi(test);
-					printf("\nNode :%d \nx-->%d\ny-->%d\nw-->%d\nh-->%d\n\n", j,x,y,w,h);	
-					fgets(lign,size,fichier);
-					fgets(lign,size,fichier);
-					sscanf(lign,"%s", test);
-					p = atoi(test);
-					int o = 0;
-					while ()
-					//function UI*/				}
+			}
 		}
 	}
 	fclose(fichier);
@@ -128,98 +154,20 @@ void readFile(const char* mission){
 	
 
 int main() {
-	
+	printf("The menu: \n");
+	readFile("../data/missions/Menu.txt");/*
 	readFile("../data/missions/Mission3.txt");
+	readFile("../data/missions/Mission3.txt");
+	readFile("../data/missions/Mission3.txt");
+	readFile("../data/missions/Mission3.txt");
+	readFile("../data/missions/Mission3.txt");
+	readFile("../data/missions/Mission3.txt");
+	readFile("../data/missions/Mission3.txt");
+	readFile("../data/missions/Mission3.txt");
+	readFile("../data/missions/Mission3.txt");
+	readFile("../data/missions/Mission3.txt");
+	readFile("../data/missions/Mission3.txt");*/
 	
 	
 	return(0);
 }
-
-
-/*
-SEEK_CUR
-	
-	
-if (strcmp(test, "-------Nodes------") == 0){
-	printf("%s", test);
-	SEEK_CUR : on balaye le fichier une première fois
-	fgets(lign,size,fichier);
-convert string into integer
-	nodes = atoi(lign);
-	for ( i = 0; i<nodes ; i++){
-	fgets(lign,size,fichier);
-	}
-	
-void Missions(){
-		
-	char* Mission_10 =ReadOnFileMission("IDEE.txt");
-	printf("\n\n\n\nThe file  contains this text\n\n%s", Mission_10);
-}
-
-
-size =  printf("%lu", sizeof(buffer)); 
-
-char *ReadOnFileMission(const char *name){
-	char* buffer;
-	FILE *fichier = NULL;
-	long    number;
-	fichier = fopen(name,"r");
-
-	if (fichier != NULL){
-		fseek(fichier, 0L, SEEK_END);
-		number = ftell(fichier);
-		fseek(fichier, 0L, SEEK_SET);
-		buffer = (char*)calloc(number, sizeof(char));	
-		fread(buffer, sizeof(char), number, fichier);
-		}
-	fclose(fichier);
-	//printf("The file  contains this text\n\n%s", buffer);
-	return(buffer);	
-}
-	while (node){
-			do {
-				fgets(lign,size,fichier);
-				sscanf(lign,"%s", test);
-			}while (test == NULL);
-			printf("TEST");
-			
-		}
-		
-		do{
-			fgets(lign,size,fichier);
-			sscanf(lign,"%s", test);
-			x = atoi(test);
-			fgets(lign,size,fichier);
-			sscanf(lign,"%s", test);
-			y = atoi(test);
-			fgets(lign,size,fichier);
-			sscanf(lign,"%s", test);
-			w = atoi(test);
-			fgets(lign,size,fichier);
-			sscanf(lign,"%s", test);
-			h = atoi(test);
-			printf("%d\n  %d\n  %d\n  %d\n", x,y,w,h);
-			
-		}while (strcmp(test, "-----") != 0);
-
-		
-		
-		fgets(lign,size,fichier);
-		sscanf(lign,"%s", test);
-		
-		if ( strcmp(res,"N") == 0){
-			fgets(lign,size,fichier);
-			sscanf(lign,"%s", test);
-			x = atoi(test);
-			fgets(lign,size,fichier);
-			sscanf(lign,"%s", test);
-			y = atoi(test);
-			fgets(lign,size,fichier);
-			sscanf(lign,"%s", test);
-			w = atoi(test);
-			fgets(lign,size,fichier);
-			sscanf(lign,"%s", test);
-			h = atoi(test);
-				//createNodeSDL
-				//createNode( graph, k, NodeSDL** nodes, SDL_Rect* destRect, SDL_Texture* tex)
-		}*/

@@ -1,0 +1,30 @@
+---------UI--------
+
+Next_button
+texture : Next_yellow
+x
+y
+W
+H
+
+
+Teach
+texture : Teacher_chick_2
+350
+600
+100
+78
+
+-Text-
+***
+Welcome_to_Chicky_Graphs._Here_at_Tardigradus_Farm,_many_eggs_have_just_hatched._Mike_the_farmer_needs_some_help_to_watch_the_newborn_chicks._Come_and_discover_the_farm’s_life,_and_watch_the_chicks_grow_together.
+***
+To_do_so,_we_will_learn_together_the_theory_of_graph._You_will_need_to_create_chicks_and_to_link_them_together.
+***
+To_create_a_chick,_you_just_have_to_do_a_left_click._To_move_it,_you_need_to_keep_the_leftt_click._Try_it_!
+***
+To_delete_a_chick,_just_do_a_right_click._Try_it!
+***
+If_you_keep_the_right_click_between_two_chicks,_it_will_create_a_link_between_them._Try_it!
+***
+Perfect!_You_are_ready!

@@ -1,16 +1,30 @@
 -------Nodes-----
+texture_Happy_chick
+texture_Sad_chick
+2
+0
+
 N1
-(500,100)
-(64,64)
+500
+100
+64
+64
 
 N2 
-(1000,400)
-(64,64)
-
--------Edges------
-Graph 0
+1000
+400
+64
+64
 
 ---------UI--------
+
+Next_button
+texture : Next_yellow
+x
+Y
+W
+H
+
 
 Teach
 texture : Teacher_chick_2
@@ -18,15 +32,13 @@ texture : Teacher_chick_2
 600
 100
 78
-text1 = "Look Poussin, just found a friend, give him a way to communicate with him !To succeed you have to connect those two chicks by clicking on the edge."
 
-text2 = "Congratulations! You just created a simple graph with 2 nodes (the poussins or vertices) linked by 1 edge ( the pair of those two poussins). Now the other chick knows Poussin’s name. And they can speak to each other."
-end if
+-Text-
+2
+***
+Look!_Poussin,_just_found_a_friend,_give_him_a_way_to_communicate_with_him!_To_succeed_you_have_to_connect_those_two_chicks_by_clicking_on_the_edge.
+***
+Congratulations!_You_just_created_a_simple_graph_with_2_nodes_(the_two_chicks,_they_can_also_be_called_vertices)_linked_by_1_edge._Now_the_other_chick_knows_Poussin’s_happiness and became happy too!
 
-Validation_button
-texture : Validation_yellow
-texture : Validation_green
-(x,y)
-(w,h)
 
 

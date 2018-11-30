@@ -1,10 +1,12 @@
 ---------UI--------
-Basic_Poussin
-texture : Basic_chick_1
-800
-288
-64
-64
+
+Next_button
+texture : Next_yellow
+x
+Y
+W
+H
+
 
 Poussin_Bubble
 texture : Poussin_Bubble
@@ -12,7 +14,7 @@ texture : Poussin_Bubble
 300
 100
 55
-text = "Poussin"
+text = "I'm happy!"
 
 Teach
 texture : Teacher_chick_2
@@ -20,12 +22,9 @@ texture : Teacher_chick_2
 600
 100
 78
-text_1 = "Welcome to Chicky Graphs. Here at Tardigradus Farm, many eggs have just hatched. Mike the farmer needs some help to watch the newborn chicks. Come and discover the farm’s life, and watch the chicks grow together."
 
-text_2 = "Here is Poussin. Poussin has many friends. For now, he has no way of communicating with them. Poussin wants to introduce himself to the others by giving them his name. In a graph representation, Poussin is a node. It contains information, here Poussin’s name."
+-Text-
+1
+***
+Here_is_Poussin._Poussin_has_many_friends._For_now,_he_has_no_way_of_communicating_with_them._Poussin_wants_to_share_his_happiness_with_his_other_friends._In_a_graph_representation,_Poussin_is_a_node._It_contains_information._Here_it's_Poussin’s_happiness.
 
-Validation_button
-texture : Validation_yellow
-texture : Validation_green
-(x, y)
-(w, h)

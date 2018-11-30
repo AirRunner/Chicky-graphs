@@ -1,56 +1,68 @@
+
 -------Nodes-----
+texture_Basic_chick_1
 10
 0
 
-x
-y
-w
-h
+400
+600
+64
+64
+0
 
-x
-y
-w
-h
+400
+600
+64
+64
+0
  
-x
-y
-w
-h
+400
+600
+64
+64
+0
 
-x
-y
-w
-h
+400
+600
+64
+64
+0
 
-x
-y
-w
-h
+400
+600
+64
+64
+0
 
-x
-y
-w
-h
+400
+600
+64
+64
+0
 
-x
-y
-w
-h
+400
+600
+64
+64
+0
 
-x
-y
-w
-h
+400
+600
+64
+64
+0
 
-x
-y
-w
-h
+400
+600
+64
+64
+0
 
-x
-y
-w
-h
+400
+600
+64
+64
+0
 
 -------Edges------
 9
@@ -66,24 +78,29 @@ h
 9-10
 
 ---------UI--------
+4
 
-Logo 
-texture : logo
-(x, y)
-(w, h)
+texture_logo
+1050
+600
+64
+64
 
-Menu_Adventure
-texture : Adventure_Bubble 
-(x, y)
-(w, h)
+texture_Adventure_Bubble 
+1050
+600
+64
+64
 
-Menu_Resume
-texture : Resume_Bubble
-(x, y)
-(w, h)
+texture_Resume_Bubble
+1050
+600
+64
+64
 
-Menu_Sandbox
-texture : Sandbox_Bubble
-(x, y)
-(w, h) 
+texture_Sandbox_Bubble
+1050
+600
+64
+64
 

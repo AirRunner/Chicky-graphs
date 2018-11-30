@@ -8,48 +8,40 @@ texture_Basic_chick_1
 600
 64
 64
+0
 
 500
 200
 64
 64
+0
 
 700
 500
 64
 64
+0
 
 900
 300
 64
 64
+0
 
 1050
 600
 64
 64
-
--------Edges------
 0
 
 ---------UI--------
-Validation_button
-texture_Validation_yellow
-texture_Validation_green
+
+texture_Next_yellow
 1
 2
 3
 4
 
-Next_button
-texture_Validation_yellow
-texture_Validation_green
-1
-2
-3
-4
-
-Teach
 texture_Teacher_chick_2
 350
 600
@@ -58,11 +50,9 @@ texture_Teacher_chick_2
 
 -Text-
 3
-Text1
-"Now,_you_can_create_our_own_graph_of_chicks._You_just_have_to_connect_poussins_to_each_other._Click_on_the_validation_point_to_end"
-
-Text2
-"There_are_two_kind_of_graphs,_undirected_graph_and_directed_graph._Here_you_just_created_an_undirected_graph_which_can_be_traversed_in_multiple_ways_as_the_edges_do_not_have_direction."
-
-Text3
-"In_fact_chick_X_can_say_something_to_chick_Y_and_the_other_way_around._This_graph_is_the_simplest_one._For_two_nodes_(vertices)_there_is_only_one_directed_edge_x⇒y"
+***
+Now,_you_can_create_our_own_graph_of_chicks._You_just_have_to_connect_chicks_to_each_other._Click_on_the_button_"Next"_when_you_are_done.
+***
+There_are_two_kind_of_graphs,_undirected_graph_and_directed_graph._Here_you_just_created_an_undirected_graph_which_can_be_traversed_in_multiple_ways_as_the_edges_do_not_have_a_specific_direction.
+***
+In_fact_chick_X_can_say_something_to_chick_Y_and_the_other_way_around.
