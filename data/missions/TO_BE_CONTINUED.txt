@@ -15,15 +15,8 @@ texture : Teacher_chick_2
 78
 
 -Text-
-text1 = Image_Text1
-
-text2 = Image_Text2
-
-text3 = Image_Text3
-
-
-
-
-
+1
+***
+TO_BE_CONTINUED
 
 
