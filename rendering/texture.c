@@ -89,8 +89,21 @@ void printTreePrefixe(NodeTree* root)
     }
 }
 
+// Import name and path of a texture from a file
+void loadTex(FILE* file, Game* game, NodeTree* tmp){
+    char* name = malloc(50 * sizeof(char));
+    char* tex = malloc(100 * sizeof(char));
+    fgets(name, 50, file); name[strlen(name)-1] = '\0';
+    fgets(tex, 100, file); tex[strlen(tex)-1] = '\0';
+    addChild(tmp, name, createTex(game, tex));
+}
+
 void initTex(Game* game, NodeTree** textures)
 {
+    FILE* file = NULL;
+    file = fopen("../data/Assets/importTextures.txt","r");
+    char* type = malloc(10 * sizeof(char));
+
     *textures = createNodeTree("Textures", NULL);
     addChild(*textures, "Edge", NULL);
     addChild(*textures, "Node", NULL);
@@ -98,41 +111,28 @@ void initTex(Game* game, NodeTree** textures)
 
     EltTree* children = (*textures)->children;
     NodeTree* tmp = children->child;
-
-    //addChild(tmp, "Line", createTex(game, ""));
-    //addChild(tmp, "Arrow", createTex(game, ""));
-
-    children = children->next;
-    tmp = children->child;
-
-    addChild(tmp, "Bad answer chick", createTex(game, "../data/Assets/Chicks/Bad answer chick.png"));
-    addChild(tmp, "Basic chick", createTex(game, "../data/Assets/Chicks/Basic chick.png"));
-    addChild(tmp, "Blink chick", createTex(game, "../data/Assets/Chicks/Blink chick.png"));
-    addChild(tmp, "Boss chick", createTex(game, "../data/Assets/Chicks/Boss chick.png"));
-    addChild(tmp, "Connected chick", createTex(game, "../data/Assets/Chicks/Connected chick.png"));
-    addChild(tmp, "Crazy chick", createTex(game, "../data/Assets/Chicks/Crazy chick.png"));
-    addChild(tmp, "Dead chick", createTex(game, "../data/Assets/Chicks/Dead chick.png"));
-    addChild(tmp, "Doubtful chick 1", createTex(game, "../data/Assets/Chicks/Doubtful chick 1.png"));
-    addChild(tmp, "Doubtful chick 2", createTex(game, "../data/Assets/Chicks/Doubtful chick 2.png"));
-    addChild(tmp, "Embarrassed chick", createTex(game, "../data/Assets/Chicks/Embarrassed chick.png"));
-    addChild(tmp, "Happy chick", createTex(game, "../data/Assets/Chicks/Happy chick.png"));
-    addChild(tmp, "Infected chick 1", createTex(game, "../data/Assets/Chicks/Infected chick 1.png"));
-    addChild(tmp, "Infected chick 2", createTex(game, "../data/Assets/Chicks/Infected chick 2.png"));
-    addChild(tmp, "Infected chick background 1", createTex(game, "../data/Assets/Chicks/Infected chick background 1.png"));
-    addChild(tmp, "Infected chick background 2", createTex(game, "../data/Assets/Chicks/Infected chick background 2.png"));
-    addChild(tmp, "Mocking chick", createTex(game, "../data/Assets/Chicks/Mocking chick.png"));
-    addChild(tmp, "Reflecting chick", createTex(game, "../data/Assets/Chicks/Reflecting chick.png"));
-    addChild(tmp, "Success chick 1", createTex(game, "../data/Assets/Chicks/Success chick 1.png"));
-    addChild(tmp, "Success chick 2", createTex(game, "../data/Assets/Chicks/Success chick 2.png"));
-    addChild(tmp, "Surprised chick", createTex(game, "../data/Assets/Chicks/Surprised chick.png"));
-    addChild(tmp, "Teacher chick 1", createTex(game, "../data/Assets/Chicks/Teacher chick 1.png"));
-    addChild(tmp, "Teacher chick 2", createTex(game, "../data/Assets/Chicks/Teacher chick 2.png"));
-    addChild(tmp, "Worried chick", createTex(game, "../data/Assets/Chicks/Worried chick.png"));
+    // Import edges
+    fgets(type, 10, file);
+    while(strcmp(type, "Node\n")){
+        loadTex(file, game, tmp);
+        fgets(type, 10, file);
+    }
 
     children = children->next;
     tmp = children->child;
+    // Import nodes
+    while(strcmp(type, "UI\n")){
+        loadTex(file, game, tmp);
+        fgets(type, 10, file);
+    }
 
-    //addChild(tmp, "Menu", createTex(game, "../data/UI/....png"));
+    children = children->next;
+    tmp = children->child;
+    // Import ui
+    while(strcmp(type, "END\n")){
+        loadTex(file, game, tmp);
+        fgets(type, 10, file);
+    }
 }
 
 SDL_Texture* createTex(Game* game, char* image)

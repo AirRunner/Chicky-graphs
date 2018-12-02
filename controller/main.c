@@ -6,18 +6,17 @@
 
 void test(Graph* graph, RenderingSLL* renderingSLL, NodeTree* texTree)
 {
-    // Hello
-    int h, w, hi, wi;
-    SDL_QueryTexture(searchTex(texTree, "Node", "Basic chick"), NULL, NULL, &h, &w);
-    SDL_QueryTexture(searchTex(texTree, "Node", "Infected chick background 2"), NULL, NULL, &hi, &wi);
-    h = w = h/4;
-    hi = wi = hi/4;
+    int w, h, wi, hi;
+    SDL_QueryTexture(searchTex(texTree, "Node", "Basic chick"), NULL, NULL, &w, &h);
+    SDL_QueryTexture(searchTex(texTree, "Node", "Infected chick background 2"), NULL, NULL, &wi, &hi);
+    w /= 4; h /= 4;
+    wi /= 4; hi /= 4;
 
-    createNode(graph, 0, &renderingSLL->nodes, createRect(0, 0, h, w), searchTex(texTree, "Node", "Basic chick"));
-    createNode(graph, 0, &renderingSLL->nodes, createRect(2*h, 0, h, w), searchTex(texTree, "Node", "Basic chick"));
-    createNode(graph, 1, &renderingSLL->nodes, createRect(4*h-20, h-20, hi, wi), searchTex(texTree, "Node", "Infected chick background 2"));
-    createNode(graph, 0, &renderingSLL->nodes, createRect(2*h, 2*h, h, w), searchTex(texTree, "Node", "Basic chick"));
-    createNode(graph, 0, &renderingSLL->nodes, createRect(0, 2*h, h, w), searchTex(texTree, "Node", "Basic chick"));
+    createNode(graph, 0, &renderingSLL->nodes, createRect(0, 0, w, h), searchTex(texTree, "Node", "Basic chick"));
+    createNode(graph, 0, &renderingSLL->nodes, createRect(2*h, 0, w, h), searchTex(texTree, "Node", "Basic chick"));
+    createNode(graph, 1, &renderingSLL->nodes, createRect(4*h-20, h-20, wi, hi), searchTex(texTree, "Node", "Infected chick background 2"));
+    createNode(graph, 0, &renderingSLL->nodes, createRect(2*h, 2*h, w, h), searchTex(texTree, "Node", "Basic chick"));
+    createNode(graph, 0, &renderingSLL->nodes, createRect(0, 2*h, w, h), searchTex(texTree, "Node", "Basic chick"));
 
     addEdge(graph, 0, 1, 1, &renderingSLL->edges, NULL);
     addEdge(graph, 0, 4, 1, &renderingSLL->edges, NULL);
@@ -50,6 +49,7 @@ int main(int argc, char *argv[])
     game->renderingSLL = createRenderingSLL();
     game->texTree = NULL;
     initTex(game, &game->texTree);
+    addUI(&game->renderingSLL->ui, createRect(0, 0, 1280, 720), searchTex(game->texTree, "UI", "Background"));
     game->graph = createGraph(10, 0);
 
     test(game->graph, game->renderingSLL, game->texTree);
