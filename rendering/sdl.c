@@ -206,10 +206,10 @@ void mouseLeftReleased(Game* game, SDL_Event* event)
     }
     else if(game->mouseLine->x == game->mouseLine->w && game->mouseLine->y == game->mouseLine->h){
         // Create a node
-        int h, w;
-        SDL_QueryTexture(searchTex(game->texTree, "Node", "Basic chick"), NULL, NULL, &h, &w);
-        h = w = h/4;
-        createNode(game->graph, 0, &game->renderingSLL->nodes, createRect(game->mouseLine->x-h/2, game->mouseLine->y-h/2, h, w), searchTex(game->texTree, "Node", "Basic chick"));
+        int w, h;
+        SDL_QueryTexture(searchTex(game->texTree, "Node", "Basic chick"), NULL, NULL, &w, &h);
+        w /= 4; h /= 4;
+        createNode(game->graph, 0, &game->renderingSLL->nodes, createRect(game->mouseLine->x-w/2, game->mouseLine->y-h/2, w, h), searchTex(game->texTree, "Node", "Basic chick"));
         free(game->mouseLine);
         game->mouseLine = NULL;
     }

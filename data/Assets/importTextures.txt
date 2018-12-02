@@ -1,0 +1,73 @@
+Node
+Bad answer chick
+../data/Assets/Chicks/Bad answer chick.png
+***
+Basic chick
+../data/Assets/Chicks/Basic chick.png
+***
+Blink chick
+../data/Assets/Chicks/Blink chick.png
+***
+Boss chick
+../data/Assets/Chicks/Boss chick.png
+***
+Connected chick
+../data/Assets/Chicks/Connected chick.png
+***
+Crazy chick
+../data/Assets/Chicks/Crazy chick.png
+***
+Dead chick
+../data/Assets/Chicks/Dead chick.png
+***
+Doubtful chick 1
+../data/Assets/Chicks/Doubtful chick 1.png
+***
+Doubtful chick 2
+../data/Assets/Chicks/Doubtful chick 2.png
+***
+Embarrassed chick
+../data/Assets/Chicks/Embarrassed chick.png
+***
+Happy chick
+../data/Assets/Chicks/Happy chick.png
+***
+Infected chick 1
+../data/Assets/Chicks/Infected chick 1.png
+***
+Infected chick 2
+../data/Assets/Chicks/Infected chick 2.png
+***
+Infected chick background 1
+../data/Assets/Chicks/Infected chick background 1.png
+***
+Infected chick background 2
+../data/Assets/Chicks/Infected chick background 2.png
+***
+Mocking chick
+../data/Assets/Chicks/Mocking chick.png
+***
+Reflecting chick
+../data/Assets/Chicks/Reflecting chick.png
+***
+Success chick 1
+../data/Assets/Chicks/Success chick 1.png
+***
+Success chick 2
+../data/Assets/Chicks/Success chick 2.png
+***
+Surprised chick
+../data/Assets/Chicks/Surprised chick.png
+***
+Teacher chick 1
+../data/Assets/Chicks/Teacher chick 1.png
+***
+Teacher chick 2
+../data/Assets/Chicks/Teacher chick 2.png
+***
+Worried chick
+../data/Assets/Chicks/Worried chick.png
+UI
+Background
+../data/Assets/UI/Background.png
+END

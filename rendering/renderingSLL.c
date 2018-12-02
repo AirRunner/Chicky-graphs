@@ -12,9 +12,9 @@ RenderingSLL* createRenderingSLL()
 
 void renderRenderingSLL(RenderingSLL* renderingSLL, Game* game)
 {
+    renderUI(renderingSLL->ui, game);
     renderEdges(renderingSLL->edges, game);
     renderNodes(renderingSLL->nodes, game);
-    renderUI(renderingSLL->ui, game);
 }
 
 
@@ -147,9 +147,9 @@ void renderNodes(NodeSDL* nodes, Game* game)
 }
 
 void changeTexture(NodeSDL* node, NodeTree* texTree, char* texName){
-    int h, w;
-    SDL_QueryTexture(searchTex(texTree, "Node", texName), NULL, NULL, &h, &w);
-    h /= 4; w /= 4;
+    int w, h;
+    SDL_QueryTexture(searchTex(texTree, "Node", texName), NULL, NULL, &w, &h);
+    w /= 4; h /= 4;
     // Resize the SDL Rect
     node->destRect->x -= (w-node->destRect->w)/2;
     node->destRect->y -= (h-node->destRect->h)/2;
