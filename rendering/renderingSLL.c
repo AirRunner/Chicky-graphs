@@ -12,9 +12,9 @@ RenderingSLL* createRenderingSLL()
 
 void renderRenderingSLL(RenderingSLL* renderingSLL, Game* game)
 {
-    renderUI(renderingSLL->ui, game);
     renderEdges(renderingSLL->edges, game);
     renderNodes(renderingSLL->nodes, game);
+    renderUI(renderingSLL->ui, game);
 }
 
 

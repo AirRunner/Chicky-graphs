@@ -49,7 +49,6 @@ int main(int argc, char *argv[])
     game->renderingSLL = createRenderingSLL();
     game->texTree = NULL;
     initTex(game, &game->texTree);
-    addUI(&game->renderingSLL->ui, createRect(0, 0, 1280, 720), searchTex(game->texTree, "UI", "Background"));
     game->graph = createGraph(10, 0);
 
     test(game->graph, game->renderingSLL, game->texTree);
