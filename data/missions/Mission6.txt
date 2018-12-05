@@ -3,41 +3,47 @@
 6
 1
 
+Basic chick
 400
 600
 64
 64
 0
 
+Basic chick
 400
 600
 64
 64
 0
  
+Basic chick
 400
 600
 64
 64
 0
 
+Basic chick
 400
 600
 64
 64
 0
 
+Basic chick
 400
 600
 64
 64
 0
 
-350
+Teacher chick 1
+1050
 600
-100
-78
-3
+64
+64
+0
 
 ---------UI--------
 1

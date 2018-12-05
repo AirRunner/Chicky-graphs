@@ -3,34 +3,19 @@
 #include <string.h>
 #include "data.h"
 
-void numbermission(char* mis, char* nber, Game* game){
+char* numbermission(char* mis, char* nber, Game* game){
 	char* mission = malloc(sizeof(char)*1000);
 	strcpy(mission, "../data/missions/");
-	strcat(mission,mis);
-	strcat(mission,nber);
-	strcat(mission,".txt");
-	readFile(mission, game);
-}
-
-char* textureMission(int data){
-	if (data == 0){
-		return("Basic chick");
+	if ( strcpy(mis, "Mission") == 0){
+		strcat(mission,mis);
+		strcat(mission,nber);
+		strcat(mission,".txt");
+		return(mission);
 	}
-	else {
-		if (data == 1){
-			return("Infected chick 1");
-		}
-		else {
-			if (data == 2){
-				return("Happy chick");
-			}
-			else {
-				return("Teacher chick 1");
-			}
-		}
+	else{
+		return("../data/missions/Menu.txt");
 	}
 }
-
 
 void NodesMissions(FILE *fichier, Game * game, long size){
 	char *lign = malloc(sizeof(char)*1000); 
@@ -45,6 +30,9 @@ void NodesMissions(FILE *fichier, Game * game, long size){
 		j++;
 		fgets(lign, size, fichier);
 		fgets(lign,size,fichier);
+		lign[strlen(lign)-1] = '\0';
+		strcpy(texture,lign);
+		fgets(lign,size,fichier);
 		x = atoi(lign);
 		fgets(lign,size,fichier);
 		y = atoi(lign);
@@ -54,7 +42,6 @@ void NodesMissions(FILE *fichier, Game * game, long size){
 		h = atoi(lign);
 		fgets(lign,size,fichier);
 		d = atoi(lign);
-		texture = textureMission(d);
 		SDL_QueryTexture(searchTex(game->texTree, "Node", texture), NULL, NULL, &w, &h);
 		createNode(game->graph, d, &game->renderingSLL->nodes, createRect(x/4, y/4, w/4, h/4), searchTex(game->texTree, "Node", texture));
 	}
@@ -163,10 +150,8 @@ void readFile(const char* mission, Game* game){
 	fclose(fichier);
 	free(lign);
 	//free(test);
-	printGraph(game->graph);
+	//voir les graphs 
+	//printGraph(game->graph);
 }
 
 
-
-//lign[strlen(lign)-1] = '\0';
-//strcpy(texture,lign);

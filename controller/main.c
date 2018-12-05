@@ -52,10 +52,11 @@ int main(int argc, char *argv[])
     game->texTree = NULL;
     initTex(game, &game->texTree);
     game->graph = createGraph(10, 0);
-    test(game->graph, game->renderingSLL, game->texTree);
+    //test(game->graph, game->renderingSLL, game->texTree);
     
-    //tester les missions !
-    readFile("../data/missions/Menu.txt", game);
+    //tester les missions ! :)
+    //il faudra parametrer la taille max du graph pour chaque mission
+    readFile("../data/missions/Mission10.txt", game);
     
     while(game->isrunning)
     {

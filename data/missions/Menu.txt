@@ -3,60 +3,70 @@
 10
 0
 
+Basic chick
 400
 600
 64
 64
 0
 
+Basic chick
 500
 200
 64
 64
 0
 
+Basic chick
 700
 500
 64
 64
 0
 
+Basic chick
 900
 300
 64
 64
 0
 
+Basic chick
 1050
 60
 64
 64
 0
 
+Basic chick
 420
 600
 64
 64
 0
 
+Basic chick
 520
 600
 64
 64
 0
 
+Basic chick
 720
 600
 64
 64
 0
 
-0
+Basic chick
+1230
 1000
 64
 64
 0
 
+Basic chick
 400
 600
 64

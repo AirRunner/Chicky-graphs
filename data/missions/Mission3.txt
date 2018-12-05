@@ -3,41 +3,47 @@
 6
 0
 
+Basic chick
 40
 60
 64
 64
 0
 
+Basic chick
 50
 20
 64
 64
 0
 
+Basic chick
 70
 50
 64
 64
 0
 
+Basic chick
 90
 30
 64
 64
 0
 
+Basic chick
 105
 60
 64
 64
 0
 
+Teacher chick 1
 350
 600
 100
 78
-3
+0
 
 ---------UI--------
 1
