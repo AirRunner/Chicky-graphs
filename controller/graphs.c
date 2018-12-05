@@ -189,7 +189,7 @@ void contamination(Graph* graph, NodeSDL** nodes, EdgeSDL** edges, NodeTree* tex
             else if(graph->array[i]->node->data == 2){
                 // Infect contaminated nodes
                 graph->array[i]->node->data = 1;
-                changeTexture(graph->array[i]->nodeSDL, texTree, "Infected chick background 2");
+                changeTexture(graph->array[i]->nodeSDL, texTree, "Infected chick 3");
             }
         }
     }

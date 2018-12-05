@@ -32,18 +32,6 @@ Node
 Happy chick
 ../data/Assets/Chicks/Happy chick.png
 Node
-Infected chick 1
-../data/Assets/Chicks/Infected chick 1.png
-Node
-Infected chick 2
-../data/Assets/Chicks/Infected chick 2.png
-Node
-Infected chick background 1
-../data/Assets/Chicks/Infected chick background 1.png
-Node
-Infected chick background 2
-../data/Assets/Chicks/Infected chick background 2.png
-Node
 Mocking chick
 ../data/Assets/Chicks/Mocking chick.png
 Node
@@ -59,14 +47,50 @@ Node
 Surprised chick
 ../data/Assets/Chicks/Surprised chick.png
 Node
-Teacher chick 1
-../data/Assets/Chicks/Teacher chick 1.png
-Node
-Teacher chick 2
-../data/Assets/Chicks/Teacher chick 2.png
-Node
 Worried chick
 ../data/Assets/Chicks/Worried chick.png
+Node
+Infected chick 1
+../data/Assets/Chicks/Infected/Infected chick 1.png
+Node
+Infected chick 2
+../data/Assets/Chicks/Infected/Infected chick 2.png
+Node
+Infected chick 3
+../data/Assets/Chicks/Infected/Infected chick 3.png
+Node
+Infected chick 4
+../data/Assets/Chicks/Infected/Infected chick 4.png
+Node
+Teacher chick 1
+../data/Assets/Chicks/Teacher/Teacher chick 1.png
+Node
+Teacher chick 2
+../data/Assets/Chicks/Teacher/Teacher chick 2.png
+Node
+Angry teacher 1
+../data/Assets/Chicks/Teacher/Angry teacher 1.png
+Node
+Angry teacher 2
+../data/Assets/Chicks/Teacher/Angry teacher 2.png
+Node
+Angry teacher 3
+../data/Assets/Chicks/Teacher/Angry teacher 3.png
+Node
+Angry teacher 4
+../data/Assets/Chicks/Teacher/Angry teacher 4.png
+Node
+Infected teacher 1
+../data/Assets/Chicks/Infected/Infected teacher 1.png
+Node
+Infected teacher 2
+../data/Assets/Chicks/Infected/Infected teacher 2.png
+Node
+Infected teacher 3
+../data/Assets/Chicks/Infected/Infected teacher 3.png
+Node
+Infected teacher 4
+../data/Assets/Chicks/Infected/Infected teacher 4.png
 UI
 Background
 ../data/Assets/UI/Background.png

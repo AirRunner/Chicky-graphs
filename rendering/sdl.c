@@ -275,7 +275,7 @@ void keyIPressed(Game* game, SDL_Event* event){
         if(game->graph->array[searchNode(game->graph, game->selectedRect)]->node->data == 0){
             // Infect the node
             game->graph->array[searchNode(game->graph, game->selectedRect)]->node->data = 1;
-            changeTexture(game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL, game->texTree, "Infected chick background 2");
+            changeTexture(game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL, game->texTree, "Infected chick 3");
         }
         else{
             // Disinfect the node
