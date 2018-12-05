@@ -383,11 +383,13 @@ void render(Game* game)
     SDL_RenderClear(game->renderer);
     //rendering stuff
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
-    renderRenderingSLL(game->renderingSLL, game);
+    SDL_RenderCopy(game->renderer, searchTex(game->texTree, "UI", "Background"), NULL, createRect(0, 0, 1280, 720));
     if(game->mouseLine)
     {
         SDL_RenderDrawLine(game->renderer, game->mouseLine->x, game->mouseLine->y, game->mouseLine->w, game->mouseLine->h);
     }
+    renderRenderingSLL(game->renderingSLL, game);
+    
     SDL_RenderPresent(game->renderer);
 }
 

@@ -33,7 +33,7 @@ NodeTree* createNodeTree(char* name, SDL_Texture* texture)
     return newNodeTree;
 }
 
-void addChild(NodeTree* parent, char* name, SDL_Texture* texture)
+EltTree* addChild(NodeTree* parent, char* name, SDL_Texture* texture)
 {
     NodeTree* newNodeTree = createNodeTree(name, texture);
     EltTree* newChild = createEltTree(newNodeTree);
@@ -41,6 +41,7 @@ void addChild(NodeTree* parent, char* name, SDL_Texture* texture)
     if(parent->children == NULL)
     {
         parent->children = newChild;
+        return newChild;
     }
     else
     {
@@ -50,6 +51,7 @@ void addChild(NodeTree* parent, char* name, SDL_Texture* texture)
             tmp = tmp->next;
         }
         tmp->next = newChild;
+        return newChild;
     }
 }
 
@@ -90,12 +92,24 @@ void printTreePrefixe(NodeTree* root)
 }
 
 // Import name and path of a texture from a file
-void loadTex(FILE* file, Game* game, NodeTree* tmp){
+void loadTex(FILE* file, Game* game, NodeTree* texTree, char* type){
     char* name = malloc(50 * sizeof(char));
     char* tex = malloc(100 * sizeof(char));
     fgets(name, 50, file); name[strlen(name)-1] = '\0';
     fgets(tex, 100, file); tex[strlen(tex)-1] = '\0';
-    addChild(tmp, name, createTex(game, tex));
+
+    EltTree* children = texTree->children;
+    while(children && strcmp(children->child->name, type)){
+        children = children->next;
+    }
+    // Create the type if it doesn't already exist
+    if(!children){
+        char* typeName = malloc(10 * sizeof(char));
+        strcpy(typeName, type);
+        children = addChild(texTree, typeName, NULL);
+    }
+    // Add the texture in the good type branch
+    addChild(children->child, name, createTex(game, tex));
 }
 
 void initTex(Game* game, NodeTree** textures)
@@ -105,34 +119,13 @@ void initTex(Game* game, NodeTree** textures)
     char* type = malloc(10 * sizeof(char));
 
     *textures = createNodeTree("Textures", NULL);
-    addChild(*textures, "Edge", NULL);
-    addChild(*textures, "Node", NULL);
-    addChild(*textures, "UI", NULL);
 
-    EltTree* children = (*textures)->children;
-    NodeTree* tmp = children->child;
-    // Import edges
-    fgets(type, 10, file);
-    while(strcmp(type, "Node\n")){
-        loadTex(file, game, tmp);
-        fgets(type, 10, file);
+    // Import textures
+    while(fgets(type, 10, file)){
+        type[strlen(type)-1] = '\0';
+        loadTex(file, game, *textures, type);
     }
-
-    children = children->next;
-    tmp = children->child;
-    // Import nodes
-    while(strcmp(type, "UI\n")){
-        loadTex(file, game, tmp);
-        fgets(type, 10, file);
-    }
-
-    children = children->next;
-    tmp = children->child;
-    // Import ui
-    while(strcmp(type, "END\n")){
-        loadTex(file, game, tmp);
-        fgets(type, 10, file);
-    }
+    fclose(file);
 }
 
 SDL_Texture* createTex(Game* game, char* image)
