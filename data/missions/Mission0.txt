@@ -1,0 +1,30 @@
+
+---------UI--------
+2
+
+Next yellow
+1
+2
+3
+4
+
+Teacher chick
+350
+600
+100
+78
+
+-Text-
+6
+***
+Welcome to Chicky Graphs. Here at Tardigradus Farm, many eggs have just hatched. Mike the farmer needs some help to watch the newborn chicks. Come and discover the farm’s life, and watch the chicks grow together.
+***
+To do so, we will learn together the theory of graph. You will need to create chicks and to link them together.
+***
+To create a chick, you just have to do a left click. To move it, you need to keep the left click. Try it!
+***
+To delete a chick, just do a right click. Try it!
+***
+If you keep the right click between two chicks, it will create a link between them. Try it!
+***
+Perfect! You are ready!

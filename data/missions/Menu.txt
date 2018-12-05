@@ -1,6 +1,5 @@
 
 -------Nodes-----
-texture_Basic_chick_1
 10
 0
 
@@ -10,50 +9,50 @@ texture_Basic_chick_1
 64
 0
 
-400
-600
+500
+200
 64
 64
 0
- 
-400
+
+700
+500
+64
+64
+0
+
+900
+300
+64
+64
+0
+
+1050
+60
+64
+64
+0
+
+420
 600
 64
 64
 0
 
-400
+520
 600
 64
 64
 0
 
-400
+720
 600
 64
 64
 0
 
-400
-600
-64
-64
 0
-
-400
-600
-64
-64
-0
-
-400
-600
-64
-64
-0
-
-400
-600
+1000
 64
 64
 0
@@ -80,25 +79,25 @@ texture_Basic_chick_1
 ---------UI--------
 4
 
-texture_logo
+logo
 1050
 600
 64
 64
 
-texture_Adventure_Bubble 
+Adventure Bubble 
 1050
 600
 64
 64
 
-texture_Resume_Bubble
+Resume Bubble
 1050
 600
 64
 64
 
-texture_Sandbox_Bubble
+Sandbox Bubble
 1050
 600
 64

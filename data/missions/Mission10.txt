@@ -1,0 +1,38 @@
+
+-------Nodes-----
+3
+0
+
+500
+100
+64
+64
+0
+
+1000
+400
+64
+64
+1
+
+350
+600
+100
+78
+3
+
+---------UI--------
+1
+
+Next yellow
+1000
+400
+64
+64
+
+-Text-
+2
+***
+Congratulations! You now know the basics of the theory of graphs! To move on to the next level, please create a new undirected graph.
+***
+Oh no! Poussin just got sick and contaminated all his connected friends!

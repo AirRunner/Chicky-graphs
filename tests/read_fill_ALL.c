@@ -1,12 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "read_fill_ALL.h"
+
+
+void numbermission(char* mis, char* nber){
+	char* mission = malloc(sizeof(char)*1000);
+	strcpy(mission, "../data/missions/");
+	strcat(mission,mis);
+	strcat(mission,nber);
+	strcat(mission,".txt");
+	readFile(mission);
+}
 
 void readFile(const char* mission){
 	FILE * fichier = NULL;
 	char *lign = malloc(sizeof(char)*1000);
 	char *test = malloc(sizeof(char)*1000);
-	char *textlire= malloc(sizeof(char)*1000);
+	char *texture= malloc(sizeof(char)*1000);
 	char *token;
 	long size;
 	int x,y,w,h,d,node,directed,j,k,i,m,n,p,q;
@@ -24,90 +35,73 @@ void readFile(const char* mission){
 				printf("\n%s\n", test);
 				j = 0;
 				fgets(lign, size, fichier);
-				sscanf(lign, "%s", test);
-				printf("Texture : %s\n",test);
-				//Fonction de Victor pour les textures ATTENTION EN METTRE DEUXIEME
+				printf("Texture : %s\n",lign);
+				texture = lign; 
 				fgets(lign, size, fichier);
-				sscanf(lign, "%s", test);
-				node = atoi(test);
+				node = atoi(lign);
 				fgets(lign, size, fichier);
-				sscanf(lign, "%s", test);
-				directed = atoi(test);
+				directed = atoi(lign);
 				if (directed == 0 || directed == 1){
-					printf("Directed:%d\n", directed);
-//Graph* graph = createGraph(node, directed);
+					printf("Directed:%d\nNodes :%d\n", directed, node);
 				}
 				while (j != node){
-					//changer data mettre à 0
 					j++;
 					fgets(lign, size, fichier);
 					fgets(lign,size,fichier);
-					sscanf(lign,"%s", test);
-					x = atoi(test);
+					x = atoi(lign);
 					fgets(lign,size,fichier);
-					sscanf(lign,"%s", test);
-					y = atoi(test);
+					y = atoi(lign);
 					fgets(lign,size,fichier);
-					sscanf(lign,"%s", test);
-					w = atoi(test);
+					w = atoi(lign);
 					fgets(lign,size,fichier);
-					sscanf(lign,"%s", test);
-					h = atoi(test);
+					h = atoi(lign);
 					fgets(lign,size,fichier);
-					sscanf(lign,"%s", test);
-					d = atoi(test);
+					d = atoi(lign);
 					printf("\nNode :\nd-->%d \nx-->%d\ny-->%d\nw-->%d\nh-->%d\n\n", d,x,y,w,h);
-//createNode(Graph* graph, int data, NodeSDL** nodes, SDL_Rect* destRect, SDL_Texture* tex);
-					// x / y / w / h pour Vincent 	+ 1 data 0 contamined
+					//createNode(game->graph, d, &game->renderingSLL->nodes, createRect(x, y, w, h), searchTex(game->texTree, "Node", texture));
 				}
+				sscanf(lign, "%s", test);
 			}
 			if (strcmp(test, "-------Edges------") == 0){
 				printf("\n%s\n", test);
 				fgets(lign, size, fichier);
-				sscanf(lign,"%s", test);
-				i = atoi(test);
+				i = atoi(lign);
 				k = 0;
 				printf("Number of edges : %d\n", i);
 				fgets(lign, size, fichier);
 				if (i != 0){
 					while (k != i){
 						fgets(lign,size,fichier);
-						sscanf(lign,"%s", test);
-						token =   strtok(test, "-");
-						m = atoi(test);
+						token =   strtok(lign, "-");
+						m = atoi(lign);
 						token = strtok(NULL, "-");
-						n = atoi(token);
+						n = atoi(lign);
 						token = strtok(NULL,"-");
 						printf("Source: %d Destinataire: %d\n", m,n);
 						k++;
-						//addEdge( graph,  m,  n,  1, edges, texArrow)
+						//addEdge( game->graph,  m,  n,  1,  &game->renderingSLL->edges, NULL);
 					}
 				}
+				sscanf(lign, "%s", test);
 			}
 
 			if (strcmp(test, "---------UI--------") == 0){
 				printf("\n%s\n", test);
 				fgets(lign,size,fichier);
-				sscanf(lign,"%s", test);
-				q = atoi(test);
+				q = atoi(lign);
 				for (p=0; p <q;p++){
 					fgets(lign,size,fichier);
 					fgets(lign,size,fichier);
-					sscanf(lign,"%s", test);
-					printf("\nTexture : %s\n", test);
+					printf("\nTexture : %s\n", lign);
 					// fonction /type
 					fgets(lign,size,fichier);
-					sscanf(lign,"%s", test);
-					x = atoi(test);
+					x = atoi(lign);
 					fgets(lign,size,fichier);
-					sscanf(lign,"%s", test);
-					y = atoi(test);
+					y = atoi(lign);
 					fgets(lign,size,fichier);
-					sscanf(lign,"%s", test);
-					w = atoi(test);
+					w = atoi(lign);
 					fgets(lign,size,fichier);
-					sscanf(lign,"%s", test);
-					h = atoi(test);
+					h = atoi(lign);
 					printf("\ncoordonnées : \nx-->%d\ny-->%d\nw-->%d\nh-->%d\n\n",x,y,w,h);
 				}
 				fgets(lign,size,fichier);
@@ -116,26 +110,15 @@ void readFile(const char* mission){
 				if (strcmp(test, "-Text-") == 0){
 					int i,l;
 					fgets(lign,size,fichier);
-					sscanf(lign,"%s", test);
-					i = atoi(test);
+					i = atoi(lign);
 					for (l=0; l <i;l++){
 						fgets(lign,size,fichier);
 						sscanf(lign,"%s", test);
 						if (strcmp("***", test) == 0){
 							fgets(lign,size,fichier);
-							sscanf(lign,"%s", test);
-							token = strtok(test, "_");
-							strcpy(textlire, "");
-							while( token != NULL ) {
-								strcat(textlire, token);
-								token = strtok(NULL, "_");
-								strcat(textlire," ");
-							}
-							printf("\n%s\n", textlire);
+							printf("text:  \n\n %s", lign);
 						}
 					}
-					free(textlire);
-					free(token);
 				}
 
 			}
@@ -143,39 +126,15 @@ void readFile(const char* mission){
 	}
 	fclose(fichier);
 	free(lign);
-	free(test);
+	//free(test);
 }
-
 
 
 
 int main() {
 	printf("The menu: \n");
-	readFile("../data/missions/Menu.txt");
-	printf("The Intro Mission: \n");
-	readFile("../data/missions/MissionINTRO.txt");
-	printf("\n\nMission 1: \n");
-	readFile("../data/missions/Mission1.txt");
-	printf("\n\nMission 2: \n");
-	readFile("../data/missions/Mission2.txt");
-	printf("\n\nMission 3: \n");
-	readFile("../data/missions/Mission3.txt");
-	printf("\n\nMission 4: \n");
-	readFile("../data/missions/Mission4.txt");
-	printf("\n\nMission 5: \n");
-	readFile("../data/missions/Mission5.txt");
-	printf("\n\nMission 6: \n");
-	readFile("../data/missions/Mission6.txt");
-	printf("\n\nMission 7: \n");
-	readFile("../data/missions/Mission7.txt");
-	printf("\n\nMission 8: \n");
-	readFile("../data/missions/Mission8.txt");
-	printf("\n\nMission 9: \n");
-	readFile("../data/missions/Mission9.txt");
-	printf("\n\nMission Finale: \n");
-	readFile("../data/missions/MissionFINAL.txt");
-	printf("\n\nMission Finale: \n");
-	readFile("../data/missions/TO_BE_CONTINUED.txt");
+	numbermission("Mission","3");
+	//readFile("../data/missions/Menu.txt");
 
 	return(0);
 }

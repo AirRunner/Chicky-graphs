@@ -1,7 +1,6 @@
 
 -------Nodes-----
-texture_Basic_chick_1
-5
+6
 1
 
 400
@@ -34,27 +33,27 @@ texture_Basic_chick_1
 64
 0
 
----------UI--------
-2
+350
+600
+100
+78
+3
 
-texture_Next_yellow
+---------UI--------
+1
+
+Next yellow
 1
 2
 3
 4
 
-texture_Teacher_chick_2
-350
-600
-100
-78
-
 -Text-
 2
 ***
-We’ve_talked_about_undirected_graphs_but_there_exists_another_kind_of_graphs:_the_directed_graphs_whose_edges_can_only_be_traversed_one_way.Let's_try!
+We’ve talked about undirected graphs but there exists another kind of graphs: the directed graphs whose edges can only be traversed one way.Let's try!
 ***
-Here,_chick_X_can_say_something_to_chick_Y_but_it_will_not_work_the_other_way_around._In_directed_graphs_connections_are_not_symmetric_and_are_called_directed_edges.
+Here, chick X can say something to chick Y but it will not work the other way around. In directed graphs connections are not symmetric and are called directed edges.
 
 
 

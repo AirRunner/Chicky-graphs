@@ -2,13 +2,13 @@
 ---------UI--------
 2
 
-texture_Next_yellow
+Next yellow
 1
 2
 3
 4
 
-texture_Teacher_chick_2
+Teacher chick
 350
 600
 100
@@ -17,6 +17,6 @@ texture_Teacher_chick_2
 -Text-
 1
 ***
-TO_BE_CONTINUED
+TO BE CONTINUED
 
 

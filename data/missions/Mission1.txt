@@ -1,26 +1,30 @@
 
----------UI--------
+-------Nodes-----
+2
+0
+
+850
+300
+100
+55
+2
+
+350
+600
+100
+78
 3
 
-texture_Next_yellow
+---------UI--------
+1
+
+Next yellow
 400
 600
 64
 64
 
-texture_Poussin_Bubble_Happy
-850
-300
-100
-55
-
-texture_Teacher_chick_2
-350
-600
-100
-78
-
 -Text-
 1
 ***
-Here_is_Poussin._Poussin_has_many_friends._For_now,_he_has_no_way_of_communicating_with_them._Poussin_wants_to_share_his_happiness_with_his_other_friends._In_a_graph_representation,_Poussin_is_a_node._It_contains_information._Here_it's_Poussin’s_happiness.
+Here is Poussin. Poussin has many friends. For now, he has no way of communicating with them. Poussin wants to share his happiness with his other friends. In a graph representation, Poussin is a node. It contains information. Here it's Poussin’s happiness.

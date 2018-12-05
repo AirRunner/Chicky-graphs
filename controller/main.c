@@ -3,6 +3,7 @@
 
 #include "../rendering/sdl.h"
 #include "graphs.h"
+#include "../data-layer/read_fill_ALL.h"
 
 void test(Graph* graph, RenderingSLL* renderingSLL, NodeTree* texTree)
 {
@@ -29,11 +30,12 @@ void test(Graph* graph, RenderingSLL* renderingSLL, NodeTree* texTree)
 
 int main(int argc, char *argv[])
 {
-
+ 
     Game* game = malloc(sizeof(Game));
     const int FPS = 60;
     const int frameDelay = 1000 / FPS; // a second devided by the number of frames per second
     int width = 1280, height = 720;
+
 
     initSDL
     (
@@ -51,9 +53,8 @@ int main(int argc, char *argv[])
     initTex(game, &game->texTree);
     addUI(&game->renderingSLL->ui, createRect(0, 0, 1280, 720), searchTex(game->texTree, "UI", "Background"));
     game->graph = createGraph(10, 0);
-
     test(game->graph, game->renderingSLL, game->texTree);
-
+    
     while(game->isrunning)
     {
         Uint32 frameStart = SDL_GetTicks();
@@ -71,6 +72,7 @@ int main(int argc, char *argv[])
         }
     }
 
+    
     deleteGraph(&game->graph, &game->renderingSLL->nodes, &game->renderingSLL->edges);
 
     cleanSDL(game);

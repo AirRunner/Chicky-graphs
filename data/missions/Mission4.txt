@@ -1,6 +1,6 @@
+
 -------Nodes-----
-texture_Basic_chick_1
-5
+6
 0
 
 400
@@ -33,33 +33,33 @@ texture_Basic_chick_1
 64
 0
 
----------UI--------
-3
-
-texture_Next_yellow
-1
-2
-3
-4
-
-texture_Matrice
-1
-2
-3
-4
-
-texture_Teacher_chick_2
 350
 600
 100
 78
+3
+
+---------UI--------
+2
+
+Next yellow
+1
+2
+3
+4
+
+Matrice
+1
+2
+3
+4
 
 -Text-
 2
 ***
-Try_to_implement_the_graph_using_an_Adjacency_Matrix._To_do_so,_you_have_to_use_the_matrix_which_is_a_2D_array_corresponding_to_number_of_chicks_poussin_squared._If_there_is_an_edge_between_two_poussins,_there_is_a_T_(True)_inside_the_matrix_at_the_corresponding_place.
+Try to implement the graph using an Adjacency Matrix. To do so, you have to use the matrix which is a 2D array corresponding to number of chicks poussin squared. If there is an edge between two poussins, there is a T (True) inside the matrix at the corresponding_place.
 ***
-Here,_using_a_boolean_matrix_to_express_the_graph_(an_adjacency_matrix),_you've_just_created_the_corresponding_graph.
+Here, using a boolean matrix to express the graph (an adjacency matrix), you've just created the corresponding graph.
 
 
 

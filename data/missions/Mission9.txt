@@ -2,31 +2,31 @@
 ---------UI--------
 5
 
-texture_Next_yellow
+Next yellow
 1
 2
 3
 4
 
-texture_Teacher_chick_2
+Big Teacher chick
 350
 600
 100
 78
 
-Image_Text1
+Image Text1
 1
 2
 3
 4
 
-Image_Text2
+Image Text2
 1
 2
 34
 4
 
-Image_Text3
+Image Text3
 1
 2
 3

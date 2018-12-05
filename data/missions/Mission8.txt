@@ -1,7 +1,6 @@
 
 -------Nodes-----
-texture_Basic_chick_1
-5
+6
 1
 
 1
@@ -34,33 +33,33 @@ texture_Basic_chick_1
 4
 0
 
----------UI--------
-3
-
-texture_Validation_yellow
-1
-2
-3
-4
-
-texture_List
-1
-2
-3
-4
-
-texture_Teacher_chick_2
 350
 600
 100
 78
+3
+
+---------UI--------
+2
+
+Validation yellow
+1
+2
+3
+4
+
+List
+1
+2
+3
+4
 
 -Text-
 2
 ***
-Now,_try_to_implement_the_graph_using_its_Adjacency_list._The_node_in_the_array_will_be_linked_to_all_nodes_in_the_list.
+Now, try to implement the graph using its Adjacency list. The node in the array will be linked to all nodes in the list.
 ***
-Once_again,_using_lists_to_express_a_graph:_the_adjacency_lists,_you_have_created_the_corresponding_graph.
+Once again, using lists to express a graph: the adjacency lists, you have created the corresponding graph.
 
 
 

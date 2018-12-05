@@ -1,7 +1,6 @@
 
 -------Nodes-----
-texture_Basic_chick_1
-5
+6
 1
 
 400
@@ -34,33 +33,33 @@ texture_Basic_chick_1
 64
 0
 
----------UI--------
-3
-
-texture_Next_yellow
-400
-600
-64
-64
-
-texture_Matrice
-400
-600
-64
-64
-
-texture_Teacher_chick_2
 350
 600
 100
 78
+3
+
+---------UI--------
+2
+
+Next yellow
+400
+600
+64
+64
+
+Matrice
+400
+600
+64
+64
 
 -Text-
 2
 ***
-Try_to_implement_the_directed_graph_corresponding_to_this_Adjacency_Matrix._We_use_the_same_process_as_before._Only_this_time,_you_will_have_to_think_about_the_direction_of_the_arrow.
+Try to implement the directed graph corresponding to this Adjacency Matrix. We use the same process as before. Only this time, you will have to think about the direction of the arrow.
 ***
-Here_using_a_matrix_to_express_the_graph:_an_adjacency_matrix,_you_have_create_the_corresponding_directed_graph.
+Here using a matrix to express the graph: an adjacency matrix, you have create the corresponding directed graph.
 
 
 
