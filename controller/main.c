@@ -3,7 +3,7 @@
 
 #include "../rendering/sdl.h"
 #include "graphs.h"
-#include "../data-layer/read_fill_ALL.h"
+#include "../data-layer/data.h"
 
 void test(Graph* graph, RenderingSLL* renderingSLL, NodeTree* texTree)
 {
@@ -54,6 +54,9 @@ int main(int argc, char *argv[])
     addUI(&game->renderingSLL->ui, createRect(0, 0, 1280, 720), searchTex(game->texTree, "UI", "Background"));
     game->graph = createGraph(10, 0);
     test(game->graph, game->renderingSLL, game->texTree);
+    
+    //tester les missions !
+    readFile("../data/missions/Menu.txt", game);
     
     while(game->isrunning)
     {
