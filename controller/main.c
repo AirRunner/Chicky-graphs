@@ -55,8 +55,8 @@ int main(int argc, char *argv[])
     test(game->graph, game->renderingSLL, game->texTree);
     
     //tester les missions ! :)
-    //il faudra parametrer la taille max du graph pour chaque mission
-    //readFile("../data/missions/Mission10.txt", game);
+
+    //readFile("../data/missions/Menu.txt", game);
     
     while(game->isrunning)
     {
