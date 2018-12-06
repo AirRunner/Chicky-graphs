@@ -43,7 +43,7 @@ void NodesMissions(FILE *fichier, Game * game, long size){
 		fgets(lign,size,fichier);
 		d = atoi(lign);
 		SDL_QueryTexture(searchTex(game->texTree, "Node", texture), NULL, NULL, &w, &h);
-		createNode(game->graph, d, &game->renderingSLL->nodes, createRect(x/4, y/4, w/4, h/4), searchTex(game->texTree, "Node", texture));
+		createNode(game->graph, d, &game->renderingSLL->nodes, createRect(x, y, w/4, h/4), searchTex(game->texTree, "Node", texture));
 	}
 }
 
