@@ -33,9 +33,9 @@ Infected chick 1
 
 Teacher chick 1
 150
-600
-120
-120
+550
+180
+180
 0
 
 -------Edges------

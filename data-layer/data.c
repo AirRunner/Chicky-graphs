@@ -42,8 +42,9 @@ void NodesMissions(FILE *fichier, Game * game, long size){
 		h = atoi(lign);
 		fgets(lign,size,fichier);
 		d = atoi(lign);
-		SDL_QueryTexture(searchTex(game->texTree, "Node", texture), NULL, NULL, &w, &h);
-		createNode(game->graph, d, &game->renderingSLL->nodes, createRect(x/4, y/4, w/4, h/4), searchTex(game->texTree, "Node", texture));
+		//SDL_QueryTexture(searchTex(game->texTree, "Node", texture), NULL, NULL, &w, &h);
+		// teacher diviser par 3 et les autres diviser par 2
+		createNode(game->graph, d, &game->renderingSLL->nodes, createRect(x, y, w, h), searchTex(game->texTree, "Node", texture));
 	}
 }
 
@@ -98,16 +99,29 @@ void UIMissions(FILE *fichier, Game * game, long size){
 	fgets(lign,size,fichier);
 	sscanf(lign,"%s", test);
 	if (strcmp(test, "-Text-") == 0){
-		int i,l;
+		//Textlist* LisText = malloc(sizeof(Textlist));
+		//Textlist* tmp = malloc(sizeof(Textlist));
 		fgets(lign,size,fichier);
-		i = atoi(lign);
-		for (l=0; l <i;l++){
+		p = atoi(lign);
+		for (q=0; q <p;q++){
 			fgets(lign,size,fichier);
 			sscanf(lign,"%s", test);
 			if (strcmp("***", test) == 0){
 				fgets(lign,size,fichier);
-				//fonction pour les textes
-			//	printf("text:  \n\n %s", lign);
+				//if (q == 0){
+				//	LisText->readText = malloc(sizeof(char)*1000);
+				//	LisText->readText = lign;
+				//	printf("%s",LisText->readText);
+				//	LisText->nexText = NULL;
+				//	tmp = LisText;
+				//	}
+				//else {
+				//	tmp->readText = malloc(sizeof(char)*1000);
+				//	tmp->readText = lign;
+				//	printf("%s",tmp->readText);
+				//	tmp->nexText = NULL;
+				//	tmp = tmp->nexText;
+			//}
 			}
 		}
 	}

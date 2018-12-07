@@ -5,6 +5,11 @@
 
 #include "../controller/graphs.h"
 
+typedef struct textlist{
+	char* readText;
+	struct textlist* nexText;
+} Textlist;
+
 void NodesMissions(FILE *fichier, Game * game, long size);
 
 void EdgesMissions(FILE *fichier, Game * game, long size);
