@@ -125,6 +125,7 @@ void initTex(Game* game, NodeTree** textures)
         type[strlen(type)-1] = '\0';
         loadTex(file, game, *textures, type);
     }
+    free(type);
     fclose(file);
 }
 
