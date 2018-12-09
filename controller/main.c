@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "../rendering/sdl.h"
 #include "graphs.h"
 #include "../data-layer/data.h"
 
@@ -12,7 +8,7 @@ void test(Graph* graph, RenderingSLL* renderingSLL, NodeTree* texTree)
     SDL_QueryTexture(searchTex(texTree, "Node", "Infected chick 4"), NULL, NULL, &wi, &hi);
     w /= 4; h /= 4;
     wi /= 4; hi /= 4;
-
+    // Testing graph
     createNode(graph, 0, &renderingSLL->nodes, createRect(0, 0, w, h), searchTex(texTree, "Node", "Basic chick"));
     createNode(graph, 0, &renderingSLL->nodes, createRect(2*h, 0, w, h), searchTex(texTree, "Node", "Basic chick"));
     createNode(graph, 1, &renderingSLL->nodes, createRect(4*h-20, h-20, wi, hi), searchTex(texTree, "Node", "Infected chick 4"));
@@ -51,7 +47,7 @@ int main(int argc, char *argv[])
 
     game->renderingSLL = createRenderingSLL();
     game->texTree = NULL;
-    initTex(game, &game->texTree);
+    initTex(game);
     game->graph = createGraph(10, 0);
     test(game->graph, game->renderingSLL, game->texTree);
     

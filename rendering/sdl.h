@@ -14,6 +14,7 @@ struct renderingSLL;
 struct nodeTree;
 struct nodeSDL;
 struct edgeSDL;
+struct ui;
 struct graph;
 
 typedef enum selectedType
@@ -27,6 +28,7 @@ typedef struct game
 {
     SDL_Window *window;
     SDL_Renderer *renderer;
+    struct ui *background;
     struct renderingSLL *renderingSLL;
     SDL_Rect* selectedRect;
     SelectedType selectedType;

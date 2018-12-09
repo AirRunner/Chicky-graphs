@@ -1,5 +1,6 @@
 #include <string.h>
 #include "texture.h"
+#include "../rendering/renderingSLL.h"
 
 EltTree* createEltTree(NodeTree* child)
 {
@@ -97,7 +98,7 @@ void loadTex(FILE* file, Game* game, NodeTree* texTree, char* type){
     char* tex = malloc(100 * sizeof(char));
     fgets(name, 50, file); name[strlen(name)-1] = '\0';
     fgets(tex, 100, file); tex[strlen(tex)-1] = '\0';
-
+    // Search the good type
     EltTree* children = texTree->children;
     while(children && strcmp(children->child->name, type)){
         children = children->next;
@@ -112,19 +113,23 @@ void loadTex(FILE* file, Game* game, NodeTree* texTree, char* type){
     addChild(children->child, name, createTex(game, tex));
 }
 
-void initTex(Game* game, NodeTree** textures)
+void initTex(Game* game)
 {
+    // Load file containing assets' type, name and path
     FILE* file = NULL;
     file = fopen("../data/Assets/importTextures.txt","r");
     char* type = malloc(10 * sizeof(char));
 
-    *textures = createNodeTree("Textures", NULL);
+    game->texTree = createNodeTree("Textures", NULL);
 
     // Import textures
     while(fgets(type, 10, file)){
         type[strlen(type)-1] = '\0';
-        loadTex(file, game, *textures, type);
+        loadTex(file, game, game->texTree, type);
     }
+    // Set background
+    game->background = createUI(createRect(0, 0, 1280, 720), searchTex(game->texTree, "UI", "Background"));
+
     free(type);
     fclose(file);
 }
@@ -148,7 +153,7 @@ SDL_Texture* createTex(Game* game, char* image)
 
 SDL_Texture* searchTex(NodeTree* textures, char* type, char* name){
     EltTree* children = textures->children;
-    // Find the good type (edge, node or UI)
+    // Search the good type (edge, node or UI)
     while(children != NULL && strcmp(children->child->name, type)){
         children = children->next;
     }
@@ -157,7 +162,7 @@ SDL_Texture* searchTex(NodeTree* textures, char* type, char* name){
         return NULL;
     }
     children = children->child->children;
-    //Find the good texture
+    // Search the good texture
     while(children != NULL && strcmp(children->child->name, name)){
         children = children->next;
     }

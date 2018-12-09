@@ -1,7 +1,6 @@
 #ifndef RENDERINGSLL_H
 #define RENDERINGSLL_H
 
-#include "sdl.h"
 #include "texture.h"
 
 typedef struct renderingSLL

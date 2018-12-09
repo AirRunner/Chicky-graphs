@@ -1,6 +1,4 @@
 #include "sdl.h"
-
-#include "renderingSLL.h"
 #include "../controller/graphs.h"
 
 void initSDL(Game* game, const char* title, int xpos, int ypos, int width, int height, int fullscreen)
@@ -252,7 +250,6 @@ void mouseRightReleased(Game* game, SDL_Event* event){
             // Delete the node
             deleteNode(game->graph, searchNode(game->graph, game->selectedRect), &game->renderingSLL->nodes, &game->renderingSLL->edges);
             free(game->mouseLine);
-            game->mouseLine = NULL;
         }
         else{
             free(game->mouseLine);
@@ -261,8 +258,8 @@ void mouseRightReleased(Game* game, SDL_Event* event){
                 // Add an edge
                 addEdge(game->graph, searchNode(game->graph, game->mouseLine), searchNode(game->graph, game->selectedRect), 1, &game->renderingSLL->edges, NULL);
             }
-            game->mouseLine = NULL;
         }
+        game->mouseLine = NULL;
         game->selectedRect = NULL;
     }
 }
@@ -397,7 +394,7 @@ void render(Game* game)
     SDL_RenderClear(game->renderer);
     //rendering stuff
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
-    SDL_RenderCopy(game->renderer, searchTex(game->texTree, "UI", "Background"), NULL, createRect(0, 0, 1280, 720));
+    SDL_RenderCopy(game->renderer, game->background->tex, NULL, game->background->destRect);
     if(game->mouseLine)
     {
         SDL_RenderDrawLine(game->renderer, game->mouseLine->x, game->mouseLine->y, game->mouseLine->w, game->mouseLine->h);
