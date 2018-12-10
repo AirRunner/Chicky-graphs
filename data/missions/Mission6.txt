@@ -1,38 +1,38 @@
 
 -------Nodes-----
 6
-1
+0
+
+Basic chick
+100
+400
+80
+80 
+0
 
 Basic chick
 200
-400
+150
 80
 80
 0
-
+ 
 Basic chick
-400
-100
-80
-80
-0
-
-Basic chick
-750
+450
 350
 80
 80
 0
 
 Basic chick
-1000
+600
 150
 80
 80
 0
 
 Basic chick
-1150
+650
 450
 80
 80
@@ -46,9 +46,15 @@ Teacher chick 1
 0
 
 ---------UI--------
-1
+2
 
 Next yellow
+1
+2
+3
+4
+
+List
 1
 2
 3
@@ -57,10 +63,9 @@ Next yellow
 -Text-
 2
 ***
-We’ve talked about undirected graphs but there exists another kind of graphs: the directed graphs whose edges can only be traversed one way.Let's try!
+Now, try to implement the graph using its Adjacency List. The node in the array will be linked to all the nodes in the list.
 ***
-Here, chick X can say something to chick Y but it will not work the other way around. In directed graphs connections are not symmetric and are called directed edges.
-
+Here, using lists to express a graph (an adjacency list), you have created the corresponding graph.
 
 
 

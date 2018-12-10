@@ -1,22 +1,63 @@
 
----------UI--------
-2
-
-Next yellow
-1
-2
+-------Nodes-----
 3
+0
+
+Basic chick
+450
+50
+80
+80
+0
+
+Basic chick
+450
+450
+80
+80
+0
+
+Basic chick
+1000
+250
+80
+80
+0
+
+Infected chick 1
+600
+200
+80
+80
+1
+
+Teacher chick 1
+150
+550
+180
+180
+0
+
+-------Edges------
 4
 
-Big Teacher chick
-150
-500
-240
-240
+1-2
+1-4
+2-3
+3-4
+
+---------UI--------
+1
+
+Next yellow
+1000
+400
+64
+64
 
 -Text-
-1
+2
 ***
-TO BE CONTINUED
-
-
+Congratulations! You now know the basics of the theory of graphs! To move on to the next level, please create a new undirected graph.
+***
+Oh no! Poussin just got sick and contaminated all his connected friends!

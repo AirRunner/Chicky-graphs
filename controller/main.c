@@ -51,13 +51,13 @@ int main(int argc, char *argv[])
     game->renderingSLL = createRenderingSLL();
     game->texTree = NULL;
     initTex(game, &game->texTree);
-    game->graph = createGraph(10, 0);
+    
+   // game->graph = createGraph(10, 0);
    // test(game->graph, game->renderingSLL, game->texTree);
     
-    //tester les missions ! :)
-    //il faudra parametrer la taille max du graph pour chaque mission
-    readFile("../data/missions/Mission8.txt", game);
+    NbMission(game);
     
+
     while(game->isrunning)
     {
         Uint32 frameStart = SDL_GetTicks();

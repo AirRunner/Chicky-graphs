@@ -1,18 +1,11 @@
 
 -------Nodes-----
-3
+2
 0
 
 Success chick 1
-800
-250
-80
-80
-0
- 
-Basic chick
-400
-400
+600
+300
 80
 80
 0
@@ -28,17 +21,12 @@ Teacher chick 1
 1
 
 Next yellow
-1000
 400
+600
 64
 64
 
 -Text-
-2
+1
 ***
-Look! Poussin, just found a friend, give him a way to communicate with him To succeed you have to connect those two chicks by clicking on the edge.
-***
-Congratulations! You just created a simple graph with 2 nodes (the two chicks, they can also be called vertices) linked by 1 edge. Now the other chick knows Poussin’s happiness and became happy too!
-
-
-
+Here is Poussin. Poussin has many friends. For now, he has no way of communicating with them. Poussin wants to share his happiness with his other friends. In a graph representation, Poussin is a node. It contains information. Here it's Poussin’s happiness.

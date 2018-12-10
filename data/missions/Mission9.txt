@@ -1,34 +1,73 @@
 
----------UI--------
-5
-
-Next yellow
+-------Nodes-----
+6
 1
-2
-3
-4
 
-Big Teacher chick
+Basic chick
 100
-250
-240
-240
+400
+80
+80 
+0
 
-Image Text1
+Basic chick
+200
+150
+80
+80
+0
+ 
+Basic chick
+450
+350
+80
+80
+0
+
+Basic chick
+600
+150
+80
+80
+0
+
+Basic chick
+650
+450
+80
+80
+0
+
+Teacher chick 1
+150
+550
+180
+180
+0
+
+---------UI--------
+2
+
+Validation yellow
 1
 2
 3
 4
 
-Image Text2
-1
-2
-34
-4
-
-Image Text3
+List
 1
 2
 3
 4
+
+-Text-
+2
+***
+Now, try to implement the graph using its Adjacency list. The node in the array will be linked to all nodes in the list.
+***
+Once again, using lists to express a graph: the adjacency lists, you have created the corresponding graph.
+
+
+
+
 

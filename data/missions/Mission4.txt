@@ -4,35 +4,35 @@
 0
 
 Basic chick
-100
+200
 400
 80
-80 
+80
 0
 
 Basic chick
-200
-150
+400
+100
 80
 80
 0
- 
+
 Basic chick
-450
+750
 350
 80
 80
 0
 
 Basic chick
-600
+1000
 150
 80
 80
 0
 
 Basic chick
-650
+1150
 450
 80
 80
@@ -46,7 +46,7 @@ Teacher chick 1
 0
 
 ---------UI--------
-2
+1
 
 Next yellow
 1
@@ -54,19 +54,11 @@ Next yellow
 3
 4
 
-Matrice
-1
-2
-3
-4
-
 -Text-
-2
+3
 ***
-Try to implement the graph using an Adjacency Matrix. To do so, you have to use the matrix which is a 2D array corresponding to number of chicks poussin squared. If there is an edge between two poussins, there is a T (True) inside the matrix at the corresponding_place.
+Now, you can create our own graph of chicks. You just have to connect chicks to each other. Click on the button "Next" when you are done.
 ***
-Here, using a boolean matrix to express the graph (an adjacency matrix), you've just created the corresponding graph.
-
-
-
-
+There are two kind of graphs, undirected graph and directed graph. Here you just created an undirected graph which can be traversed in multiple ways as the edges do not have a specific direction.
+***
+In fact chick X can say something to chick Y and the other way around.

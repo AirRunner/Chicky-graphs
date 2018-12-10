@@ -3,17 +3,26 @@
 #include <string.h>
 #include "data.h"
 
-char* numbermission(char* mis, char* nber, Game* game){
+void NbMission(Game *game){
+	int j =0;
+	char *MisB = malloc(sizeof(char)*1000);
+	MissioNumber nB = Mission4;
+	//for (nB = Menu; nB < Mission1; nB++){
+		MisB = numbermission(nB);
+		j ++;
+		readFile(MisB, game);
+		//mettre la suite
+	//}
+}
+
+char* numbermission( MissioNumber Themission){
 	char* mission = malloc(sizeof(char)*1000);
-	strcpy(mission, "../data/missions/");
-	if ( strcpy(mis, "Mission") == 0){
-		strcat(mission,mis);
-		strcat(mission,nber);
-		strcat(mission,".txt");
-		return(mission);
+	if (Themission == 0){
+		return("../data/missions/Menu.txt");
 	}
 	else{
-		return("../data/missions/Menu.txt");
+		sprintf(mission, "../data/missions/Mission%d.txt", Themission);
+		return(mission);
 	}
 }
 
@@ -26,6 +35,7 @@ void NodesMissions(FILE *fichier, Game * game, long size){
 	node = atoi(lign);
 	fgets(lign, size, fichier);
 	directed = atoi(lign);
+	game->graph = createGraph(node, directed);
 	while (j != node){
 		j++;
 		fgets(lign, size, fichier);
@@ -42,8 +52,6 @@ void NodesMissions(FILE *fichier, Game * game, long size){
 		h = atoi(lign);
 		fgets(lign,size,fichier);
 		d = atoi(lign);
-		//SDL_QueryTexture(searchTex(game->texTree, "Node", texture), NULL, NULL, &w, &h);
-		// teacher diviser par 3 et les autres diviser par 2
 		createNode(game->graph, d, &game->renderingSLL->nodes, createRect(x, y, w, h), searchTex(game->texTree, "Node", texture));
 	}
 }
@@ -99,8 +107,8 @@ void UIMissions(FILE *fichier, Game * game, long size){
 	fgets(lign,size,fichier);
 	sscanf(lign,"%s", test);
 	if (strcmp(test, "-Text-") == 0){
-		//Textlist* LisText = malloc(sizeof(Textlist));
-		//Textlist* tmp = malloc(sizeof(Textlist));
+		LisText* Text = malloc(sizeof(LisText));
+		LisText* tmp;
 		fgets(lign,size,fichier);
 		p = atoi(lign);
 		for (q=0; q <p;q++){
@@ -108,25 +116,22 @@ void UIMissions(FILE *fichier, Game * game, long size){
 			sscanf(lign,"%s", test);
 			if (strcmp("***", test) == 0){
 				fgets(lign,size,fichier);
-				//if (q == 0){
-				//	LisText->readText = malloc(sizeof(char)*1000);
-				//	LisText->readText = lign;
-				//	printf("%s",LisText->readText);
-				//	LisText->nexText = NULL;
-				//	tmp = LisText;
-				//	}
-				//else {
-				//	tmp->readText = malloc(sizeof(char)*1000);
-				//	tmp->readText = lign;
-				//	printf("%s",tmp->readText);
-				//	tmp->nexText = NULL;
-				//	tmp = tmp->nexText;
-			//}
+				if (q == 0){
+					Text->readText = lign;
+					Text->nexText = malloc(sizeof(char)*1000);
+					tmp = Text;
+					tmp = tmp->nexText;
+					}
+				else {
+					tmp->readText = lign;
+					tmp->nexText = malloc(sizeof(char)*1000);
+					tmp = tmp->nexText;
+				}
 			}
 		}
 	}
-
 }
+
 
 
 void readFile(const char* mission, Game* game){
@@ -163,9 +168,5 @@ void readFile(const char* mission, Game* game){
 	}
 	fclose(fichier);
 	free(lign);
-	//free(test);
-	//voir les graphs 
-	//printGraph(game->graph);
-}
-
-
+	free(test);
+	}

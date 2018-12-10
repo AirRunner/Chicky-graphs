@@ -48,26 +48,24 @@ Teacher chick 1
 ---------UI--------
 2
 
-Validation yellow
-1
-2
-3
-4
+Next yellow
+400
+600
+64
+64
 
-List
-1
-2
-3
-4
+Matrice
+400
+600
+64
+64
 
 -Text-
 2
 ***
-Now, try to implement the graph using its Adjacency list. The node in the array will be linked to all nodes in the list.
+Try to implement the directed graph corresponding to this Adjacency Matrix. We use the same process as before. Only this time, you will have to think about the direction of the arrow.
 ***
-Once again, using lists to express a graph: the adjacency lists, you have created the corresponding graph.
-
-
+Here using a matrix to express the graph: an adjacency matrix, you have create the corresponding directed graph.
 
 
 

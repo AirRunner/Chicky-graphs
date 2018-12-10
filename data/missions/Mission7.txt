@@ -4,35 +4,35 @@
 1
 
 Basic chick
-100
+200
 400
 80
-80 
+80
 0
 
 Basic chick
-200
-150
+400
+100
 80
 80
 0
- 
+
 Basic chick
-450
+750
 350
 80
 80
 0
 
 Basic chick
-600
+1000
 150
 80
 80
 0
 
 Basic chick
-650
+1150
 450
 80
 80
@@ -46,26 +46,21 @@ Teacher chick 1
 0
 
 ---------UI--------
-2
+1
 
 Next yellow
-400
-600
-64
-64
-
-Matrice
-400
-600
-64
-64
+1
+2
+3
+4
 
 -Text-
 2
 ***
-Try to implement the directed graph corresponding to this Adjacency Matrix. We use the same process as before. Only this time, you will have to think about the direction of the arrow.
+We’ve talked about undirected graphs but there exists another kind of graphs: the directed graphs whose edges can only be traversed one way.Let's try!
 ***
-Here using a matrix to express the graph: an adjacency matrix, you have create the corresponding directed graph.
+Here, chick X can say something to chick Y but it will not work the other way around. In directed graphs connections are not symmetric and are called directed edges.
+
 
 
 

@@ -1,6 +1,6 @@
 
 ---------UI--------
-5
+2
 
 Next yellow
 1
@@ -9,26 +9,14 @@ Next yellow
 4
 
 Big Teacher chick
-100
-250
+150
+500
 240
 240
 
-Image Text1
+-Text-
 1
-2
-3
-4
+***
+TO BE CONTINUED
 
-Image Text2
-1
-2
-34
-4
-
-Image Text3
-1
-2
-3
-4
 

@@ -54,7 +54,7 @@ Next yellow
 3
 4
 
-List
+Matrice
 1
 2
 3
@@ -63,9 +63,10 @@ List
 -Text-
 2
 ***
-Now, try to implement the graph using its Adjacency List. The node in the array will be linked to all the nodes in the list.
+Try to implement the graph using an Adjacency Matrix. To do so, you have to use the matrix which is a 2D array corresponding to number of chicks poussin squared. If there is an edge between two poussins, there is a T (True) inside the matrix at the corresponding_place.
 ***
-Here, using lists to express a graph (an adjacency list), you have created the corresponding graph.
+Here, using a boolean matrix to express the graph (an adjacency matrix), you've just created the corresponding graph.
+
 
 
 

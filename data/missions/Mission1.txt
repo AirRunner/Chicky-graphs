@@ -1,32 +1,30 @@
 
--------Nodes-----
-2
-0
-
-Success chick 1
-600
-300
-80
-80
-0
-
-Teacher chick 1
-150
-550
-180
-180
-0
-
 ---------UI--------
-1
+2
 
 Next yellow
-400
-600
-64
-64
+1
+2
+3
+4
+
+Big Teacher chick
+150
+500
+240
+240
 
 -Text-
-1
+6
 ***
-Here is Poussin. Poussin has many friends. For now, he has no way of communicating with them. Poussin wants to share his happiness with his other friends. In a graph representation, Poussin is a node. It contains information. Here it's Poussin’s happiness.
+Welcome to Chicky Graphs. Here at Tardigradus Farm, many eggs have just hatched. Mike the farmer needs some help to watch the newborn chicks. Come and discover the farm’s life, and watch the chicks grow together.
+***
+To do so, we will learn together the theory of graph. You will need to create chicks and to link them together.
+***
+To create a chick, you just have to do a left click. To move it, you need to keep the left click. Try it!
+***
+To delete a chick, just do a right click. Try it!
+***
+If you keep the right click between two chicks, it will create a link between them. Try it!
+***
+Perfect! You are ready!
