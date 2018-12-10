@@ -47,7 +47,6 @@ int main(int argc, char *argv[])
 
     game->renderingSLL = createRenderingSLL();
     game->texTree = NULL;
-    initTex(game, &game->texTree);
     
     //game->graph = createGraph(10, 0);
     //test(game->graph, game->renderingSLL, game->texTree);
