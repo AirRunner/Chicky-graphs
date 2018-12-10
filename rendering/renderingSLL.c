@@ -1,3 +1,4 @@
+#include <string.h>
 #include "renderingSLL.h"
 
 
@@ -149,7 +150,13 @@ void renderNodes(NodeSDL* nodes, Game* game)
 void changeTexture(NodeSDL* node, NodeTree* texTree, char* texName){
     int w, h;
     SDL_QueryTexture(searchTex(texTree, "Node", texName), NULL, NULL, &w, &h);
-    w /= 4; h /= 4;
+
+    if(strstr(texName, "teacher") || strstr(texName, "Teacher")){
+        w /= 2; h /= 2;
+    }
+    else{
+        w /= 4; h /= 4;
+    }
     // Resize the SDL Rect
     node->destRect->x -= (w-node->destRect->w)/2;
     node->destRect->y -= (h-node->destRect->h)/2;

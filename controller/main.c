@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "../rendering/sdl.h"
 #include "graphs.h"
 #include "../data-layer/data.h"
 
@@ -9,15 +5,16 @@ void test(Graph* graph, RenderingSLL* renderingSLL, NodeTree* texTree)
 {
     int w, h, wi, hi;
     SDL_QueryTexture(searchTex(texTree, "Node", "Basic chick"), NULL, NULL, &w, &h);
-    SDL_QueryTexture(searchTex(texTree, "Node", "Infected chick 3"), NULL, NULL, &wi, &hi);
+    SDL_QueryTexture(searchTex(texTree, "Node", "Infected chick 4"), NULL, NULL, &wi, &hi);
     w /= 4; h /= 4;
     wi /= 4; hi /= 4;
-
+    // Testing graph
     createNode(graph, 0, &renderingSLL->nodes, createRect(0, 0, w, h), searchTex(texTree, "Node", "Basic chick"));
     createNode(graph, 0, &renderingSLL->nodes, createRect(2*h, 0, w, h), searchTex(texTree, "Node", "Basic chick"));
-    createNode(graph, 1, &renderingSLL->nodes, createRect(4*h-20, h-20, wi, hi), searchTex(texTree, "Node", "Infected chick 3"));
+    createNode(graph, 1, &renderingSLL->nodes, createRect(4*h-20, h-20, wi, hi), searchTex(texTree, "Node", "Infected chick 4"));
     createNode(graph, 0, &renderingSLL->nodes, createRect(2*h, 2*h, w, h), searchTex(texTree, "Node", "Basic chick"));
     createNode(graph, 0, &renderingSLL->nodes, createRect(0, 2*h, w, h), searchTex(texTree, "Node", "Basic chick"));
+    createNode(graph, 0, &renderingSLL->nodes, createRect(0, 4*h, wi*2, hi*2), searchTex(texTree, "Node", "Teacher chick 2"));
 
     addEdge(graph, 0, 1, 1, &renderingSLL->edges, NULL);
     addEdge(graph, 0, 4, 1, &renderingSLL->edges, NULL);
@@ -50,10 +47,20 @@ int main(int argc, char *argv[])
 
     game->renderingSLL = createRenderingSLL();
     game->texTree = NULL;
+<<<<<<< HEAD
     initTex(game, &game->texTree);
     
    // game->graph = createGraph(10, 0);
    // test(game->graph, game->renderingSLL, game->texTree);
+=======
+    initTex(game);
+    game->graph = createGraph(10, 0);
+    test(game->graph, game->renderingSLL, game->texTree);
+    
+    //tester les missions ! :)
+
+    //readFile("../data/missions/Menu.txt", game);
+>>>>>>> 384f135d52d1820547f579babcb2ac362934bd98
     
     NbMission(game);
     
