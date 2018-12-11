@@ -182,8 +182,8 @@ void mouseLeftMove(Game* game, SDL_Event* event)
         // Move the node
         game->selectedRect->x += event->motion.xrel;
         game->selectedRect->y += event->motion.yrel;
-        if(game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL->tex == searchTex(game->texTree, "Node", "Teacher chick 2")){
-            changeTexture(game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL, game->texTree, "Angry teacher 4");
+        if(textureRect(game, game->selectedRect) == searchTex(game->texTree, "Node", "Teacher chick 1")){
+            changeTexture(game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL, game->texTree, "Angry teacher 3");
         }
     }
     if(game->mouseLine)
@@ -200,8 +200,8 @@ void mouseLeftReleased(Game* game, SDL_Event* event)
     if(game->selectedRect)
     {
         // Release the node
-        if(game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL->tex == searchTex(game->texTree, "Node", "Angry teacher 4")){
-            changeTexture(game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL, game->texTree, "Teacher chick 2");
+        if(textureRect(game, game->selectedRect) == searchTex(game->texTree, "Node", "Angry teacher 3")){
+            changeTexture(game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL, game->texTree, "Teacher chick 1");
         }
         printf("x: %d, y: %d\n", game->selectedRect->x, game->selectedRect->y);
         game->selectedRect = NULL;
@@ -248,8 +248,10 @@ void mouseRightReleased(Game* game, SDL_Event* event){
     printf("Right Released!\n");
     if(game->mouseLine && game->selectedRect){
         if(game->mouseLine->x == game->mouseLine->w && game->mouseLine->y == game->mouseLine->h){
-            // Delete the node
-            deleteNode(game->graph, searchNode(game->graph, game->selectedRect), &game->renderingSLL->nodes, &game->renderingSLL->edges);
+            // Delete the node if it's not a teacher
+            if(textureRect(game, game->selectedRect) != searchTex(game->texTree, "Node", "Teacher chick 1")){
+                deleteNode(game->graph, searchNode(game->graph, game->selectedRect), &game->renderingSLL->nodes, &game->renderingSLL->edges);
+            }
             free(game->mouseLine);
         }
         else{
@@ -275,24 +277,16 @@ void keyIPressed(Game* game, SDL_Event* event){
     game->selectedRect = searchNodeUnderMouse(game->renderingSLL->nodes, event);
     if(game->selectedRect){
         if(game->graph->array[searchNode(game->graph, game->selectedRect)]->node->data == 0){
-            // Infect the node
-            game->graph->array[searchNode(game->graph, game->selectedRect)]->node->data = 1;
-            if(game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL->tex == searchTex(game->texTree, "Node", "Teacher chick 2")){
-                changeTexture(game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL, game->texTree, "Infected teacher 4");
-            }
-            else{
+            // Infect the node if it's not a teacher
+            if(textureRect(game, game->selectedRect) != searchTex(game->texTree, "Node", "Teacher chick 1")){
+                game->graph->array[searchNode(game->graph, game->selectedRect)]->node->data = 1;
                 changeTexture(game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL, game->texTree, "Infected chick 4");
             }
         }
         else{
             // Disinfect the node
             game->graph->array[searchNode(game->graph, game->selectedRect)]->node->data = 0;
-            if(game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL->tex == searchTex(game->texTree, "Node", "Infected teacher 4")){
-                changeTexture(game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL, game->texTree, "Teacher chick 2");
-            }
-            else{
-                changeTexture(game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL, game->texTree, "Basic chick");
-            }
+            changeTexture(game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL, game->texTree, "Basic chick");
         }
     }
 }

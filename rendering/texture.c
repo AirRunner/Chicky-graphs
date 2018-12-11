@@ -1,6 +1,6 @@
 #include <string.h>
 #include "texture.h"
-#include "../rendering/renderingSLL.h"
+#include "../controller/graphs.h"
 
 EltTree* createEltTree(NodeTree* child)
 {
@@ -171,4 +171,8 @@ SDL_Texture* searchTex(NodeTree* textures, char* type, char* name){
         return NULL;
     }
     return children->child->texture;
+}
+
+SDL_Texture* textureRect(Game* game, SDL_Rect* rect){
+    return game->graph->array[searchNode(game->graph, rect)]->nodeSDL->tex;
 }

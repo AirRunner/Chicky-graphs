@@ -187,12 +187,12 @@ void contamination(Graph* graph, NodeSDL** nodes, EdgeSDL** edges, NodeTree* tex
                 // Delete infected nodes
                 deleteNode(graph, i, nodes, edges);
             else if(graph->array[i]->node->data == 2){
-                // Infect contaminated nodes
-                graph->array[i]->node->data = 1;
-                if(graph->array[i]->nodeSDL->tex == searchTex(texTree, "Node", "Teacher chick 2")){
-                    changeTexture(graph->array[i]->nodeSDL, texTree, "Infected teacher 4");
+                // Infect contaminated nodes which are not teachers
+                if(graph->array[i]->nodeSDL->tex == searchTex(texTree, "Node", "Teacher chick 1")){
+                    graph->array[i]->node->data = 0;
                 }
                 else{
+                    graph->array[i]->node->data = 1;
                     changeTexture(graph->array[i]->nodeSDL, texTree, "Infected chick 4");
                 }
             }
