@@ -1,5 +1,6 @@
 #include "graphs.h"
 #include "../data-layer/data.h"
+#include "../rendering/text.h"
 
 void test(Graph* graph, RenderingSLL* renderingSLL, NodeTree* texTree)
 {
@@ -47,6 +48,9 @@ int main(int argc, char *argv[])
 
     game->renderingSLL = createRenderingSLL();
     game->texTree = NULL;
+    FC_Font* font = FC_CreateFont();
+    FC_LoadFont(font, game->renderer, "../data/fonts/NotoSansMono-Regular.ttf", 18, FC_MakeColor(0,0,0,255), TTF_STYLE_NORMAL);
+    game->text = createText("Hello world", font, 0, 0, 120, 120);
     
     //game->graph = createGraph(10, 0);
     //test(game->graph, game->renderingSLL, game->texTree);

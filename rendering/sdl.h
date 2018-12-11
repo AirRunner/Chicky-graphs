@@ -16,6 +16,7 @@ struct nodeSDL;
 struct edgeSDL;
 struct ui;
 struct graph;
+struct text;
 
 typedef enum selectedType
 {
@@ -35,6 +36,7 @@ typedef struct game
     struct nodeTree *texTree;
     struct graph* graph;
     SDL_Rect* mouseLine;
+    struct text* text;
     int isrunning;
 }Game;
 

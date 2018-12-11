@@ -1,5 +1,6 @@
 #include "sdl.h"
 #include "../controller/graphs.h"
+#include "text.h"
 
 void initSDL(Game* game, const char* title, int xpos, int ypos, int width, int height, int fullscreen)
 {
@@ -400,6 +401,8 @@ void render(Game* game)
         SDL_RenderDrawLine(game->renderer, game->mouseLine->x, game->mouseLine->y, game->mouseLine->w, game->mouseLine->h);
     }
     renderRenderingSLL(game->renderingSLL, game);
+
+    renderText(game);
     
     SDL_RenderPresent(game->renderer);
 }
