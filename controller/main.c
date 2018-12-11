@@ -47,21 +47,11 @@ int main(int argc, char *argv[])
 
     game->renderingSLL = createRenderingSLL();
     game->texTree = NULL;
-<<<<<<< HEAD
-    initTex(game, &game->texTree);
     
-   // game->graph = createGraph(10, 0);
-   // test(game->graph, game->renderingSLL, game->texTree);
-=======
+    //game->graph = createGraph(10, 0);
+    //test(game->graph, game->renderingSLL, game->texTree);
+    
     initTex(game);
-    game->graph = createGraph(10, 0);
-    test(game->graph, game->renderingSLL, game->texTree);
-    
-    //tester les missions ! :)
-
-    //readFile("../data/missions/Menu.txt", game);
->>>>>>> 384f135d52d1820547f579babcb2ac362934bd98
-    
     NbMission(game);
     
 
