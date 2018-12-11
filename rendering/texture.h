@@ -29,5 +29,6 @@ void loadTex(FILE* file, Game* game, NodeTree* texTree, char* type);
 void initTex(Game* game);
 SDL_Texture* createTex(Game* game, char* image);
 SDL_Texture* searchTex(NodeTree* textures, char* type, char* name);
+SDL_Texture* textureRect(Game* game, SDL_Rect* rect);
 
 #endif

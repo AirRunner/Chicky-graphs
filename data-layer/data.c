@@ -30,6 +30,7 @@
 		int j,node, directed,x,y,w,h,d;
 		j = 0;
 		fgets(lign, size, fichier);
+<<<<<<< HEAD
 		node = atoi(lign);
 		fgets(lign, size, fichier);
 		directed = atoi(lign);
@@ -52,6 +53,22 @@
 			d = atoi(lign);
 	    createNode(game->graph, d, &game->renderingSLL->nodes, createRect(x, y, w, h), searchTex(game->texTree, "Node", texture));
 		}
+=======
+		fgets(lign,size,fichier);
+		lign[strlen(lign)-1] = '\0';
+		strcpy(texture,lign);
+		fgets(lign,size,fichier);
+		x = atoi(lign);
+		fgets(lign,size,fichier);
+		y = atoi(lign);
+		fgets(lign,size,fichier);
+		w = atoi(lign);
+		fgets(lign,size,fichier);
+		h = atoi(lign);
+		fgets(lign,size,fichier);
+		d = atoi(lign);
+    createNode(game->graph, d, &game->renderingSLL->nodes, createRect(x, y, w, h), searchTex(game->texTree, "Node", texture));
+>>>>>>> 14aa57e1e063cbf298ff8941544b3f8a455fadfa
 	}
 
 	void EdgesMissions(FILE *fichier, Game * game, long size){

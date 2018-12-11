@@ -1,5 +1,6 @@
 #include "graphs.h"
 #include "../data-layer/data.h"
+#include "../rendering/text.h"
 
 void test(Graph* graph, RenderingSLL* renderingSLL, NodeTree* texTree)
 {
@@ -14,7 +15,7 @@ void test(Graph* graph, RenderingSLL* renderingSLL, NodeTree* texTree)
     createNode(graph, 1, &renderingSLL->nodes, createRect(4*h-20, h-20, wi, hi), searchTex(texTree, "Node", "Infected chick 4"));
     createNode(graph, 0, &renderingSLL->nodes, createRect(2*h, 2*h, w, h), searchTex(texTree, "Node", "Basic chick"));
     createNode(graph, 0, &renderingSLL->nodes, createRect(0, 2*h, w, h), searchTex(texTree, "Node", "Basic chick"));
-    createNode(graph, 0, &renderingSLL->nodes, createRect(0, 4*h, wi*2, hi*2), searchTex(texTree, "Node", "Teacher chick 2"));
+    createNode(graph, 0, &renderingSLL->nodes, createRect(0, 4*h, wi*2, hi*2), searchTex(texTree, "Node", "Teacher chick 1"));
 
     addEdge(graph, 0, 1, 1, &renderingSLL->edges, NULL);
     addEdge(graph, 0, 4, 1, &renderingSLL->edges, NULL);
@@ -47,6 +48,12 @@ int main(int argc, char *argv[])
 
     game->renderingSLL = createRenderingSLL();
     game->texTree = NULL;
+<<<<<<< HEAD
+=======
+    FC_Font* font = FC_CreateFont();
+    FC_LoadFont(font, game->renderer, "../data/fonts/NotoSansMono-Regular.ttf", 18, FC_MakeColor(0,0,0,255), TTF_STYLE_NORMAL);
+    game->text = createText("Hello world", font, 0, 0, 120, 120);
+>>>>>>> 14aa57e1e063cbf298ff8941544b3f8a455fadfa
     
     //game->graph = createGraph(10, 0);
     //test(game->graph, game->renderingSLL, game->texTree);
