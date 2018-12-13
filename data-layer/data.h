@@ -5,12 +5,13 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "../rendering/text.h"
 #include "../controller/graphs.h"
 
-typedef struct LisText{
-	char *readText;
-	struct LisText* nexText;
-}LisText;
+typedef struct list_T {
+    char* readText;
+    struct list_T *nexText;
+} List;
 
 typedef enum MissionNumber{
 	Menu,

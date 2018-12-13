@@ -2,6 +2,7 @@
 -------Nodes-----
 3
 0
+3
 
 Success chick 1
 800

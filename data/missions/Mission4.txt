@@ -2,6 +2,7 @@
 -------Nodes-----
 6
 0
+6
 
 Basic chick
 200
@@ -49,10 +50,10 @@ Teacher chick 1
 1
 
 Next yellow
-1
-2
-3
-4
+1000
+400
+64
+64
 
 -Text-
 3

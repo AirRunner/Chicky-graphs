@@ -2,6 +2,7 @@
 -------Nodes-----
 6
 1
+6
 
 Basic chick
 100
@@ -49,10 +50,10 @@ Teacher chick 1
 2
 
 Validation yellow
-1
-2
-3
-4
+400
+600
+64
+64
 
 List
 1

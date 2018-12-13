@@ -26,14 +26,16 @@ char* numbermission( MissionNumber Themission){
 void NodesMissions(FILE *fichier, Game * game, long size){
 	char *lign = malloc(sizeof(char)*1000); 
 	char *texture = malloc(sizeof(char)*50);
-	int j,node, directed,x,y,w,h,d;
+	int j,node, directed, count, x,y,w,h,d;
 	j = 0;
 	fgets(lign, size, fichier);
 	node = atoi(lign);
 	fgets(lign, size, fichier);
 	directed = atoi(lign);
+	fgets(lign,size,fichier);
+	count = atoi(lign);
 	game->graph = createGraph(node, directed);
-	while (j != node){
+	while (j != count){
 		j++;
 		fgets(lign, size, fichier);
 		fgets(lign,size,fichier);
@@ -49,7 +51,7 @@ void NodesMissions(FILE *fichier, Game * game, long size){
 		h = atoi(lign);
 		fgets(lign,size,fichier);
 		d = atoi(lign);
-    createNode(game->graph, d, &game->renderingSLL->nodes, createRect(x, y, w, h), searchTex(game->texTree, "Node", texture));
+		createNode(game->graph, d, &game->renderingSLL->nodes, createRect(x, y, w, h), searchTex(game->texTree, "Node", texture));
 	}
 }
 
@@ -76,6 +78,33 @@ void EdgesMissions(FILE *fichier, Game * game, long size){
 	
 }
 
+
+List* AddText(List* Text, char* readT) {
+	List *current_Text = Text;
+	List *newText;
+	newText = (List *) malloc(sizeof(List));
+	newText->readText = readT;
+	newText->nexText= NULL;
+	while ( current_Text != NULL && current_Text->nexText != NULL) {
+		//ici problème 
+		current_Text = current_Text->nexText;
+	}
+	if (current_Text != NULL)
+		current_Text->nexText = newText;
+	else
+		Text = newText;
+	return Text;
+}
+
+void print(List *Text) {
+	List *current_text = Text;
+	while ( current_text != NULL) {
+		printf("\n%s\n ", current_text->readText);
+		current_text = current_text->nexText;
+	}
+}
+
+
 void UIMissions(FILE *fichier, Game * game, long size){
 	int q,p,x,y,w,h;
 	char *lign = malloc(sizeof(char)*1000);
@@ -98,34 +127,25 @@ void UIMissions(FILE *fichier, Game * game, long size){
 		w = atoi(lign);
 		fgets(lign,size,fichier);
 		h = atoi(lign);
-        addUI(&game->renderingSLL->ui, createRect(x, y, w, h), searchTex(game->texTree, "UI", texture), button);
+		addUI(&game->renderingSLL->ui, createRect(x, y, w, h), searchTex(game->texTree, "UI", texture), button);
 	}
 	fgets(lign,size,fichier);
 	fgets(lign,size,fichier);
 	sscanf(lign,"%s", test);
 	if (strcmp(test, "-Text-") == 0){
-		LisText* Text = malloc(sizeof(LisText));
-		LisText* tmp;
-		fgets(lign,size,fichier);
-		p = atoi(lign);
-		for (q=0; q <p;q++){
+			List* TEXT = NULL;
 			fgets(lign,size,fichier);
-			sscanf(lign,"%s", test);
-			if (strcmp("***", test) == 0){
-				fgets(lign,size,fichier);
-				if (q == 0){
-					Text->readText = lign;
-					Text->nexText = malloc(sizeof(char)*1000);
-					tmp = Text;
-					tmp = tmp->nexText;
-					}
-				else {
-					tmp->readText = lign;
-					tmp->nexText = malloc(sizeof(char)*1000);
-					tmp = tmp->nexText;
+			p = atoi(lign);
+			while(fgets(lign,size,fichier) != NULL){
+				sscanf(lign,"%s", test);
+				if (strcmp("***", test) == 0){
+					fgets(lign,size,fichier);
+					TEXT = AddText(TEXT, lign);	
 				}
 			}
-		}
+				FC_Font* font = FC_CreateFont();
+				FC_LoadFont(font, game->renderer, "../data/fonts/NotoSansMono-Regular.ttf", 18, FC_MakeColor(0,0,0,255), TTF_STYLE_NORMAL);
+				game->text = createText(TEXT->readText, font, 400, 600, 800, 800);
 	}
 }
 

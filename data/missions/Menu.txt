@@ -2,6 +2,7 @@
 -------Nodes-----
 10
 0
+10
 
 Basic chick
 300

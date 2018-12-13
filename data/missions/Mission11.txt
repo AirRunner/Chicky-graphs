@@ -2,6 +2,7 @@
 -------Nodes-----
 3
 0
+3
 
 Basic chick
 450
@@ -38,14 +39,6 @@ Teacher chick 1
 180
 0
 
--------Edges------
-4
-
-1-2
-1-4
-2-3
-3-4
-
 ---------UI--------
 1
 
@@ -58,6 +51,6 @@ Next yellow
 -Text-
 2
 ***
-Congratulations! You now know the basics of the theory of graphs! To move on to the next level, please create a new undirected graph.
+Congratulations! You now know the basics of the theory of graphs! To move on to the next level, please create a new undirected graph. Connect other chiks to the sick one and press c.
 ***
 Oh no! Poussin just got sick and contaminated all his connected friends!

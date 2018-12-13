@@ -2,6 +2,7 @@
 -------Nodes-----
 6
 1
+6
 
 Basic chick
 100
