@@ -128,7 +128,7 @@ void initTex(Game* game)
         loadTex(file, game, game->texTree, type);
     }
     // Set background
-    game->background = createUI(createRect(0, 0, 1280, 720), searchTex(game->texTree, "UI", "Background"));
+    game->background = createUI(createRect(0, 0, 1280, 720), searchTex(game->texTree, "UI", "Background"), background);
 
     free(type);
     fclose(file);

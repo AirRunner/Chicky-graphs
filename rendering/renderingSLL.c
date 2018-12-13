@@ -167,18 +167,19 @@ void changeTexture(NodeSDL* node, NodeTree* texTree, char* texName){
 }
 
 
-UI* createUI(SDL_Rect* destRect, SDL_Texture* tex)
+UI* createUI(SDL_Rect* destRect, SDL_Texture* tex, UIType type)
 {
     UI* newUI = malloc(sizeof(UI));
     newUI->destRect = destRect;
     newUI->tex = tex;
+    newUI->type = type;
     newUI->next = NULL;
     return newUI;
 }
 
-void addUI(UI** nodes, SDL_Rect* destRect, SDL_Texture* tex)
+void addUI(UI** nodes, SDL_Rect* destRect, SDL_Texture* tex, UIType type)
 {
-    UI* newUI = createUI(destRect, tex);
+    UI* newUI = createUI(destRect, tex, type);
     if(!*nodes)
         *nodes = newUI;
     else

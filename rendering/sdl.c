@@ -141,6 +141,10 @@ void mouseLeftPressed(Game* game, SDL_Event* event)
     }
     else
     {
+        searchUIUnderMouse(game, event);
+    }
+    if(!game->selectedRect)
+    {
         // Create a line otherwise
         game->mouseLine = malloc(sizeof(SDL_Rect));
         game->mouseLine->x = game->mouseLine->w = event->motion.x;
@@ -175,6 +179,38 @@ SDL_Rect* searchNodeUnderMouse(struct nodeSDL* nodes, SDL_Event* event)
     return NULL;
 }
 
+void searchUIUnderMouse(Game* game, SDL_Event* event)
+{
+    int x, y, w, h, xm, ym;
+    UI* ui = game->renderingSLL->ui;
+    if(ui)
+    {
+        x = ui->destRect->x;
+        y = ui->destRect->y;
+        w = ui->destRect->w;
+        h = ui->destRect->h;
+
+        SDL_GetMouseState(&xm, &ym);
+        while(ui->next && ((xm < x || xm > x+w) || (ym < y || ym > y+h)))
+        {
+            ui = ui->next;
+            x = ui->destRect->x;
+            y = ui->destRect->y;
+            w = ui->destRect->w;
+            h = ui->destRect->h;
+        }
+        if(ui && ((xm > x && xm < x+w) && (ym > y && ym < y+h)))
+        {
+            if(ui->type == button)
+            {
+                game->selectedRect = ui->destRect;
+                game->selectedType = UIbutton;
+            }
+        }
+    }
+    game->selectedRect = NULL;
+}
+
 void mouseLeftMove(Game* game, SDL_Event* event)
 {
     if(game->selectedRect && game->selectedType == node)
@@ -197,13 +233,28 @@ void mouseLeftMove(Game* game, SDL_Event* event)
 void mouseLeftReleased(Game* game, SDL_Event* event)
 {
     printf("Left Released!\n");
-    if(game->selectedRect)
+    if(game->selectedRect && game->selectedType == node)
     {
         // Release the node
         if(textureRect(game, game->selectedRect) == searchTex(game->texTree, "Node", "Angry teacher 3")){
             changeTexture(game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL, game->texTree, "Teacher chick 1");
         }
         printf("x: %d, y: %d\n", game->selectedRect->x, game->selectedRect->y);
+        game->selectedRect = NULL;
+    }
+    else if(game->selectedRect)
+    {
+        //release the mouse when at first he pressed a ui element
+        SDL_Rect* tmp = game->selectedRect;
+        searchUIUnderMouse(game, event);
+        if(game->selectedRect == tmp)
+        {
+            //actions for the buttons
+            if(game->selectedType == UIbutton)
+            {
+                //does something for the specific button
+            }
+        }
         game->selectedRect = NULL;
     }
     else if(game->mouseLine->x == game->mouseLine->w && game->mouseLine->y == game->mouseLine->h){
@@ -320,14 +371,6 @@ void checkEdgeCut(Game* game, SDL_Rect* mouseLine, EdgeSDL* edges, SDL_Event* ev
 
         if(x1 != x2)
         {
-            //if(x2 > x1)
-            //{
-            //    a2 = (y2 - y1)/(x2 - x1); //calculations done on paper
-            //}
-            //if(x1 > x2)
-            //{
-            //    a2 = (y2 - y1)/(x1 - x2);
-            //}
             a2 = (y2 - y1)/(x2 - x1); //calculations done on paper
             b2 = y1 - a2*x1;
 

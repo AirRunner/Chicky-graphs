@@ -26,11 +26,20 @@ typedef struct nodeSDL
     struct nodeSDL* next;
 }NodeSDL;
 
+typedef enum uiType
+{
+    button,
+    textBubble,
+    background,
+    other
+}UIType;
+
 typedef struct ui
 {
     SDL_Rect* destRect;
     SDL_Texture* tex;
     struct ui* next;
+    UIType type;
 }UI;
 
 RenderingSLL* createRenderingSLL();
@@ -48,8 +57,8 @@ void renderNodes(NodeSDL* nodes, Game* game);
 
 void changeTexture(NodeSDL* node, NodeTree* texTree, char* texName);
 
-UI* createUI(SDL_Rect* destRect, SDL_Texture* tex);
-void addUI(UI** nodes, SDL_Rect* destRect, SDL_Texture* tex);
+UI* createUI(SDL_Rect* destRect, SDL_Texture* tex, UIType type);
+void addUI(UI** nodes, SDL_Rect* destRect, SDL_Texture* tex, UIType type);
 void removeUI(UI** nodes, SDL_Rect* destRect);
 void renderUI(UI* ui, Game* game);
 

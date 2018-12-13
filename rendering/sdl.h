@@ -17,12 +17,13 @@ struct edgeSDL;
 struct ui;
 struct graph;
 struct text;
+enum MissionNumber;
 
 typedef enum selectedType
 {
-    ui,
     node,
-    edge
+    edge,
+    UIbutton
 }SelectedType;
 
 typedef struct game
@@ -37,6 +38,7 @@ typedef struct game
     struct graph* graph;
     SDL_Rect* mouseLine;
     struct text* text;
+    enum MissionNumber* missionNumber;
     int isrunning;
 }Game;
 
@@ -45,6 +47,7 @@ void initSDL(Game* game, const char* title, int xpos, int ypos, int width, int h
 void handleEvents(Game* game);
 
 SDL_Rect* searchNodeUnderMouse(struct nodeSDL* nodes, SDL_Event* event);
+void searchUIUnderMouse(Game* game, SDL_Event* event);
 
 void mouseLeftPressed(Game* game, SDL_Event* event);
 void mouseLeftMove(Game* game, SDL_Event* event);
