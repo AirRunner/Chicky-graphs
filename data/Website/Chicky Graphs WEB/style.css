@@ -1,0 +1,386 @@
+html{
+	height : 100%;
+	background-color: #C6C3B4;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	font-family: Courier;
+}
+
+body
+{
+	margin:0;
+	padding: 0;
+}
+
+@font-face{
+	font-family: Courier;
+}
+
+header
+{
+	display: block;
+	position: fixed;
+	z-index:100;
+	top: 0;
+	left: 0;
+	height: 6rem;
+	width: 100vw;
+	background: #FFFFFF;
+	background-size: cover;
+	color: #FFFFFF;
+	margin: 0;
+	padding: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+}
+
+name{
+	color: #00BFFF;
+	text-align: center;
+	font-family: Courier;
+	background: #200030;
+	margin-left: 6rem;
+	font-weight: bold;
+}
+
+#menu {
+	padding: 0; margin: 0;
+	text-align: center;
+	color: brown;
+	z-index: 100;
+}
+
+#menu ul {
+
+
+}
+
+#menu li {
+	display: inline;
+	color: brown;
+  z-index: 100;
+
+}
+#menu a {
+	display:inline-block;
+	margin: 0 30px;
+	color: brown;
+	text-decoration: none;
+	padding: 14px 16px;
+	font-size: 1.3rem;
+	font-family:Courier;
+	font-weight: bold;
+}
+header div
+{
+	margin: 0;
+	padding: ;
+	display: inline-block;
+	width: 50%;
+	line-height: 6rem;
+	text-align: center;
+	font-size: 1rem;
+	font-family: Courier;
+	height: 6rem;
+}
+
+
+a {
+  position: relative;
+  display: inline-block;
+  padding: .4em;
+  margin-right: 10px;
+  text-decoration: none;
+  color: brown;
+  font-weight: bold;
+}
+a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  background-color: brown;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+a:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  visibility: visible;
+}
+
+
+.container {
+}
+
+.container-team {
+	height: 75%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.container-team table{
+}
+
+
+
+section.module.content {
+  padding: 90px 0;
+}
+
+
+section.module.parallax {
+  height: 600px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  }
+
+
+
+section.module.parallax h1 {
+  color: rgba(153, 81, 43, 0.8);
+  font-size: 48px;
+  line-height: 600px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.teamstyle table {
+    /*border-color: white;
+    border-style: double;
+    style="border-color:white; border-style:double;"*/
+}
+
+section.module.parallax-0 {
+  background-image: url("LOGOFOND.png");
+	height: 725px;
+}
+
+section.module.parallax-1 {
+  background-image: url("Background.png");
+}
+
+
+section.module.parallax-2 {
+  background-image: url("Background.png");
+}
+
+
+section.module.parallax-3 {
+  background-image: url("Background.png");
+}
+
+section.module.parallax-4 {
+	background-image: url("Background.png");
+}
+
+section.module.parallax-5{
+	background-image: url("Background.png");
+	height: 400px;
+}
+
+
+article
+{
+	color: brown;
+	font-family: Courier;
+	background: (#ffd633);
+	background-size: cover;
+	opacity: 1;
+	font-size: 1rem;
+}
+
+
+video#flynnsintro
+{
+	border: 0;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #03000E;
+    min-width: 800px;
+    box-shadow: 3px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: .4em;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    left:0;
+}
+
+
+
+.dp {
+    position: relative;
+    display: inline-block;
+}
+
+.dp-content {
+    display: none;
+    position: absolute;
+    background-color: #03000E;
+    min-width: 800px;
+    box-shadow: 3px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: .4em;
+    z-index: 1;
+}
+
+.dp:hover .dp-content {
+    display: block;
+    right:0;
+}
+
+span {
+	 width: 208px;
+    height: 20px;
+    text-align: center;
+    background: rgba(0,0,0,0.2);
+    margin: 15px;
+   	display:inline-block;
+	color: white;
+	text-decoration: none;
+	padding: 14px 16px;
+	font-family:Courier;
+	font-weight: bold;
+}
+
+
+.inputs{
+	border: 2px solid rgba(0,255,255,0.5);
+	border-radius: 3px;
+	background-color: rgba(255, 0, 255, 0.125);
+	color: white;
+	padding: 0.5em;
+	outline: none;
+	-webkit-transition: 0.1s;
+	transition 0.1s;
+}
+
+.inputs:focus{
+	outline: none;
+	border: none;
+	border-bottom: 2px solid rgba(0,255,255,0.5);
+	-webkit-transition: 0.1s;
+	transition 0.1s;
+}
+
+.button
+{
+	background-color: #5F0045;
+	color: #fff;
+	padding: 0.5em 4em;
+	border: 0;
+	border-radius: 2px;
+}
+
+
+
+.view {
+    width: 300px;
+    height: 240px;
+    margin: 10px;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+    background: #C6C3B4 no-repeat center center
+
+}
+.view .mask, .view .content {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    overflow: scroll;
+    top: 0;
+    left: 0
+
+}
+.view img {
+    display: block;
+		margin-left: auto;
+		margin-right: auto;
+		height: 100%;
+		width: 80%;
+
+}
+.view h2 {
+    text-transform: uppercase;
+    color: brown;
+    text-align: center;
+    position: relative;
+    font-size: 20px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    margin: 20px 0 0 0;
+}
+.view p {
+    font-family: Courier;
+    font-size: 16px;
+    position: relative;
+    color: brown;
+    padding: 5px 10px 10px;
+    text-align: center;
+
+}
+
+
+.view-fifth img {
+	transition: all 0.3s ease-in-out;
+}
+
+.view-fifth .mask {
+	background-color: #C6C3B4;
+	transform: translateX(-300px);
+	opacity: 1;
+	transition: all 0.4s ease-in-out;
+
+}
+.view-fifth h2{
+    background: #C6C3B4;
+    color: brown;
+}
+.view-fifth p{
+    opacity: 0;
+    color: brown;
+    transition: all 0.2s linear;
+}
+
+.view-fifth:hover .mask {
+	transform: translateX(0px);
+
+}
+.view-fifth:hover img {
+	transform: translateX(300px);
+	transition-delay: 0.1s;
+
+}
+.view-fifth:hover p{
+    opacity: 1;
+    transition-delay: 0.4s;
+}
