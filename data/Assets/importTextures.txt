@@ -79,21 +79,24 @@ Angry teacher 3
 Node
 Angry teacher 4
 ../data/Assets/Chicks/Teacher/Angry teacher 4.png
-Node
-Infected teacher 1
-../data/Assets/Chicks/Infected/Infected teacher 1.png
-Node
-Infected teacher 2
-../data/Assets/Chicks/Infected/Infected teacher 2.png
-Node
-Infected teacher 3
-../data/Assets/Chicks/Infected/Infected teacher 3.png
-Node
-Infected teacher 4
-../data/Assets/Chicks/Infected/Infected teacher 4.png
+UI
+Adventure bubble
+../data/Assets/Bubbles/New adventure.png
 UI
 Background
 ../data/Assets/UI/Background.png
 UI
+Logo
+../data/Assets/Logo.png
+UI
 Next
 ../data/Assets/Symbols/Ok/Ok green.png
+UI
+Resume bubble
+../data/Assets/Bubbles/Resume game.png
+UI
+Sandbox bubble
+../data/Assets/Bubbles/Sandbox.png
+UI
+Teacher bubble
+../data/Assets/Bubbles/Teacher bubble.png

@@ -40,21 +40,27 @@ Basic chick
 0
 
 Teacher chick 1
-150
+140
 550
-180
-180
+208
+160
 0
 
 ---------UI--------
-2
+3
 
 Next
-400
-600
+1180
+610
 64
 64
 next
+
+Teacher bubble
+350
+575
+760
+125
 
 Matrice
 400

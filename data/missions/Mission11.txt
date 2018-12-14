@@ -28,26 +28,32 @@ Basic chick
 Infected chick 1
 600
 200
-80
-80
+160
+160
 1
 
 Teacher chick 1
-150
+140
 550
-180
-180
+208
+160
 0
 
 ---------UI--------
-1
+2
 
 Next
-1000
-400
+1180
+610
 64
 64
 next
+
+Teacher bubble
+350
+575
+760
+125
 
 -Text-
 2
