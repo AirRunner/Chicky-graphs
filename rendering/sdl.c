@@ -202,34 +202,37 @@ void searchUIUnderMouse(Game* game, SDL_Event* event)
         }
         if(ui && ((xm > x && xm < x+w) && (ym > y && ym < y+h)))
         {
-            if(ui->type == next)
+            game->selectedRect = ui->destRect;
+            switch(ui->type)
             {
-                game->selectedRect = ui->destRect;
-                game->selectedType = UInext;
-            }
-            else if(ui->type == menu)
-            {
-                game->selectedRect = ui->destRect;
-                game->selectedType = UImenu;
-            }
-            else if(ui->type == sandbox)
-            {
-                game->selectedRect = ui->destRect;
-                game->selectedType = UIsandbox;
-            }
-            else if(ui->type == newGame)
-            {
-                game->selectedRect = ui->destRect;
-                game->selectedType = UInewGame;
-            }
-            else if(ui->type == resumeGame)
-            {
-                game->selectedRect = ui->destRect;
-                game->selectedType = UIresumeGame;
+                case next:
+                    game->selectedType = UInext;
+                    break;
+                case menu:
+                    game->selectedType = UImenu;
+                    break;
+                case sandbox:
+                    game->selectedType = UIsandbox;
+                    break;
+                case newGame:
+                    game->selectedType = UInewGame;
+                    break;
+                case resumeGame:
+                    game->selectedType = UIresumeGame;
+                    break;
+                default:
+                    break;
             }
         }
+        else
+        {
+            game->selectedRect = NULL;
+        }
     }
-    game->selectedRect = NULL;
+    else
+    {
+        game->selectedRect = NULL;
+    }
 }
 
 void mouseLeftMove(Game* game, SDL_Event* event)
