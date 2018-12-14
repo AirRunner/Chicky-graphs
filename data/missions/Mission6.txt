@@ -49,17 +49,19 @@ Teacher chick 1
 ---------UI--------
 2
 
-Next yellow
+Next
 400
 600
 64
 64
+next
 
 List
 1
 2
 3
 4
+other
 
 -Text-
 2

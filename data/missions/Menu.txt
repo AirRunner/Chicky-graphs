@@ -96,22 +96,26 @@ logo
 600
 80
 80
+other
 
 Adventure Bubble 
 1050
 600
 80
 80
+newGame
 
 Resume Bubble
 1050
 600
 80
 80
+resumeGame
 
 Sandbox Bubble
 1050
 600
 80
 80
+sandbox
 

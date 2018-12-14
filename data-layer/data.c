@@ -1,6 +1,34 @@
 #include <string.h>
 #include "data.h"
 
+struct conversion
+{
+    UIType val;
+    char *str;
+} conversion[] = { //directly making the table
+    {next, "next"},
+    {menu, "menu"},
+    {sandbox, "sandbox"},
+    {newGame, "newGame"},
+    {resumeGame, "resumeGame"},
+    {background, "background"},
+    {other, "other"}
+};
+
+UIType strToEnum(char *str)
+{
+     int i;
+     for(i = 0; i < sizeof(conversion)/sizeof(conversion[0]); ++i) //works for all types
+     {
+         if(!strcmp(str, conversion[i].str))
+         {
+             return conversion[i].val;
+         }
+     }
+     printf("convertion failed, returning other\n");
+     return other;
+}
+
 void loadMission(Game *game){
 	int j =0;
 	char *MisB = malloc(sizeof(char)*1000);
@@ -23,8 +51,8 @@ char* pathMission(MissionNumber Themission){
 	}
 }
 
-void NodesMissions(FILE *fichier, Game * game, long size){
-	char *lign = malloc(sizeof(char)*1000); 
+void NodesMissions(FILE *fichier, Game * game, int size){
+	char *lign = malloc(sizeof(char)*1000);
 	char *texture = malloc(sizeof(char)*50);
 	int j,node, directed, count, x,y,w,h,d;
 	j = 0;
@@ -57,7 +85,7 @@ void NodesMissions(FILE *fichier, Game * game, long size){
 	free(texture);
 }
 
-void EdgesMissions(FILE *fichier, Game * game, long size){
+void EdgesMissions(FILE *fichier, Game * game, int size){
 	int i, k, m,n;
 	char *lign = malloc(sizeof(char)*1000);
 	char* token;
@@ -80,7 +108,7 @@ void EdgesMissions(FILE *fichier, Game * game, long size){
 	free(lign);
 }
 
-Txt new_node(char* r) { 
+Txt new_node(char* r) {
 		Txt t = malloc(sizeof(List));
 		t->readText = malloc(sizeof(char)*1000);
 		t->readText = r;
@@ -109,11 +137,12 @@ void print(Txt Text) {
 }
 
 
-void UIMissions(FILE *fichier, Game * game, long size){
+void UIMissions(FILE *fichier, Game * game, int size){
 	int q,p,x,y,w,h;
 	char *lign = malloc(sizeof(char)*1000);
 	char *test = malloc(sizeof(char)*1000);
 	char *texture = malloc(sizeof(char)*1000);
+	char *type = malloc(sizeof(char)*1000);
 	fgets(lign,size,fichier);
 	q = atoi(lign);
 	for (p=0; p <q;p++){
@@ -131,10 +160,11 @@ void UIMissions(FILE *fichier, Game * game, long size){
 		w = atoi(lign);
 		fgets(lign,size,fichier);
 		h = atoi(lign);
-		printf("%d,%d,%d,%d", x,y,w,h);
-		addUI(&game->renderingSLL->ui, createRect(x, y, w, h), searchTex(game->texTree, "UI", texture), next);
-		// button : type : "next" / "new game"
-		// other : ilage ex matric  
+		printf("%d,%d,%d,%d\n", x,y,w,h);
+        fgets(type,size,fichier);
+        type[strcspn(type, "\n")] = '\0'; //exchanges the \n for a \0
+        printf("type: %s\n", type);
+		addUI(&game->renderingSLL->ui, createRect(x, y, w, h), searchTex(game->texTree, "UI", texture), strToEnum(type));
 	}
 	fgets(lign,size,fichier);
 	fgets(lign,size,fichier);
@@ -153,10 +183,10 @@ void UIMissions(FILE *fichier, Game * game, long size){
 			FC_Font* font = FC_CreateFont();
 			FC_LoadFont(font, game->renderer, "../data/fonts/NotoSansMono-Regular.ttf", 18, FC_MakeColor(0,0,0,255), TTF_STYLE_NORMAL);
 			// Text[d]
-			
+
 			game->text = createText(Text->readText, font, 400, 600, 600, 800);
 	}
-	
+
 }
 
 
@@ -165,30 +195,25 @@ void readFile(const char* mission, Game* game){
 	FILE * fichier = NULL;
 	char *lign = malloc(sizeof(char)*1000);
 	char *test = malloc(sizeof(char)*1000);
-	long size;
+	int size = 1000;
 	fichier = fopen(mission, "r");
 	if (fichier != NULL){
-		// pointer points to the end to get the size
-		fseek(fichier, 0L, SEEK_END);
-		size = ftell(fichier);
-		// pointer points to the beginning of the file
-		fseek(fichier, 0L, SEEK_SET);
 		while (fgets(lign,size,fichier) != NULL){
 			//reads formatted input from a string
 			sscanf(lign,"%s", test);
 			if (strcmp(test, "-------Nodes-----") == 0){
-				NodesMissions(fichier, game, size);	
-				fgets(lign, size, fichier);			
+				NodesMissions(fichier, game, size);
+				fgets(lign, size, fichier);
 				sscanf(lign, "%s", test);
 			}
 			if (strcmp(test, "-------Edges------") == 0){
 				EdgesMissions(fichier, game, size);
-				fgets(lign, size, fichier);			
+				fgets(lign, size, fichier);
 				sscanf(lign, "%s", test);
 			}
 			if (strcmp(test, "---------UI--------") == 0){
 				UIMissions(fichier, game, size);
-				fgets(lign, size, fichier);			
+				fgets(lign, size, fichier);
 				sscanf(lign, "%s", test);
 			}
 		}
@@ -197,9 +222,9 @@ void readFile(const char* mission, Game* game){
 	free(lign);
 	free(test);
 }
-	
-	
-	
+
+
+
 	/*
 
 	void AddText(Txt *pt, char* r){
@@ -215,7 +240,7 @@ void readFile(const char* mission, Game* game){
 		Txt newText;
 		newText = new_node(readT);
 		while ( current_Text != NULL && current_Text->nexText != NULL) {
-			//ici problème 
+			//ici problème
 			current_Text = current_Text->nexText;
 		}
 		if (current_Text != NULL)

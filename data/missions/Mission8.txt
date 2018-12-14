@@ -49,17 +49,19 @@ Teacher chick 1
 ---------UI--------
 2
 
-Next yellow
+Next
 400
 600
 64
 64
+next
 
 Matrice
 400
 600
 64
 64
+other
 
 -Text-
 2

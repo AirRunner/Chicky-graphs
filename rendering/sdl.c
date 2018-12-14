@@ -202,22 +202,26 @@ void searchUIUnderMouse(Game* game, SDL_Event* event)
         }
         if(ui && ((xm > x && xm < x+w) && (ym > y && ym < y+h)))
         {
-            game->selectedRect = ui->destRect;
             switch(ui->type)
             {
                 case next:
+                    game->selectedRect = ui->destRect;
                     game->selectedType = UInext;
                     break;
                 case menu:
+                    game->selectedRect = ui->destRect;
                     game->selectedType = UImenu;
                     break;
                 case sandbox:
+                    game->selectedRect = ui->destRect;
                     game->selectedType = UIsandbox;
                     break;
                 case newGame:
+                    game->selectedRect = ui->destRect;
                     game->selectedType = UInewGame;
                     break;
                 case resumeGame:
+                    game->selectedRect = ui->destRect;
                     game->selectedType = UIresumeGame;
                     break;
                 default:

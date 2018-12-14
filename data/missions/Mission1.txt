@@ -14,11 +14,12 @@ Teacher chick 1
 ---------UI--------
 1
 
-Next yellow
+Next
 400
 600
 64
 64
+next
 
 -Text-
 6

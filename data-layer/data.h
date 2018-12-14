@@ -21,11 +21,11 @@ void loadMission(Game *game);
 
 char* pathMission(MissionNumber Nbmission);
 
-void NodesMissions(FILE *fichier, Game * game, long size);
+void NodesMissions(FILE *fichier, Game * game, int size);
 
-void EdgesMissions(FILE *fichier, Game * game, long size);
+void EdgesMissions(FILE *fichier, Game * game, int size);
 
-void UIMissions(FILE *fichier, Game * game, long size);
+void UIMissions(FILE *fichier, Game * game, int size);
 
 Txt new_node(char* r);
 
