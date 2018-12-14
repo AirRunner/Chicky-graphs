@@ -28,8 +28,11 @@ typedef struct nodeSDL
 
 typedef enum uiType
 {
-    button,
-    textBubble,
+    next,
+    menu,
+    sandbox,
+    newGame,
+    resumeGame,
     background,
     other
 }UIType;

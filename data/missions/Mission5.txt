@@ -50,7 +50,7 @@ Teacher chick 1
 2
 
 Next
-400
+1100
 600
 64
 64

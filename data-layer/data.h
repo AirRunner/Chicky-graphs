@@ -17,22 +17,6 @@ typedef struct list_T {
 typedef List *Txt;
 
 
-typedef enum MissionNumber{
-	Menu,
-    Mission1,
-    Mission2,
-    Mission3,
-    Mission4,
-    Mission5,
-    Mission6,
-    Mission7,
-    Mission8,
-    Mission9,
-    Mission10,
-    Mission11,
-    Mission12,
-}MissionNumber;
-
 void NbMission(Game *game);
 
 char* numbermission(MissionNumber Nbmission);

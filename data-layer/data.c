@@ -132,7 +132,7 @@ void UIMissions(FILE *fichier, Game * game, long size){
 		fgets(lign,size,fichier);
 		h = atoi(lign);
 		printf("%d,%d,%d,%d", x,y,w,h);
-		addUI(&game->renderingSLL->ui, createRect(x, y, w, h), searchTex(game->texTree, "UI", texture), button);
+		addUI(&game->renderingSLL->ui, createRect(x, y, w, h), searchTex(game->texTree, "UI", texture), next);
 		// button : type : "next" / "new game"
 		// other : ilage ex matric  
 	}

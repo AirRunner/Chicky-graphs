@@ -27,7 +27,7 @@ void initSDL(Game* game, const char* title, int xpos, int ypos, int width, int h
                 width,
                 height,
                 flags);
-    
+
         if(!game->window)
         {
             SDL_Log("Unable to initialize the Window: %s", SDL_GetError());
@@ -35,11 +35,11 @@ void initSDL(Game* game, const char* title, int xpos, int ypos, int width, int h
             game->isrunning = 0;
         }
     }
-    
+
     if(game->isrunning)
     {
         game->renderer = SDL_CreateRenderer(game->window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-    
+
         if(!game->renderer)
         {
             SDL_Log("Unable to initialize the renderer: %s", SDL_GetError());
@@ -201,10 +201,30 @@ void searchUIUnderMouse(Game* game, SDL_Event* event)
         }
         if(ui && ((xm > x && xm < x+w) && (ym > y && ym < y+h)))
         {
-            if(ui->type == button)
+            if(ui->type == next)
             {
                 game->selectedRect = ui->destRect;
-                game->selectedType = UIbutton;
+                game->selectedType = UInext;
+            }
+            else if(ui->type == menu)
+            {
+                game->selectedRect = ui->destRect;
+                game->selectedType = UImenu;
+            }
+            else if(ui->type == sandbox)
+            {
+                game->selectedRect = ui->destRect;
+                game->selectedType = UIsandbox;
+            }
+            else if(ui->type == newGame)
+            {
+                game->selectedRect = ui->destRect;
+                game->selectedType = UInewGame;
+            }
+            else if(ui->type == resumeGame)
+            {
+                game->selectedRect = ui->destRect;
+                game->selectedType = UIresumeGame;
             }
         }
     }
@@ -250,7 +270,23 @@ void mouseLeftReleased(Game* game, SDL_Event* event)
         if(game->selectedRect == tmp)
         {
             //actions for the buttons
-            if(game->selectedType == UIbutton)
+            if(game->selectedType == UInext)
+            {
+                //does something for the specific button
+            }
+            if(game->selectedType == UImenu)
+            {
+                //does something for the specific button
+            }
+            if(game->selectedType == UIsandbox)
+            {
+                //does something for the specific button
+            }
+            if(game->selectedType == UInewGame)
+            {
+                //does something for the specific button
+            }
+            if(game->selectedType == UIresumeGame)
             {
                 //does something for the specific button
             }
@@ -350,14 +386,6 @@ void checkEdgeCut(Game* game, SDL_Rect* mouseLine, EdgeSDL* edges, SDL_Event* ev
 
     if(mouseLine->w != mouseLine->x)
     {
-        //if(mouseLine->x > mouseLine->w)
-        //{
-        //    a1 = (mouseLine->h - mouseLine->y)/(mouseLine->w - mouseLine->x);
-        //}
-        //if(mouseLine->w < mouseLine->x)
-        //{
-        //    a1 = (mouseLine->h - mouseLine->y)/(mouseLine->x - mouseLine->w);
-        //}
         a1 = (float)(mouseLine->h - mouseLine->y)/(float)(mouseLine->w - mouseLine->x);
         b1 = mouseLine->y - a1*(float)mouseLine->x;
     }
@@ -440,7 +468,7 @@ void render(Game* game)
     renderRenderingSLL(game->renderingSLL, game);
 
     renderText(game);
-    
+
     SDL_RenderPresent(game->renderer);
 }
 
