@@ -94,3 +94,6 @@ Infected teacher 4
 UI
 Background
 ../data/Assets/UI/Background.png
+UI
+Next
+../data/Assets/Symbols/Ok/Ok green.png

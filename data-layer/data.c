@@ -53,6 +53,8 @@ void NodesMissions(FILE *fichier, Game * game, long size){
 		d = atoi(lign);
 		createNode(game->graph, d, &game->renderingSLL->nodes, createRect(x, y, w, h), searchTex(game->texTree, "Node", texture));
 	}
+	free(lign);
+	free(texture);
 }
 
 void EdgesMissions(FILE *fichier, Game * game, long size){
@@ -75,32 +77,34 @@ void EdgesMissions(FILE *fichier, Game * game, long size){
 			addEdge( game->graph,  m-1,  n-1,  1,  &game->renderingSLL->edges, NULL);
 		}
 	}
-	
+	free(lign);
 }
 
+Txt new_node(char* r) { 
+		Txt t = malloc(sizeof(List));
+		t->readText = malloc(sizeof(char)*1000);
+		t->readText = r;
+		t->nexText = NULL;
+		return t;
+}
 
-List* AddText(List* Text, char* readT) {
-	List *current_Text = Text;
-	List *newText;
-	newText = (List *) malloc(sizeof(List));
-	newText->readText = readT;
-	newText->nexText= NULL;
-	while ( current_Text != NULL && current_Text->nexText != NULL) {
-		//ici problème 
-		current_Text = current_Text->nexText;
+void AddText(Txt *pt, char* r){
+	if ((*pt) == NULL){
+		printf("\nENTRER ICI\n");
+		(*pt) = new_node(r);
 	}
-	if (current_Text != NULL)
-		current_Text->nexText = newText;
-	else
-		Text = newText;
-	return Text;
+	else {
+		printf("\nENTRER LA\n");
+		AddText(&(*pt)->nexText, r);
+	}
 }
 
-void print(List *Text) {
-	List *current_text = Text;
-	while ( current_text != NULL) {
-		printf("\n%s\n ", current_text->readText);
-		current_text = current_text->nexText;
+void print(Txt Text) {
+	if (Text != NULL){
+		Txt current_text = Text;
+		while ( current_text != NULL) {
+			current_text = current_text->nexText;
+		}
 	}
 }
 
@@ -127,26 +131,32 @@ void UIMissions(FILE *fichier, Game * game, long size){
 		w = atoi(lign);
 		fgets(lign,size,fichier);
 		h = atoi(lign);
+		printf("%d,%d,%d,%d", x,y,w,h);
 		addUI(&game->renderingSLL->ui, createRect(x, y, w, h), searchTex(game->texTree, "UI", texture), button);
+		// button : type : "next" / "new game"
+		// other : ilage ex matric  
 	}
 	fgets(lign,size,fichier);
 	fgets(lign,size,fichier);
 	sscanf(lign,"%s", test);
 	if (strcmp(test, "-Text-") == 0){
-			List* TEXT = NULL;
 			fgets(lign,size,fichier);
+			List* Text = NULL;
 			p = atoi(lign);
-			while(fgets(lign,size,fichier) != NULL){
-				sscanf(lign,"%s", test);
-				if (strcmp("***", test) == 0){
-					fgets(lign,size,fichier);
-					TEXT = AddText(TEXT, lign);	
-				}
+			for (q = 0; q < p; q++){
+				fgets(lign,size,fichier);
+				fgets(lign,size,fichier);
+				printf("%s\n", lign);
+				AddText(&Text, lign);
 			}
-				FC_Font* font = FC_CreateFont();
-				FC_LoadFont(font, game->renderer, "../data/fonts/NotoSansMono-Regular.ttf", 18, FC_MakeColor(0,0,0,255), TTF_STYLE_NORMAL);
-				game->text = createText(TEXT->readText, font, 400, 600, 800, 800);
+			print(Text);
+			FC_Font* font = FC_CreateFont();
+			FC_LoadFont(font, game->renderer, "../data/fonts/NotoSansMono-Regular.ttf", 18, FC_MakeColor(0,0,0,255), TTF_STYLE_NORMAL);
+			// Text[d]
+			
+			game->text = createText(Text->readText, font, 400, 600, 600, 800);
 	}
+	
 }
 
 
@@ -187,3 +197,54 @@ void readFile(const char* mission, Game* game){
 	free(lign);
 	free(test);
 	}
+	
+	
+	
+	/*
+
+	void AddText(Txt *pt, char* r){
+		if ((*pt) == NULL)
+			(*pt) = new_node(r);
+		else {
+			AddText(&(*pt)->nexText, r);
+		}
+	}
+
+	Txt AddText(Txt Text, char* readT) {
+		Txt current_Text = Text;
+		Txt newText;
+		newText = new_node(readT);
+		while ( current_Text != NULL && current_Text->nexText != NULL) {
+			//ici problème 
+			current_Text = current_Text->nexText;
+		}
+		if (current_Text != NULL)
+			current_Text->nexText = newText;
+		else
+			Text = newText;
+		printf("ETAPE");
+		print(Text);
+		return Text;
+	}
+	Txt AddText(Txt pt, char* r){
+		if ((pt) == NULL){
+			(pt) = new_node(r);
+		}
+		else {
+			Txt t = malloc(sizeof(List));
+			t = pt;
+			while (t != NULL){
+				t = t->nexText;
+			}
+			printf("TEST");
+			print(t);
+		//	Txt t = malloc(sizeof(List));
+		//	t = pt;
+		//	while ( t != NULL)
+		//		t = t->nexText;
+		//	t = new_node(r);
+			//printf("%s", (*pt)->readText);
+			//AddText(&(*pt)->nexText, r);
+		}
+		return(pt);
+	}*/

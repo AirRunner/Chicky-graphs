@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
     FC_LoadFont(font, game->renderer, "../data/fonts/NotoSansMono-Regular.ttf", 18, FC_MakeColor(0,0,0,255), TTF_STYLE_NORMAL);
     game->text = createText("Hello world", font, 0, 0, 120, 120);
     game->missionNumber = malloc(sizeof(MissionNumber));
-	MissionNumber nB = Mission4;
+	MissionNumber nB = Mission5;
     game->missionNumber = &nB;
 
     //game->graph = createGraph(10, 0);
