@@ -1,25 +1,25 @@
 #include <string.h>
 #include "data.h"
 
-void NbMission(Game *game){
+void loadMission(Game *game){
 	int j =0;
 	char *MisB = malloc(sizeof(char)*1000);
 	//for (nB = Menu; nB < Mission1; nB++){
-		MisB = numbermission(*game->missionNumber);
+		MisB = pathMission(game->missionNumber);
 		j ++;
 		readFile(MisB, game);
 		//mettre la suite
 	//}
 }
 
-char* numbermission( MissionNumber Themission){
-	char* mission = malloc(sizeof(char)*1000);
+char* pathMission(MissionNumber Themission){
+	char* mission = malloc(sizeof(char)*100);
 	if (Themission == Menu){
-		return("../data/missions/Menu.txt");
+		return "../data/missions/Menu.txt";
 	}
 	else{
 		sprintf(mission, "../data/missions/Mission%d.txt", Themission);
-		return(mission);
+		return mission;
 	}
 }
 
@@ -196,7 +196,7 @@ void readFile(const char* mission, Game* game){
 	fclose(fichier);
 	free(lign);
 	free(test);
-	}
+}
 	
 	
 	

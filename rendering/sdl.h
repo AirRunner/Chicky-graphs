@@ -17,8 +17,9 @@ struct edgeSDL;
 struct ui;
 struct graph;
 struct text;
+
 typedef enum MissionNumber{
-	Menu,
+    Menu,
     Mission1,
     Mission2,
     Mission3,
@@ -32,7 +33,6 @@ typedef enum MissionNumber{
     Mission11,
     Mission12,
 }MissionNumber;
-
 
 typedef enum selectedType
 {
@@ -57,7 +57,7 @@ typedef struct game
     struct graph* graph;
     SDL_Rect* mouseLine;
     struct text* text;
-    enum MissionNumber* missionNumber;
+    MissionNumber missionNumber;
     int isrunning;
 }Game;
 

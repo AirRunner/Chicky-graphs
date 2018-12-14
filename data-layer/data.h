@@ -17,9 +17,9 @@ typedef struct list_T {
 typedef List *Txt;
 
 
-void NbMission(Game *game);
+void loadMission(Game *game);
 
-char* numbermission(MissionNumber Nbmission);
+char* pathMission(MissionNumber Nbmission);
 
 void NodesMissions(FILE *fichier, Game * game, long size);
 

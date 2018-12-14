@@ -1,6 +1,7 @@
 #include "sdl.h"
 #include "../controller/graphs.h"
 #include "text.h"
+#include "../data-layer/data.h"
 
 void initSDL(Game* game, const char* title, int xpos, int ypos, int width, int height, int fullscreen)
 {
@@ -352,6 +353,11 @@ void mouseRightReleased(Game* game, SDL_Event* event){
         game->mouseLine = NULL;
         game->selectedRect = NULL;
     }
+}
+
+void buttonNewGamePressed(Game* game){
+    game->missionNumber++;
+    loadMission(game);
 }
 
 void keyCPressed(Game* game, SDL_Event* event){
