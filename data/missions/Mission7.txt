@@ -40,20 +40,26 @@ Basic chick
 0
 
 Teacher chick 1
-150
+140
 550
-180
-180
+208
+160
 0
 
 ---------UI--------
-1
+2
 
-Next yellow
-400
-600
+Next
+1180
+610
 64
 64
+
+Teacher bubble
+350
+575
+760
+125
 
 -Text-
 2

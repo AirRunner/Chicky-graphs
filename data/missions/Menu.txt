@@ -5,70 +5,70 @@
 10
 
 Basic chick
-300
 250
-80
-80
-0
-
-Basic chick
-100
-400
-80
-80
-0
-
-Basic chick
-300
-550
-80
-80
-0
-
-Basic chick
-600
-350
-80
-80
-0
-
-Basic chick
-700
-600
-80
-80
-0
-
-Basic chick
-800
-200
-80
-80
-0
-
-Basic chick
-1100
 300
 80
 80
 0
 
 Basic chick
-850
-550
-80
-80
-0
-
-Basic chick
-1000
+50
 450
 80
 80
 0
 
 Basic chick
-1100
+250
+600
+80
+80
+0
+
+Basic chick
+550
+400
+80
+80
+0
+
+Basic chick
+500
+630
+80
+80
+0
+
+Basic chick
+750
+250
+80
+80
+0
+
+Basic chick
+1050
+350
+80
+80
+0
+
+Basic chick
+800
+600
+80
+80
+0
+
+Basic chick
+950
+500
+80
+80
+0
+
+Basic chick
+1150
 600
 80
 80
@@ -91,27 +91,27 @@ Basic chick
 ---------UI--------
 4
 
-logo
-1050
-600
-80
-80
+Logo
+540
+20
+200
+200
 
-Adventure Bubble 
-1050
-600
-80
-80
+Adventure bubble
+325
+200
+240
+120
 
-Resume Bubble
-1050
-600
-80
-80
+Resume bubble
+710
+400
+240
+120
 
-Sandbox Bubble
-1050
-600
-80
-80
+Sandbox bubble
+325
+500
+240
+120
 
