@@ -1,10 +1,10 @@
 #include "text.h"
 
 
-Text* createText(char* text, FC_Font* font, int x, int y, int w, int h)
+Text* createText(TextSLL* textSLL, FC_Font* font, int x, int y, int w, int h)
 {
     Text* newText = malloc(sizeof(Text));
-    newText->text = text;
+    newText->textSLL = textSLL;
     newText->font = font;
     newText->destRect.x = x;
     newText->destRect.y = y;
@@ -16,7 +16,10 @@ Text* createText(char* text, FC_Font* font, int x, int y, int w, int h)
 
 void renderText(Game* game)
 {
-    SDL_RenderSetClipRect(game->renderer, &game->text->destRect);
-    FC_DrawBoxAlign(game->text->font, game->renderer, game->text->destRect, FC_ALIGN_CENTER, game->text->text);
-    SDL_RenderSetClipRect(game->renderer, NULL);
+    if(game->text)
+    {
+        SDL_RenderSetClipRect(game->renderer, &game->text->destRect);
+        FC_DrawBoxAlign(game->text->font, game->renderer, game->text->destRect, FC_ALIGN_CENTER, game->text->textSLL->text);
+        SDL_RenderSetClipRect(game->renderer, NULL);
+    }
 }

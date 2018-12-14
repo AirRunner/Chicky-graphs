@@ -3,10 +3,11 @@
 
 #include "SDL_FontCache.h"
 #include "sdl.h"
+#include "../data-layer/data.h"
 
 typedef struct text
 {
-    char* text;
+    TextSLL* textSLL;
     FC_Font* font;
     FC_Rect destRect;
 }Text;

@@ -1,5 +1,6 @@
 #include <string.h>
 #include "data.h"
+#include "../rendering/text.h"
 
 struct conversion
 {
@@ -101,36 +102,36 @@ void EdgesMissions(FILE *fichier, Game * game, int size){
 	free(lign);
 }
 
-Txt new_node(char* r) {
-		Txt t = malloc(sizeof(List));
-		t->readText = malloc(sizeof(char)*1000);
-		t->readText = r;
-		t->nexText = NULL;
+TextSLL* newTextNode(char* text) {
+		TextSLL* t = malloc(sizeof(TextSLL));
+		t->text = text;
+		t->next= NULL;
 		return t;
 }
 
-void AddText(Txt *pt, char* r){
-	if ((*pt) == NULL){
+void AddTextNode(TextSLL** textSLL, char* text){
+	if (!*textSLL){
 		printf("\nENTRER ICI\n");
-		(*pt) = new_node(r);
+		*textSLL = newTextNode(text);
 	}
 	else {
 		printf("\nENTRER LA\n");
-		AddText(&(*pt)->nexText, r);
+		AddTextNode(&(*textSLL)->next, text);
 	}
 }
 
-void print(Txt Text) {
-	if (Text != NULL){
-		Txt current_text = Text;
-		while ( current_text != NULL) {
-			current_text = current_text->nexText;
+void printTextSLL(TextSLL* text) {
+	if (text != NULL){
+		TextSLL* currentText = text;
+		while ( currentText != NULL) {
+            printf("%s", text->text);
+			currentText = currentText->next;
 		}
 	}
 }
 
 
-void UIMissions(FILE *fichier, Game * game, int size){
+void UIMissions(FILE* fichier, Game* game, int size){
 	int q,p,x,y,w,h;
 	char *lign = malloc(sizeof(char)*1000);
 	char *test = malloc(sizeof(char)*1000);
@@ -164,20 +165,28 @@ void UIMissions(FILE *fichier, Game * game, int size){
 	sscanf(lign,"%s", test);
 	if (strcmp(test, "-Text-") == 0){
 			fgets(lign,size,fichier);
-			List* Text = NULL;
+			TextSLL* text = NULL;
 			p = atoi(lign);
 			for (q = 0; q < p; q++){
 				fgets(lign,size,fichier);
 				fgets(lign,size,fichier);
 				printf("%s\n", lign);
-				AddText(&Text, lign);
+				AddTextNode(&text, lign);
 			}
-			print(Text);
-			FC_Font* font = FC_CreateFont();
-			FC_LoadFont(font, game->renderer, "../data/fonts/NotoSansMono-Regular.ttf", 18, FC_MakeColor(0,0,0,255), TTF_STYLE_NORMAL);
-			// Text[d]
+            if(!game->text)
+            {
+                printTextSLL(text);
+                FC_Font* font = FC_CreateFont();
+                FC_LoadFont(font, game->renderer, "../data/fonts/NotoSansMono-Regular.ttf", 18, FC_MakeColor(0,0,0,255), TTF_STYLE_NORMAL);
+                // Text[d]
 
-			game->text = createText(Text->readText, font, 400, 600, 600, 800);
+                game->text = createText(text, font, 400, 600, 600, 800);
+            }
+            else
+            {
+                //freeTextSLL(game->text->textSLL);
+                game->text->textSLL = text;
+            }
 	}
 
 }
