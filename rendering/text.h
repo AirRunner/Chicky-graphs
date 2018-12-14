@@ -12,6 +12,6 @@ typedef struct text
     FC_Rect destRect;
 }Text;
 
-Text* createText(char* text, FC_Font* font, int x, int y, int w, int h);
+Text* createText(TextSLL* textSLL, FC_Font* font, int x, int y, int w, int h);
 void renderText(Game* game);
 #endif /* ifndef TEXT_H */
