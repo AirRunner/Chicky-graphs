@@ -282,19 +282,19 @@ void mouseLeftReleased(Game* game, SDL_Event* event)
             {
                 //does something for the specific button
             }
-            if(game->selectedType == UImenu)
+            else if(game->selectedType == UImenu)
             {
-                //does something for the specific button
+                buttonMenuPressed(game);
             }
-            if(game->selectedType == UIsandbox)
+            else if(game->selectedType == UIsandbox)
             {
-                //does something for the specific button
+                buttonSandboxPressed(game);
             }
-            if(game->selectedType == UInewGame)
+            else if(game->selectedType == UInewGame)
             {
-                //does something for the specific button
+                buttonNewGamePressed(game);
             }
-            if(game->selectedType == UIresumeGame)
+            else if(game->selectedType == UIresumeGame)
             {
                 //does something for the specific button
             }
@@ -363,8 +363,23 @@ void mouseRightReleased(Game* game, SDL_Event* event){
 }
 
 void buttonNewGamePressed(Game* game){
-    game->missionNumber++;
+    game->missionNumber = Mission1;
+    deleteGraph(&game->graph, &game->renderingSLL->nodes, &game->renderingSLL->edges);
+    deleteUISLL(&game->renderingSLL->ui);
     loadMission(game);
+}
+
+void buttonMenuPressed(Game* game){
+    game->missionNumber = Menu;
+    deleteGraph(&game->graph, &game->renderingSLL->nodes, &game->renderingSLL->edges);
+    deleteUISLL(&game->renderingSLL->ui);
+    loadMission(game);
+}
+
+void buttonSandboxPressed(Game* game){
+    game->missionNumber = Sandbox;
+    deleteGraph(&game->graph, &game->renderingSLL->nodes, &game->renderingSLL->edges);
+    deleteUISLL(&game->renderingSLL->ui);
 }
 
 void keyCPressed(Game* game, SDL_Event* event){

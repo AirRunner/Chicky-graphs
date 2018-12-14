@@ -32,6 +32,7 @@ typedef enum MissionNumber{
     Mission10,
     Mission11,
     Mission12,
+    Sandbox
 }MissionNumber;
 
 typedef enum selectedType
@@ -75,6 +76,10 @@ void mouseLeftReleased(Game* game, SDL_Event* event);
 void mouseRightPressed(Game* game, SDL_Event* event);
 void mouseRightMove(Game* game, SDL_Event* event);
 void mouseRightReleased(Game* game, SDL_Event* event);
+
+void buttonNewGamePressed(Game* game);
+void buttonMenuPressed(Game* game);
+void buttonSandboxPressed(Game* game);
 
 void keyCPressed(Game* game, SDL_Event* event);
 void keyIPressed(Game* game, SDL_Event* event);

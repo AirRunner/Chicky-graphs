@@ -217,6 +217,14 @@ void removeUI(UI** nodes, SDL_Rect* destRect)
     }
 }
 
+void deleteUISLL(UI** nodes){
+    while(*nodes){
+        UI* tmp = *nodes;
+        *nodes = (*nodes)->next;
+        free(tmp);
+    }
+}
+
 void renderUI(UI* ui, Game* game)
 {
     while(ui)

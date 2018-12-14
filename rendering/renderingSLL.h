@@ -63,6 +63,7 @@ void changeTexture(NodeSDL* node, NodeTree* texTree, char* texName);
 UI* createUI(SDL_Rect* destRect, SDL_Texture* tex, UIType type);
 void addUI(UI** nodes, SDL_Rect* destRect, SDL_Texture* tex, UIType type);
 void removeUI(UI** nodes, SDL_Rect* destRect);
+void deleteUISLL(UI** nodes);
 void renderUI(UI* ui, Game* game);
 
 SDL_Rect* createRect(int x, int y, int w, int h);

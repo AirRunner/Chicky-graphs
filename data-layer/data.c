@@ -30,14 +30,7 @@ UIType strToEnum(char *str)
 }
 
 void loadMission(Game *game){
-	int j =0;
-	char *MisB = malloc(sizeof(char)*1000);
-	//for (nB = Menu; nB < Mission1; nB++){
-		MisB = pathMission(game->missionNumber);
-		j ++;
-		readFile(MisB, game);
-		//mettre la suite
-	//}
+	readFile(pathMission(game->missionNumber), game);
 }
 
 char* pathMission(MissionNumber Themission){
