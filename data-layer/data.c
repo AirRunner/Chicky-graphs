@@ -39,6 +39,9 @@ char* pathMission(MissionNumber Themission){
 	if (Themission == Menu){
 		return "../data/missions/Menu.txt";
 	}
+    else if(Themission == Sandbox){
+        return "../data/missions/Sandbox.txt";
+    }
 	else{
 		sprintf(mission, "../data/missions/Mission%d.txt", Themission);
 		return mission;

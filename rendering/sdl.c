@@ -380,6 +380,7 @@ void buttonSandboxPressed(Game* game){
     game->missionNumber = Sandbox;
     deleteGraph(&game->graph, &game->renderingSLL->nodes, &game->renderingSLL->edges);
     deleteUISLL(&game->renderingSLL->ui);
+    loadMission(game);
 }
 
 void keyCPressed(Game* game, SDL_Event* event){

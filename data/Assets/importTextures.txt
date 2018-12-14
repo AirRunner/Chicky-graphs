@@ -86,6 +86,9 @@ UI
 Background
 ../data/Assets/UI/Background.png
 UI
+Back to Menu
+../data/Assets/Buttons/Back to Menu.png
+UI
 Logo
 ../data/Assets/Logo.png
 UI
