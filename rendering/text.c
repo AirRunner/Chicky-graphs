@@ -18,8 +18,8 @@ void renderText(Game* game)
 {
     if(game->text && game->text->textSLL)
     {
-        SDL_RenderSetClipRect(game->renderer, &game->text->destRect);
+        //SDL_RenderSetClipRect(game->renderer, &game->text->destRect);
         FC_DrawBoxAlign(game->text->font, game->renderer, game->text->destRect, FC_ALIGN_CENTER, game->text->textSLL->text);
-        SDL_RenderSetClipRect(game->renderer, NULL);
+        //SDL_RenderSetClipRect(game->renderer, NULL);
     }
 }

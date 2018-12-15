@@ -409,7 +409,7 @@ MissionNumber strToMission(char *str)
          }
      }
      printf("convertion failed, returning other\n");
-     return other;
+     return Menu;
 }
 
 void buttonNewGamePressed(Game* game){
