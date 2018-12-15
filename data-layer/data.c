@@ -112,15 +112,35 @@ TextSLL* newTextNode(char* text) {
 		return t;
 }
 
-void AddTextNode(TextSLL** textSLL, char* text){
+void addTextNode(TextSLL** textSLL, char* text){
+    char* tmp = malloc(sizeof(char)*1000);
+    strcpy(tmp, text);
 	if (!*textSLL){
-		printf("\nENTRER ICI\n");
-		*textSLL = newTextNode(text);
+		*textSLL = newTextNode(tmp);
 	}
 	else {
-		printf("\nENTRER LA\n");
-		AddTextNode(&(*textSLL)->next, text);
+		addTextNode(&(*textSLL)->next, text);
 	}
+}
+
+void removeTextNode(TextSLL** textSLL){
+    if(*textSLL)
+    {
+        TextSLL* tmp = *textSLL;
+        *textSLL = (*textSLL)->next;
+        free(tmp->text);
+        free(tmp);
+    }
+}
+
+void freeTextSLL(TextSLL** textSLL){
+    if(textSLL)
+    {
+        while(*textSLL)
+        {
+            removeTextNode(textSLL);
+        }
+    }
 }
 
 void printTextSLL(TextSLL* text) {
@@ -166,7 +186,7 @@ void UIMissions(FILE* fichier, Game* game, int size){
 	fgets(lign,size,fichier);
 	fgets(lign,size,fichier);
 	sscanf(lign,"%s", test);
-	if (strcmp(test, "-Text-") == 0){
+	if (!strcmp(test, "-Text-")){
 			fgets(lign,size,fichier);
 			TextSLL* text = NULL;
 			p = atoi(lign);
@@ -174,22 +194,10 @@ void UIMissions(FILE* fichier, Game* game, int size){
 				fgets(lign,size,fichier);
 				fgets(lign,size,fichier);
 				printf("%s\n", lign);
-				AddTextNode(&text, lign);
+				addTextNode(&text, lign);
 			}
-            if(!game->text)
-            {
-                printTextSLL(text);
-                FC_Font* font = FC_CreateFont();
-                FC_LoadFont(font, game->renderer, "../data/fonts/NotoSansMono-Regular.ttf", 18, FC_MakeColor(0,0,0,255), TTF_STYLE_NORMAL);
-                // Text[d]
-
-                game->text = createText(text, font, 400, 600, 600, 800);
-            }
-            else
-            {
-                //freeTextSLL(game->text->textSLL);
-                game->text->textSLL = text;
-            }
+            freeTextSLL(&game->text->textSLL);
+            game->text->textSLL = text;
 	}
 
 }

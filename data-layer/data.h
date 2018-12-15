@@ -19,15 +19,13 @@ void loadMission(Game* game);
 char* pathMission(MissionNumber Nbmission);
 
 void NodesMissions(FILE* fichier, Game* game, int size);
-
 void EdgesMissions(FILE* fichier, Game* game, int size);
-
 void UIMissions(FILE* fichier, Game* game, int size);
 
 TextSLL* newTextNode(char* r);
-
-void AddTextNode(TextSLL** pt, char* r);
-
+void addTextNode(TextSLL** pt, char* r);
+void removeTextNode(TextSLL** textSLL);
+void freeTextSLL(TextSLL** textSLL);
 void printTextSLL(TextSLL* Text);
 
 void readFile(const char* mission, Game* game);

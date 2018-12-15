@@ -68,6 +68,7 @@ Teacher bubble
 575
 760
 125
+other
 
 -Text-
 3

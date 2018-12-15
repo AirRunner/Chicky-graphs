@@ -366,6 +366,7 @@ void buttonNewGamePressed(Game* game){
     game->missionNumber = Mission1;
     deleteGraph(&game->graph, &game->renderingSLL->nodes, &game->renderingSLL->edges);
     deleteUISLL(&game->renderingSLL->ui);
+    freeTextSLL(&game->text->textSLL);
     loadMission(game);
 }
 
@@ -373,6 +374,7 @@ void buttonMenuPressed(Game* game){
     game->missionNumber = Menu;
     deleteGraph(&game->graph, &game->renderingSLL->nodes, &game->renderingSLL->edges);
     deleteUISLL(&game->renderingSLL->ui);
+    freeTextSLL(&game->text->textSLL);
     loadMission(game);
 }
 
@@ -380,6 +382,7 @@ void buttonSandboxPressed(Game* game){
     game->missionNumber = Sandbox;
     deleteGraph(&game->graph, &game->renderingSLL->nodes, &game->renderingSLL->edges);
     deleteUISLL(&game->renderingSLL->ui);
+    freeTextSLL(&game->text->textSLL);
     loadMission(game);
 }
 

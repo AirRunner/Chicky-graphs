@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     game->texTree = NULL;
     FC_Font* font = FC_CreateFont();
     FC_LoadFont(font, game->renderer, "../data/fonts/NotoSansMono-Regular.ttf", 18, FC_MakeColor(0,0,0,255), TTF_STYLE_NORMAL);
-    game->text = NULL;
+    game->text = createText(NULL, font, 400, 585, 703, 800);
     game->missionNumber = Menu;
 
     initTex(game);
