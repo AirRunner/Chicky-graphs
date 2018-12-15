@@ -370,6 +370,7 @@ struct convMissions
     MissionNumber val;
     char *str;
 } convMissions[] = { //directly making the table
+    {Menu, "Menu"},
     {Mission1, "Mission1"},
     {Mission2, "Mission2"},
     {Mission3, "Mission3"},
@@ -395,7 +396,7 @@ char* missionToStr(MissionNumber nbMission)
          }
      }
      printf("convertion failed, returning other\n");
-     return "other";
+     return "Menu";
 }
 
 MissionNumber strToMission(char *str)

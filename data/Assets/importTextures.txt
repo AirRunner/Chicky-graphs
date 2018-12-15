@@ -90,7 +90,7 @@ Back to Menu
 ../data/Assets/Buttons/Back to Menu.png
 UI
 Logo
-../data/Assets/Logo.png
+../data/Assets/UI/Logo.png
 UI
 Next
 ../data/Assets/Symbols/Ok/Ok green.png
