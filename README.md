@@ -5,31 +5,9 @@ In order to do this, we present steps of the graph theory by different levels of
 Our Menu gives the opportunity to go to "adventure" in order to learn the theory of graphs or to go on the Sandbox to try by ownself the possibilities of our program. We also have created a site in order to present our work.
 
 ## Table of Contents:
-* [Team Member](#Team-members)
-* [Files](#Files)
-* [Installation](#Installation)
 
-## Team Members
-- Gabriela Amorin De Almedia <vincent.mouillon@efrei.net>
-- Chloe Carayon, <chloe.carayon@efrei.net>
-- Vincent Mouillon, <vincent.mouillon@efrei.net>
-- Luca Vaio, <luca.vaio@yahoo.fr>
-- Victor Tailleu, <vic8.taillieu@gmail.com>
-
-## Files:
-
-```
-Our program is divided in 3 important parts:
-	-Controller :
-		graphs.h
-	-Renderring : 
-		renderrringSLL.h
-		sdl.h
-		text.h
-		texture.h
-	-Data-layer:
-		data.h 
-```
+* [Installation](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#installation)
+* [Team Member](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#team-members)
 	
 ## Installation
 
@@ -48,3 +26,10 @@ Mac and linux :
 ```console
 make
 ```
+
+## Team Members
+- Gabriela Amorin De Almedia <vincent.mouillon@efrei.net>
+- Chloe Carayon, <chloe.carayon@efrei.net>
+- Vincent Mouillon, <vincent.mouillon@efrei.net>
+- Luca Vaio, <luca.vaio@yahoo.fr>
+- Victor Tailleu, <vic8.taillieu@gmail.com>
