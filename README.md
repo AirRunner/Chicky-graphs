@@ -5,10 +5,16 @@ In order to do this, we present steps of the graph theory by different levels of
 Our Menu gives the opportunity to go to "adventure" in order to learn the theory of graphs or to go on the Sandbox to try by ownself the possibilities of our program. We also have created a site in order to present our work.
 
 ## Table of Contents:
-
+* [Prerequisites](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#prerequisites)
 * [Installation](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#installation)
 * [Team Member](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#team-members)
-	
+
+## Prerequisites
+- A C compiler
+- SDL2
+- SDL Images
+- SDL TTF
+
 ## Installation
 
 ### Clone the repository
@@ -27,8 +33,11 @@ Mac and linux :
 make
 ```
 
+## Download
+Downloads for [mac and linux](mettre un lien) or for [windows](mettre un autre lien)
+
 ## Team Members
-- Gabriela Amorin De Almedia <vincent.mouillon@efrei.net>
+- Gabriela Amorin De Almedia <gabriela.amorin.de.almedia@efrei.net>
 - Chloe Carayon, <chloe.carayon@efrei.net>
 - Vincent Mouillon, <vincent.mouillon@efrei.net>
 - Luca Vaio, <luca.vaio@yahoo.fr>
