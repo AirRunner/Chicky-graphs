@@ -140,16 +140,16 @@ void NodesMissions(FILE *fichier, Game * game, int size){
 
 void EdgesMissions(FILE *fichier, Game * game, int size){
 	int i, k, m,n;
-	char *lign = malloc(sizeof(char)*1000);
-	char* token;
+	char* lign = malloc(sizeof(char)*1000);
+	char* token = NULL;
 	fgets(lign, size, fichier);
 	i = atoi(lign);
 	k = 0;
 	fgets(lign, size, fichier);
-	if (i != 0){
+	if (i){
 		while (k != i){
 			fgets(lign,size,fichier);
-			token =   strtok(lign, "-");
+			token = strtok(lign, "-");
 			m = atoi(token);
 			token = strtok(NULL, "-");
 			n = atoi(token);
@@ -159,6 +159,7 @@ void EdgesMissions(FILE *fichier, Game * game, int size){
 		}
 	}
 	free(lign);
+    free(token);
 }
 
 TextSLL* newTextNode(char* text) {
@@ -213,9 +214,7 @@ void printTextSLL(TextSLL* text) {
 void UIMissions(FILE* fichier, Game* game, int size){
 	int q,p,x,y,w,h;
 	char *lign = malloc(sizeof(char)*1000);
-	char *test = malloc(sizeof(char)*1000);
 	char *texture = malloc(sizeof(char)*1000);
-	char *type = malloc(sizeof(char)*1000);
 	fgets(lign,size,fichier);
 	q = atoi(lign);
 	for (p=0; p <q;p++){
@@ -223,8 +222,6 @@ void UIMissions(FILE* fichier, Game* game, int size){
 		fgets(lign,size,fichier);
 		lign[strlen(lign)-1] = '\0';
 		strcpy(texture,lign);
-		//printf("\nTexture : %s\n", lign);
-		// fonction /type
 		fgets(lign,size,fichier);
 		x = atoi(lign);
 		fgets(lign,size,fichier);
@@ -234,15 +231,14 @@ void UIMissions(FILE* fichier, Game* game, int size){
 		fgets(lign,size,fichier);
 		h = atoi(lign);
 		printf("%d,%d,%d,%d\n", x,y,w,h);
-        fgets(type,size,fichier);
-        type[strcspn(type, "\n")] = '\0'; //exchanges the \n for a \0
-        printf("type: %s\n", type);
-		addUI(&game->renderingSLL->ui, createRect(x, y, w, h), searchTex(game->texTree, "UI", texture), strToEnum(type));
+        fgets(lign,size,fichier);
+        lign[strcspn(lign, "\n")] = '\0'; //exchanges the \n for a \0
+		addUI(&game->renderingSLL->ui, createRect(x, y, w, h), searchTex(game->texTree, "UI", texture), strToEnum(lign));
 	}
 	fgets(lign,size,fichier);
 	fgets(lign,size,fichier);
-	sscanf(lign,"%s", test);
-	if (!strcmp(test, "-Text-")){
+    lign[strcspn(lign, "\n")] = '\0';
+	if (!strcmp(lign, "-Text-")){
 			fgets(lign,size,fichier);
 			TextSLL* text = NULL;
 			p = atoi(lign);
@@ -255,7 +251,8 @@ void UIMissions(FILE* fichier, Game* game, int size){
             freeTextSLL(&game->text->textSLL);
             game->text->textSLL = text;
 	}
-
+    free(lign);
+    free(texture);
 }
 
 
@@ -263,82 +260,29 @@ void UIMissions(FILE* fichier, Game* game, int size){
 void readFile(const char* mission, Game* game){
 	FILE * fichier = NULL;
 	char *lign = malloc(sizeof(char)*1000);
-	char *test = malloc(sizeof(char)*1000);
 	int size = 1000;
 	fichier = fopen(mission, "r");
 	if (fichier != NULL){
-		while (fgets(lign,size,fichier) != NULL){
+		while (fgets(lign,size,fichier)){
 			//reads formatted input from a string
-			sscanf(lign,"%s", test);
-			if (strcmp(test, "-------Nodes-----") == 0){
+            lign[strcspn(lign, "\n")] = '\0';
+			if (strcmp(lign, "-------Nodes-----") == 0){
 				NodesMissions(fichier, game, size);
 				fgets(lign, size, fichier);
-				sscanf(lign, "%s", test);
+                lign[strcspn(lign, "\n")] = '\0';
 			}
-			if (strcmp(test, "-------Edges------") == 0){
+			if (strcmp(lign, "-------Edges------") == 0){
 				EdgesMissions(fichier, game, size);
 				fgets(lign, size, fichier);
-				sscanf(lign, "%s", test);
+                lign[strcspn(lign, "\n")] = '\0';
 			}
-			if (strcmp(test, "---------UI--------") == 0){
+			if (strcmp(lign, "---------UI--------") == 0){
 				UIMissions(fichier, game, size);
 				fgets(lign, size, fichier);
-				sscanf(lign, "%s", test);
+                lign[strcspn(lign, "\n")] = '\0';
 			}
 		}
 	}
 	fclose(fichier);
 	free(lign);
-	free(test);
 }
-
-
-
-	/*
-
-	void AddText(Txt *pt, char* r){
-		if ((*pt) == NULL)
-			(*pt) = new_node(r);
-		else {
-			AddText(&(*pt)->nexText, r);
-		}
-	}
-
-	Txt AddText(Txt Text, char* readT) {
-		Txt current_Text = Text;
-		Txt newText;
-		newText = new_node(readT);
-		while ( current_Text != NULL && current_Text->nexText != NULL) {
-			//ici problème
-			current_Text = current_Text->nexText;
-		}
-		if (current_Text != NULL)
-			current_Text->nexText = newText;
-		else
-			Text = newText;
-		printf("ETAPE");
-		print(Text);
-		return Text;
-	}
-	Txt AddText(Txt pt, char* r){
-		if ((pt) == NULL){
-			(pt) = new_node(r);
-		}
-		else {
-			Txt t = malloc(sizeof(List));
-			t = pt;
-			while (t != NULL){
-				t = t->nexText;
-			}
-			printf("TEST");
-			print(t);
-		//	Txt t = malloc(sizeof(List));
-		//	t = pt;
-		//	while ( t != NULL)
-		//		t = t->nexText;
-		//	t = new_node(r);
-			//printf("%s", (*pt)->readText);
-			//AddText(&(*pt)->nexText, r);
-		}
-		return(pt);
-	}*/
