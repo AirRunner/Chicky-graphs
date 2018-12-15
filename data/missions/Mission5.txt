@@ -70,11 +70,11 @@ Teacher bubble
 125
 other
 
-Matrice
-1
-2
-3
-4
+Matrix
+850
+150
+350
+350
 other
 
 -Text-

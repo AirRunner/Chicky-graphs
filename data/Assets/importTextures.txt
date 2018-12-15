@@ -103,3 +103,6 @@ Sandbox bubble
 UI
 Teacher bubble
 ../data/Assets/Bubbles/Teacher bubble.png
+UI
+Matrix
+../data/Assets/Missions contents/Mission5 filled.png

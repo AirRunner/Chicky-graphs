@@ -493,7 +493,7 @@ void keyIPressed(Game* game, SDL_Event* event){
 void keyNPressed(Game* game, SDL_Event* event) {
     printf("N Pressed!\n");
     game->selectedRect = searchNodeUnderMouse(game->renderingSLL->nodes, event);
-    if (game->selectedRect && textureRect(game, game->selectedRect) != searchTex(game->texTree, "Node", "Teacher chick 1")) {
+    if (game->selectedRect && textureRect(game, game->selectedRect) != searchTex(game->texTree, "Node", "Teacher chick 1") && textureRect(game, game->selectedRect) != searchTex(game->texTree, "Node", "Infected chick 4")) {
         char* next = nextTex(game->texTree, textureRect(game, game->selectedRect));
         if (next) {
             changeTexture(game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL, game->texTree, next);
