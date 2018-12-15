@@ -1,8 +1,8 @@
 
 -------Nodes-----
-3
+5
 0
-3
+5
 
 Basic chick
 450
@@ -25,11 +25,11 @@ Basic chick
 80
 0
 
-Infected chick 1
+Infected chick 4
 600
 200
-160
-160
+120
+120
 1
 
 Teacher chick 1

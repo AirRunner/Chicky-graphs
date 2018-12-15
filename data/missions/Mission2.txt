@@ -4,7 +4,7 @@
 0
 2
 
-Success chick 1
+Happy chick
 600
 300
 80
