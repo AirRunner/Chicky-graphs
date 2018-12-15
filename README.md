@@ -7,6 +7,7 @@ Our Menu gives the opportunity to go to "adventure" in order to learn the theory
 ## Table of Contents:
 * [Prerequisites](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#prerequisites)
 * [Installation](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#installation)
+* [Download](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#download)
 * [Team Member](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#team-members)
 
 ## Prerequisites
