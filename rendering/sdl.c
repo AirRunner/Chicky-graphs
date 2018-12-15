@@ -280,7 +280,7 @@ void mouseLeftReleased(Game* game, SDL_Event* event)
             //actions for the buttons
             if(game->selectedType == UInext)
             {
-                //does something for the specific button
+                buttonNextPressed(game);
             }
             else if(game->selectedType == UImenu)
             {
@@ -296,7 +296,7 @@ void mouseLeftReleased(Game* game, SDL_Event* event)
             }
             else if(game->selectedType == UIresumeGame)
             {
-                //does something for the specific button
+                buttonResumePressed(game);
             }
         }
         game->selectedRect = NULL;
@@ -362,8 +362,58 @@ void mouseRightReleased(Game* game, SDL_Event* event){
     }
 }
 
+struct convMissions
+{
+    MissionNumber val;
+    char *str;
+} convMissions[] = { //directly making the table
+    {Mission1, "Mission1"},
+    {Mission2, "Mission2"},
+    {Mission3, "Mission3"},
+    {Mission4, "Mission4"},
+    {Mission5, "Mission5"},
+    {Mission6, "Mission6"},
+    {Mission7, "Mission7"},
+    {Mission8, "Mission8"},
+    {Mission9, "Mission9"},
+    {Mission10, "Mission10"},
+    {Mission11, "Mission11"},
+    {Mission12, "Mission12"}
+};
+
+char* missionToStr(MissionNumber nbMission)
+{
+     int i;
+     for(i = 0; i < sizeof(convMissions)/sizeof(convMissions[0]); ++i) //works for all types
+     {
+         if(nbMission == convMissions[i].val)
+         {
+             return convMissions[i].str;
+         }
+     }
+     printf("convertion failed, returning other\n");
+     return "other";
+}
+
+MissionNumber strToMission(char *str)
+{
+     int i;
+     for(i = 0; i < sizeof(convMissions)/sizeof(convMissions[0]); ++i) //works for all types
+     {
+         if(!strcmp(str, convMissions[i].str))
+         {
+             return convMissions[i].val;
+         }
+     }
+     printf("convertion failed, returning other\n");
+     return other;
+}
+
 void buttonNewGamePressed(Game* game){
     game->missionNumber = Mission1;
+    FILE* file = fopen("../data/save", "w+");
+    fprintf(file, "%s", missionToStr(game->missionNumber));
+    fclose(file);
     deleteGraph(&game->graph, &game->renderingSLL->nodes, &game->renderingSLL->edges);
     deleteUISLL(&game->renderingSLL->ui);
     freeTextSLL(&game->text->textSLL);
@@ -380,6 +430,32 @@ void buttonMenuPressed(Game* game){
 
 void buttonSandboxPressed(Game* game){
     game->missionNumber = Sandbox;
+    deleteGraph(&game->graph, &game->renderingSLL->nodes, &game->renderingSLL->edges);
+    deleteUISLL(&game->renderingSLL->ui);
+    freeTextSLL(&game->text->textSLL);
+    loadMission(game);
+}
+
+void buttonNextPressed(Game* game){
+    removeTextNode(&game->text->textSLL);
+    if(!game->text->textSLL){
+        game->missionNumber++;
+        FILE* file = fopen("../data/save", "w+");
+        fprintf(file, "%s", missionToStr(game->missionNumber));
+        fclose(file);
+        deleteGraph(&game->graph, &game->renderingSLL->nodes, &game->renderingSLL->edges);
+        deleteUISLL(&game->renderingSLL->ui);
+        freeTextSLL(&game->text->textSLL);
+        loadMission(game);
+    }
+}
+
+void buttonResumePressed(Game* game){
+    char* mission = malloc(10 * sizeof(char));
+    FILE* file = fopen("../data/save", "r");
+    fscanf(file, "%s", mission);
+    game->missionNumber = strToMission(mission);
+    fclose(file);
     deleteGraph(&game->graph, &game->renderingSLL->nodes, &game->renderingSLL->edges);
     deleteUISLL(&game->renderingSLL->ui);
     freeTextSLL(&game->text->textSLL);

@@ -77,9 +77,14 @@ void mouseRightPressed(Game* game, SDL_Event* event);
 void mouseRightMove(Game* game, SDL_Event* event);
 void mouseRightReleased(Game* game, SDL_Event* event);
 
+char* missionToStr(MissionNumber nbMission);
+MissionNumber strToMission(char *str);
+
 void buttonNewGamePressed(Game* game);
 void buttonMenuPressed(Game* game);
 void buttonSandboxPressed(Game* game);
+void buttonNextPressed(Game* game);
+void buttonResumePressed(Game* game);
 
 void keyCPressed(Game* game, SDL_Event* event);
 void keyIPressed(Game* game, SDL_Event* event);
