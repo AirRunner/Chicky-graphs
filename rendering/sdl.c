@@ -120,6 +120,9 @@ void handleEvents(Game* game)
                     case SDL_SCANCODE_I:
                         keyIPressed(game, &event);
                         break;
+                    case SDL_SCANCODE_N:
+                        keyNPressed(game, &event);
+                        break;
                     default:
                         break;
                 }
@@ -482,6 +485,20 @@ void keyIPressed(Game* game, SDL_Event* event){
             // Disinfect the node
             game->graph->array[searchNode(game->graph, game->selectedRect)]->node->data = 0;
             changeTexture(game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL, game->texTree, "Basic chick");
+        }
+    }
+}
+
+void keyNPressed(Game* game, SDL_Event* event) {
+    printf("N Pressed!\n");
+    game->selectedRect = searchNodeUnderMouse(game->renderingSLL->nodes, event);
+    if (game->selectedRect && textureRect(game, game->selectedRect) != searchTex(game->texTree, "Node", "Teacher chick 1")) {
+        char* next = nextTex(game->texTree, textureRect(game, game->selectedRect));
+        if (next) {
+            changeTexture(game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL, game->texTree, next);
+        }
+        else {
+            changeTexture(game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL, game->texTree, "Bad answer chick");
         }
     }
 }

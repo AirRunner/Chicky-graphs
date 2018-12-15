@@ -151,7 +151,7 @@ void changeTexture(NodeSDL* node, NodeTree* texTree, char* texName){
     int w, h;
     SDL_QueryTexture(searchTex(texTree, "Node", texName), NULL, NULL, &w, &h);
 
-    if(strstr(texName, "teacher") || strstr(texName, "Teacher")){
+    if(strstr(texName, "eacher")){
         w /= 2; h /= 2;
     }
     else{

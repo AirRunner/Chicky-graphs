@@ -88,6 +88,7 @@ void buttonResumePressed(Game* game);
 
 void keyCPressed(Game* game, SDL_Event* event);
 void keyIPressed(Game* game, SDL_Event* event);
+void keyNPressed(Game* game, SDL_Event* event);
 void checkEdgeCut(Game* game, SDL_Rect* mouseLine, struct edgeSDL* edges, SDL_Event* event);
 
 void update(Game* game);

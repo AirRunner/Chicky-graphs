@@ -176,3 +176,16 @@ SDL_Texture* searchTex(NodeTree* textures, char* type, char* name){
 SDL_Texture* textureRect(Game* game, SDL_Rect* rect){
     return game->graph->array[searchNode(game->graph, rect)]->nodeSDL->tex;
 }
+
+char* nextTex(NodeTree* textures, SDL_Texture* currTex) {
+    EltTree* children = textures->children->child->children;
+    while (children != NULL && children->child->texture != currTex) {
+        children = children->next;
+    }
+    children = children->next;
+    // End of basic textures
+    if (children == NULL || strstr(children->next->child->name, "Infected") != NULL) {
+        return NULL;
+    }
+    return children->child->name;
+}
