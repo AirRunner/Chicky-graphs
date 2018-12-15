@@ -1,4 +1,3 @@
-#include <string.h>
 #include "data.h"
 #include "../rendering/text.h"
 
@@ -28,6 +27,63 @@ UIType strToEnum(char *str)
      }
      printf("convertion failed, returning other\n");
      return other;
+}
+
+struct convMissions
+{
+    MissionNumber val;
+    char *str;
+} convMissions[] = { // Conversion table between missions enum and str
+    {Menu, "Menu"},
+    {Mission1, "Mission1"},
+    {Mission2, "Mission2"},
+    {Mission3, "Mission3"},
+    {Mission4, "Mission4"},
+    {Mission5, "Mission5"},
+    {Mission6, "Mission6"},
+    {Mission7, "Mission7"},
+    {Mission8, "Mission8"},
+    {Mission9, "Mission9"},
+    {Mission10, "Mission10"},
+    {Mission11, "Mission11"},
+    {Mission12, "Mission12"}
+};
+
+char* missionToStr(MissionNumber nbMission)
+{
+     int i;
+     for(i = 0; i < sizeof(convMissions)/sizeof(convMissions[0]); ++i)
+     {
+         if(nbMission == convMissions[i].val)
+         {
+             return convMissions[i].str;
+         }
+     }
+     printf("convertion failed, returning other\n");
+     return "Menu";
+}
+
+MissionNumber strToMission(char *str)
+{
+     int i;
+     for(i = 0; i < sizeof(convMissions)/sizeof(convMissions[0]); ++i)
+     {
+         if(!strcmp(str, convMissions[i].str))
+         {
+             return convMissions[i].val;
+         }
+     }
+     printf("convertion failed, returning other\n");
+     return Menu;
+}
+
+int missionSucceeded(Game* game){
+    if(game->missionNumber == Mission3){
+        if(!(game->graph->array[0]->node->list && game->graph->array[0]->node->list->dest == 1)){
+            return 0;
+        }
+    }
+    return 1;
 }
 
 void loadMission(Game *game){

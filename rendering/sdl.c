@@ -1,7 +1,5 @@
 #include "sdl.h"
-#include "../controller/graphs.h"
 #include "text.h"
-#include "../data-layer/data.h"
 
 void initSDL(Game* game, const char* title, int xpos, int ypos, int width, int height, int fullscreen)
 {
@@ -365,55 +363,8 @@ void mouseRightReleased(Game* game, SDL_Event* event){
     }
 }
 
-struct convMissions
-{
-    MissionNumber val;
-    char *str;
-} convMissions[] = { //directly making the table
-    {Menu, "Menu"},
-    {Mission1, "Mission1"},
-    {Mission2, "Mission2"},
-    {Mission3, "Mission3"},
-    {Mission4, "Mission4"},
-    {Mission5, "Mission5"},
-    {Mission6, "Mission6"},
-    {Mission7, "Mission7"},
-    {Mission8, "Mission8"},
-    {Mission9, "Mission9"},
-    {Mission10, "Mission10"},
-    {Mission11, "Mission11"},
-    {Mission12, "Mission12"}
-};
-
-char* missionToStr(MissionNumber nbMission)
-{
-     int i;
-     for(i = 0; i < sizeof(convMissions)/sizeof(convMissions[0]); ++i) //works for all types
-     {
-         if(nbMission == convMissions[i].val)
-         {
-             return convMissions[i].str;
-         }
-     }
-     printf("convertion failed, returning other\n");
-     return "Menu";
-}
-
-MissionNumber strToMission(char *str)
-{
-     int i;
-     for(i = 0; i < sizeof(convMissions)/sizeof(convMissions[0]); ++i) //works for all types
-     {
-         if(!strcmp(str, convMissions[i].str))
-         {
-             return convMissions[i].val;
-         }
-     }
-     printf("convertion failed, returning other\n");
-     return Menu;
-}
-
 void buttonNewGamePressed(Game* game){
+    // Start mission 1 and save it
     game->missionNumber = Mission1;
     FILE* file = fopen("../data/save", "w+");
     fprintf(file, "%s", missionToStr(game->missionNumber));
@@ -425,6 +376,7 @@ void buttonNewGamePressed(Game* game){
 }
 
 void buttonMenuPressed(Game* game){
+    // Load Menu
     game->missionNumber = Menu;
     deleteGraph(&game->graph, &game->renderingSLL->nodes, &game->renderingSLL->edges);
     deleteUISLL(&game->renderingSLL->ui);
@@ -433,6 +385,7 @@ void buttonMenuPressed(Game* game){
 }
 
 void buttonSandboxPressed(Game* game){
+    // Load Sandbox
     game->missionNumber = Sandbox;
     deleteGraph(&game->graph, &game->renderingSLL->nodes, &game->renderingSLL->edges);
     deleteUISLL(&game->renderingSLL->ui);
@@ -441,20 +394,27 @@ void buttonSandboxPressed(Game* game){
 }
 
 void buttonNextPressed(Game* game){
-    removeTextNode(&game->text->textSLL);
-    if(!game->text->textSLL){
-        game->missionNumber++;
-        FILE* file = fopen("../data/save", "w+");
-        fprintf(file, "%s", missionToStr(game->missionNumber));
-        fclose(file);
-        deleteGraph(&game->graph, &game->renderingSLL->nodes, &game->renderingSLL->edges);
-        deleteUISLL(&game->renderingSLL->ui);
-        freeTextSLL(&game->text->textSLL);
-        loadMission(game);
+    if(missionSucceeded(game)){
+        // Go to next text
+        removeTextNode(&game->text->textSLL);
+        if(!game->text->textSLL){
+            // Next mission and update save if end of text
+            game->missionNumber++;
+            if(game->missionNumber != Sandbox){
+                FILE* file = fopen("../data/save", "w+");
+                fprintf(file, "%s", missionToStr(game->missionNumber));
+                fclose(file);
+            }
+            deleteGraph(&game->graph, &game->renderingSLL->nodes, &game->renderingSLL->edges);
+            deleteUISLL(&game->renderingSLL->ui);
+            freeTextSLL(&game->text->textSLL);
+            loadMission(game);
+        }
     }
 }
 
 void buttonResumePressed(Game* game){
+    // Load mission in save file
     char* mission = malloc(10 * sizeof(char));
     FILE* file = fopen("../data/save", "r");
     fscanf(file, "%s", mission);
@@ -496,6 +456,7 @@ void keyNPressed(Game* game, SDL_Event* event) {
     if (game->selectedRect && textureRect(game, game->selectedRect) != searchTex(game->texTree, "Node", "Teacher chick 1") && textureRect(game, game->selectedRect) != searchTex(game->texTree, "Node", "Infected chick 4")) {
         char* next = nextTex(game->texTree, textureRect(game, game->selectedRect));
         if (next) {
+            // Change texture of the selected node to the next one
             changeTexture(game->graph->array[searchNode(game->graph, game->selectedRect)]->nodeSDL, game->texTree, next);
         }
         else {
@@ -584,13 +545,15 @@ void render(Game* game)
 {
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
     SDL_RenderClear(game->renderer);
-    //rendering stuff
+    // Color of the line
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
+    // Render background
     SDL_RenderCopy(game->renderer, game->background->tex, NULL, game->background->destRect);
     if(game->mouseLine)
     {
         SDL_RenderDrawLine(game->renderer, game->mouseLine->x, game->mouseLine->y, game->mouseLine->w, game->mouseLine->h);
     }
+    // Render nodes, edges and UI elements
     renderRenderingSLL(game->renderingSLL, game);
 
     renderText(game);

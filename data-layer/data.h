@@ -1,8 +1,6 @@
 #ifndef DATA_H
 #define DATA_H
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 #include "../controller/graphs.h"
@@ -13,9 +11,12 @@ typedef struct textSLL {
     struct textSLL* next;
 } TextSLL;
 
+char* missionToStr(MissionNumber nbMission);
+MissionNumber strToMission(char *str);
+
+int missionSucceeded(Game* game);
 
 void loadMission(Game* game);
-
 char* pathMission(MissionNumber Nbmission);
 
 void NodesMissions(FILE* fichier, Game* game, int size);
