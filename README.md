@@ -27,7 +27,7 @@ git clone https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project.
 Run those command<br>
 Windows :
 ```console
-gcc -g controller/*.c rendering/*.c data-layer/*.c -o build/Chicky
+gcc -L SDL2/lib -I SDL2/include rendering/*.c data-layer/*.c controller/*.c -o build/chicky -lSDL2 -lSDL2_ttf -lSDL2_image
 ```
 Mac and linux :
 ```console
@@ -38,8 +38,8 @@ make
 Downloads for [mac and linux](mettre un lien) or for [windows](mettre un autre lien)
 
 ## Team Members
-- Gabriela Amorin De Almedia <gabriela.amorin.de.almedia@efrei.net>
-- Chloe Carayon, <chloe.carayon@efrei.net>
-- Vincent Mouillon, <vincent.mouillon@efrei.net>
-- Luca Vaio, <luca.vaio@yahoo.fr>
-- Victor Tailleu, <vic8.taillieu@gmail.com>
+- Teaching Manager : <br>**Gabriela Amorin De Almedia**  <gabriela.amorim.de.almeida@efrei.net>
+- Communication Manager : <br>**Chloe Carayon**  <chloe.carayon@efrei.net>
+- Project Manager : <br>**Vincent Mouillon**  <vincent.mouillon@efrei.net>
+- Technical Manager : <br>**Victor Tailleu**  <victor.taillieu@efrei.net>
+- Design Manager : <br>**Luca Vaio**  <luca.vaio@efrei.net>
