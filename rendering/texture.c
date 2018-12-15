@@ -1,4 +1,3 @@
-#include <string.h>
 #include "texture.h"
 #include "../controller/graphs.h"
 

@@ -2,7 +2,6 @@
 #define TEXT_H value
 
 #include "SDL_FontCache.h"
-#include "sdl.h"
 #include "../data-layer/data.h"
 
 typedef struct text

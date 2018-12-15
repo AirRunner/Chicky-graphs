@@ -1,5 +1,3 @@
-#include "graphs.h"
-#include "../data-layer/data.h"
 #include "../rendering/text.h"
 
 int main(int argc, char *argv[])
