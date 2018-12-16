@@ -1,4 +1,4 @@
-﻿
+
 -------Nodes-----
 3
 0
@@ -52,7 +52,7 @@ other
 -Text-
 2
 ***
-Look! Poussin, just found a friend, give him a way to communicate with him. To succeed you have to connect those two chicks by creating an edge and then click on next.
+Look! Poussin, just found a friend, give him a way to communicate with him. To succeed you have to connect these two chicks by creating an edge and then click the validation button.
 ***
 Congratulations! You just created a simple graph with 2 nodes (the two chicks, they can also be called vertices) linked by 1 edge. Now the other chick knows Poussin’s happiness and became happy too!
 

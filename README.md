@@ -1,14 +1,14 @@
 ![logo](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project/raw/master/data/Website/Chicky%20Graphs%20WEB/LOGOFOND.png)
 # Chicky Graphs:
-This project aimed to teach and be useful to people. Our idea is to make the “Theory of graphs” as sample as possible.
-In order to do this, we present steps of the graph theory by different levels of difficulties and different missions.
-Our Menu gives the opportunity to go to "adventure" in order to learn the theory of graphs or to go on the Sandbox to try by ownself the possibilities of our program. We also have created a site in order to present our work.
+This project is aimed to teach and be useful to people. Our idea is to make the “Theory of graphs” as sample as possible.
+In order to do this, the theory of graphs is taught step by step in an interactive way through different levels of difficulty and different missions.
+Our Menu allows to click on "adventure" in order to learn the theory of graphs or to go on the Sandbox to try by oneself the possibilities of our program. We also have created a website in order to present our work.
 
 ## Table of Contents:
 * [Prerequisites](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#prerequisites)
 * [Installation](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#installation)
 * [Download](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#download)
-* [Team Member](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#team-members)
+* [Team Members](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#team-members)
 
 ## Prerequisites
 - A C compiler

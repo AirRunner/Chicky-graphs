@@ -80,9 +80,9 @@ other
 -Text-
 2
 ***
-Try to implement the directed graph corresponding to this Adjacency Matrix. We use the same process as before. Only this time, you will have to think about the direction of the arrow.
+Try to implement the directed graph corresponding to this Adjacency Matrix. We use the same process as before. Only this time, you will have to think about the direction of the edge.
 ***
-Here using a matrix to express the graph: an adjacency matrix, you have create the corresponding directed graph.
+Here using a matrix to express the graph, an adjacency matrix, you have create the corresponding directed graph.
 
 
 

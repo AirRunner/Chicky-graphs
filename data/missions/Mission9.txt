@@ -80,9 +80,9 @@ other
 -Text-
 2
 ***
-Now, try to implement the graph using its Adjacency list. The node in the array will be linked to all nodes in the list.
+Now, try to implement the graph using its Adjacency List. The node in the array will be linked to all nodes in the list.
 ***
-Once again, using lists to express a graph: the adjacency lists, you have created the corresponding graph.
+Once again, using lists to express a graph, the adjacency list, you have created the corresponding graph.
 
 
 

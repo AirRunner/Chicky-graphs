@@ -1,4 +1,4 @@
-﻿
+
 -------Nodes-----
 3
 0
@@ -52,9 +52,9 @@ other
 -Text-
 7
 ***
-Welcome to Chicky Graphs. Here at Tardigradus Farm, many eggs have just hatched. Mike the farmer needs some help to watch the newborn chicks. Come and discover the farm’s life, and watch the chicks grow together.
+Welcome to Chicky Graphs. Here at Tardigradus Farm, many eggs have just hatched. Mike the farmer needs some help to watch the newborn chicks. Let's discover the farm’s life, and watch the chicks grow together.
 ***
-To do so, we will learn together the theory of graph. You will need to create chicks and to link them together.
+To do so, we will learn together the theory of graphs. You will need to create chicks and to link them together.
 ***
 To create a chick, you just have to do a left click. To move it, you need to keep the left click. Try it!
 ***
@@ -62,6 +62,6 @@ To delete a chick, just do a right click. Try it!
 ***
 If you keep the right click between two chicks, it will create a link between them. Try it!
 ***
-You can delete it by keeping the left click and passing throught it. Try it!
+You can delete a link by keeping the left click and passing throught it. Try it!
 ***
 Perfect! You are ready!

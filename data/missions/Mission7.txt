@@ -1,4 +1,4 @@
-﻿
+
 -------Nodes-----
 6
 1
@@ -73,9 +73,9 @@ other
 -Text-
 2
 ***
-We’ve talked about undirected graphs but there exists another kind of graphs: the directed graphs whose edges can only be traversed one way.Let's try!
+We’ve talked about undirected graphs but there exists another kind of graphs: the directed graphs whose edges can only be traversed one way. Let's try!
 ***
-Here, chick X can say something to chick Y but it will not work the other way around. In directed graphs connections are not symmetric and are called directed edges.
+Here, chick X can say something to chick Y but it will not work the other way around. In directed graphs connections have a direction and are called directed edges.
 
 
 

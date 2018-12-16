@@ -80,7 +80,7 @@ other
 -Text-
 2
 ***
-Try to implement the graph using an Adjacency Matrix. To do so, you have to use the matrix which is a 2D array corresponding to number of chicks poussin squared. If there is an edge between two poussins, there is a T (True) inside the matrix at the corresponding_place.
+Try to implement the graph using an Adjacency Matrix. To do so, you have to use the matrix which is a 2D array corresponding to the number of chicks squared. If there is an edge between two chicks, there is a T (True) inside the matrix at the corresponding place.
 ***
 Here, using a boolean matrix to express the graph (an adjacency matrix), you've just created the corresponding graph.
 
