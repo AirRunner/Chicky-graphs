@@ -57,7 +57,21 @@ void initSDL(Game* game, const char* title, int xpos, int ypos, int width, int h
             game->isrunning = 0;
         }
     }
+
     game->selectedRect = NULL;
+    game->texTree = NULL;
+    game->mouseLine = NULL;
+    game->missionNumber = Menu;
+
+
+    game->renderingSLL = createRenderingSLL();
+    initTex(game);
+    loadMission(game);
+
+    FC_Font* font = FC_CreateFont();
+    FC_LoadFont(font, game->renderer, "../data/fonts/NotoSansMono-Regular.ttf", 16, FC_MakeColor(0,0,0,255), TTF_STYLE_NORMAL);
+    game->text = createText(NULL, font, 400, 585, 703, 800);
+
 }
 
 void handleEvents(Game* game)
@@ -563,6 +577,15 @@ void render(Game* game)
 
 void cleanSDL(Game* game)
 {
+    deleteGraph(&game->graph, &game->renderingSLL->nodes, &game->renderingSLL->edges);
+    deleteUISLL(&game->renderingSLL->ui);
+    free(game->background->destRect);
+    free(game->background);
+    freeTree(game->texTree);
+    freeTextSLL(&game->text->textSLL);
+    FC_FreeFont(game->text->font);
+    free(game->text);
+
     if(game->renderer)
     {
         SDL_DestroyRenderer(game->renderer);

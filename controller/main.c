@@ -20,17 +20,6 @@ int main(int argc, char *argv[])
         0 //fullscreen boolean
     );
 
-    game->renderingSLL = createRenderingSLL();
-    game->texTree = NULL;
-    FC_Font* font = FC_CreateFont();
-    FC_LoadFont(font, game->renderer, "../data/fonts/NotoSansMono-Regular.ttf", 16, FC_MakeColor(0,0,0,255), TTF_STYLE_NORMAL);
-    game->text = createText(NULL, font, 400, 585, 703, 800);
-    game->missionNumber = Menu;
-    game->mouseLine = NULL;
-
-    initTex(game);
-    loadMission(game);
-
 
     while(game->isrunning)
     {
@@ -49,8 +38,6 @@ int main(int argc, char *argv[])
         }
     }
 
-
-    deleteGraph(&game->graph, &game->renderingSLL->nodes, &game->renderingSLL->edges);
 
     cleanSDL(game);
     return 0;
