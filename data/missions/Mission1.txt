@@ -12,7 +12,7 @@ Teacher chick 1
 0
 
 ---------UI--------
-3
+5
 
 Back to Menu
 10
@@ -28,6 +28,20 @@ Next
 64
 next
 
+Egg 1
+450
+200
+102
+142
+egg
+
+Egg 1
+800
+300
+102
+142
+egg
+
 Teacher bubble
 350
 575
@@ -36,7 +50,7 @@ Teacher bubble
 other
 
 -Text-
-6
+7
 ***
 Welcome to Chicky Graphs. Here at Tardigradus Farm, many eggs have just hatched. Mike the farmer needs some help to watch the newborn chicks. Come and discover the farm’s life, and watch the chicks grow together.
 ***
@@ -47,5 +61,7 @@ To create a chick, you just have to do a left click. To move it, you need to kee
 To delete a chick, just do a right click. Try it!
 ***
 If you keep the right click between two chicks, it will create a link between them. Try it!
+***
+You can delete it by keeping the left click and passing throught it. Try it!
 ***
 Perfect! You are ready!

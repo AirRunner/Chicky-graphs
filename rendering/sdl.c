@@ -239,6 +239,10 @@ void searchUIUnderMouse(Game* game, SDL_Event* event)
                     game->selectedRect = ui->destRect;
                     game->selectedType = UIresumeGame;
                     break;
+                case egg:
+                    game->selectedRect = ui->destRect;
+                    game->selectedType = UIegg;
+                    break;
                 default:
                     break;
             }
@@ -312,6 +316,10 @@ void mouseLeftReleased(Game* game, SDL_Event* event)
             else if(game->selectedType == UIresumeGame)
             {
                 buttonResumePressed(game);
+            }
+            else if(game->selectedType == UIegg)
+            {
+                eggEvolve(game);
             }
         }
         game->selectedRect = NULL;
@@ -438,6 +446,22 @@ void buttonResumePressed(Game* game){
     deleteUISLL(&game->renderingSLL->ui);
     freeTextSLL(&game->text->textSLL);
     loadMission(game);
+}
+
+void eggEvolve(Game* game){
+    UI* ui = game->renderingSLL->ui;
+    // Find the egg
+    while(ui->destRect != game->selectedRect){
+        ui = ui->next;
+    }
+    EltTree* children = game->texTree->children->next->child->children;
+    while(children != NULL && children->child->texture != ui->tex) {
+        children = children->next;
+    }
+    children = children->next;
+    if(children != NULL) {
+        ui->tex = searchTex(game->texTree, "UI", children->child->name);
+    }
 }
 
 void keyCPressed(Game* game, SDL_Event* event){

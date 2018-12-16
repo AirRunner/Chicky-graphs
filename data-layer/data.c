@@ -12,6 +12,7 @@ struct conversion
     {newGame, "newGame"},
     {resumeGame, "resumeGame"},
     {background, "background"},
+    {egg, "egg"},
     {other, "other"}
 };
 
@@ -78,10 +79,20 @@ MissionNumber strToMission(char *str)
 }
 
 int missionSucceeded(Game* game){
-    if(game->missionNumber == Mission3){
+    if(game->missionNumber == Mission1){
+        UI* ui = game->renderingSLL->ui;
+        while(ui != NULL){
+            if(ui->type == egg){
+                removeUI(&game->renderingSLL->ui, ui->destRect);
+            }
+            ui = ui->next;
+        }
+    }
+    else if(game->missionNumber == Mission3){
         if(!(game->graph->array[0]->node->list && game->graph->array[0]->node->list->dest == 1)){
             return 0;
         }
+        changeTexture(game->graph->array[1]->nodeSDL, game->texTree, "Happy chick");
     }
     return 1;
 }

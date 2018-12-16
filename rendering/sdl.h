@@ -43,7 +43,8 @@ typedef enum selectedType
     UImenu,
     UIsandbox,
     UInewGame,
-    UIresumeGame
+    UIresumeGame,
+    UIegg
 }SelectedType;
 
 typedef struct game
@@ -82,6 +83,8 @@ void buttonMenuPressed(Game* game);
 void buttonSandboxPressed(Game* game);
 void buttonNextPressed(Game* game);
 void buttonResumePressed(Game* game);
+
+void eggEvolve(Game* game);
 
 void keyCPressed(Game* game, SDL_Event* event);
 void keyIPressed(Game* game, SDL_Event* event);

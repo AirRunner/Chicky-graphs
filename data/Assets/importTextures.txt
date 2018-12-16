@@ -106,3 +106,18 @@ Teacher bubble
 UI
 Matrix
 ../data/Assets/Missions contents/Mission5 filled.png
+UI
+Egg 1
+../data/Assets/Egg/Egg 1.png
+UI
+Egg 2
+../data/Assets/Egg/Egg 2.png
+UI
+Egg 3
+../data/Assets/Egg/Egg 3.png
+UI
+Egg 4
+../data/Assets/Egg/Egg 4.png
+UI
+Egg 5
+../data/Assets/Egg/Egg 5.png

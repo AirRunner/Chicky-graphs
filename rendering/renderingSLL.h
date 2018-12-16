@@ -34,6 +34,7 @@ typedef enum uiType
     newGame,
     resumeGame,
     background,
+    egg,
     other
 }UIType;
 
