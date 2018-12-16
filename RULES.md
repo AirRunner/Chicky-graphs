@@ -8,21 +8,53 @@
 
 
 ## Controller
+* **Return Menu** <br>
+```console
+Menu
+```
+* **Next Mission**<br>
+```console
+Next
+```
 * **Create Chick** <br>
-	> left click
-* **Create Chick** <br>
-	> right click
+```console
+left click
+```
+* **Delete Chick** <br>
+```console
+right click
+```
+* **Move Chick**<br>
+```console
+keep left click
+```
+* **Infect Chick**<br>
+```console
+enter I on the chick 
+```
+* **Contaminate Chick**<br>
+```console
+enter C on the chick
+```
+* **Change texture Chick**<br>
+```console
+enter N on the chick 
+```
 * **Create link** <br>
-	> keep right click between two Chicks
+```console
+keep right click between two Chicks
+```
 * **Delete link** <br>
-	> keep left click between two Chicks
+```console
+keep left click between two Chicks
+```
 
 ## Playing
-### Starting an Adventure 
+### New Adventure 
 * Learn the Theory of graphs steps by steps 
-* Missions divide in different levels 
+* Missions divided in different levels 
 * Each mission : learn a paricularity of graphs 
-### Resume 
+### Resume Game 
 * Come back into the Adventure where the user stops 
 ### Sandbox
 * User can freely use fonctionnalities of graphs 
