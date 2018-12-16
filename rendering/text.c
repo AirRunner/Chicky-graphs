@@ -16,10 +16,18 @@ Text* createText(TextSLL* textSLL, FC_Font* font, int x, int y, int w, int h)
 
 void renderText(Game* game)
 {
-    if(game->text && game->text->textSLL)
+    if(game->text)
     {
-        //SDL_RenderSetClipRect(game->renderer, &game->text->destRect);
-        FC_DrawBoxAlign(game->text->font, game->renderer, game->text->destRect, FC_ALIGN_CENTER, game->text->textSLL->text);
-        //SDL_RenderSetClipRect(game->renderer, NULL);
+        // Print chicks' id on them
+        if(game->missionNumber == Mission5 || game->missionNumber == Mission6 ||
+            game->missionNumber == Mission8 || game->missionNumber == Mission9){
+            printID(game);
+        }
+        
+        if(game->text->textSLL){
+            //SDL_RenderSetClipRect(game->renderer, &game->text->destRect);
+            FC_DrawBoxAlign(game->text->font, game->renderer, game->text->destRect, FC_ALIGN_CENTER, game->text->textSLL->text);
+            //SDL_RenderSetClipRect(game->renderer, NULL);
+        }
     }
 }

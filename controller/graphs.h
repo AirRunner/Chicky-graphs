@@ -37,8 +37,7 @@ void deleteGraph(Graph** graph, NodeSDL** nodes, EdgeSDL** edges);
 
 int searchNode(Graph* graph, SDL_Rect* Rect);
 
-void printGraph(Graph* graph);
-void printNodes(Graph* graph);
+void printID(Game* game);
 
 void contamination(Graph* graph, NodeSDL** nodes, EdgeSDL** edges, NodeTree* texTree);
 int isGraphEmpty(Graph* graph);
