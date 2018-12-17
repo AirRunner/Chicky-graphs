@@ -36,23 +36,25 @@ Edge* createEdge(int dest, int weight) {
     return newEdge;
 }
 
-void addEdge(Graph* graph, int src, int dest, int weight, EdgeSDL** edges, SDL_Texture* texArrow) { 
-    /* Add an edge from source to destination. A new node is 
-    added to the adjacency list of source. The node is added
-    at the begining */
-    Edge* newEdge = createEdge(dest, weight);
-    newEdge->next = graph->array[src]->node->list;
-    graph->array[src]->node->list = newEdge;
+void addEdge(Graph* graph, int src, int dest, int weight, EdgeSDL** edges, SDL_Texture* texArrow) {
+    if(!checkEdge(graph, src, dest)){
+        /* Add an edge from source to destination. A new node is 
+        added to the adjacency list of source. The node is added
+        at the begining */
+        Edge* newEdge = createEdge(dest, weight);
+        newEdge->next = graph->array[src]->node->list;
+        graph->array[src]->node->list = newEdge;
 
-    if(!graph->directed){
-        /* If graph is undirected, add an edge from destination
-        to source also*/
-        newEdge = createEdge(src, weight); 
-        newEdge->next = graph->array[dest]->node->list; 
-        graph->array[dest]->node->list = newEdge;
+        if(!graph->directed){
+            /* If graph is undirected, add an edge from destination
+            to source also*/
+            newEdge = createEdge(src, weight); 
+            newEdge->next = graph->array[dest]->node->list; 
+            graph->array[dest]->node->list = newEdge;
+        }
+
+        addEdgeSDL(graph->directed, edges, graph->array[src]->nodeSDL->destRect, graph->array[dest]->nodeSDL->destRect, texArrow);
     }
-
-    addEdgeSDL(graph->directed, edges, graph->array[src]->nodeSDL->destRect, graph->array[dest]->nodeSDL->destRect, texArrow);
 }
 
 void deleteEdge(Graph* graph, int src, int dest, EdgeSDL** edges) {
@@ -81,6 +83,20 @@ void deleteEdge(Graph* graph, int src, int dest, EdgeSDL** edges) {
             removeEdgeSDL(edges, graph->array[src]->nodeSDL->destRect, graph->array[dest]->nodeSDL->destRect);
         }
     }
+}
+
+// Return 1 if the edge exists, 0 otherwise
+int checkEdge(Graph* graph, int src, int dest){
+    if(graph->array[src] != NULL){
+        Edge* edge = graph->array[src]->node->list;
+        while(edge != NULL && edge->dest != dest){
+            edge = edge->next;
+        }
+        if(edge){
+            return 1;
+        }
+    }
+    return 0;
 }
 
 void createNode(Graph* graph, int data, NodeSDL** nodes, SDL_Rect* destRect, SDL_Texture* tex) {
@@ -141,10 +157,12 @@ int searchNode(Graph* graph, SDL_Rect* Rect){
 
 // Print the id of the node on it
 void printID(Game* game){
-    char num[3];
+    char num[5];
     for(int id = 0; id < 5; id++){
-        sprintf(num, "%d", id + 1);
-        FC_DrawBoxAlign(game->text->font, game->renderer, *game->graph->array[id]->nodeSDL->destRect, FC_ALIGN_CENTER, num);
+        if(game->graph->array[id]){
+            sprintf(num, "\n\n%d", id + 1);
+            FC_DrawBoxAlign(game->text->font, game->renderer, *game->graph->array[id]->nodeSDL->destRect, FC_ALIGN_CENTER, num);
+        }
     }
 }
 
@@ -181,7 +199,7 @@ void contamination(Graph* graph, NodeSDL** nodes, EdgeSDL** edges, NodeTree* tex
     }
 }
 
-// Returns 1 if the graph is empty and 0 otherwise
+// Return 1 if the graph is empty, 0 otherwise
 int isGraphEmpty(Graph* graph) {
     int empty = 1, i = 0;
     while(empty && i < graph->size){
