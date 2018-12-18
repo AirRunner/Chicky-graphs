@@ -64,8 +64,10 @@ Teacher bubble
 other
 
 -Text-
-2
+3
 ***
-Congratulations! You now know the basics of the theory of graphs! To move on to the next level, please create a new undirected graph. Connect other chiks to the sick one and press c.
+Congratulations! You now know the basics of the theory of graphs! 
 ***
-Oh no! Poussin just got sick and contaminated all his connected friends!
+Poussin just got sick! Connect all his friends to him so that they can help him.
+***
+Oh no! Poussin contaminated all his connected friends!
