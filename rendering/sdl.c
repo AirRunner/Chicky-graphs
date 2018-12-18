@@ -374,7 +374,6 @@ void mouseRightReleased(Game* game, SDL_Event* event){
             if(textureRect(game, game->selectedRect) != searchTex(game->texTree, "Node", "Teacher chick 1")){
                 deleteNode(game->graph, searchNode(game->graph, game->selectedRect), &game->renderingSLL->nodes, &game->renderingSLL->edges);
             }
-            free(game->mouseLine);
         }
         else if(game->mouseLine && game->selectedRect != game->mouseLine){
             // Add an edge
