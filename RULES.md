@@ -1,4 +1,4 @@
-![logo](https://github.com/VLuca99/Chicky-graphs/data/Website/LOGOFOND.png)
+![logo](https://github.com/VLuca99/Chicky-graphs/tree/master/data/Website/LOGOFOND.png)
 # Rules
 
 
