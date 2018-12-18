@@ -84,10 +84,10 @@ void renderEdges(EdgeSDL* edges, Game* game)
         if(edges->directed)
         {
             float xTopArrow, yTopArrow, aLine, aPerpLine, bPerpLine, xInter, yInter, distance, xLeftArrow, yLeftArrow, xRightArrow, yRightArrow;
-            xTopArrow = x2 - 2*(x2-x1)/3;
-            yTopArrow = y2 - 2*(y2-y1)/3;
-            xInter = x2 - 7*(x2-x1)/12;
-            yInter = y2 - 7*(y2-y1)/12;
+            xTopArrow = x1 + 2*(x2-x1)/3;
+            yTopArrow = y1 + 2*(y2-y1)/3;
+            xInter = x1 + 7*(x2-x1)/12;
+            yInter = y1 + 7*(y2-y1)/12;
             distance = 20;
             if(x1 != x2)
             {

@@ -99,6 +99,11 @@ int missionSucceeded(Game* game){
             return 0;
         }
     }
+    else if(game->missionNumber == Mission8 || game->missionNumber == Mission9){
+        if(!checkMission8_9(game)){
+            return 0;
+        }
+    }
     else if(game->missionNumber == 11){
         if(!checkMission11(game) && game->graph->array[3]){
             return 0;
@@ -113,6 +118,18 @@ int checkMission5_6(Game* game){
     !checkEdge(game->graph, 0, 4) && !checkEdge(game->graph, 1, 2) && checkEdge(game->graph, 1, 3) &&
     !checkEdge(game->graph, 1, 4) && !checkEdge(game->graph, 2, 3) && checkEdge(game->graph, 2, 4) &&
     checkEdge(game->graph, 3, 4) && !game->graph->array[5]->node->list;
+}
+
+int checkMission8_9(Game* game){
+    return !checkEdge(game->graph, 0, 1) && checkEdge(game->graph, 0, 2) && checkEdge(game->graph, 0, 3) && 
+    !checkEdge(game->graph, 0, 4) && checkEdge(game->graph, 1, 0) && !checkEdge(game->graph, 1, 2) && 
+    !checkEdge(game->graph, 1, 3) && !checkEdge(game->graph, 1, 4) && !checkEdge(game->graph, 2, 0) && 
+    !checkEdge(game->graph, 2, 1) && !checkEdge(game->graph, 2, 3) && !checkEdge(game->graph, 2, 4) && 
+    !checkEdge(game->graph, 3, 0) && checkEdge(game->graph, 3, 1) && !checkEdge(game->graph, 3, 2) && 
+    checkEdge(game->graph, 3, 4) && !checkEdge(game->graph, 4, 0) && !checkEdge(game->graph, 4, 1) &&
+    checkEdge(game->graph, 4, 2) && !checkEdge(game->graph, 4, 3) && !game->graph->array[5]->node->list &&
+    !checkEdge(game->graph, 0, 5) && !checkEdge(game->graph, 1, 5) && !checkEdge(game->graph, 2, 5) &&
+    !checkEdge(game->graph, 3, 5) && !checkEdge(game->graph, 4, 5);
 }
 
 int checkMission11(Game* game){

@@ -64,10 +64,8 @@ Teacher bubble
 other
 
 -Text-
-3
+2
 ***
-Congratulations! You now know the basics of the theory of graphs! 
-***
-Poussin just got sick! Connect all his friends to him so that they can help him.
+Congratulations! You now know the basics of the theory of graphs! Poussin just got sick! Connect all his friends to him so that they can help him.
 ***
 Oh no! Poussin contaminated all his connected friends!

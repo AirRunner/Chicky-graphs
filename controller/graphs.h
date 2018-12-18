@@ -39,6 +39,7 @@ int checkEdge(Graph* graph, int src, int dest);
 int searchNode(Graph* graph, SDL_Rect* Rect);
 
 void printID(Game* game);
+void printGraph(Graph* graph);
 
 void contamination(Graph* graph, NodeSDL** nodes, EdgeSDL** edges, NodeTree* texTree);
 int isGraphEmpty(Graph* graph);

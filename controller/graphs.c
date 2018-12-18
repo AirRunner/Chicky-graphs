@@ -166,6 +166,22 @@ void printID(Game* game){
     }
 }
 
+// Print the adjacency list representation of graph
+void printGraph(Graph* graph) {
+    for(int i = 0; i < graph->size; i++) {
+        if(graph->array[i] != NULL){
+            Edge* edge = graph->array[i]->node->list;
+            printf("\n Adjacency list of node %d\n ", i);
+            // Print all edges starting at the node
+            while(edge) {
+                printf("-> %d", edge->dest);
+                edge = edge->next;
+            }
+        }
+        printf("\n");
+    }
+}
+
 void contamination(Graph* graph, NodeSDL** nodes, EdgeSDL** edges, NodeTree* texTree) {
     int i = 0;
     for(i = 0; i < graph->size; i++){

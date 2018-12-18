@@ -379,7 +379,7 @@ void mouseRightReleased(Game* game, SDL_Event* event){
             game->mouseLine = searchNodeUnderMouse(game->renderingSLL->nodes, event);
             if(game->mouseLine && game->selectedRect != game->mouseLine){
                 // Add an edge
-                addEdge(game->graph, searchNode(game->graph, game->mouseLine), searchNode(game->graph, game->selectedRect), 1, &game->renderingSLL->edges, NULL);
+                addEdge(game->graph, searchNode(game->graph, game->selectedRect), searchNode(game->graph, game->mouseLine), 1, &game->renderingSLL->edges, NULL);
             }
         }
         game->mouseLine = NULL;
