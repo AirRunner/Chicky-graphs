@@ -4,7 +4,7 @@ html{
 	text-align: center;
 	margin: 0;
 	padding: 0;
-	font-family: Courier;
+	font-family: NWL;
 }
 
 body
@@ -14,7 +14,8 @@ body
 }
 
 @font-face{
-	font-family: Courier;
+	font-family: 'NWL';
+	src: url('NoteWorthy Light.ttf');
 }
 
 header
@@ -40,7 +41,7 @@ header
 name{
 	color: #00BFFF;
 	text-align: center;
-	font-family: Courier;
+	font-family: NWL;
 	background: #200030;
 	margin-left: 6rem;
 	font-weight: bold;
@@ -69,9 +70,9 @@ name{
 	margin: 0 30px;
 	color: brown;
 	text-decoration: none;
-	padding: 14px 16px;
-	font-size: 1.3rem;
-	font-family:Courier;
+	padding: 10px 14px;
+	font-size: 1rem;
+	font-family: NWL;
 	font-weight: bold;
 }
 header div
@@ -83,7 +84,7 @@ header div
 	line-height: 6rem;
 	text-align: center;
 	font-size: 1rem;
-	font-family: Courier;
+	font-family: NWL;
 	height: 6rem;
 }
 
@@ -196,7 +197,7 @@ section.module.parallax-5{
 article
 {
 	color: brown;
-	font-family: Courier;
+	font-family: NWL;
 	background: (#ffd633);
 	background-size: cover;
 	opacity: 1;
@@ -265,7 +266,7 @@ span {
 	color: white;
 	text-decoration: none;
 	padding: 14px 16px;
-	font-family:Courier;
+	font-family:NWL;
 	font-weight: bold;
 }
 
@@ -340,7 +341,7 @@ span {
     margin: 20px 0 0 0;
 }
 .view p {
-    font-family: Courier;
+    font-family: NWL;
     font-size: 16px;
     position: relative;
     color: brown;
