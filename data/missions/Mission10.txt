@@ -1,6 +1,18 @@
 
+-------Nodes-----
+1
+0
+1
+
+Teacher chick 1
+500
+100
+208
+160
+0
+
 ---------UI--------
-6
+3
 
 Back to Menu
 10
@@ -16,16 +28,16 @@ Next
 64
 next
 
-Teacher chick 1
-100
-250
-240
-240
+Text3
+200
+300
+800
+257
 other
 
 Text1
 200
-100
+300
 800
 133
 other
@@ -36,11 +48,3 @@ Text2
 800
 113
 other
-
-Text3
-200
-100
-800
-257
-other
-
