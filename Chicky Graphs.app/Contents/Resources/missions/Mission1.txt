@@ -1,0 +1,67 @@
+
+-------Nodes-----
+3
+0
+1
+
+Teacher chick 1
+140
+550
+208
+160
+0
+
+---------UI--------
+5
+
+Back to Menu
+10
+10
+127
+40
+menu
+
+Next
+1180
+610
+64
+64
+next
+
+Egg 1
+450
+200
+102
+142
+egg
+
+Egg 1
+800
+300
+102
+142
+egg
+
+Teacher bubble
+350
+575
+760
+125
+other
+
+-Text-
+7
+***
+Welcome to Chicky Graphs. Here at Tardigradus Farm, many eggs have just hatched. Mike the farmer needs some help to watch the newborn chicks. Let's discover the farm’s life, and watch the chicks grow together.
+***
+To do so, we will learn together the theory of graphs. You will need to create chicks and to link them together.
+***
+To create a chick, you just have to do a left click. To move it, you need to keep the left click. Try it!
+***
+To delete a chick, just do a right click. Try it!
+***
+If you keep the right click between two chicks, it will create a link between them. Try it!
+***
+You can delete a link by keeping the left click and passing throught it. Try it!
+***
+Perfect! You are ready!

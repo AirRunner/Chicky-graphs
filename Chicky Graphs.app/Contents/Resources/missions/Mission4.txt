@@ -1,0 +1,80 @@
+
+-------Nodes-----
+6
+0
+6
+
+Basic chick
+150
+400
+80
+80
+0
+
+Basic chick
+350
+100
+80
+80
+0
+
+Basic chick
+700
+350
+80
+80
+0
+
+Basic chick
+950
+150
+80
+80
+0
+
+Basic chick
+1100
+450
+80
+80
+0
+
+Teacher chick 1
+140
+550
+208
+160
+0
+
+---------UI--------
+3
+
+Back to Menu
+10
+10
+127
+40
+menu
+
+Next
+1180
+610
+64
+64
+next
+
+Teacher bubble
+350
+575
+760
+125
+other
+
+-Text-
+3
+***
+Now, you can create your own graph of chicks. You just have to connect chicks to each other. Click on the validation button when you are done.
+***
+There are two kind of graphs, undirected graphs and directed graphs. Here you just created an undirected graph which can be traversed in multiple ways as the edges do not have a specific direction.
+***
+In fact chick X can say something to chick Y and the other way around.

@@ -1,0 +1,88 @@
+
+-------Nodes-----
+6
+0
+6
+
+Basic chick
+100
+400
+80
+80 
+0
+
+Basic chick
+200
+150
+80
+80
+0
+ 
+Basic chick
+400
+350
+80
+80
+0
+
+Basic chick
+550
+150
+80
+80
+0
+
+Basic chick
+600
+450
+80
+80
+0
+
+Teacher chick 1
+140
+550
+208
+160
+0
+
+---------UI--------
+4
+
+Back to Menu
+10
+10
+127
+40
+menu
+
+Next
+1180
+610
+64
+64
+next
+
+Teacher bubble
+350
+575
+760
+125
+other
+
+List
+700
+150
+549
+350
+other
+
+-Text-
+2
+***
+Now, try to implement the graph using its Adjacency List. The node in the array will be linked to all the nodes in the list.
+***
+Here, using lists to express a graph (an adjacency list), you have created the corresponding graph.
+
+
+

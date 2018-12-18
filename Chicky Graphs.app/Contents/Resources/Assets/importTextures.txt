@@ -1,0 +1,126 @@
+Node
+Bad answer chick
+../Resources/Assets/Chicks/Bad answer chick.png
+Node
+Basic chick
+../Resources/Assets/Chicks/Basic chick.png
+Node
+Blink chick
+../Resources/Assets/Chicks/Blink chick.png
+Node
+Boss chick
+../Resources/Assets/Chicks/Boss chick.png
+Node
+Connected chick
+../Resources/Assets/Chicks/Connected chick.png
+Node
+Crazy chick
+../Resources/Assets/Chicks/Crazy chick.png
+Node
+Dead chick
+../Resources/Assets/Chicks/Dead chick.png
+Node
+Doubtful chick 1
+../Resources/Assets/Chicks/Doubtful chick 1.png
+Node
+Doubtful chick 2
+../Resources/Assets/Chicks/Doubtful chick 2.png
+Node
+Embarrassed chick
+../Resources/Assets/Chicks/Embarrassed chick.png
+Node
+Happy chick
+../Resources/Assets/Chicks/Happy chick.png
+Node
+Mocking chick
+../Resources/Assets/Chicks/Mocking chick.png
+Node
+Reflecting chick
+../Resources/Assets/Chicks/Reflecting chick.png
+Node
+Success chick 1
+../Resources/Assets/Chicks/Success chick 1.png
+Node
+Success chick 2
+../Resources/Assets/Chicks/Success chick 2.png
+Node
+Surprised chick
+../Resources/Assets/Chicks/Surprised chick.png
+Node
+Worried chick
+../Resources/Assets/Chicks/Worried chick.png
+Node
+Infected chick 1
+../Resources/Assets/Chicks/Infected/Infected chick 1.png
+Node
+Infected chick 2
+../Resources/Assets/Chicks/Infected/Infected chick 2.png
+Node
+Infected chick 3
+../Resources/Assets/Chicks/Infected/Infected chick 3.png
+Node
+Infected chick 4
+../Resources/Assets/Chicks/Infected/Infected chick 4.png
+Node
+Teacher chick 1
+../Resources/Assets/Chicks/Teacher/Teacher chick 1.png
+Node
+Teacher chick 2
+../Resources/Assets/Chicks/Teacher/Teacher chick 2.png
+Node
+Angry teacher 1
+../Resources/Assets/Chicks/Teacher/Angry teacher 1.png
+Node
+Angry teacher 2
+../Resources/Assets/Chicks/Teacher/Angry teacher 2.png
+Node
+Angry teacher 3
+../Resources/Assets/Chicks/Teacher/Angry teacher 3.png
+Node
+Angry teacher 4
+../Resources/Assets/Chicks/Teacher/Angry teacher 4.png
+UI
+Adventure bubble
+../Resources/Assets/Bubbles/New adventure.png
+UI
+Background
+../Resources/Assets/UI/Background.png
+UI
+Logo
+../Resources/Assets/UI/Logo.png
+UI
+Back to Menu
+../Resources/Assets/Buttons/Back to Menu.png
+UI
+Next
+../Resources/Assets/Symbols/Ok/Ok green.png
+UI
+Resume bubble
+../Resources/Assets/Bubbles/Resume game.png
+UI
+Sandbox bubble
+../Resources/Assets/Bubbles/Sandbox.png
+UI
+Teacher bubble
+../Resources/Assets/Bubbles/Teacher bubble.png
+UI
+Matrix
+../Resources/Assets/Missions contents/Matrix Mission5.png
+UI
+List
+../Resources/Assets/Missions contents/List Mission6.png
+UI
+Egg 1
+../Resources/Assets/Egg/Egg 1.png
+UI
+Egg 2
+../Resources/Assets/Egg/Egg 2.png
+UI
+Egg 3
+../Resources/Assets/Egg/Egg 3.png
+UI
+Egg 4
+../Resources/Assets/Egg/Egg 4.png
+UI
+Egg 5
+../Resources/Assets/Egg/Egg 5.png
