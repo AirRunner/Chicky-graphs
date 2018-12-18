@@ -160,7 +160,7 @@ void printID(Game* game){
     char num[5];
     for(int id = 0; id < 5; id++){
         if(game->graph->array[id]){
-            sprintf(num, "\n\n%d", id + 1);
+            sprintf(num, "\n%d", id + 1);
             FC_DrawBoxAlign(game->text->font, game->renderer, *game->graph->array[id]->nodeSDL->destRect, FC_ALIGN_CENTER, num);
         }
     }

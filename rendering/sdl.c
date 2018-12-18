@@ -69,7 +69,7 @@ void initSDL(Game* game, const char* title, int xpos, int ypos, int width, int h
     loadMission(game);
 
     FC_Font* font = FC_CreateFont();
-    FC_LoadFont(font, game->renderer, "../data/fonts/NotoSansMono-Regular.ttf", 16, FC_MakeColor(0,0,0,255), TTF_STYLE_NORMAL);
+    FC_LoadFont(font, game->renderer, "../data/fonts/Noteworthy Light.ttf", 20, FC_MakeColor(0,0,0,255), TTF_STYLE_NORMAL);
     game->text = createText(NULL, font, 400, 585, 703, 800);
 
 }

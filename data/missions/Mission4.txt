@@ -5,35 +5,35 @@
 6
 
 Basic chick
-200
+150
 400
 80
 80
 0
 
 Basic chick
-400
+350
 100
 80
 80
 0
 
 Basic chick
-750
+700
 350
 80
 80
 0
 
 Basic chick
-1000
+950
 150
 80
 80
 0
 
 Basic chick
-1150
+1100
 450
 80
 80
