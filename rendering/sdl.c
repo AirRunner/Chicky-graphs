@@ -324,7 +324,7 @@ void mouseLeftReleased(Game* game, SDL_Event* event)
         }
         game->selectedRect = NULL;
     }
-    else if(game->mouseLine->x == game->mouseLine->w && game->mouseLine->y == game->mouseLine->h){
+    else if(game->mouseLine && game->mouseLine->x == game->mouseLine->w && game->mouseLine->y == game->mouseLine->h){
         // Create a node
         int w, h;
         SDL_QueryTexture(searchTex(game->texTree, "Node", "Basic chick"), NULL, NULL, &w, &h);
