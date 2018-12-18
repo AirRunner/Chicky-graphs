@@ -58,10 +58,10 @@ To do so, we will learn together the theory of graphs. You will need to create c
 ***
 To create a chick, you just have to do a left click. To move it, you need to keep the left click. Try it!
 ***
-To delete a chick, just do a right click. Try it!
+To delete a chick, just do a right click.
 ***
-If you keep the right click between two chicks, it will create a link between them. Try it!
+If you keep the right click between two chicks, it will create a link between them.
 ***
-You can delete a link by keeping the left click and passing throught it. Try it!
+You can delete a link by keeping the left click and passing throught it.
 ***
 Perfect! You are ready!
