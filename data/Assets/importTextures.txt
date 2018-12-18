@@ -29,6 +29,9 @@ Node
 Embarrassed chick
 ../data/Assets/Chicks/Embarrassed chick.png
 Node
+Girl chick
+../data/Assets/Chicks/Girl chick.png
+Node
 Happy chick
 ../data/Assets/Chicks/Happy chick.png
 Node
@@ -93,7 +96,7 @@ Back to Menu
 ../data/Assets/Buttons/Back to Menu.png
 UI
 Next
-../data/Assets/Symbols/Ok/Ok green.png
+../data/Assets/UI/Validate.png
 UI
 Resume bubble
 ../data/Assets/Bubbles/Resume game.png
