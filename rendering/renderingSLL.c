@@ -1,4 +1,5 @@
 #include <string.h>
+#include <math.h>
 #include "renderingSLL.h"
 
 
@@ -74,12 +75,48 @@ void renderEdges(EdgeSDL* edges, Game* game)
 {
     while(edges)
     {
-        int x1, y1, x2, y2;
+        float x1, y1, x2, y2;
         x1 = edges->srcRect->x + edges->srcRect->w/2;
         y1 = edges->srcRect->y + edges->srcRect->h/2;
         x2 = edges->destRect->x + edges->destRect->w/2;
         y2 = edges->destRect->y + edges->destRect->h/2;
         SDL_RenderDrawLine(game->renderer, x1, y1, x2, y2);
+        if(edges->directed)
+        {
+            float xTopArrow, yTopArrow, aLine, aPerpLine, bPerpLine, xInter, yInter, distance, xLeftArrow, yLeftArrow, xRightArrow, yRightArrow;
+            xTopArrow = x2 - 2*(x2-x1)/3;
+            yTopArrow = y2 - 2*(y2-y1)/3;
+            xInter = x2 - 7*(x2-x1)/12;
+            yInter = y2 - 7*(y2-y1)/12;
+            distance = 20;
+            if(x1 != x2)
+            {
+                aLine = (y2 - y1)/(x2 - x1);
+                if(aLine)
+                {
+                    aPerpLine = -1/aLine;
+                    bPerpLine =  yInter - aPerpLine*xInter;
+                    xLeftArrow = xInter + distance/(sqrtf(1+aPerpLine*aPerpLine));
+                    yLeftArrow = aPerpLine*xLeftArrow + bPerpLine;
+                    xRightArrow = xInter - distance/(sqrtf(1+aPerpLine*aPerpLine));
+                    yRightArrow = aPerpLine*xRightArrow + bPerpLine;
+                }
+                else
+                {
+                    xLeftArrow = xRightArrow = xInter;
+                    yLeftArrow = yInter + distance;
+                    yRightArrow = yInter - distance;
+                }
+            }
+            else
+            {
+                yLeftArrow = yRightArrow = yInter;
+                xLeftArrow = xInter - distance;
+                xRightArrow = xInter + distance;
+            }
+            SDL_RenderDrawLine(game->renderer, xLeftArrow, yLeftArrow, xTopArrow, yTopArrow);
+            SDL_RenderDrawLine(game->renderer, xRightArrow, yRightArrow, xTopArrow, yTopArrow);
+        }
         edges = edges->next;
     }
 }
