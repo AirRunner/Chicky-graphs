@@ -1,4 +1,4 @@
-﻿
+
 -------Nodes-----
 2
 0
@@ -45,4 +45,4 @@ other
 -Text-
 1
 ***
-Here is Poussin. Poussin has many friends. For now, he has no way of communicating with them. Poussin wants to share his happiness with his other friends. In a graph representation, Poussin is a node. It contains information. Here it's Poussin’s happiness.
+Here is Poussin. Poussin has many friends. For now, he has no way of communicating with them. Poussin wants to share his love with his other friends. In a graph representation, Poussin is a node. It contains information. Here it's Poussin’s love.
