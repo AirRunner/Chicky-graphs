@@ -8,6 +8,7 @@ Our Menu allows to click on "adventure" in order to learn the theory of graphs o
 * [Prerequisites](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#prerequisites)
 * [Installation](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#installation)
 * [Download](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#download)
+* [Media](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#media)
 * [Team Members](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#team-members)
 
 ## Prerequisites
@@ -35,7 +36,14 @@ make
 ```
 
 ## Download
-Downloads for [mac and linux](mettre un lien) or for [windows](mettre un autre lien)
+Dowload is only available for few days :<br>
+Download for [windows](https://mega.nz/#!zfYmUCJa!-NBQdSjhUCUHOtZAhcMUX8NihXe7XrRcffF1NS4taAI)
+
+## Media 
+* Locally open the website
+* Download :<br>
+    Our [synopsis](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project/raw/master/data/Website/Synopsis.pdf)<br>
+    Our [report](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project/raw/master/Report.pdf)
 
 ## Team Members
 - Teaching Manager : <br>**Gabriela Amorin De Almedia**  <gabriela.amorim.de.almeida@efrei.net>
