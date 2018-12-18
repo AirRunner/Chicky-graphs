@@ -4,7 +4,7 @@
 0
 2
 
-Happy chick
+Connected chick
 600
 300
 80

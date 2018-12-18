@@ -348,8 +348,10 @@ void mouseRightPressed(Game* game, SDL_Event* event)
     game->selectedRect = searchNodeUnderMouse(game->renderingSLL->nodes, event);
     if(game->selectedRect){
         game->mouseLine = malloc(sizeof(SDL_Rect));
-        game->mouseLine->x = game->mouseLine->w = event->motion.x;
-        game->mouseLine->y = game->mouseLine->h = event->motion.y;
+        game->mouseLine->x = game->selectedRect->x + game->selectedRect->w/2;
+        game->mouseLine->y = game->selectedRect->y + game->selectedRect->h/2;
+        game->mouseLine->w = event->motion.x;
+        game->mouseLine->h = event->motion.y;
     }
 }
 

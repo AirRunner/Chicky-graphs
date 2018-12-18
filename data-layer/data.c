@@ -92,12 +92,18 @@ int missionSucceeded(Game* game){
         if(!(game->graph->array[0]->node->list && game->graph->array[0]->node->list->dest == 1)){
             return 0;
         }
-        changeTexture(game->graph->array[1]->nodeSDL, game->texTree, "Happy chick");
+        changeTexture(game->graph->array[1]->nodeSDL, game->texTree, "Connected chick");
     }
     else if(game->missionNumber == Mission5 || game->missionNumber == Mission6){
         if(!checkMission5_6(game)){
             return 0;
         }
+    }
+    else if(game->missionNumber == 11){
+        if(!checkMission11(game) && game->graph->array[3]){
+            return 0;
+        }
+        contamination(game->graph, &game->renderingSLL->nodes, &game->renderingSLL->edges, game->texTree);
     }
     return 1;
 }
@@ -107,6 +113,10 @@ int checkMission5_6(Game* game){
     !checkEdge(game->graph, 0, 4) && !checkEdge(game->graph, 1, 2) && checkEdge(game->graph, 1, 3) &&
     !checkEdge(game->graph, 1, 4) && !checkEdge(game->graph, 2, 3) && checkEdge(game->graph, 2, 4) &&
     checkEdge(game->graph, 3, 4) && !game->graph->array[5]->node->list;
+}
+
+int checkMission11(Game* game){
+    return checkEdge(game->graph, 0, 3) && checkEdge(game->graph, 1, 3) && checkEdge(game->graph, 2, 3);
 }
 
 void loadMission(Game *game){

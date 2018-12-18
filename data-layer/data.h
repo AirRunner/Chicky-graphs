@@ -16,6 +16,7 @@ MissionNumber strToMission(char *str);
 
 int missionSucceeded(Game* game);
 int checkMission5_6(Game* game);
+int checkMission11(Game* game);
 
 void loadMission(Game* game);
 char* pathMission(MissionNumber Nbmission);
