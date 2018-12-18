@@ -1,15 +1,15 @@
-![logo](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project/raw/master/data/Website/LOGOFOND.png)
+![logo](https://github.com/VLuca99/Chicky-graphs/blob/master/data/Website/LOGOFOND.png)
 # Chicky Graphs:
 This project is aimed to teach and be useful to people. Our idea is to make the “Theory of graphs” as sample as possible.
 In order to do this, the theory of graphs is taught step by step in an interactive way through different levels of difficulty and different missions.
 Our Menu allows to click on "adventure" in order to learn the theory of graphs or to go on the Sandbox to try by oneself the possibilities of our program. We also have created a website in order to present our work.
 
 ## Table of Contents:
-* [Prerequisites](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#prerequisites)
-* [Installation](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#installation)
-* [Download](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#download)
-* [Media](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#media)
-* [Team Members](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#team-members)
+* [Prerequisites](https://github.com/VLuca99/Chicky-graphs#prerequisites)
+* [Installation](https://github.com/VLuca99/Chicky-graphs#installation)
+* [Download](https://github.com/VLuca99/Chicky-graphs#download)
+* [Media](https://github.com/VLuca99/Chicky-graphs#media)
+* [Team Members](https://github.com/VLuca99/Chicky-graphs#team-members)
 
 ## Prerequisites
 - A C compiler
@@ -21,7 +21,7 @@ Our Menu allows to click on "adventure" in order to learn the theory of graphs o
 
 ### Clone the repository
 ```console
-git clone https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project.git
+git clone https://github.com/VLuca99/Chicky-graphs.git
 ```
 
 ### Compile the code
@@ -42,8 +42,8 @@ Download for [windows](https://mega.nz/#!zfYmUCJa!-NBQdSjhUCUHOtZAhcMUX8NihXe7Xr
 ## Media 
 * Locally open the website
 * Download :<br>
-    Our [synopsis](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project/raw/master/data/Website/Synopsis.pdf)<br>
-    Our [report](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project/raw/master/Report.pdf)
+    Our [synopsis](https://github.com/VLuca99/Chicky-graphs/blob/master/data/Website/Synopsis.pdf)<br>
+    Our [report](https://github.com/VLuca99/Chicky-graphs/blob/master/Report.pdf)
 
 ## Team Members
 - Teaching Manager : <br>**Gabriela Amorin De Almedia**  <gabriela.amorim.de.almeida@efrei.net>
