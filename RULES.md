@@ -1,10 +1,10 @@
-![logo](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project/raw/master/data/Website/LOGOFOND.png)
+![logo](https://github.com/VLuca99/Chicky-graphs/data/Website/LOGOFOND.png)
 # Rules
 
 
 ## Table of Contents:
-* [Playing](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#playing)
-* [Controller](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project#controller)
+* [Playing](https://github.com/VLuca99/Chicky-graphs#playing)
+* [Controller](https://github.com/VLuca99/Chicky-graphs#controller)
 
 ## Playing
 ### Menu
