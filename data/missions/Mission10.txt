@@ -16,31 +16,31 @@ Next
 64
 next
 
-Big Teacher chick
+Teacher chick 1
 100
 250
 240
 240
 other
 
-Image Text1
-1
-2
-3
-4
+Text1
+200
+100
+800
+133
 other
 
-Image Text2
-1
-2
-34
-4
+Text2
+200
+100
+800
+113
 other
 
-Image Text3
-1
-2
-3
-4
+Text3
+200
+100
+800
+257
 other
 

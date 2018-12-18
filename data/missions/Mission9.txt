@@ -70,11 +70,11 @@ Teacher bubble
 125
 other
 
-List
-1
-2
-3
-4
+List9
+800
+150
+400
+350
 other
 
 -Text-

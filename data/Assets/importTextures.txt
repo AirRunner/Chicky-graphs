@@ -104,11 +104,17 @@ UI
 Teacher bubble
 ../data/Assets/Bubbles/Teacher bubble.png
 UI
-Matrix
+Matrix5
 ../data/Assets/Missions contents/Matrix Mission5.png
 UI
-List
+Matrix8
+../data/Assets/Missions contents/Matrix Mission8.png
+UI
+List6
 ../data/Assets/Missions contents/List Mission6.png
+UI
+List9
+../data/Assets/Missions contents/List Mission9.png
 UI
 Egg 1
 ../data/Assets/Egg/Egg 1.png
@@ -124,3 +130,6 @@ Egg 4
 UI
 Egg 5
 ../data/Assets/Egg/Egg 5.png
+UI
+Text3
+../data/Assets/Texts/Text 3.png
