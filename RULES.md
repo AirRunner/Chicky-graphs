@@ -1,4 +1,4 @@
-![logo](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project/raw/master/data/Website/Chicky%20Graphs%20WEB/LOGOFOND.png)
+![logo](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project/raw/master/data/Website/LOGOFOND.png)
 # Rules
 
 

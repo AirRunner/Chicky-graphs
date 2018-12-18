@@ -1,4 +1,4 @@
-![logo](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project/raw/master/data/Website/Chicky%20Graphs%20WEB/LOGOFOND.png)
+![logo](https://gitlab.platypus.academy/efrei-2a-sdd-p2022-Tardigradu/project/raw/master/data/Website/LOGOFOND.png)
 # Chicky Graphs:
 This project is aimed to teach and be useful to people. Our idea is to make the “Theory of graphs” as sample as possible.
 In order to do this, the theory of graphs is taught step by step in an interactive way through different levels of difficulty and different missions.
