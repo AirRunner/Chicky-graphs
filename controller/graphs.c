@@ -157,7 +157,7 @@ int searchNode(Graph* graph, SDL_Rect* Rect){
 
 // Print the id of the node on it
 void printID(Game* game){
-    char num[5];
+    char num[4];
     for(int id = 0; id < 5; id++){
         if(game->graph->array[id]){
             sprintf(num, "\n%d", id + 1);

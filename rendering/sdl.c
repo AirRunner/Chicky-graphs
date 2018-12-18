@@ -427,6 +427,9 @@ void buttonNextPressed(Game* game){
                 fprintf(file, "%s", missionToStr(game->missionNumber));
                 fclose(file);
             }
+            else{
+                game->missionNumber = Menu;
+            }
             deleteGraph(&game->graph, &game->renderingSLL->nodes, &game->renderingSLL->edges);
             deleteUISLL(&game->renderingSLL->ui);
             freeTextSLL(&game->text->textSLL);
