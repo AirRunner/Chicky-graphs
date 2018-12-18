@@ -367,20 +367,18 @@ void mouseRightMove(Game* game, SDL_Event* event)
 void mouseRightReleased(Game* game, SDL_Event* event){
     printf("Right Released!\n");
     if(game->mouseLine && game->selectedRect){
-        if(game->mouseLine->x == game->mouseLine->w && game->mouseLine->y == game->mouseLine->h){
+        free(game->mouseLine);
+        game->mouseLine = searchNodeUnderMouse(game->renderingSLL->nodes, event);
+        if(game->mouseLine && game->selectedRect == game->mouseLine){
             // Delete the node if it's not a teacher
             if(textureRect(game, game->selectedRect) != searchTex(game->texTree, "Node", "Teacher chick 1")){
                 deleteNode(game->graph, searchNode(game->graph, game->selectedRect), &game->renderingSLL->nodes, &game->renderingSLL->edges);
             }
             free(game->mouseLine);
         }
-        else{
-            free(game->mouseLine);
-            game->mouseLine = searchNodeUnderMouse(game->renderingSLL->nodes, event);
-            if(game->mouseLine && game->selectedRect != game->mouseLine){
-                // Add an edge
-                addEdge(game->graph, searchNode(game->graph, game->selectedRect), searchNode(game->graph, game->mouseLine), 1, &game->renderingSLL->edges, NULL);
-            }
+        else if(game->mouseLine && game->selectedRect != game->mouseLine){
+            // Add an edge
+            addEdge(game->graph, searchNode(game->graph, game->selectedRect), searchNode(game->graph, game->mouseLine), 1, &game->renderingSLL->edges, NULL);
         }
         game->mouseLine = NULL;
         game->selectedRect = NULL;
