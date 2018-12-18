@@ -91,7 +91,6 @@ void keyIPressed(Game* game, SDL_Event* event);
 void keyNPressed(Game* game, SDL_Event* event);
 void checkEdgeCut(Game* game, SDL_Rect* mouseLine, struct edgeSDL* edges, SDL_Event* event);
 
-void update(Game* game);
 void render(Game* game);
 void cleanSDL(Game* game);
 

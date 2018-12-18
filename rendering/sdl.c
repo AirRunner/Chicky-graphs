@@ -575,12 +575,6 @@ void checkEdgeCut(Game* game, SDL_Rect* mouseLine, EdgeSDL* edges, SDL_Event* ev
     }
 }
 
-
-void update(Game* game)
-{
-
-}
-
 void render(Game* game)
 {
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
