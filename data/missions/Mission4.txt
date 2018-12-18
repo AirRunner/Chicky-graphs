@@ -5,35 +5,35 @@
 6
 
 Basic chick
-200
+150
 400
 80
 80
 0
 
 Basic chick
-400
+350
 100
 80
 80
 0
 
 Basic chick
-750
+700
 350
 80
 80
 0
 
 Basic chick
-1000
+950
 150
 80
 80
 0
 
 Basic chick
-1150
+1100
 450
 80
 80
@@ -73,7 +73,7 @@ other
 -Text-
 3
 ***
-Now, you can create our own graph of chicks. You just have to connect chicks to each other. Click on the validation button when you are done.
+Now, you can create your own graph of chicks. You just have to connect chicks to each other. Click on the validation button when you are done.
 ***
 There are two kind of graphs, undirected graphs and directed graphs. Here you just created an undirected graph which can be traversed in multiple ways as the edges do not have a specific direction.
 ***

@@ -94,7 +94,19 @@ int missionSucceeded(Game* game){
         }
         changeTexture(game->graph->array[1]->nodeSDL, game->texTree, "Happy chick");
     }
+    else if(game->missionNumber == Mission5 || game->missionNumber == Mission6){
+        if(!checkMission5_6(game)){
+            return 0;
+        }
+    }
     return 1;
+}
+
+int checkMission5_6(Game* game){
+    return checkEdge(game->graph, 0, 1) && checkEdge(game->graph, 0, 2) && checkEdge(game->graph, 0, 3) &&
+    !checkEdge(game->graph, 0, 4) && !checkEdge(game->graph, 1, 2) && checkEdge(game->graph, 1, 3) &&
+    !checkEdge(game->graph, 1, 4) && !checkEdge(game->graph, 2, 3) && checkEdge(game->graph, 2, 4) &&
+    checkEdge(game->graph, 3, 4) && !game->graph->array[5]->node->list;
 }
 
 void loadMission(Game *game){

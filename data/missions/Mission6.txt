@@ -19,21 +19,21 @@ Basic chick
 0
  
 Basic chick
-450
+400
 350
 80
 80
 0
 
 Basic chick
-600
+550
 150
 80
 80
 0
 
 Basic chick
-650
+600
 450
 80
 80
@@ -71,10 +71,10 @@ Teacher bubble
 other
 
 List
-1
-2
-3
-4
+700
+150
+549
+350
 other
 
 -Text-

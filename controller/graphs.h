@@ -35,6 +35,7 @@ void deleteEdge(Graph* graph, int src, int dest, EdgeSDL** edges);
 void deleteNode(Graph* graph, int id, NodeSDL** nodes, EdgeSDL** edges);
 void deleteGraph(Graph** graph, NodeSDL** nodes, EdgeSDL** edges);
 
+int checkEdge(Graph* graph, int src, int dest);
 int searchNode(Graph* graph, SDL_Rect* Rect);
 
 void printID(Game* game);
