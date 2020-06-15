@@ -50,7 +50,7 @@ Teacher bubble
 other
 
 -Text-
-7
+8
 ***
 Welcome to Chicky Graphs. Here at Tardigradus Farm, many eggs have just hatched. Mike the farmer needs some help to watch the newborn chicks. Let's discover the farm’s life, and watch the chicks grow together.
 ***
@@ -63,5 +63,7 @@ To delete a chick, just do a right click.
 If you keep the right click between two chicks, it will create a link between them.
 ***
 You can delete a link by keeping the left click and passing throught it.
+***
+Other commands on a chick: i (infect), c (contamination), n (change style)
 ***
 Perfect! You are ready!
