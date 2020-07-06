@@ -64,6 +64,6 @@ If you keep the right click between two chicks, it will create a link between th
 ***
 You can delete a link by keeping the left click and passing throught it.
 ***
-Other commands on a chick: i (infect), c (contamination), n (change style)
+Other commands on a chick: I (infect), C (contamination), N (change style)
 ***
 Perfect! You are ready!
